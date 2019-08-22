@@ -1,7 +1,7 @@
 {
-  "name": "stigma",
+  "name": "dmplayertracker",
   "version": "1.0.0",
-  "description": "A boilerplate project for anyone interested in making a project that uses React and Rails.",
+  "description": "A player tracker for Dungeon Masters to keep track of their players in Dungeons and Dragons games",
   "main": "index.js",
   "directories": {
     "lib": "lib",
@@ -22,8 +22,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NimaBoscarino/stigma/issues"
-  },
-  "homepage": "https://github.com/NimaBoscarino/stigma#readme"
+  "homepage": "https://github.com/DraconianLore/dmPlayerTracker"
 }
