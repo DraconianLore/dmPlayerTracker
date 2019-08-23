@@ -1,18 +1,67 @@
 @import "css/hexgrid.css";
-
 body {
   margin: 0;
   padding: 0;
   padding-top: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(38, 58, 4);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.infoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.infoModal-main {
+  position: fixed;
+  background: white;
+  width: 80%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.playerInfo {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  right: 10%;
+  width: 80%;
+  height: 80%;
+  background-color: rgb(90, 2, 2);
+  color: antiquewhite;
+  padding: 10px;
+  border-radius: 5px;
+
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+.closePlayerInfo {
+  position: absolute;
+  bottom: 1%;
+  left: 45%;
+  width: 10%;
+  border-radius: 10px;
+  border-style: outset;
+  border-color: rgb(85, 1, 1);
+  background-color: rgb(150, 7, 7);
+  color: antiquewhite;
 }

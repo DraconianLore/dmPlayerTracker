@@ -3,34 +3,35 @@ import React, { Component } from 'react';
 
 
 class Player extends Component {
+  
 
-    constructor(props) {
-        super(props)
-        this.state = {}
-    }
-    randomImage = () => {
-        return `/images/original_(${Math.floor((Math.random() * 100) + 1)}).png`
+  getImage = () => {
+    return `/images/original_(${this.props.info.id}).png`
 
-    }
-    render() {
+  }
+  playerClick = (e) => {
+    this.props.showPlayer(this.props.info)
+  }
+  render() {
 
-        return (
-            <li class="hex">
-                <div class="hexIn">
-                    <a class="hexLink" href="#">
-                        <img src={this.randomImage()} alt="" />
-                        <h1>Player NAME<br/>Char NAME</h1>
-                        <p>
-                            Class<br/>
-                            Race<br/>
-                            AC: 00<br/>
-                            HP 00/MAX<br/>
-
-                        </p>
-                    </a>
-                </div>
-            </li>
-        )
-    }
+    return (
+      <li className="hex" onClick={this.playerClick}>
+        <div className="hexIn">
+          <a className="hexLink" href="#">
+            <img src={this.getImage()} alt="" />
+            <h1>{this.props.info.charName}<br />({this.props.info.playerName})</h1>
+            <p>
+              {this.props.info.class} (subclass)<br />
+              {this.props.info.race}<br />
+              HP : {this.props.info.hp}/{this.props.info.maxHp}<br />
+              Save DC : {this.props.info.saveDc}<br />
+              Perception : {this.props.info.pPerception}<br />
+              AC : {this.props.info.ac}
+            </p>
+          </a>
+        </div>
+      </li>
+    )
+  }
 }
 export default Player;
