@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 
 class Player extends Component {
-  
+
 
   getImage = () => {
     return `/images/original_(${this.props.info.id}).png`
@@ -17,6 +17,7 @@ class Player extends Component {
     return (
       <li className="hex" onClick={this.playerClick}>
         <div className="hexIn">
+          {/* eslint-disable-next-line */}
           <a className="hexLink" href="#">
             <img src={this.getImage()} alt="" />
             <h1>{this.props.info.charName}<br />({this.props.info.playerName})</h1>

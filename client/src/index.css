@@ -115,3 +115,21 @@ code {
   border-width: 0px;
   border-top-width: 1px;
 }
+.savePrompt {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+.promptBox {
+  margin-top: 20%;
+  border-radius: 10px;
+  border-style: inset;
+  border-color: darkred;
+  background-color: chocolate;
+  padding: 2vh;
+  width: 30vw;
+  height: 10vh;
+  z-index: 3;
+}
