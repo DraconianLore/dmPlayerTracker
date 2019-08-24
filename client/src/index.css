@@ -54,14 +54,64 @@ code {
 .display-none {
   display: none;
 }
-.closePlayerInfo {
+
+
+
+.closeModal {
+  opacity: 0;
+}
+.cm-top {
   position: absolute;
-  bottom: 1%;
-  left: 45%;
+  top: 0;
+  left: 0;
+  height: 10%;
+  width: 100%;
+}
+.cm-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
   width: 10%;
-  border-radius: 10px;
-  border-style: outset;
-  border-color: rgb(85, 1, 1);
-  background-color: rgb(150, 7, 7);
-  color: antiquewhite;
+}
+.cm-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 10%;
+  width: 100%;
+}
+.cm-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 10%;
+}
+
+.playerDetails {
+  display: flex;
+
+}
+.pdColumn {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.proficiencies {
+  font-size: 80%;
+  font-weight: 300;
+  text-align: left;
+}
+.playerStat {
+  border: 2px solid darkred;
+  padding: 2px;
+  border-radius: 5px;
+  margin: 1px;
+}
+.statHr {
+  border-color: lightcoral;
+  border-style: solid;
+  border-width: 0px;
+  border-top-width: 1px;
 }
