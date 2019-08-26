@@ -97,6 +97,7 @@ code {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  width: 20%;
 }
 .proficiencies {
   font-size: 80%;
@@ -132,4 +133,11 @@ code {
   width: 30vw;
   height: 10vh;
   z-index: 3;
+}
+.pdSectionBreak {
+  margin: 10px 0 10px 0;
+}
+
+.lineBreaks {
+  white-space: pre-line;
 }

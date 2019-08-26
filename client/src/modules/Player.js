@@ -20,13 +20,13 @@ class Player extends Component {
           {/* eslint-disable-next-line */}
           <a className="hexLink" href="#">
             <img src={this.getImage()} alt="" />
-            <h1>{this.props.info.charName}<br />({this.props.info.playerName})</h1>
-            <p>
-              {this.props.info.class} (subclass)<br />
-              {this.props.info.race}<br />
-              HP : {this.props.info.hp}/{this.props.info.maxHp}<br />
-              Save DC : {this.props.info.saveDc}<br />
-              Perception : {this.props.info.pPerception}<br />
+            <h1 className="lineBreaks">{this.props.info.charName} {'\n'} ({this.props.info.playerName})</h1>
+            <p className="lineBreaks">
+              {this.props.info.class} (subclass) {'\n'}
+              {this.props.info.race} {'\n'}
+              HP : {this.props.info.hp}/{this.props.info.maxHp} {'\n'}
+              Save DC : {this.props.info.saveDc} {'\n'}
+              Perception : {this.props.info.pPerception} {'\n'}
               AC : {this.props.info.ac}
             </p>
           </a>

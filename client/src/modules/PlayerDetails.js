@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import BaseStats from './playerDetails/BaseStats';
+import Abilities from './playerDetails/Abilities';
+
 class PlayerDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       player: props.playerInfo,
-      somethingChanged: false,
+      somethingChanged: false, // if changed made prompt to save
       savePrompt: false
     }
   }
@@ -31,62 +34,50 @@ class PlayerDetails extends Component {
       player: newProps.playerInfo
     })
   }
+
+  // catch when user presses 'ESC'
+  escPressed = (event) => {
+    if(event.keyCode === 27) {
+      this.exiting();
+    }
+  }
+  componentDidMount(){
+    document.addEventListener("keydown", this.escPressed, false);
+  }
+  componentWillUnmount(){
+    document.removeEventListener("keydown", this.escPressed, false);
+  }
+
   render() {
     let showHideClassName = this.props.show ? 'infoModal display-block' : 'infoModal display-none';
     return (
       <div className={showHideClassName}>
-        <div className='savePrompt'>
+        {this.state.savePrompt && <div className='savePrompt'>
           <div className='promptBox'>
             <h1>Save your changes?</h1>
             <br />
             <button onClick={this.closeWwithoutSaving}>Discard</button> <button onClick={this.saveAndClose}>Save changes</button>
           </div>
-        </div>
+        </div>}
         <section className='modal-main'>
           <div className='playerInfo'>
             <h1>{this.state.player.charName}</h1>
             <h3><em>{this.state.player.playerName}</em></h3>
             <div className='playerDetails'>
+              <BaseStats playerInfo={this.state.player}/>
+              <Abilities playerInfo={this.state.player} />
               <div className='pdColumn'>
-                <div className='playerStat'>
-                  <h1>STR</h1>
-                  <strong>12</strong> (+1)
-                    <hr className='statHr' />
-                  <p className='proficiencies'>
-                    Saving Throws
-                    <br />
-                    Athletics
-                    </p>
-                </div>
-                <div className='playerStat'>
-                  <h1>DEX</h1>
-                  <strong>17</strong>
-                  <h3>(+3)</h3>
-                </div>
-                <div className='playerStat'>
-                  <h1>CON</h1>
-                  <strong>10</strong> (+0)
-                </div>
-                <div className='playerStat'>
-                  <h1>INT</h1>
-                  <strong>7</strong> (-2)
-                </div>
-                <div className='playerStat'>
-                  <h1>WIS</h1>
-                  <strong>13</strong> (+1)
-                </div>
-                <div className='playerStat'>
-                  <h1>CHA</h1>
-                  <strong>12</strong> (+1)
-                </div>
+                <h1>Player Info</h1>
               </div>
               <div className='pdColumn'>
-                <h3>abilities</h3>
-                <h3>abilities</h3>
-                <h3>abilities</h3>
-                <h3>abilities</h3>
-
+                <h1>Spells and Cantrips</h1>
               </div>
+              <div className='pdColumn'>
+                <h1>Important Items</h1>
+                <hr className='pdSectionBreak' />
+                <h1>Other Important Notes</h1>
+              </div>
+              
             </div>
           </div>
           <div className='closeModal cm-top' onClick={this.exiting} />
