@@ -15,6 +15,7 @@ Once complete you will be able to
   * See players cantrips and spells
   * See players abilities and feats
   * See players alignment and add/remove points towards changing alignment
+  * Update players stats as they level
 
 
 ## Current status of project

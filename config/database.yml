@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: rails_project_development
+  database: dmplayertracker_development
   pool: 5
   username:
   password:
@@ -47,7 +47,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: rails_project_test
+  database: dmplayertracker_test
   pool: 5
   username:
   password:
