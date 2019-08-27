@@ -1,8 +1,9 @@
 class Api::PlayersController < ApplicationController
   
   def index
+    # check user details
     render :json => {
-      message: "hello!"
+      message: "player info here"
     }
   end
 end

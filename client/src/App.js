@@ -1,35 +1,24 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+
 import './App.css';
-import PlayerList from "./modules/PlayerList"
+import PlayerList from './modules/PlayerList';
+import LoginRegister from './modules/LoginRegister';
 
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      signedIn: false
+    }
   }
 
-  // fetchData = () => {
-  //   axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
-  //   .then((response) => {
-  //     // handle success
-  //     console.log(response.data) // The entire response from the Rails API
-
-  //     console.log(response.data.message) // Just the message
-  //     this.setState({
-  //       message: response.data.message
-  //     });
-  //   }) 
-  // }
+ 
 
   render() {
     return (
       <div className="App">
-        {/* <h1>{ this.state.message }</h1>
-        <button onClick={this.fetchData} >
-          Fetch Data
-        </button>         */}
-        <PlayerList />
+        {this.state.signedIn || <LoginRegister />}
+        {this.state.signedIn && <PlayerList />}
       </div>
     );
   }
