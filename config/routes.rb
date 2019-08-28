@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   namespace :api do # /api/data
     resources :players
   end
-  get '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#logout'
-  post '/signup', to: 'registrations#create'
+  
+  post '/register', to: 'api/users#register'
+  post '/login', to: 'api/users#login'
+  get 'test', to: 'api/users#test'
 
 end

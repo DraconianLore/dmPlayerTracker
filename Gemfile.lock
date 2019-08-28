@@ -64,6 +64,7 @@ GEM
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     jsonapi-renderer (0.2.2)
+    jwt (2.2.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -119,6 +120,7 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     ruby_dep (1.5.0)
+    simple_command (0.0.9)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -146,11 +148,13 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
+  jwt
   listen (>= 3.0.5, < 3.2)
   pg
   puma (~> 3.11)
   rack-cors
   rails (~> 5.2.2, >= 5.2.2.1)
+  simple_command
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
