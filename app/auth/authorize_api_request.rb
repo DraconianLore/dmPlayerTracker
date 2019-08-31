@@ -23,8 +23,8 @@ class AuthorizeApiRequest
 
   def decoded_auth_token
     @decoded_auth_token ||= JsonWebToken.decode(http_auth_header)
-  rescue ExceptionHandler::DecodeError => e
-    raise e
+  rescue ExceptionHandler::DecodeError => error
+    raise error
   end
   
   def http_auth_header
