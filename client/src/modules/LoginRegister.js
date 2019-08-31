@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 export default class LoginRegister extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state={
+    this.state = {
       auth: ''
     }
   }
@@ -38,7 +38,7 @@ export default class LoginRegister extends Component {
       }
     })
       .then((response) => {
-        this.setState({auth: response.data.access_token})
+        this.setState({ auth: response.data.access_token })
         console.log(response.data)
 
         // this.setState({
@@ -54,12 +54,12 @@ export default class LoginRegister extends Component {
         Authorization: this.state.auth
       }
     })
-    .then((response) => {
-      console.log(response.data)
-    })
-    .catch(function (e){
-      console.log(e.response.data)
-    })
+      .then((response) => {
+        console.log(response.data)
+      })
+      .catch(function (e) {
+        console.log(e.response.data)
+      })
   }
 
   render() {
@@ -70,7 +70,20 @@ export default class LoginRegister extends Component {
         <button onClick={this.signup}>Register</button>
         <button onClick={this.login}>Log in</button>
         <button onClick={this.test}>Test</button>
-
+        <div>
+          <h1>Welcome Back</h1>
+          <div className="login-row">
+            <div className="form-p">
+              <form action="#" method="post">
+                <label className="form-label">Username</label>
+                <input className="login-text" type="text" placeholder="Username" name="Username" required />
+                <label className="form-label">Password</label>
+                <input className="login-text" type="password" placeholder="Password" name="Password" required />
+                <input className="login-submit" type="submit" value="Submit" />
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
