@@ -1,12 +1,20 @@
 .login-row {
   background-color: #440a06;
   width: 420px;
-  height: 280px;
-  padding: 10px;
+  height: 310px;
+  padding: 20px 10px 20px 10px;
   margin: auto;
-  border-top: 7px solid brown;
-  border-bottom: 7px solid brown;
-
+  border-top: 7px solid darkred;
+  border-bottom: 7px solid darkred;
+}
+.register-row {
+  background-color: #440a06;
+  width: 420px;
+  height: 400px;
+  padding: 20px 10px 20px 10px;
+  margin: auto;
+  border-top: 7px solid darkred;
+  border-bottom: 7px solid darkred;
 }
 .form-p {
   padding: 5px;
@@ -18,19 +26,25 @@
   border-bottom: solid 1px #fff;
   padding: 1em;
   font-size: 1em;
-  color: #fff;
+  color: gold;
   margin: 35px 0 12px;
   margin-left: 8px;
   outline: none;
   -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   background-color: transparent;
-  
+  box-shadow: 0 0 0 30px #440a06 inset;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #440a06 inset !important;
+    -webkit-text-fill-color: gold !important;
 }
 
 ::-webkit-input-placeholder {
-  color: #fff;
-  font-family: 'Dosis', sans-serif;
+  color: darkgoldenrod;
 }
 
 .login-submit {
@@ -51,10 +65,6 @@
 
 .login-submit:hover {
   background-color: darkred;
-  -webkit-tranform: translateY(9px);
-  -ms-tranform: translateY(9px);
-  -o-tranform: translateY(9px);
-  transform: translateY(9px);
 }
 
 .form-p {
@@ -65,17 +75,57 @@
   text-align: center;
 }
 
-.form-p a {
-  color: #fff;
-  text-decoration: none;
-  -webkit-transition: .5s all;
-  -ms-transition: .5s all;
-  transition: .5s all;
-}
 
-.form-p a:hover {
-  color: #1abc9c;
-}
 .form-label {
   float: left;
+}
+.login-signup {
+  height: 50px;
+  width: 100%;
+  display: flex;
+}
+.selected-section {
+  font-size: 1em;
+  color: darkgoldenrod;
+  outline: none;
+  border: none;
+  text-align: center;
+  align-self: center;
+  letter-spacing: 1px;
+  font-weight: 700;
+  
+}
+.unselected-section {
+  font-size: 1em;
+  color: #fff;
+  outline: none;
+  border: none;
+  letter-spacing: 1px;
+}
+.login-signup-unselected-btn:hover {
+  background-color: darkred;
+}
+.login-signup-selected-btn {
+  background-color: darkred;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-signup-unselected-btn {
+  background-color: brown;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  transition: 0.5s all;
+  text-align: center;
+}
+.login-signup-title {
+  color: goldenrod;
+  font-size: 4em;
 }
