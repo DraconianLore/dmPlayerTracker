@@ -3,6 +3,8 @@ import axios from 'axios';
 import Player from "./Player";
 import PlayerDetails from "./PlayerDetails";
 import AddPlayer from "./AddPlayer";
+import TopBar from "./TopBar";
+import Footer from "./Footer";
 
 // test data
 const players = [
@@ -23,19 +25,27 @@ class PlayerList extends Component {
     this.state = {
       players: {},
       showPlayer: false,
-      playerDetails: {}
+      playerDetails: {},
+      currentGame: 0
     }
     this.closePlayerInfo = this.closePlayerInfo.bind(this);
     this.showPlayerInfo = this.showPlayerInfo.bind(this);
   }
 
   loadPlayers = () => {
-    axios.get(`http://localhost:3001/api/players`).then(response => {
-      this.setState({
-        players: response.data.players
+      axios({
+        method: 'get',
+        url: 'http://localhost:3001/api/players',
+        headers: {
+          Authorization: this.props.JWT
+        }
       })
-      console.log (response.data)
-    })
+        .then((response) => {
+          console.log(response.data)
+        })
+        .catch(function (e) {
+          console.log(e.response.data)
+        })
   }
 
   showPlayerInfo(player) {
@@ -64,6 +74,14 @@ class PlayerList extends Component {
     // send to backend for processing
   }
 
+  changeGame = (gameID) => {
+    this.setState({currentGame: gameID})
+  }
+
+  componentDidMount() {
+    
+  }
+
   render() {
     const playerList = players.map((player) => {
       return (
@@ -73,11 +91,13 @@ class PlayerList extends Component {
 
     return (
       <div>
+        <TopBar user={this.props.user} logout={this.props.logout}/>
         <ul id="hexGrid">
           {playerList}
           <AddPlayer newPlayer={this.newPlayer} />
         </ul>
         <PlayerDetails show={this.state.showPlayer} playerInfo={this.state.playerDetails} closeInfo={this.closePlayerInfo} savePlayer={this.updatePlayer} />
+        <Footer user={this.props.user} changeGame={this.changeGame} />
       </div>
 
     )

@@ -1,0 +1,41 @@
+.topbar {
+  width: 100%;
+  height: 50px;
+  background-color: darkred;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.topbar-section {
+  padding: 0 20px 0 20px;
+}
+.logout-btn {
+  border-color: brown;
+  border-style: groove;
+  border-radius: 5px;
+  height: 40px;
+  background-color: chocolate;
+  padding: 5px 10px 5px 10px;
+  font-weight: 700;
+  color: black;
+  border-bottom-right-radius: 20px;
+}
+.settings-btn {
+  border-color: brown;
+  border-style: groove;
+  border-radius: 5px;
+  height: 40px;
+  background-color: chocolate;
+  padding: 5px 10px 5px 10px;
+  font-weight: 700;
+  color: black;
+  border-bottom-left-radius: 20px;
+}
+.topbar-username {
+  font-size: 40px;
+  color: #330000;
+}

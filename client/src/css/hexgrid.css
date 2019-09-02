@@ -6,7 +6,8 @@
   display: flex;
   flex-wrap: wrap;
   width: 90%;
-  margin: 0 auto;
+  margin: auto;
+  margin-top: 50px;
   overflow: hidden;
   font-size: 15px;
   list-style-type: none;

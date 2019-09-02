@@ -1,5 +1,8 @@
 @import "css/hexgrid.css";
 @import "css/login-register.css";
+@import "css/topbar.css";
+@import "css/bottombar.css";
+
 body {
   margin: 0;
   padding: 0;

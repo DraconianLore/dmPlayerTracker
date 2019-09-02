@@ -1,0 +1,56 @@
+.bottombar {
+  width: 100%;
+  height: 50px;
+  background-color: darkred;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.bottombar-main {
+  padding: 0 20px 0 20px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+
+}
+.bottombar-right {
+  padding: 0 20px 0 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.newGame-btn {
+  border-color: brown;
+  border-style: groove;
+  border-radius: 5px;
+  height: 40px;
+  background-color: chocolate;
+  padding: 5px 10px 5px 10px;
+  font-weight: 700;
+  color: black;
+  border-top-right-radius: 20px;
+}
+.current-game {
+  background-color: goldenrod;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: darkgoldenrod;
+  color: darkgreen;
+  font-weight: 700;
+  margin-left: 10px;
+}
+.other-game {
+  background-color: darkgoldenrod;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: goldenrod;
+  color: darkred;
+  font-weight: 700;
+  margin-left: 10px;
+
+}

@@ -5,7 +5,7 @@ export default class LoginRegister extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      auth: ''
+      new_user: false
     }
   }
   signup = (event) => {
@@ -20,11 +20,8 @@ export default class LoginRegister extends Component {
       }
     })
       .then((response) => {
-        console.log(response.data)
 
-        // this.setState({
-        //   message: response.data.message
-        // });
+        this.props.login(response.data.access_token, response.data.username)
       })
   }
   login = (event) => {
@@ -39,33 +36,13 @@ export default class LoginRegister extends Component {
       }
     })
       .then((response) => {
-        this.setState({ auth: response.data.access_token })
         console.log(response.data)
-
-        // this.setState({
-        //   message: response.data.message
-        // });
+        this.props.login(response.data.access_token, response.data.username)
       })
   }
   loginSignup = () => {
     this.setState({ new_user: !this.state.new_user })
   }
-  test = () => {
-    axios({
-      method: 'get',
-      url: 'http://localhost:3001/test',
-      headers: {
-        Authorization: this.state.auth
-      }
-    })
-      .then((response) => {
-        console.log(response.data)
-      })
-      .catch(function (e) {
-        console.log(e.response.data)
-      })
-  }
-
   render() {
 
     return (
@@ -97,8 +74,7 @@ export default class LoginRegister extends Component {
           </div>
         </div>}
         {this.state.new_user && <div>
-        <h1 className="login-signup-title">Welcome to</h1>
-        <h1 className="login-signup-title">dmPlayerTracker</h1>
+        <h1 className="login-signup-title">Welcome!</h1>
           <div className="register-row">
             <div className="login-signup">
               <div className="login-signup-unselected-btn" onClick={this.loginSignup}>
@@ -126,12 +102,6 @@ export default class LoginRegister extends Component {
             </div>
           </div>
         </div>}
-
-        {/* TESTION SECTION */}
-<h1>login/register test buttons</h1>
-<button onClick={this.signup}>Register</button>
-<button onClick={this.login}>Log in</button>
-<button onClick={this.test}>Test</button>
       </div>
     )
   }
