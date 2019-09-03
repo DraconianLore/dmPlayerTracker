@@ -26,7 +26,8 @@ class PlayerList extends Component {
       players: {},
       showPlayer: false,
       playerDetails: {},
-      currentGame: 0
+      currentGame: 1,
+      games: []
     }
     this.closePlayerInfo = this.closePlayerInfo.bind(this);
     this.showPlayerInfo = this.showPlayerInfo.bind(this);
@@ -35,13 +36,18 @@ class PlayerList extends Component {
   loadPlayers = () => {
       axios({
         method: 'get',
-        url: 'http://localhost:3001/api/players',
+        url: 'http://localhost:3001/api/games',
         headers: {
-          Authorization: this.props.JWT
+          Authorization: this.props.JWT,
+          user: this.props.user
         }
       })
         .then((response) => {
-          console.log(response.data)
+          console.log(response.data.games[0])
+          this.setState({
+            games: response.data.games,
+            currentGame: response.data.games[0]
+          })
         })
         .catch(function (e) {
           console.log(e.response.data)
@@ -79,7 +85,7 @@ class PlayerList extends Component {
   }
 
   componentDidMount() {
-    
+    this.loadPlayers()
   }
 
   render() {
@@ -97,7 +103,7 @@ class PlayerList extends Component {
           <AddPlayer newPlayer={this.newPlayer} />
         </ul>
         <PlayerDetails show={this.state.showPlayer} playerInfo={this.state.playerDetails} closeInfo={this.closePlayerInfo} savePlayer={this.updatePlayer} />
-        <Footer user={this.props.user} changeGame={this.changeGame} />
+        <Footer games={this.state.games} user={this.props.user} currentGame={this.state.currentGame} changeGame={this.changeGame} />
       </div>
 
     )

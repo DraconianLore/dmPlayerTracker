@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      signedIn: true,
+      signedIn: false,
       JWT: null,
       username: 'not logged in'
     }

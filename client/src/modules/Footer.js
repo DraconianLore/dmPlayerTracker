@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
 
-const games = [
-  {id: 1, name: "Mythos"},
-  {id: 2, name: "Some other game"},
-  {id: 3, name: "Some other game"},
-  {id: 4, name: "Some other game"},
-  // {id: 5, name: "Some other game"}
-  
-]
-
 
 export default class Footer extends Component {
   constructor(props) {
@@ -18,8 +9,9 @@ export default class Footer extends Component {
     }
   }
   changeGame = (event) => {
-    console.log(event.target.id)
-    // this.props.changeGame(event.target.id)
+    this.props.changeGame(event.target.id)
+    
+
   }
   newGame = () => {
     console.log('new game clicked')
@@ -27,21 +19,20 @@ export default class Footer extends Component {
   deleteGame = () => {
 
   }
-  componentDidMount() {
-    this.setState({numberOfGames: games.length})
+  componentWillReceiveProps(newProps) {
+    this.setState({numberOfGames: newProps.games.length})
   }
-  render() {
   
-    const gameList = games.map((game) => {
+  render() {
+    let gameList = this.props.games.map((game) => {
       let gameClass = "other-game"
       if (game.id === this.props.currentGame) {
         gameClass = "current-game"
       }
       return (
-        <button className={gameClass} onClick={this.changeGame} key={game.id}>
+        <button id={game.id} className={gameClass} onClick={this.changeGame} key={game.id}>
         {game.name}
       </button>
-      
       )
     })
     return (

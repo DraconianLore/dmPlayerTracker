@@ -36,7 +36,6 @@ export default class LoginRegister extends Component {
       }
     })
       .then((response) => {
-        console.log(response.data)
         this.props.login(response.data.access_token, response.data.username)
       })
   }

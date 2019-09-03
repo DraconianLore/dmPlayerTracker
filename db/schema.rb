@@ -10,25 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_013351) do
+ActiveRecord::Schema.define(version: 2019_09_03_181029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "games", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+  end
+
   create_table "players", force: :cascade do |t|
     t.string "playerName"
     t.string "charName"
-    t.integer "user_id"
-    t.string "class"
+    t.integer "game_id"
+    t.string "classname"
     t.string "race"
-    t.integer "maxHP"
-    t.integer "ac"
-    t.integer "baseSTR"
-    t.integer "baseDEX"
-    t.integer "baseCON"
-    t.integer "baseINT"
-    t.integer "baseWIS"
-    t.integer "baseCHA"
+    t.string "hitDie"
+    t.text "proficiencies", default: [], array: true
+    t.text "spells", default: [], array: true
+    t.text "abilities", default: [], array: true
+    t.string "background"
+    t.text "personalityTraits"
+    t.text "ideals"
+    t.text "bonds"
+    t.text "flaws"
+    t.text "notes"
+    t.integer "baseSTR", default: 0
+    t.integer "baseDEX", default: 0
+    t.integer "baseCON", default: 0
+    t.integer "baseINT", default: 0
+    t.integer "baseWIS", default: 0
+    t.integer "baseCHA", default: 0
+    t.integer "AC", default: 10
+    t.integer "saveDC", default: 0
+    t.integer "maxHP", default: 0
+    t.integer "speed", default: 25
+    t.integer "level", default: 1
   end
 
   create_table "users", force: :cascade do |t|

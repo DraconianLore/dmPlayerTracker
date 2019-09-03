@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do 
     resources :players
+    resources :games
   end
   
   post '/register', to: 'api/users#register'
