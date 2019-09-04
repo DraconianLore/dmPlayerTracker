@@ -12,8 +12,9 @@ export default class Footer extends Component {
     this.props.changeGame(parseInt(event.target.id))
   }
   newGame = () => {
-    console.log('new game clicked')
+    this.props.newGame()
   }
+  
   deleteGame = () => {
 
   }
@@ -42,6 +43,9 @@ export default class Footer extends Component {
           {gameList}
         </div>
         <div className="bottombar-right">
+          <button id='999' className='settings-btn' onClick={this.changeGame}>
+            testing game
+          </button>
           {this.state.numberOfGames < 5 && <button className="newGame-btn" onClick={this.newGame}>
             New Game
         </button>}

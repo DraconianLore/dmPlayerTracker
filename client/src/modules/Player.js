@@ -5,10 +5,7 @@ import React, { Component } from 'react';
 class Player extends Component {
 
 
-  getImage = () => {
-    return `/images/original_(${this.props.info.id}).png`
 
-  }
   playerClick = (e) => {
     this.props.showPlayer(this.props.info)
   }
@@ -19,7 +16,7 @@ class Player extends Component {
         <div className="hexIn">
           {/* eslint-disable-next-line */}
           <a className="hexLink" href="#">
-            <img src={this.getImage()} alt="" />
+            <img src={this.props.info.portrait} alt="" />
             <h1 className="lineBreaks">{this.props.info.charName} {'\n'} ({this.props.info.playerName})</h1>
             <p className="lineBreaks">
               {this.props.info.class || "NO CLASS"} {'\n'}

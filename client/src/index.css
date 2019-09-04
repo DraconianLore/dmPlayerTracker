@@ -28,12 +28,16 @@ code {
 
 .infoModal-main {
   position: fixed;
-  background: white;
-  width: 80%;
+  background: darkgreen;
+  width: 400px;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .playerInfo {
@@ -143,4 +147,35 @@ code {
 
 .lineBreaks {
   white-space: pre-line;
+}
+.info-text {
+  width: 150px;
+  border: none;
+  padding: 1em;
+  font-size: 1em;
+  color: gold;
+  margin: 12px;
+  outline: none;
+  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background-color: transparent;
+  box-shadow: 0 0 0 30px #440a06 inset;
+}
+.info-submit {
+  font-size: 1em;
+  background-color: brown;
+  color: #fff;
+  width: 150px;
+  height: 50px;
+  outline: none;
+  border: none;
+  margin: 1em 0;
+  -webkit-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  transition: 0.5s all;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.info-submit:hover {
+  background-color: darkred;
 }
