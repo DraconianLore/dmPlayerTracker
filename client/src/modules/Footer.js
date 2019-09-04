@@ -9,9 +9,7 @@ export default class Footer extends Component {
     }
   }
   changeGame = (event) => {
-    this.props.changeGame(event.target.id)
-    
-
+    this.props.changeGame(parseInt(event.target.id))
   }
   newGame = () => {
     console.log('new game clicked')
@@ -20,7 +18,9 @@ export default class Footer extends Component {
 
   }
   componentWillReceiveProps(newProps) {
-    this.setState({numberOfGames: newProps.games.length})
+    if (this.state.numberOfGames !== newProps.numberOfGames) {
+      this.setState({numberOfGames: newProps.games.length})
+    }
   }
   
   render() {

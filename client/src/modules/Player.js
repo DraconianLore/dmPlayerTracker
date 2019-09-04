@@ -22,12 +22,12 @@ class Player extends Component {
             <img src={this.getImage()} alt="" />
             <h1 className="lineBreaks">{this.props.info.charName} {'\n'} ({this.props.info.playerName})</h1>
             <p className="lineBreaks">
-              {this.props.info.class} (subclass) {'\n'}
-              {this.props.info.race} {'\n'}
-              HP : {this.props.info.hp}/{this.props.info.maxHp} {'\n'}
-              Save DC : {this.props.info.saveDc} {'\n'}
-              Perception : {this.props.info.pPerception} {'\n'}
-              AC : {this.props.info.ac}
+              {this.props.info.class || "NO CLASS"} {'\n'}
+              {this.props.info.race || "NO RACE"} {'\n'}
+              Max HP : {this.props.info.maxHp || "0"} {'\n'}
+              {this.props.info.saveDc && `Save DC : ${this.props.info.saveDc} ${'\n'}`}
+              Perception : {this.props.info.pPerception || "10"} {'\n'}
+              AC : {this.props.info.ac || "10"}
             </p>
           </a>
         </div>

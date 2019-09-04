@@ -38,4 +38,9 @@
 .topbar-username {
   font-size: 40px;
   color: #330000;
+  padding-right: 10px;
+}
+.topbar-gamename {
+  font-size: 34px;
+  color: #330000;
 }
