@@ -16,7 +16,8 @@ const testdata = [
   { id: 6, playerName: 'Player6', charName: 'Character Name 6', class: 'Warlock', race: 'Half-elf', hp: 22, maxHp: 22, ac: 12, saveDc: 10, pPerception: 11, portrait: "/images/original_(31).png" },
   { id: 7, playerName: 'Player7', charName: 'Character Name 7', class: 'Ranger', race: 'Elf', hp: 122, maxHp: 140, ac: 12, saveDc: 10, pPerception: 11, portrait: "/images/original_(43).png" },
 ]
-const playerTemplate = { id: 'new', playerName: 'NEW PLAYER', charName: 'NEW CHAR', class: 'CLASS', race: 'RACE', hp: 0, maxHp: 0, ac: 0, saveDc: 0, pPerception: 0 }
+
+// const playerTemplate = { id: 'new', playerName: 'NEW PLAYER', charName: 'NEW CHAR', class: 'CLASS', race: 'RACE', hp: 0, maxHp: 0, ac: 0, saveDc: 0, pPerception: 0 }
 
 class PlayerList extends Component {
 
@@ -29,7 +30,8 @@ class PlayerList extends Component {
       currentGame: 1,
       games: [],
       currentGameName: '',
-      infoModal: false
+      infoModal: false,
+      showMenu: true
     }
     this.closePlayerInfo = this.closePlayerInfo.bind(this);
     this.showPlayerInfo = this.showPlayerInfo.bind(this);
@@ -79,6 +81,7 @@ class PlayerList extends Component {
   showPlayerInfo(player) {
     this.setState({
       showPlayer: true,
+      showMenu: false,
       playerDetails: player
     })
     setTimeout(() => {
@@ -88,6 +91,7 @@ class PlayerList extends Component {
   closePlayerInfo = () => {
     this.setState({
       showPlayer: false,
+      showMenu: true,
       playerDetails: {}
     })
   }
@@ -107,7 +111,7 @@ class PlayerList extends Component {
   }
   newGame = () => {
     let newGameName = (
-      <div className="infoModal">
+      <div className="infoModal display-block">
         <div className="infoModal-main">
           <form onSubmit={this.createGame}>
             <h1>Name your game</h1>
@@ -117,20 +121,37 @@ class PlayerList extends Component {
         </div>
       </div>
     )
-    this.setState({infoModal: newGameName})
+    this.setState({ 
+      infoModal: newGameName,
+      showMenu: false
+    })
+    document.addEventListener("keydown", this.escPressed, false);
+
   }
+  // catch when user presses 'ESC'
+  escPressed = (event) => {
+    if (event.keyCode === 27) {
+      this.setState({ 
+        infoModal: false,
+        showMenu: true
+      })
+      document.removeEventListener("keydown", this.escPressed, false);
+    }
+  }
+
   createGame = (evt) => {
     evt.preventDefault()
     const randID = new Date().getTime()
-    const newgame = {name: evt.target.gamename.value, id: randID}
+    const newgame = { name: evt.target.gamename.value, id: randID }
     let gamelist = this.state.games
     gamelist.push(newgame)
     this.setState({
       games: gamelist,
       infoModal: false,
+      showMenu: true,
       currentGame: randID,
       currentGameName: evt.target.gamename.value
-    }) 
+    })
 
   }
   updatePlayer = (newPlayerInfo) => {
@@ -164,13 +185,13 @@ class PlayerList extends Component {
 
     return (
       <div>
-        <TopBar gameName={this.state.currentGameName} user={this.props.user} logout={this.props.logout} />
+        {this.state.showMenu && <TopBar gameName={this.state.currentGameName} user={this.props.user} logout={this.props.logout} />}
         <ul id="hexGrid">
           {playerList}
           <AddPlayer newPlayer={this.newPlayer} />
         </ul>
         <PlayerDetails show={this.state.showPlayer} playerInfo={this.state.playerDetails} closeInfo={this.closePlayerInfo} savePlayer={this.updatePlayer} />
-        <Footer newGame={this.newGame} games={this.state.games} user={this.props.user} currentGame={this.state.currentGame} changeGame={this.changeGame} />
+        {this.state.showMenu && <Footer newGame={this.newGame} games={this.state.games} user={this.props.user} currentGame={this.state.currentGame} changeGame={this.changeGame} />}
         {this.state.infoModal}
       </div>
 

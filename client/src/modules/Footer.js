@@ -37,6 +37,7 @@ export default class Footer extends Component {
       )
     })
     return (
+      
       <div className="bottombar">
         <div className="bottombar-main">
           <h2>Your Games :</h2>

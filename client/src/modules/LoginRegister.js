@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 export default class LoginRegister extends Component {
   constructor(props) {
@@ -20,7 +21,8 @@ export default class LoginRegister extends Component {
       }
     })
       .then((response) => {
-
+        Cookies.set('token  ', response.data.access_token, { expires: 1 });
+        Cookies.set('username', response.data.username, {expires: 1});
         this.props.login(response.data.access_token, response.data.username)
       })
   }
@@ -36,11 +38,18 @@ export default class LoginRegister extends Component {
       }
     })
       .then((response) => {
+        Cookies.set('token', response.data.access_token, { expires: 1 });
+        Cookies.set('username', response.data.username, {expires: 1});
         this.props.login(response.data.access_token, response.data.username)
       })
   }
   loginSignup = () => {
     this.setState({ new_user: !this.state.new_user })
+  }
+  componentWillMount() {
+    if (Cookies.get('token')) {
+      this.props.hasCookie(Cookies.get('token'), Cookies.get('username'))
+    }
   }
   render() {
 
