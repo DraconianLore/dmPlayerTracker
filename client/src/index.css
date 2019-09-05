@@ -2,6 +2,7 @@
 @import "css/login-register.css";
 @import "css/topbar.css";
 @import "css/bottombar.css";
+@import "css/player.css";
 
 body {
   margin: 0;
@@ -11,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(38, 58, 4);
+  font-size: 16px;
 }
 
 code {

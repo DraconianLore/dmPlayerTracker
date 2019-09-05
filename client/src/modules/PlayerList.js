@@ -8,16 +8,15 @@ import Footer from "./Footer";
 
 // test data
 const testdata = [
-  { id: 1, playerName: 'Player1', charName: 'Character Name 1', class: 'Monk', race: 'Human', hp: 22, maxHp: 22, ac: 12, saveDc: 10, pPerception: 11, portrait: "/images/original_(2).png" },
-  { id: 2, playerName: 'Player2', charName: 'Character Name 2', class: 'Barbarian', race: 'Dwarf', hp: 22, maxHp: 22, ac: 12, saveDc: 10, pPerception: 11, portrait: "/images/original_(6).png" },
-  { id: 3, playerName: 'Player3', charName: 'Character Name 3', class: 'Sorcerer', race: 'Human', hp: 22, maxHp: 22, ac: 12, saveDc: 10, pPerception: 11, portrait: "/images/original_(81).png" },
-  { id: 4, playerName: 'Player4', charName: 'Character Name 4', class: 'Fighter', race: 'Dragonborn', hp: 22, maxHp: 22, ac: 12, saveDc: 10, pPerception: 11, portrait: "/images/original_(8).png" },
-  { id: 5, playerName: 'Player5', charName: 'Character Name 5', class: 'Rogue', race: 'Human', hp: 22, maxHp: 22, ac: 12, saveDc: 10, pPerception: 11, portrait: "/images/original_(93).png" },
-  { id: 6, playerName: 'Player6', charName: 'Character Name 6', class: 'Warlock', race: 'Half-elf', hp: 22, maxHp: 22, ac: 12, saveDc: 10, pPerception: 11, portrait: "/images/original_(31).png" },
-  { id: 7, playerName: 'Player7', charName: 'Character Name 7', class: 'Ranger', race: 'Elf', hp: 122, maxHp: 140, ac: 12, saveDc: 10, pPerception: 11, portrait: "/images/original_(43).png" },
+  { id: 1, playerName: 'Player1', charName: 'Character Name 1', class: 'Monk', race: 'Human', hp: 22, maxHp: 22, AC: 12, saveDc: 10, STR: 11, DEX: 13, CON: 10, INT: 11, WIS: 15, CHA: 9, portrait: "/images/original_(2).png" },
+  { id: 2, playerName: 'Player2', charName: 'Character Name 2', class: 'Barbarian', race: 'Dwarf', hp: 22, maxHp: 22, AC: 12, saveDc: 10, STR: 12, DEX: 13, CON: 10, INT: 11, WIS: 15, CHA: 9, portrait: "/images/original_(6).png" },
+  { id: 3, playerName: 'Player3', charName: 'Character Name 3', class: 'Sorcerer', race: 'Human', hp: 22, maxHp: 22, AC: 12, saveDc: 10, STR: 15, DEX: 13, CON: 10, INT: 11, WIS: 15, CHA: 9, portrait: "/images/original_(81).png" },
+  { id: 4, playerName: 'Player4', charName: 'Character Name 4', class: 'Fighter', race: 'Dragonborn', hp: 22, maxHp: 22, AC: 12, saveDc: 10, STR: 16, DEX: 13, CON: 10, INT: 11, WIS: 15, CHA: 9, portrait: "/images/original_(8).png" },
+  { id: 5, playerName: 'Player5', charName: 'Character Name 5', class: 'Rogue', race: 'Human', hp: 22, maxHp: 22, ac: 12, saveDc: 10, STR: 9, DEX: 13, CON: 10, INT: 11, WIS: 15, CHA: 9, portrait: "/images/original_(93).png" },
+  { id: 6, playerName: 'Player6', charName: 'Character Name 6', class: 'Warlock', race: 'Half-elf', hp: 22, maxHp: 22, AC: 12, saveDc: 10, STR: 7, DEX: 13, CON: 10, INT: 11, WIS: 15, CHA: 9, portrait: "/images/original_(31).png" },
+  { id: 7, playerName: 'Player7', charName: 'Character Name 7', class: 'Ranger', race: 'Elf', hp: 122, maxHp: 140, AC: 12, saveDc: 10, STR: 19, DEX: 13, CON: 10, INT: 11, WIS: 15, CHA: 9, portrait: "/images/original_(43).png", proficiencies: [{id: 'chaInt', val: true}, {id: 'dexS', val: true}] },
 ]
 
-// const playerTemplate = { id: 'new', playerName: 'NEW PLAYER', charName: 'NEW CHAR', class: 'CLASS', race: 'RACE', hp: 0, maxHp: 0, ac: 0, saveDc: 0, pPerception: 0 }
 
 class PlayerList extends Component {
 
@@ -84,9 +83,6 @@ class PlayerList extends Component {
       showMenu: false,
       playerDetails: player
     })
-    setTimeout(() => {
-      console.log(this.state)
-    }, 10);
   }
   closePlayerInfo = () => {
     this.setState({
@@ -96,16 +92,12 @@ class PlayerList extends Component {
     })
   }
   newPlayer = () => {
-    // Open template for a blank char(for now just add new empty one)
-    // this.setState({
-    //   showPlayer: true,
-    //   playerDetails: playerTemplate
-    // })
     let randNo = (Math.floor(Math.random() * 100)) + 1
     let randIMG = `/images/original_(${randNo}).png`
     let randID = new Date().getTime()
     let newPlayers = this.state.players
-    let player = { id: randID, playerName: 'unnamed', charName: 'unnamed', portrait: randIMG }
+  // { id: 7, playerName: 'Player7', charName: 'Character Name 7', class: 'Ranger', race: 'Elf', hp: 122, maxHp: 140, AC: 12, saveDc: 10, STR: 19, DEX: 13, CON: 10, INT: 11, WIS: 15, CHA: 9, portrait: "/images/original_(43).png" },    
+    let player = { id: randID, playerName: 'unnamed', charName: 'unnamed',  portrait: randIMG, maxHp: 0, AC: 10, saveDc: 10, STR: 10, DEX: 10, CON: 10, INT: 10, WIS: 10, CHA: 10 }
     newPlayers.push(player)
     this.setState({ players: newPlayers })
   }
