@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import BaseStats from './playerDetails/BaseStats';
 import Abilities from './playerDetails/Abilities';
+import PlayerInfo from './playerDetails/PlayerInfo';
+import Spells from './playerDetails/Spells';
+import Notes from './playerDetails/Notes';
 
 class PlayerDetails extends Component {
   constructor(props) {
@@ -61,22 +64,16 @@ class PlayerDetails extends Component {
         </div>}
         <section className='modal-main'>
           <div className='playerInfo'>
+            <div className='playerHeader'>
             <h1>{this.state.player.charName}</h1>
             <h3><em>{this.state.player.playerName}</em></h3>
+            </div>
             <div className='playerDetails'>
               <BaseStats playerInfo={this.state.player}/>
               <Abilities playerInfo={this.state.player} />
-              <div className='pdColumn'>
-                <h1>Player Info</h1>
-              </div>
-              <div className='pdColumn'>
-                <h1>Spells and Cantrips</h1>
-              </div>
-              <div className='pdColumn'>
-                <h1>Important Items</h1>
-                <hr className='pdSectionBreak' />
-                <h1>Other Important Notes</h1>
-              </div>
+              <PlayerInfo playerInfo={this.state.player} />
+              <Spells playerInfo={this.state.player} />
+              <Notes playerInfo={this.state.player} />
               
             </div>
           </div>

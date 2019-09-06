@@ -1,3 +1,84 @@
 .stat {
   font-size: 2em;
 }
+.playerDetails {
+  display: flex;
+  height: 92%;
+}
+.playerHeader {
+  height: 8%;
+}
+.pdColumn {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 20%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow: scroll;
+}
+.proficiencies {
+  padding: 2px;
+  font-weight: 300;
+  text-align: left;
+  
+}
+.playerStat {
+  border: 2px solid darkred;
+  padding: 2px;
+  border-radius: 5px;
+  margin: 1px;
+}
+.statHr {
+  border-color: darkred;
+  
+}
+.pdSectionBreak {
+  margin: 10px 0 0 0;
+  width: 50%;
+  align-self: center;
+  border-color: darkred;
+}
+.playerInfoContainer {
+  border: 2px solid darkred;
+  background-color: darkred;
+  border-radius: 10px;
+  padding: 2px 0 2px 0;
+  width: 100%;
+  margin-top: 0.5em;
+}
+.playerInfoBox {
+  display: inline-block;
+  border: 2px solid darkred;
+  background-color: rgb(90, 2, 2);
+  padding: 1%;
+  border-radius: 15px;
+  margin: 0.5%;
+  width: 44%;
+}
+
+.playerInfoBoxWide {
+  display: inline-block;
+  border: 2px solid darkred;
+  background-color: rgb(90, 2, 2);
+  padding: 1%;
+  border-radius: 15px;
+  margin: 1px;
+  width: 94%;
+}
+.abilityList {
+  margin-top: 0.5em;
+}
+.pdColumn h3, h1 {
+  color: burlywood;
+}
+.addItem {
+  margin-top: 10px;
+  border-color: darkred;
+  background-color: #830000;
+  color: bisque;
+  width: 60%;
+  align-self: center;
+  padding: 5px;
+  font-weight: 700;
+}
