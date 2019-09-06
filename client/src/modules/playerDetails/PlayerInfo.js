@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class PlayerInfo extends Component {
 
   calculatePerception = () => {
-    let perception = 10 + Math.floor((this.props.playerInfo.WIS - 10) / 2)
+    let perception = 10 + Math.floor((this.props.playerInfo.baseWIS - 10) / 2)
     if (this.props.playerInfo.proficiencies) {
       if (this.props.playerInfo.proficiencies['perception']) {
 
@@ -28,19 +28,19 @@ export default class PlayerInfo extends Component {
           <div className='playerInfoBoxWide'>
             <h3>Race</h3>
             <span className='stat'>
-              <strong>{this.props.playerInfo.race || 'NO RACE'}</strong>
+              <strong className='info-string'>{this.props.playerInfo.race || 'NO RACE'}</strong>
             </span>
           </div>
           <div className='playerInfoBoxWide'>
             <h3>Class</h3>
             <span className='stat'>
-              <strong>{this.props.playerInfo.class || 'NO CLASS'}</strong>
+              <strong className='info-string'>{this.props.playerInfo.classname || 'NO CLASS'}</strong>
             </span>
           </div>
           <div className='playerInfoBoxWide'>
             <h3>Background</h3>
             <span className='stat'>
-              <strong>{this.props.playerInfo.background || 'NONE'}</strong>
+              <strong className='info-string'>{this.props.playerInfo.background || 'NONE'}</strong>
             </span>
           </div>
           <div className='playerInfoBox'>

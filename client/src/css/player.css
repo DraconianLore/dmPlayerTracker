@@ -1,13 +1,16 @@
 .stat {
   font-size: 2em;
 }
+
 .playerDetails {
   display: flex;
-  height: 92%;
+  height: 90%;
 }
+
 .playerHeader {
-  height: 8%;
+  height: 10%;
 }
+
 .pdColumn {
   display: flex;
   flex-direction: column;
@@ -17,28 +20,31 @@
   overflow-x: hidden;
   overflow: scroll;
 }
+
 .proficiencies {
   padding: 2px;
   font-weight: 300;
   text-align: left;
-  
 }
+
 .playerStat {
   border: 2px solid darkred;
   padding: 2px;
   border-radius: 5px;
   margin: 1px;
 }
+
 .statHr {
   border-color: darkred;
-  
 }
+
 .pdSectionBreak {
   margin: 10px 0 0 0;
   width: 50%;
   align-self: center;
   border-color: darkred;
 }
+
 .playerInfoContainer {
   border: 2px solid darkred;
   background-color: darkred;
@@ -47,6 +53,7 @@
   width: 100%;
   margin-top: 0.5em;
 }
+
 .playerInfoBox {
   display: inline-block;
   border: 2px solid darkred;
@@ -66,12 +73,15 @@
   margin: 1px;
   width: 94%;
 }
+
 .abilityList {
   margin-top: 0.5em;
 }
+
 .pdColumn h3, h1 {
   color: burlywood;
 }
+
 .addItem {
   margin-top: 10px;
   border-color: darkred;
@@ -81,4 +91,39 @@
   align-self: center;
   padding: 5px;
   font-weight: 700;
+}
+
+.info-string {
+  font-size: 3vw;
+}
+
+@media screen and (min-width: 1200px) {
+  .info-string {
+    font-size: 1em;
+  }
+}
+.charName {
+  font-size: 4vh;
+}
+.playerName {
+  font-size: 3vh;
+
+}
+.editField {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+.editBox {
+  margin-top: 20%;
+  border-radius: 10px;
+  border-style: inset;
+  border-color: darkred;
+  background-color: chocolate;
+  padding: 2vh;
+  width: 30vw;
+  height: 10vh;
+  z-index: 5;
 }

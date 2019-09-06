@@ -4,6 +4,7 @@ import Abilities from './playerDetails/Abilities';
 import PlayerInfo from './playerDetails/PlayerInfo';
 import Spells from './playerDetails/Spells';
 import Notes from './playerDetails/Notes';
+import EditPlayer from './playerDetails/EditPlayer';
 
 class PlayerDetails extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class PlayerDetails extends Component {
     this.state = {
       player: props.playerInfo,
       somethingChanged: false, // if changed made prompt to save
-      savePrompt: false
+      savePrompt: false,
+      editField: false
     }
   }
 
@@ -22,6 +24,27 @@ class PlayerDetails extends Component {
     } else {
       this.closeWwithoutSaving();
     }
+  }
+  editPlayer = (event) => {
+    console.log(event.target.id)
+    this.setState({
+      editField: true,
+      editing: event.target.id
+    })
+
+  }
+  savePlayer = (changes) => {
+    console.log('Save changes to', changes)
+    this.setState({
+      editField: false,
+      editing: ''
+    })
+  }
+  cancelButton = () => {
+    this.setState({
+      editField: false,
+      editing: ''
+    })  
   }
   saveAndClose = () => {
     this.props.savePlayer(this.state.player)
@@ -41,7 +64,11 @@ class PlayerDetails extends Component {
   // catch when user presses 'ESC'
   escPressed = (event) => {
     if(event.keyCode === 27) {
-      this.exiting();
+      if(this.state.editField) {
+        this.cancelButton()
+      } else {
+        this.exiting();
+      }
     }
   }
   componentDidMount(){
@@ -62,11 +89,13 @@ class PlayerDetails extends Component {
             <button onClick={this.closeWwithoutSaving}>Discard</button> <button onClick={this.saveAndClose}>Save changes</button>
           </div>
         </div>}
+        {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} />}
+        
         <section className='modal-main'>
           <div className='playerInfo'>
             <div className='playerHeader'>
-            <h1>{this.state.player.charName}</h1>
-            <h3><em>{this.state.player.playerName}</em></h3>
+            <h1 className='charName' id='Character Name' onClick={this.editPlayer}>{this.state.player.charName}</h1>
+            <h3 className='playerName' onClick={this.editPlayer}><em id='Player Name' >{this.state.player.playerName}</em></h3>
             </div>
             <div className='playerDetails'>
               <BaseStats playerInfo={this.state.player}/>
@@ -74,14 +103,13 @@ class PlayerDetails extends Component {
               <PlayerInfo playerInfo={this.state.player} />
               <Spells playerInfo={this.state.player} />
               <Notes playerInfo={this.state.player} />
-              
             </div>
           </div>
           <div className='closeModal cm-top' onClick={this.exiting} />
           <div className='closeModal cm-right' onClick={this.exiting} />
           <div className='closeModal cm-bottom' onClick={this.exiting} />
           <div className='closeModal cm-left' onClick={this.exiting} />
-
+          
         </section>
       </div>
     )

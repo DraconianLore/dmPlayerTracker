@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_181029) do
+ActiveRecord::Schema.define(version: 2019_09_06_220931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,6 @@ ActiveRecord::Schema.define(version: 2019_09_03_181029) do
     t.text "spells", default: [], array: true
     t.text "abilities", default: [], array: true
     t.string "background"
-    t.text "personalityTraits"
-    t.text "ideals"
-    t.text "bonds"
-    t.text "flaws"
-    t.text "notes"
     t.integer "baseSTR", default: 0
     t.integer "baseDEX", default: 0
     t.integer "baseCON", default: 0
@@ -47,6 +42,8 @@ ActiveRecord::Schema.define(version: 2019_09_03_181029) do
     t.integer "maxHP", default: 0
     t.integer "speed", default: 25
     t.integer "level", default: 1
+    t.text "notes", default: [], array: true
+    t.text "items", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
