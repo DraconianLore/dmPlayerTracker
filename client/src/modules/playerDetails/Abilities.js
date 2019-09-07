@@ -11,9 +11,9 @@ export default class Abilities extends Component {
     let abilities = this.props.playerInfo.abilities.map((ability) => {
       return (
         // eslint-disable-next-line
-        <a href='' title={ability.description}>
+        <a href='' title={ability.description} key={ability.id}>
 
-        <h3 key={ability.id}>
+        <h3>
           {ability.name}
         </h3>
         </a>

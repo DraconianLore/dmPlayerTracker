@@ -96,9 +96,11 @@ class PlayerList extends Component {
     let randIMG = `/images/original_(${randNo}).png`
     let randID = new Date().getTime()
     let newPlayers = this.state.players
-    let player = { playerName: 'Player Name', charName: 'Character Name', game_id: this.state.currentGame, classname: 'Class', race: 'Race', hitDie: 'd6', proficiencies: [], spells: [], abilities: [], background: 'Background', notes: [], baseSTR: 10, baseDEX: 10, baseCON: 10, baseINT: 10, baseWIS: 10, baseCHA: 10, AC: 10, saveDC: 0, maxHp: 0, speed: 25, level: 1, items: []};
+    let player = { playerName: 'Player Name', charName: 'Character Name', game_id: this.state.currentGame, classname: 'Class', race: 'Race', hitDie: 'd6', proficiencies: [], spells: [], abilities: [], background: 'Background', notes: [], baseSTR: 10, baseDEX: 10, baseCON: 10, baseINT: 10, baseWIS: 10, baseCHA: 10, AC: 10, saveDC: 0, maxHp: 0, speed: 25, level: 1, items: [], proficiency: 2};
 
+    // send to backend, get back id
     player.id= randID
+
     player.portrait= randIMG
     newPlayers.push(player)
     this.setState({ players: newPlayers })

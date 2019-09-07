@@ -29,6 +29,7 @@ export default class BaseStats extends Component {
 
     }
   }
+  
 
   render() {
 
@@ -39,13 +40,14 @@ export default class BaseStats extends Component {
         <div className='playerStat' style={{marginTop: '0.5em'}}>
           <h1>Proficiency</h1>
           <span className='stat'>
-            <strong>{this.state.playerInfo.proficiency || 2}</strong>
+            <strong><a href=''  onClick={this.props.editStats} id='Proficiency'>{this.state.playerInfo.proficiency}</a></strong>
           </span>
         </div>
         <div className='playerStat'>
           <h1>STR</h1>
           <span className='stat'>
-            <strong>{this.state.playerInfo.baseSTR}</strong> ({Math.floor((this.state.playerInfo.baseSTR - 10) / 2)})
+            <strong><a href=''  onClick={this.props.editStats} id='Strength'>{this.state.playerInfo.baseSTR}</a></strong>
+             ({Math.floor((this.state.playerInfo.baseSTR - 10) / 2)})
           </span>
           <hr className='statHr' />
           <div className='proficiencies'>
@@ -56,7 +58,8 @@ export default class BaseStats extends Component {
         <div className='playerStat'>
           <h1>DEX</h1>
           <span className='stat'>
-            <strong>{this.state.playerInfo.baseDEX}</strong> ({Math.floor((this.state.playerInfo.baseDEX - 10) / 2)})
+            <strong><a href=''  onClick={this.props.editStats} id='Dexterity'>{this.state.playerInfo.baseDEX}</a></strong>
+             ({Math.floor((this.state.playerInfo.baseDEX - 10) / 2)})
           </span>
           <hr className='statHr' />
           <div className='proficiencies'>
@@ -69,7 +72,8 @@ export default class BaseStats extends Component {
         <div className='playerStat'>
           <h1>CON</h1>
           <span className='stat'>
-            <strong>{this.state.playerInfo.baseCON}</strong> ({Math.floor((this.state.playerInfo.baseCON - 10) / 2)})
+            <strong><a href=''  onClick={this.props.editStats} id='Constitution'>{this.state.playerInfo.baseCON}</a></strong> 
+            ({Math.floor((this.state.playerInfo.baseCON - 10) / 2)})
           </span>
           <hr className='statHr' />
           <div className='proficiencies'>
@@ -79,7 +83,8 @@ export default class BaseStats extends Component {
         <div className='playerStat'>
           <h1>INT</h1>
           <span className='stat'>
-            <strong>{this.state.playerInfo.baseINT}</strong> ({Math.floor((this.state.playerInfo.baseINT - 10) / 2)})
+            <strong><a href=''  onClick={this.props.editStats} id='Inteligence'>{this.state.playerInfo.baseINT}</a></strong> 
+            ({Math.floor((this.state.playerInfo.baseINT - 10) / 2)})
           </span>
           <hr className='statHr' />
           <div className='proficiencies'>
@@ -94,7 +99,8 @@ export default class BaseStats extends Component {
         <div className='playerStat'>
           <h1>WIS</h1>
           <span className='stat'>
-            <strong>{this.state.playerInfo.baseWIS}</strong> ({Math.floor((this.state.playerInfo.baseWIS - 10) / 2)})
+            <strong><a href=''  onClick={this.props.editStats} id='Wisdom'>{this.state.playerInfo.baseWIS}</a></strong> 
+            ({Math.floor((this.state.playerInfo.baseWIS - 10) / 2)})
           </span>
           <hr className='statHr' />
           <div className='proficiencies'>
@@ -109,7 +115,8 @@ export default class BaseStats extends Component {
         <div className='playerStat'>
           <h1>CHA</h1>
           <span className='stat'>
-            <strong>{this.state.playerInfo.baseCHA}</strong> ({Math.floor((this.state.playerInfo.baseCHA - 10) / 2)})
+            <strong><a href=''  onClick={this.props.editStats} id='Charisma'>{this.state.playerInfo.baseCHA}</a></strong> 
+            ({Math.floor((this.state.playerInfo.baseCHA - 10) / 2)})
           </span>
           <hr className='statHr' />
           <div className='proficiencies'>

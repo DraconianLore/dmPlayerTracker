@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_220931) do
+ActiveRecord::Schema.define(version: 2019_09_07_020109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_220931) do
     t.integer "level", default: 1
     t.text "notes", default: [], array: true
     t.text "items", default: [], array: true
+    t.integer "proficiency"
   end
 
   create_table "users", force: :cascade do |t|

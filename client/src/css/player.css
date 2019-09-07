@@ -8,7 +8,7 @@
 }
 
 .playerHeader {
-  height: 10%;
+  height: 8%;
 }
 
 .pdColumn {
@@ -17,8 +17,9 @@
   padding: 10px;
   width: 20%;
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   overflow: scroll;
+  scrollbar-width: none;
 }
 
 .proficiencies {
@@ -103,10 +104,10 @@
   }
 }
 .charName {
-  font-size: 4vh;
+  font-size: 3.5vh;
 }
 .playerName {
-  font-size: 3vh;
+  font-size: 2.5vh;
 
 }
 .editField {
@@ -114,16 +115,15 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  background-color: black;
 }
 .editBox {
   margin-top: 20%;
   border-radius: 10px;
-  border-style: inset;
+  border-style: groove;
   border-color: darkred;
-  background-color: chocolate;
+  background-color: #550000;
   padding: 2vh;
   width: 30vw;
-  height: 10vh;
+  height: 10em;
   z-index: 5;
 }

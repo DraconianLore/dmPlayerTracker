@@ -14,7 +14,9 @@ body {
   background-color: rgb(38, 58, 4);
   font-size: 16px;
 }
-
+a:link, a:visited { 
+  color: bisque; 
+}
 code {
   font-family: 'Blinker', sans-serif;
 }
@@ -59,6 +61,7 @@ code {
 ::-webkit-scrollbar {
   width: 0px; 
   background: transparent;
+
 }
 
 .display-block {

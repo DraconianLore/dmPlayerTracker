@@ -18,14 +18,19 @@ class PlayerDetails extends Component {
   }
 
   exiting = () => {
-    if (this.state.somethingChanged) {
-      // ask if they want to save changes
-      this.setState({ savePrompt: true })
+    if (this.state.editField) {
+      this.cancelButton()
     } else {
-      this.closeWwithoutSaving();
+      if (this.state.somethingChanged) {
+        // ask if they want to save changes
+        this.setState({ savePrompt: true })
+      } else {
+        this.closeWwithoutSaving();
+      }
     }
   }
   editPlayer = (event) => {
+    event.preventDefault();
     console.log(event.target.id)
     this.setState({
       editField: true,
@@ -44,7 +49,7 @@ class PlayerDetails extends Component {
     this.setState({
       editField: false,
       editing: ''
-    })  
+    })
   }
   saveAndClose = () => {
     this.props.savePlayer(this.state.player)
@@ -63,18 +68,16 @@ class PlayerDetails extends Component {
 
   // catch when user presses 'ESC'
   escPressed = (event) => {
-    if(event.keyCode === 27) {
-      if(this.state.editField) {
-        this.cancelButton()
-      } else {
-        this.exiting();
-      }
+    if (event.keyCode === 27) {
+
+      this.exiting();
+
     }
   }
-  componentDidMount(){
+  componentDidMount() {
     document.addEventListener("keydown", this.escPressed, false);
   }
-  componentWillUnmount(){
+  componentWillUnmount() {
     document.removeEventListener("keydown", this.escPressed, false);
   }
 
@@ -90,26 +93,26 @@ class PlayerDetails extends Component {
           </div>
         </div>}
         {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} />}
-        
+
         <section className='modal-main'>
           <div className='playerInfo'>
             <div className='playerHeader'>
-            <h1 className='charName' id='Character Name' onClick={this.editPlayer}>{this.state.player.charName}</h1>
-            <h3 className='playerName' onClick={this.editPlayer}><em id='Player Name' >{this.state.player.playerName}</em></h3>
+              <h1 className='charName' id='Character Name' onClick={this.editPlayer}>{this.state.player.charName}</h1>
+              <h3 className='playerName' onClick={this.editPlayer}><em id='Player Name' >{this.state.player.playerName}</em></h3>
             </div>
             <div className='playerDetails'>
-              <BaseStats playerInfo={this.state.player}/>
-              <Abilities playerInfo={this.state.player} />
-              <PlayerInfo playerInfo={this.state.player} />
-              <Spells playerInfo={this.state.player} />
-              <Notes playerInfo={this.state.player} />
+              <BaseStats editStats={this.editPlayer} playerInfo={this.state.player} />
+              <Abilities editStats={this.editPlayer} playerInfo={this.state.player} />
+              <PlayerInfo editStats={this.editPlayer} playerInfo={this.state.player} />
+              <Spells editStats={this.editPlayer} playerInfo={this.state.player} />
+              <Notes editStats={this.editPlayer} playerInfo={this.state.player} />
             </div>
           </div>
           <div className='closeModal cm-top' onClick={this.exiting} />
           <div className='closeModal cm-right' onClick={this.exiting} />
           <div className='closeModal cm-bottom' onClick={this.exiting} />
           <div className='closeModal cm-left' onClick={this.exiting} />
-          
+
         </section>
       </div>
     )

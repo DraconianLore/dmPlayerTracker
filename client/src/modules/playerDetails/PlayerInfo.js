@@ -22,49 +22,49 @@ export default class PlayerInfo extends Component {
         <div className='playerInfoBoxWide'>
             <h3>Level</h3>
             <span className='stat'>
-              <strong>{this.props.playerInfo.level || 1}</strong>
+              <strong><a href=''  onClick={this.props.editStats} id='Level'>{this.props.playerInfo.level}</a></strong>
             </span>
           </div>
           <div className='playerInfoBoxWide'>
             <h3>Race</h3>
             <span className='stat'>
-              <strong className='info-string'>{this.props.playerInfo.race || 'NO RACE'}</strong>
+              <strong className='info-string'><a href=''  onClick={this.props.editStats} id='Race'>{this.props.playerInfo.race}</a></strong>
             </span>
           </div>
           <div className='playerInfoBoxWide'>
             <h3>Class</h3>
             <span className='stat'>
-              <strong className='info-string'>{this.props.playerInfo.classname || 'NO CLASS'}</strong>
+              <strong className='info-string'><a href=''  onClick={this.props.editStats} id='Class'>{this.props.playerInfo.classname}</a></strong>
             </span>
           </div>
           <div className='playerInfoBoxWide'>
             <h3>Background</h3>
             <span className='stat'>
-              <strong className='info-string'>{this.props.playerInfo.background || 'NONE'}</strong>
+              <strong className='info-string'><a href=''  onClick={this.props.editStats} id='Background'>{this.props.playerInfo.background}</a></strong>
             </span>
           </div>
           <div className='playerInfoBox'>
             <h3>Speed</h3>
             <span className='stat'>
-              <strong>{this.props.playerInfo.speed || 30}</strong>
+              <strong><a href=''  onClick={this.props.editStats} id='Speed'>{this.props.playerInfo.speed}</a></strong>
             </span>
           </div>
           <div className='playerInfoBox'>
             <h3>AC</h3>
             <span className='stat'>
-              <strong>{this.props.playerInfo.AC || 10}</strong>
+              <strong><a href=''  onClick={this.props.editStats} id='Armour Class'>{this.props.playerInfo.AC}</a></strong>
             </span>
           </div>
           <div className='playerInfoBox'>
             <h3>Save DC</h3>
             <span className='stat'>
-              <strong>{this.props.playerInfo.saveDc || 0}</strong>
+              <strong><a href=''  onClick={this.props.editStats} id='Save DC'>{this.props.playerInfo.saveDc || 0}</a></strong>
             </span>
           </div>
           <div className='playerInfoBox'>
             <h3>Hit Die</h3>
             <span className='stat'>
-              <strong>{this.props.playerInfo.hitDie || 0}</strong>
+              <strong><a href=''  onClick={this.props.editStats} id='Hit Die'>{this.props.playerInfo.hitDie}</a></strong>
             </span>
           </div>
           <div className='playerInfoBoxWide'>
