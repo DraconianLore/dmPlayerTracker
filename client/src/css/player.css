@@ -28,13 +28,6 @@
   text-align: left;
 }
 
-.playerStat {
-  border: 2px solid darkred;
-  padding: 2px;
-  border-radius: 5px;
-  margin: 1px;
-}
-
 .statHr {
   border-color: darkred;
 }
@@ -55,25 +48,7 @@
   margin-top: 0.5em;
 }
 
-.playerInfoBox {
-  display: inline-block;
-  border: 2px solid darkred;
-  background-color: rgb(90, 2, 2);
-  padding: 1%;
-  border-radius: 15px;
-  margin: 0.5%;
-  width: 44%;
-}
 
-.playerInfoBoxWide {
-  display: inline-block;
-  border: 2px solid darkred;
-  background-color: rgb(90, 2, 2);
-  padding: 1%;
-  border-radius: 15px;
-  margin: 1px;
-  width: 94%;
-}
 
 .abilityList {
   margin-top: 0.5em;
@@ -83,16 +58,6 @@
   color: burlywood;
 }
 
-.addItem {
-  margin-top: 10px;
-  border-color: darkred;
-  background-color: #830000;
-  color: bisque;
-  width: 60%;
-  align-self: center;
-  padding: 5px;
-  font-weight: 700;
-}
 
 .info-string {
   font-size: 3vw;
@@ -106,9 +71,12 @@
 .charName {
   font-size: 3.5vh;
 }
+.charName:hover, .playerName:hover {
+  color: peru;
+}
 .playerName {
   font-size: 2.5vh;
-
+  
 }
 .editField {
   width: 100%;
@@ -126,4 +94,138 @@
   width: 30vw;
   height: 10em;
   z-index: 5;
+}
+.info-header {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: burlywood;
+}
+.stat-header {
+  font-weight: 700;
+  font-size: 1.75em;
+  color: burlywood;
+
+}
+
+/* Button styles */
+.cancel-btn {
+  font-size: 1em;
+  background-color: darkred;
+  color: #fff;
+  width: 150px;
+  height: 50px;
+  outline: none;
+  border: none;
+  margin: 1em 0;
+  -webkit-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  transition: 0.5s all;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.cancel-btn:hover {
+  background-color: #770000;
+  color: burlywood;
+}
+.accept-btn {
+  font-size: 1em;
+  background-color: darkgreen;
+  color: #fff;
+  width: 150px;
+  height: 50px;
+  outline: none;
+  border: none;
+  margin: 1em 0;
+  -webkit-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  transition: 0.5s all;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.accept-btn:hover {
+  background-color: #005500;
+  color: burlywood;
+}
+.addItem {
+  margin-top: 10px;
+  border-color: darkred;
+  background-color: #830000;
+  color: bisque;
+  width: 60%;
+  align-self: center;
+  padding: 5px;
+  font-weight: 700;
+}
+.addItem:hover {
+  background-color: #770000;
+}
+
+.playerStat {
+  border: 2px solid darkred;
+  background-color: #550000;
+  padding: 2px;
+  border-radius: 5px;
+  margin: 1px;
+  color: bisque;
+}
+
+.playerStat-inner {
+  background-color: #550000;
+  border-style: none;
+  color: bisque;
+  width: 100%;
+}
+.playerStat-inner:hover {
+  color: peru;
+}
+.player-proficiencies {
+  background-color: #550000;
+  border-style: none;
+  color: bisque;
+  width: 100%;
+  text-align: left;
+}
+.player-proficiencies:hover {
+  color: peru;
+}
+.playerInfoBox {
+  display: inline-block;
+  border: 2px solid darkred;
+  background-color: #550000;
+  padding: 1%;
+  border-radius: 15px;
+  margin: 0.5%;
+  color: bisque;
+  width: 44%;
+}
+
+.playerInfoBoxWide {
+  display: inline-block;
+  border: 2px solid darkred;
+  background-color: #550000;
+  padding: 1%;
+  border-radius: 15px;
+  margin: 1px;
+  color: bisque;
+  width: 94%;
+}
+
+.playerInfoBox:hover {
+color: peru;
+}
+.playerInfoBoxWide:hover {
+  color: peru;
+}
+button span {
+  pointer-events: none;
+}
+.stat-profs {
+  font-weight: 700;
+  color: burlywood;
+  font-size: 110%;
+  display: block;
+  text-align:  center;
+}
+.player-proficiencies:hover .stat-profs {
+  color: goldenrod;
 }

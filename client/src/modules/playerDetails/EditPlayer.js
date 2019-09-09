@@ -15,7 +15,9 @@ saveChanges = (event) => {
         <div className='editBox'>
           <h1>Change {this.props.field}</h1>
           <br />
-          <button onClick={this.props.cancelButton}>Discard</button> <button onClick={this.saveChanges}>Save changes</button>
+          <input type='text' name={this.props.field} placeholder={'New ' + this.props.field} />
+          <br />
+          <button className='cancel-btn' onClick={this.props.cancelButton}>Discard</button> <button className='accept-btn' onClick={this.saveChanges}>Save changes</button>
         </div>
       </div>
 

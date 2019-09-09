@@ -29,103 +29,128 @@ export default class BaseStats extends Component {
 
     }
   }
-  
+
 
   render() {
 
     return (
       <div className='pdColumn'>
-         <h1>Statistics</h1>
+        <h1>Statistics</h1>
         <hr />
-        <div className='playerStat' style={{marginTop: '0.5em'}}>
-          <h1>Proficiency</h1>
+        <button onClick={this.props.editStats} id='Proficiency' className='playerStat' style={{ marginTop: '0.5em' }}>
+          <span className='stat-header'>Proficiency</span>
+          <br />
           <span className='stat'>
-            <strong><a href=''  onClick={this.props.editStats} id='Proficiency'>{this.state.playerInfo.proficiency}</a></strong>
+            <strong>{this.state.playerInfo.proficiency}</strong>
           </span>
+        </button>
+        <div className='playerStat'>
+          <button onClick={this.props.editStats} id='Strength' className='playerStat-inner'>
+            <span className='stat-header'>STR</span>
+            <br />
+            <span className='stat'>
+              <strong>{this.state.playerInfo.baseSTR}</strong>
+              ({Math.floor((this.state.playerInfo.baseSTR - 10) / 2)})
+          </span>
+          </button>
+          <hr className='statHr' />
+          <button className='player-proficiencies' onClick={this.props.editStats} id='Strength Proficiencies'>
+            <span className='stat-profs'>Proficiencies<br /></span>
+            {this.state.proficiencies.strS && <span className='proficiencies'>✔ Saving Throws<br /></span>}
+            {this.state.proficiencies.strAth && <span className='proficiencies'>✔ Athletics</span>}
+          </button>
         </div>
         <div className='playerStat'>
-          <h1>STR</h1>
-          <span className='stat'>
-            <strong><a href=''  onClick={this.props.editStats} id='Strength'>{this.state.playerInfo.baseSTR}</a></strong>
-             ({Math.floor((this.state.playerInfo.baseSTR - 10) / 2)})
+          <button onClick={this.props.editStats} id='Dexterity' className='playerStat-inner'>
+            <span className='stat-header'>DEX</span>
+            <br />
+            <span className='stat'>
+              <strong>{this.state.playerInfo.baseDEX}</strong>
+              ({Math.floor((this.state.playerInfo.baseDEX - 10) / 2)})
           </span>
+          </button>
           <hr className='statHr' />
-          <div className='proficiencies'>
-            {this.state.proficiencies.strS && <p>✔ Saving Throws</p>}
-            {this.state.proficiencies.strAth && <p>✔ Athletics</p>}
-          </div>
+          <button className='player-proficiencies' onClick={this.props.editStats} id='Dexterity Proficiencies'>
+          <span className='stat-profs'>Proficiencies<br /></span>
+            {this.state.proficiencies.dexS && <span className='proficiencies'>✔ Saving Throws <br /></span>}
+            {this.state.proficiencies.dexAcr && <span className='proficiencies'>✔ Acrobatics <br /></span>}
+            {this.state.proficiencies.dexSli && <span className='proficiencies'>✔ Light of Hand <br /></span>}
+            {this.state.proficiencies.dexSte && <span className='proficiencies'>✔ Stealth</span>}
+          </button>
         </div>
         <div className='playerStat'>
-          <h1>DEX</h1>
-          <span className='stat'>
-            <strong><a href=''  onClick={this.props.editStats} id='Dexterity'>{this.state.playerInfo.baseDEX}</a></strong>
-             ({Math.floor((this.state.playerInfo.baseDEX - 10) / 2)})
+          <button onClick={this.props.editStats} id='Constitution' className='playerStat-inner'>
+            <span className='stat-header'>CON</span>
+            <br />
+            <span className='stat'>
+              <strong>{this.state.playerInfo.baseCON}</strong>
+              ({Math.floor((this.state.playerInfo.baseCON - 10) / 2)})
           </span>
+          </button>
           <hr className='statHr' />
-          <div className='proficiencies'>
-            {this.state.proficiencies.dexS && <p>✔ Saving Throws</p>}
-            {this.state.proficiencies.dexAcr && <p>✔ Acrobatics</p>}
-            {this.state.proficiencies.dexSli && <p>✔ Light of Hand</p>}
-            {this.state.proficiencies.dexSte && <p>✔ Stealth</p>}
-          </div>
+          <button className='player-proficiencies' onClick={this.props.editStats} id='Constitution Proficiencies'>
+          <span className='stat-profs'>Proficiencies<br /></span>
+            {this.state.proficiencies.conS && <span className='proficiencies'>✔ Saving Throws</span>}
+          </button>
         </div>
         <div className='playerStat'>
-          <h1>CON</h1>
-          <span className='stat'>
-            <strong><a href=''  onClick={this.props.editStats} id='Constitution'>{this.state.playerInfo.baseCON}</a></strong> 
-            ({Math.floor((this.state.playerInfo.baseCON - 10) / 2)})
+          <button onClick={this.props.editStats} id='Inteligence' className='playerStat-inner'>
+            <span className='stat-header'>INT</span>
+            <br />
+            <span className='stat'>
+              <strong>{this.state.playerInfo.baseINT}</strong>
+              ({Math.floor((this.state.playerInfo.baseINT - 10) / 2)})
           </span>
+          </button>
           <hr className='statHr' />
-          <div className='proficiencies'>
-            {this.state.proficiencies.conS && <p>✔ Saving Throws</p>}
-          </div>
+          <button className='player-proficiencies' onClick={this.props.editStats} id='Inteligence Proficiencies'>
+          <span className='stat-profs'>Proficiencies<br /></span>
+            {this.state.proficiencies.intS && <span className='proficiencies'>✔ Saving Throws<br /></span>}
+            {this.state.proficiencies.intArc && <span className='proficiencies'>✔ Arcana<br /></span>}
+            {this.state.proficiencies.intHis && <span className='proficiencies'>✔ History<br /></span>}
+            {this.state.proficiencies.intInv && <span className='proficiencies'>✔ Investigation<br /></span>}
+            {this.state.proficiencies.intNat && <span className='proficiencies'>✔ Nature<br /></span>}
+            {this.state.proficiencies.intRel && <span className='proficiencies'>✔ Religion</span>}
+          </button>
         </div>
         <div className='playerStat'>
-          <h1>INT</h1>
-          <span className='stat'>
-            <strong><a href=''  onClick={this.props.editStats} id='Inteligence'>{this.state.playerInfo.baseINT}</a></strong> 
-            ({Math.floor((this.state.playerInfo.baseINT - 10) / 2)})
+          <button className='playerStat-inner' onClick={this.props.editStats} id='Wisdom'>
+            <span className='stat-header'>WIS</span>
+            <br />
+            <span className='stat'>
+              <strong>{this.state.playerInfo.baseWIS}</strong>
+              ({Math.floor((this.state.playerInfo.baseWIS - 10) / 2)})
           </span>
+          </button>
           <hr className='statHr' />
-          <div className='proficiencies'>
-            {this.state.proficiencies.intS && <p>✔ Saving Throws</p>}
-            {this.state.proficiencies.intArc && <p>✔ Arcana</p>}
-            {this.state.proficiencies.intHis && <p>✔ History</p>}
-            {this.state.proficiencies.intInv && <p>✔ Investigation</p>}
-            {this.state.proficiencies.intNat && <p>✔ Nature</p>}
-            {this.state.proficiencies.intRel && <p>✔ Religion</p>}
-          </div>
+          <button className='player-proficiencies' onClick={this.props.editStats} id='Wisdom Proficiencies'>
+          <span className='stat-profs'>Proficiencies<br /></span>
+            {this.state.proficiencies.wisS && <span className='proficiencies'>✔ Saving Throws<br /></span>}
+            {this.state.proficiencies.wisAni && <span className='proficiencies'>✔ Animal Handling<br /></span>}
+            {this.state.proficiencies.wisIns && <span className='proficiencies'>✔ Insight<br /></span>}
+            {this.state.proficiencies.wisMed && <span className='proficiencies'>✔ Medicine<br /></span>}
+            {this.state.proficiencies.wisPer && <span className='proficiencies'>✔ Perception<br /></span>}
+            {this.state.proficiencies.wisSur && <span className='proficiencies'>✔ Survival</span>}
+          </button>
         </div>
         <div className='playerStat'>
-          <h1>WIS</h1>
-          <span className='stat'>
-            <strong><a href=''  onClick={this.props.editStats} id='Wisdom'>{this.state.playerInfo.baseWIS}</a></strong> 
-            ({Math.floor((this.state.playerInfo.baseWIS - 10) / 2)})
+          <button onClick={this.props.editStats} id='Charisma' className='playerStat-inner'>
+            <span className='stat-header'>CHA</span>
+            <br />
+            <span className='stat'>
+              <strong>{this.state.playerInfo.baseCHA}</strong>
+              ({Math.floor((this.state.playerInfo.baseCHA - 10) / 2)})
           </span>
+          </button>
           <hr className='statHr' />
-          <div className='proficiencies'>
-            {this.state.proficiencies.wisS && <p>✔ Saving Throws</p>}
-            {this.state.proficiencies.wisAni && <p>✔ Animal Handling</p>}
-            {this.state.proficiencies.wisIns && <p>✔ Insight</p>}
-            {this.state.proficiencies.wisMed && <p>✔ Medicine</p>}
-            {this.state.proficiencies.wisPer && <p>✔ Perception</p>}
-            {this.state.proficiencies.wisSur && <p>✔ Survival</p>}
-          </div>
-        </div>
-        <div className='playerStat'>
-          <h1>CHA</h1>
-          <span className='stat'>
-            <strong><a href=''  onClick={this.props.editStats} id='Charisma'>{this.state.playerInfo.baseCHA}</a></strong> 
-            ({Math.floor((this.state.playerInfo.baseCHA - 10) / 2)})
-          </span>
-          <hr className='statHr' />
-          <div className='proficiencies'>
-            {this.state.proficiencies.chaS && <p>✔ Saving Throws</p>}
-            {this.state.proficiencies.chaDec && <p>✔ Deception</p>}
-            {this.state.proficiencies.chaInt && <p>✔ Intimidation</p>}
-            {this.state.proficiencies.chaPerf && <p>✔ Performance</p>}
-            {this.state.proficiencies.chaPers && <p>✔ Persuasion</p>}
-          </div>
+          <button className='player-proficiencies' onClick={this.props.editStats} id='Charisma Proficiencies'>
+          <span className='stat-profs'>Proficiencies<br /></span>
+            {this.state.proficiencies.chaS && <span className='proficiencies'>✔ Saving Throws<br /></span>}
+            {this.state.proficiencies.chaDec && <span className='proficiencies'>✔ Deception<br /></span>}
+            {this.state.proficiencies.chaInt && <span className='proficiencies'>✔ Intimidation<br /></span>}
+            {this.state.proficiencies.chaPerf && <span className='proficiencies'>✔ Performance<br /></span>}
+            {this.state.proficiencies.chaPers && <span className='proficiencies'>✔ Persuasion</span>}
+          </button>
         </div>
       </div>
     )

@@ -31,7 +31,6 @@ class PlayerDetails extends Component {
   }
   editPlayer = (event) => {
     event.preventDefault();
-    console.log(event.target.id)
     this.setState({
       editField: true,
       editing: event.target.id

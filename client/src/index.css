@@ -16,6 +16,10 @@ body {
 }
 a:link, a:visited { 
   color: bisque; 
+  text-decoration: none;
+}
+a:hover  {
+  color: peru;
 }
 code {
   font-family: 'Blinker', sans-serif;
@@ -157,4 +161,7 @@ code {
 }
 .info-submit:hover {
   background-color: darkred;
+}
+button:focus {
+  outline:0;
 }

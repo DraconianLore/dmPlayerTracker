@@ -19,61 +19,70 @@ export default class PlayerInfo extends Component {
         <h1>Player Info</h1>
         <hr />
         <div className='playerInfoContainer'>
-        <div className='playerInfoBoxWide'>
-            <h3>Level</h3>
+          <button onClick={this.props.editStats} id='Level' className='playerInfoBoxWide'>
+            <span className='info-header'>Level</span>
+            <br />
             <span className='stat'>
-              <strong><a href=''  onClick={this.props.editStats} id='Level'>{this.props.playerInfo.level}</a></strong>
+              <strong>{this.props.playerInfo.level}</strong>
             </span>
-          </div>
+          </button>
+          <button onClick={this.props.editStats} id='Race' className='playerInfoBoxWide'>
+            <span className='info-header'>Race</span>
+            <br />
+            <span className='stat'>
+              <strong className='info-string'>{this.props.playerInfo.race}</strong>
+            </span>
+          </button>
+          <button onClick={this.props.editStats} id='Class' className='playerInfoBoxWide'>
+            <span className='info-header'>Class</span>
+            <br />
+            <span className='stat'>
+              <strong className='info-string'>{this.props.playerInfo.classname}</strong>
+            </span>
+          </button>
+          <button onClick={this.props.editStats} id='Background' className='playerInfoBoxWide'>
+            <span className='info-header'>Background</span>
+            <br />
+            <span className='stat'>
+              <strong className='info-string'>{this.props.playerInfo.background}</strong>
+            </span>
+          </button>
+          <button onClick={this.props.editStats} id='Speed' className='playerInfoBox'>
+            <span className='info-header'>Speed</span>
+            <br />
+            <span className='stat'>
+              <strong>{this.props.playerInfo.speed}</strong>
+            </span>
+          </button>
+          <button onClick={this.props.editStats} id='Armour Class' className='playerInfoBox'>
+            <span className='info-header'>AC</span>
+            <br />
+            <span className='stat'>
+              <strong>{this.props.playerInfo.AC}</strong>
+            </span>
+          </button>
+          <button onClick={this.props.editStats} id='Save DC' className='playerInfoBox'>
+            <span className='info-header'>Save DC</span>
+            <br />
+            <span className='stat'>
+              <strong>{this.props.playerInfo.saveDc || 0}</strong>
+            </span>
+          </button>
+          <button onClick={this.props.editStats} id='Hit Die' className='playerInfoBox'>
+            <span className='info-header'>Hit Die</span>
+            <br />
+            <span className='stat'>
+              <strong>{this.props.playerInfo.hitDie}</strong>
+            </span>
+          </button>
           <div className='playerInfoBoxWide'>
-            <h3>Race</h3>
-            <span className='stat'>
-              <strong className='info-string'><a href=''  onClick={this.props.editStats} id='Race'>{this.props.playerInfo.race}</a></strong>
-            </span>
-          </div>
-          <div className='playerInfoBoxWide'>
-            <h3>Class</h3>
-            <span className='stat'>
-              <strong className='info-string'><a href=''  onClick={this.props.editStats} id='Class'>{this.props.playerInfo.classname}</a></strong>
-            </span>
-          </div>
-          <div className='playerInfoBoxWide'>
-            <h3>Background</h3>
-            <span className='stat'>
-              <strong className='info-string'><a href=''  onClick={this.props.editStats} id='Background'>{this.props.playerInfo.background}</a></strong>
-            </span>
-          </div>
-          <div className='playerInfoBox'>
-            <h3>Speed</h3>
-            <span className='stat'>
-              <strong><a href=''  onClick={this.props.editStats} id='Speed'>{this.props.playerInfo.speed}</a></strong>
-            </span>
-          </div>
-          <div className='playerInfoBox'>
-            <h3>AC</h3>
-            <span className='stat'>
-              <strong><a href=''  onClick={this.props.editStats} id='Armour Class'>{this.props.playerInfo.AC}</a></strong>
-            </span>
-          </div>
-          <div className='playerInfoBox'>
-            <h3>Save DC</h3>
-            <span className='stat'>
-              <strong><a href=''  onClick={this.props.editStats} id='Save DC'>{this.props.playerInfo.saveDc || 0}</a></strong>
-            </span>
-          </div>
-          <div className='playerInfoBox'>
-            <h3>Hit Die</h3>
-            <span className='stat'>
-              <strong><a href=''  onClick={this.props.editStats} id='Hit Die'>{this.props.playerInfo.hitDie}</a></strong>
-            </span>
-          </div>
-          <div className='playerInfoBoxWide'>
-            <h3>Passive Perception</h3>
+            <span className='info-header'>Passive Perception</span>
+            <br />
             <span className='stat'>
               <strong>{this.calculatePerception().toString()}</strong>
             </span>
           </div>
-          
+
         </div>
 
       </div>
