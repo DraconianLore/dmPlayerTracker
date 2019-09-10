@@ -264,3 +264,20 @@ button span {
 .addItemP {
   color: burlywood;
 }
+.deletePlayer {
+  background-color: #440000;
+  border-color: darkred;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: darkred;
+  height: 4vh;
+  width: 6vw;
+  font-weight: 700;
+  border-radius: 5px;
+  border-style: ridge;
+  }
+  .deletePlayer:hover {
+    border-color: orangered;
+    color: orangered;
+  }

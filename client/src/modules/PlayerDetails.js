@@ -28,11 +28,11 @@ class PlayerDetails extends Component {
     })
   }
   exiting = () => {
-    if (this.state.editField || this.state.addSomething) {
+    if (this.state.editField || this.state.addSomething || this.state.deletePrompt) {
       this.cancelButton()
     } else {
       if (this.state.somethingChanged) {
-        // ask if they want to save changes
+        // TODO check and fix
         this.setState({ savePrompt: true })
       } else {
         this.closeWwithoutSaving();
@@ -41,11 +41,13 @@ class PlayerDetails extends Component {
   }
   editPlayer = (event) => {
     event.preventDefault();
-    let currentValue = 'INVALID'
+    let currentValue = ''
     if (event.target.querySelector('strong')) {
       currentValue = event.target.querySelector('strong').innerText
     } else if (event.target.querySelector('.profList')) {
       currentValue = this.state.player.proficiencies
+    } else {
+      currentValue= event.target.innerText
     }
     this.setState({
       editField: true,
@@ -70,7 +72,8 @@ class PlayerDetails extends Component {
       editing: '',
       editCurrent: false,
       addSomething: false,
-      addThis: ''
+      addThis: '',
+      deletePrompt: false
     })
   }
   saveAndClose = () => {
@@ -96,6 +99,17 @@ class PlayerDetails extends Component {
 
     }
   }
+
+  deletePlayer = () => {
+    this.setState({
+      deletePrompt: true
+    })
+  }
+  yesDeletePlayer = () => {
+    this.setState({deletePrompt: false})
+    this.props.deletePlayer(this.state.player.id)
+  }
+
   componentDidMount() {
     document.addEventListener("keydown", this.escPressed, false);
   }
@@ -107,6 +121,16 @@ class PlayerDetails extends Component {
     let showHideClassName = this.props.show ? 'infoModal display-block' : 'infoModal display-none';
     return (
       <div className={showHideClassName}>
+        {this.state.deletePrompt && <div className='savePrompt'>
+        <div className='promptBox' >
+            <h1>Delete {this.state.player.charName}</h1>
+            <button style={{marginRight: '5px', backgroundColor: 'black'}} className='accept-btn' onClick={this.yesDeletePlayer}>
+              DELETE
+              </button>
+            <button className='cancel-btn' onClick={this.cancelButton}>Cancel</button> 
+        </div>
+          
+          </div>}
         {this.state.savePrompt && <div className='savePrompt'>
           <div className='promptBox'>
             <h1>Save your changes?</h1>
@@ -119,6 +143,9 @@ class PlayerDetails extends Component {
         <section className='modal-main'>
           <div className='playerInfo'>
             <div className='playerHeader'>
+              <button className='deletePlayer' onClick={this.deletePlayer}>
+                DELETE
+              </button>
               <h1 className='charName' id='Character Name' onClick={this.editPlayer}>{this.state.player.charName}</h1>
               <h3 className='playerName' onClick={this.editPlayer}><em id='Player Name' >{this.state.player.playerName}</em></h3>
             </div>

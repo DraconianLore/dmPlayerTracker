@@ -14,68 +14,74 @@ export default class EditPlayer extends Component {
     let rend = ''
 
     switch (field) {
+      case 'Player Name':
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
+        break;
+      case 'Character Name':
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
+        break;
       case 'Proficiency':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Strength':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Strength Proficiencies':
         rend = (<h3>TO BE IMPLEMENTED</h3>)
         break;
       case 'Dexterity':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Dexterity Proficiencies':
         rend = (<h3>TO BE IMPLEMENTED</h3>)
         break;
       case 'Constitution':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Constitution Proficiencies':
-        rend = (<h3>TO BE IMPLEMENTED</h3>)        
+        rend = (<h3>TO BE IMPLEMENTED</h3>)
         break;
       case 'Inteligence':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Inteligence Proficiencies':
         rend = (<h3>TO BE IMPLEMENTED</h3>)
         break;
       case 'Wisdom':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Wisdom Proficiencies':
         rend = (<h3>TO BE IMPLEMENTED</h3>)
         break;
       case 'Charisma':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Charisma Proficiencies':
         rend = (<h3>TO BE IMPLEMENTED</h3>)
         break;
       case 'Level':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Race':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Class':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Background':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Speed':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Armour Class':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Save DC':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       case 'Hit Die':
-        rend = (<input type='text' className='edit-input'  name={field} placeholder={val} />)
+        rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
       default:
     }
@@ -89,7 +95,7 @@ export default class EditPlayer extends Component {
   }
   componentDidMount() {
     this.updateOptions(this.props.field, this.props.currentValue)
-    
+
   }
 
   saveChanges = (event) => {
@@ -104,7 +110,7 @@ export default class EditPlayer extends Component {
         <div className='editBox'>
           <h1>Change {this.props.field}</h1>
           <br />
-            {this.state.renderOptions || <h3>ERROR - Invalid Field</h3>}
+          {this.state.renderOptions || <h3>ERROR - Invalid Field</h3>}
           <br />
           <button className='cancel-btn' onClick={this.props.cancelButton}>Discard</button> <button className='accept-btn' onClick={this.saveChanges}>Save changes</button>
         </div>

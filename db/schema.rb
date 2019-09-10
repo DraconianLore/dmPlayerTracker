@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_07_020109) do
+ActiveRecord::Schema.define(version: 2019_09_10_164047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,22 +21,22 @@ ActiveRecord::Schema.define(version: 2019_09_07_020109) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.string "playerName"
-    t.string "charName"
+    t.string "playerName", default: "Player"
+    t.string "charName", default: "Character"
     t.integer "game_id"
-    t.string "classname"
-    t.string "race"
-    t.string "hitDie"
+    t.string "classname", default: "Class"
+    t.string "race", default: "Race"
+    t.string "hitDie", default: "d6"
     t.text "proficiencies", default: [], array: true
     t.text "spells", default: [], array: true
     t.text "abilities", default: [], array: true
-    t.string "background"
-    t.integer "baseSTR", default: 0
-    t.integer "baseDEX", default: 0
-    t.integer "baseCON", default: 0
-    t.integer "baseINT", default: 0
-    t.integer "baseWIS", default: 0
-    t.integer "baseCHA", default: 0
+    t.string "background", default: "Background"
+    t.integer "baseSTR", default: 10
+    t.integer "baseDEX", default: 10
+    t.integer "baseCON", default: 10
+    t.integer "baseINT", default: 10
+    t.integer "baseWIS", default: 10
+    t.integer "baseCHA", default: 10
     t.integer "AC", default: 10
     t.integer "saveDC", default: 0
     t.integer "maxHP", default: 0
@@ -44,7 +44,8 @@ ActiveRecord::Schema.define(version: 2019_09_07_020109) do
     t.integer "level", default: 1
     t.text "notes", default: [], array: true
     t.text "items", default: [], array: true
-    t.integer "proficiency"
+    t.integer "proficiency", default: 2
+    t.string "portrait", default: "https://picsum.photos/300"
   end
 
   create_table "users", force: :cascade do |t|

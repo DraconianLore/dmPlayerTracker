@@ -12,9 +12,9 @@ const testdata = [
   { id: 2, level: 1, playerName: 'Player2', charName: 'Character Name 2', background: 'Hermit', classname: 'Barbarian', race: 'Dwarf', speed: 30, proficiency: 2, hp: 22, maxHp: 22, AC: 12, saveDc: 10, hitDie: 'd8', baseSTR: 12, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(6).png" },
   { id: 3, level: 1, playerName: 'Player3', charName: 'Character Name 3', background: 'Hermit', classname: 'Sorcerer', race: 'Human', speed: 30, proficiency: 2, hp: 22, maxHp: 22, AC: 12, saveDc: 10, hitDie: 'd8', baseSTR: 15, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(81).png" },
   { id: 4, level: 1, playerName: 'Player4', charName: 'Character Name 4', background: 'Hermit', classname: 'Fighter', race: 'Dragonborn', speed: 30, proficiency: 2, hp: 22, maxHp: 22, AC: 12, saveDc: 10, hitDie: 'd8', baseSTR: 16, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(8).png" },
-  { id: 5, level: 1, playerName: 'Player5', charName: 'Character Name 5', background: 'Hermit', classname: 'Rogue', race: 'Human', speed: 30, proficiency: 2, hp: 22, maxHp: 22, ac: 12, saveDc: 15, hitDie: 'd8', baseSTR: 9, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(93).png", abilities: [{id: 1, name: 'Darkvision', description: 'Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You cant discern color in darkness, only shades of gray'}, {id: 2, name: 'Fey Ancestry', description: "You have advantage on saving throws against being charmed, and magic can't put you to sleep"}]},
-  { id: 6, level: 1, playerName: 'Player6', charName: 'Character Name 6', background: 'Hermit', classname: 'Warlock', race: 'Half-elf', speed: 30, proficiency: 2, hp: 22, maxHp: 22, AC: 12, saveDc: 10, hitDie: 'd8', baseSTR: 7, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(31).png", proficiencies: [{id: 'intS', val: true}, {id: 'conS', val: true}]  },
-  { id: 7, level: 3, playerName: 'Player7', charName: 'Character Name 7', background: 'Hermit', classname: 'Ranger', race: 'Elf', speed: 30, proficiency: 2, hp: 122, maxHp: 140, AC: 12, saveDc: 11, hitDie: 'd12', baseSTR: 19, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(43).png", proficiencies: [{id: 'dexSte', val: true}, {id: 'dexSli', val: true}, {id: 'dexAcr', val: true}, {id: 'dexS', val: true}, {id: 'chaPerf', val: true}, {id: 'chaInt', val: true}, {id: 'chaDec', val: true}, {id: 'chaS', val: true}, {id: 'dexS', val: true}] },
+  { id: 5, level: 1, playerName: 'Player5', charName: 'Character Name 5', background: 'Hermit', classname: 'Rogue', race: 'Human', speed: 30, proficiency: 2, hp: 22, maxHp: 22, ac: 12, saveDc: 15, hitDie: 'd8', baseSTR: 9, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(93).png", abilities: [{ id: 1, name: 'Darkvision', description: 'Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You cant discern color in darkness, only shades of gray' }, { id: 2, name: 'Fey Ancestry', description: "You have advantage on saving throws against being charmed, and magic can't put you to sleep" }] },
+  { id: 6, level: 1, playerName: 'Player6', charName: 'Character Name 6', background: 'Hermit', classname: 'Warlock', race: 'Half-elf', speed: 30, proficiency: 2, hp: 22, maxHp: 22, AC: 12, saveDc: 10, hitDie: 'd8', baseSTR: 7, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(31).png", proficiencies: [{ id: 'intS', val: true }, { id: 'conS', val: true }] },
+  { id: 7, level: 3, playerName: 'Player7', charName: 'Character Name 7', background: 'Hermit', classname: 'Ranger', race: 'Elf', speed: 30, proficiency: 2, hp: 122, maxHp: 140, AC: 12, saveDc: 11, hitDie: 'd12', baseSTR: 19, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(43).png", proficiencies: [{ id: 'dexSte', val: true }, { id: 'dexSli', val: true }, { id: 'dexAcr', val: true }, { id: 'dexS', val: true }, { id: 'chaPerf', val: true }, { id: 'chaInt', val: true }, { id: 'chaDec', val: true }, { id: 'chaS', val: true }, { id: 'dexS', val: true }] },
 ]
 
 
@@ -76,7 +76,6 @@ class PlayerList extends Component {
       })
   }
 
-
   showPlayerInfo(player) {
     this.setState({
       showPlayer: true,
@@ -91,20 +90,39 @@ class PlayerList extends Component {
       playerDetails: {}
     })
   }
+
   newPlayer = () => {
     let randNo = (Math.floor(Math.random() * 100)) + 1
     let randIMG = `/images/original_(${randNo}).png`
-    let randID = new Date().getTime()
     let newPlayers = this.state.players
-    let player = { playerName: 'Player Name', charName: 'Character Name', game_id: this.state.currentGame, classname: 'Class', race: 'Race', hitDie: 'd6', proficiencies: [], spells: [], abilities: [], background: 'Background', notes: [], baseSTR: 10, baseDEX: 10, baseCON: 10, baseINT: 10, baseWIS: 10, baseCHA: 10, AC: 10, saveDC: 0, maxHp: 0, speed: 25, level: 1, items: [], proficiency: 2};
+    let player = { playerName: 'Player Name', charName: 'Character Name', game_id: this.state.currentGame, classname: 'Class', race: 'Race', hitDie: 'd6', proficiencies: [], spells: [], abilities: [], background: 'Background', notes: [], baseSTR: 10, baseDEX: 10, baseCON: 10, baseINT: 10, baseWIS: 10, baseCHA: 10, AC: 10, saveDC: 0, maxHp: 0, speed: 25, level: 1, items: [], proficiency: 2 };
+    player.portrait = randIMG
 
-    // send to backend, get back id
-    player.id= randID
-
-    player.portrait= randIMG
-    newPlayers.push(player)
-    this.setState({ players: newPlayers })
+    axios({
+      method: 'post',
+      url: 'http://localhost:3001/api/players',
+      headers: {
+        Authorization: this.props.JWT,
+        user: this.props.user
+      },
+      data: {
+        gameID: this.state.currentGame,
+        player: player,
+        portrait: randIMG
+      }
+    })
+      .then((response) => {
+        player.id = response.data.playerID
+        newPlayers.push(player)
+        this.setState({
+          players: newPlayers
+        })
+      })
+      .catch(function (e) {
+        console.log(e)
+      })
   }
+
   newGame = () => {
     let newGameName = (
       <div className="infoModal display-block">
@@ -117,17 +135,23 @@ class PlayerList extends Component {
         </div>
       </div>
     )
-    this.setState({ 
+    this.setState({
       infoModal: newGameName,
       showMenu: false
     })
     document.addEventListener("keydown", this.escPressed, false);
-
+  }
+  cancelButton = () => {
+    this.setState({
+      infoModal: false,
+      showMenu: true
+    })
+    document.removeEventListener("keydown", this.escPressed, false);
   }
   // catch when user presses 'ESC'
   escPressed = (event) => {
     if (event.keyCode === 27) {
-      this.setState({ 
+      this.setState({
         infoModal: false,
         showMenu: true
       })
@@ -137,22 +161,106 @@ class PlayerList extends Component {
 
   createGame = (evt) => {
     evt.preventDefault()
-    const randID = new Date().getTime()
-    const newgame = { name: evt.target.gamename.value, id: randID }
-    let gamelist = this.state.games
-    gamelist.push(newgame)
-    this.setState({
-      games: gamelist,
-      infoModal: false,
-      showMenu: true,
-      currentGame: randID,
-      currentGameName: evt.target.gamename.value
+    const newName = evt.target.gamename.value
+    axios({
+      method: 'post',
+      url: 'http://localhost:3001/api/games',
+      headers: {
+        Authorization: this.props.JWT,
+        user: this.props.user
+      },
+      data: {
+        name: evt.target.gamename.value
+      }
     })
-
+      .then((response) => {
+        this.setState({
+          games: response.data.games,
+          currentGame: response.data.newGame,
+          infoModal: false,
+          showMenu: true,
+          currentGameName: newName
+        })
+      })
+      .catch(function (e) {
+        console.log(e)
+      })
   }
+
   updatePlayer = (newPlayerInfo) => {
     console.log('Player Info to save:', newPlayerInfo)
-    // send to backend for processing
+    // TODO send to backend for processing
+  }
+
+  deletePlayer = (player) => {
+    axios.delete(
+      `http://localhost:3001/api/players/${player}`,
+      {
+        headers: {
+          Authorization: this.props.JWT,
+          user: this.props.user,
+          game: this.state.currentGame
+
+        }
+      }
+    ).then((response) => {
+      this.setState({
+        players: response.data.players,
+        showPlayer: false,
+        infoModal: false,
+        showMenu: true
+      })
+    })
+      .catch(function (e) {
+        console.log(e)
+      })
+    this.setState({
+    })
+  }
+
+  deletegame = () => {
+    if (this.state.infoModal) {
+
+      axios.delete(
+        `http://localhost:3001/api/players/${this.state.currentGame}`,
+        {
+          headers: {
+            Authorization: this.props.JWT,
+            user: this.props.user
+          }
+        }
+      ).then((response) => {
+        this.setState({
+          games: response.data.games,
+          currentGame: response.data.games[0].id,
+          currentGameName: response.data.games[0].name,
+          showPlayer: false,
+          infoModal: false,
+          showMenu: true
+        })
+        this.loadPlayers(response.data.games[0].id)
+      })
+        .catch(function (e) {
+          console.log(e)
+        })
+    } else {
+      let confirmDelete = (
+        <div className='savePrompt'>
+          <div className='promptBox' >
+            <h1>Delete {this.state.currentGameName}</h1>
+            <button style={{ marginRight: '5px', backgroundColor: 'black' }} className='accept-btn' onClick={this.deletegame}>
+              DELETE
+              </button>
+            <button className='cancel-btn' onClick={this.cancelButton}>Cancel</button>
+          </div>
+        </div>
+      )
+      this.setState({
+        infoModal: confirmDelete,
+        showMenu: false
+      })
+      document.addEventListener("keydown", this.escPressed, false);
+    }
   }
 
   changeGame = (gameID) => {
@@ -186,7 +294,7 @@ class PlayerList extends Component {
           {playerList}
           <AddPlayer newPlayer={this.newPlayer} />
         </ul>
-        <PlayerDetails show={this.state.showPlayer} playerInfo={this.state.playerDetails} closeInfo={this.closePlayerInfo} savePlayer={this.updatePlayer} />
+        <PlayerDetails deletePlayer={this.deletePlayer} show={this.state.showPlayer} playerInfo={this.state.playerDetails} closeInfo={this.closePlayerInfo} savePlayer={this.updatePlayer} />
         {this.state.showMenu && <Footer newGame={this.newGame} games={this.state.games} user={this.props.user} currentGame={this.state.currentGame} changeGame={this.changeGame} />}
         {this.state.infoModal}
       </div>

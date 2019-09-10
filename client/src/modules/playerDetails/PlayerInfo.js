@@ -82,7 +82,7 @@ export default class PlayerInfo extends Component {
               <strong>{this.calculatePerception().toString()}</strong>
             </span>
           </div>
-
+          
         </div>
 
       </div>
