@@ -4,7 +4,7 @@ export default class Abilities extends Component {
 
   addAbility = (event) => {
     event.preventDefault();
-    console.log('Add Ability Clicked')
+    this.props.addItem('Ability')
   }
   fetchAbilities = () => {
 

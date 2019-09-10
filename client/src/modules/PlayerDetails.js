@@ -5,6 +5,7 @@ import PlayerInfo from './playerDetails/PlayerInfo';
 import Spells from './playerDetails/Spells';
 import Notes from './playerDetails/Notes';
 import EditPlayer from './playerDetails/EditPlayer';
+import AddSomething from './playerDetails/AddSomething';
 
 class PlayerDetails extends Component {
   constructor(props) {
@@ -13,12 +14,21 @@ class PlayerDetails extends Component {
       player: props.playerInfo,
       somethingChanged: false, // if changed made prompt to save
       savePrompt: false,
-      editField: false
+      editField: false,
+      addSomething: false,
+      addThis: ''
     }
   }
-
+  addItem = (type) => {
+    this.setState({
+      addSomething: true,
+      addThis: type,
+      editField: false,
+      editCurrent: ''
+    })
+  }
   exiting = () => {
-    if (this.state.editField) {
+    if (this.state.editField || this.state.addSomething) {
       this.cancelButton()
     } else {
       if (this.state.somethingChanged) {
@@ -31,9 +41,18 @@ class PlayerDetails extends Component {
   }
   editPlayer = (event) => {
     event.preventDefault();
+    let currentValue = 'INVALID'
+    if (event.target.querySelector('strong')) {
+      currentValue = event.target.querySelector('strong').innerText
+    } else if (event.target.querySelector('.profList')) {
+      currentValue = this.state.player.proficiencies
+    }
     this.setState({
       editField: true,
-      editing: event.target.id
+      editing: event.target.id,
+      editCurrent: currentValue,
+      addSomething: false,
+      addThis: false
     })
 
   }
@@ -41,13 +60,17 @@ class PlayerDetails extends Component {
     console.log('Save changes to', changes)
     this.setState({
       editField: false,
-      editing: ''
+      editing: '',
+      editCurrent: false
     })
   }
   cancelButton = () => {
     this.setState({
       editField: false,
-      editing: ''
+      editing: '',
+      editCurrent: false,
+      addSomething: false,
+      addThis: ''
     })
   }
   saveAndClose = () => {
@@ -91,8 +114,8 @@ class PlayerDetails extends Component {
             <button onClick={this.closeWwithoutSaving}>Discard</button> <button onClick={this.saveAndClose}>Save changes</button>
           </div>
         </div>}
-        {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} />}
-
+        {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} currentValue={this.state.editCurrent}/>}
+        {this.state.addSomething && <AddSomething cancelButton={this.cancelButton} savePlayer={this.savePlayer} item={this.state.addThis} />}
         <section className='modal-main'>
           <div className='playerInfo'>
             <div className='playerHeader'>
@@ -101,10 +124,10 @@ class PlayerDetails extends Component {
             </div>
             <div className='playerDetails'>
               <BaseStats editStats={this.editPlayer} playerInfo={this.state.player} />
-              <Abilities editStats={this.editPlayer} playerInfo={this.state.player} />
+              <Abilities addItem={this.addItem} playerInfo={this.state.player} />
               <PlayerInfo editStats={this.editPlayer} playerInfo={this.state.player} />
-              <Spells editStats={this.editPlayer} playerInfo={this.state.player} />
-              <Notes editStats={this.editPlayer} playerInfo={this.state.player} />
+              <Spells addItem={this.addItem} playerInfo={this.state.player} />
+              <Notes addItem={this.addItem} playerInfo={this.state.player} />
             </div>
           </div>
           <div className='closeModal cm-top' onClick={this.exiting} />

@@ -95,6 +95,17 @@
   height: 10em;
   z-index: 5;
 }
+.addBox {
+  margin-top: 20%;
+  border-radius: 10px;
+  border-style: groove;
+  border-color: darkred;
+  background-color: #550000;
+  padding: 2vh;
+  width: 30vw;
+  height: 20em;
+  z-index: 5;
+}
 .info-header {
   font-weight: 700;
   font-size: 1.2em;
@@ -228,4 +239,28 @@ button span {
 }
 .player-proficiencies:hover .stat-profs {
   color: goldenrod;
+}
+.playerStat:hover {
+  color: peru;
+}
+.edit-input {
+  width: 200px;
+  font-size: 2em;
+  margin-top: -10px;
+  text-align: center;
+  background-color: #440000;
+  border-color: darkred;
+  color: peru; 
+}
+
+.addText {
+  background-color: #440000;
+  padding: 5px;
+  border-color: darkred;
+  resize: none;
+  color: goldenrod;
+  min-width: 177px;;
+}
+.addItemP {
+  color: burlywood;
 }

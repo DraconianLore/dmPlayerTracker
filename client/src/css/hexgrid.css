@@ -111,6 +111,7 @@
   -webkit-transform: translate3d(0, 100%, 0);
   -ms-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0);
+  color: goldenrod;
 }
 
 /* HOVER EFFECT */

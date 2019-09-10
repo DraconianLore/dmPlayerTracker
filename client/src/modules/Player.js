@@ -19,7 +19,7 @@ class Player extends Component {
             <img src={this.props.info.portrait} alt="" />
             <h1 className="lineBreaks">{this.props.info.charName} {'\n'} ({this.props.info.playerName})</h1>
             <p className="lineBreaks">
-              {this.props.info.class || "NO CLASS"} {'\n'}
+              {this.props.info.classname || "NO CLASS"} {'\n'}
               {this.props.info.race || "NO RACE"} {'\n'}
               Max HP : {this.props.info.maxHp || "0"} {'\n'}
               {this.props.info.saveDc && `Save DC : ${this.props.info.saveDc} ${'\n'}`}
