@@ -14,16 +14,13 @@ export default class Footer extends Component {
   newGame = () => {
     this.props.newGame()
   }
-  
-  deleteGame = () => {
 
-  }
   componentWillReceiveProps(newProps) {
     if (this.state.numberOfGames !== newProps.numberOfGames) {
-      this.setState({numberOfGames: newProps.games.length})
+      this.setState({ numberOfGames: newProps.games.length })
     }
   }
-  
+
   render() {
     let gameList = this.props.games.map((game) => {
       let gameClass = "other-game"
@@ -32,12 +29,12 @@ export default class Footer extends Component {
       }
       return (
         <button id={game.id} className={gameClass} onClick={this.changeGame} key={game.id}>
-        {game.name}
-      </button>
+          {game.name}
+        </button>
       )
     })
     return (
-      
+
       <div className="bottombar">
         <div className="bottombar-main">
           <h2>Your Games :</h2>
@@ -47,9 +44,12 @@ export default class Footer extends Component {
           <button id='999' className='settings-btn' onClick={this.changeGame}>
             testing game
           </button>
-          {this.state.numberOfGames < 5 && <button className="newGame-btn" onClick={this.newGame}>
+          <button className='delete-btn' onClick={this.props.deleteGame}>
+            Delete Game
+          </button>
+          <button className="newGame-btn" onClick={this.newGame}>
             New Game
-        </button>}
+          </button>
         </div>
 
 

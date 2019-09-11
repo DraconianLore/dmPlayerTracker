@@ -31,8 +31,12 @@
   background-color: chocolate;
   padding: 5px 10px 5px 10px;
   font-weight: 700;
-  color: black;
+  color: #005500;
   border-top-right-radius: 20px;
+}
+.newGame-btn:hover {
+  background-color: goldenrod;
+  color: darkgreen;
 }
 .current-game {
   background-color: goldenrod;
@@ -54,4 +58,19 @@
   font-weight: 700;
   margin-left: 10px;
 
+}
+.delete-btn {
+  border-color: brown;
+  border-style: groove;
+  border-radius: 5px;
+  height: 40px;
+  background-color: chocolate;
+  padding: 5px 10px 5px 10px;
+  font-weight: 700;
+  color: darkred;
+  border-top-left-radius: 20px;
+}
+
+.delete-btn:hover {
+  background-color: goldenrod;
 }

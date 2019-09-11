@@ -124,8 +124,20 @@ class PlayerList extends Component {
   }
 
   newGame = () => {
-    let newGameName = (
-      <div className="infoModal display-block">
+    let newGameName
+    if (this.state.games.length >= 5) {
+      newGameName = (
+        <div className='savePrompt'>
+        <div className='promptBox' >
+          <h1 style={{color: 'darkred'}}>You may only have 5 games</h1>
+          <h4>Delete an old game before creating a new one</h4>
+          <button className='cancel-btn' style={{height: '30px'}} onClick={this.cancelButton}>OK</button>
+        </div>
+      </div>
+    )
+    } else {
+      newGameName = (
+        <div className="infoModal display-block">
         <div className="infoModal-main">
           <form onSubmit={this.createGame}>
             <h1>Name your game</h1>
@@ -135,12 +147,15 @@ class PlayerList extends Component {
         </div>
       </div>
     )
+  }
     this.setState({
       infoModal: newGameName,
       showMenu: false
     })
     document.addEventListener("keydown", this.escPressed, false);
+
   }
+  
   cancelButton = () => {
     this.setState({
       infoModal: false,
@@ -218,11 +233,10 @@ class PlayerList extends Component {
     })
   }
 
-  deletegame = () => {
+  deleteGame = () => {
     if (this.state.infoModal) {
-
       axios.delete(
-        `http://localhost:3001/api/players/${this.state.currentGame}`,
+        `http://localhost:3001/api/games/${this.state.currentGame}`,
         {
           headers: {
             Authorization: this.props.JWT,
@@ -244,11 +258,13 @@ class PlayerList extends Component {
           console.log(e)
         })
     } else {
-      let confirmDelete = (
-        <div className='savePrompt'>
+      if (this.state.games.length > 1) {
+
+        let confirmDelete = (
+          <div className='savePrompt'>
           <div className='promptBox' >
-            <h1>Delete {this.state.currentGameName}</h1>
-            <button style={{ marginRight: '5px', backgroundColor: 'black' }} className='accept-btn' onClick={this.deletegame}>
+            <h1>Delete game: {this.state.currentGameName}</h1>
+            <button style={{ marginRight: '5px', backgroundColor: 'black' }} className='accept-btn' onClick={this.deleteGame}>
               DELETE
               </button>
             <button className='cancel-btn' onClick={this.cancelButton}>Cancel</button>
@@ -260,7 +276,24 @@ class PlayerList extends Component {
         showMenu: false
       })
       document.addEventListener("keydown", this.escPressed, false);
+    } else {
+
+      let confirmDelete = (
+        <div className='savePrompt'>
+        <div className='promptBox' >
+          <h1 style={{color: 'darkred'}}>You must have at least one game</h1>
+          <h4>Create a new game before deleting {this.state.currentGameName}</h4>
+          <button className='cancel-btn' style={{height: '30px'}} onClick={this.cancelButton}>OK</button>
+        </div>
+      </div>
+    )
+    this.setState({
+      infoModal: confirmDelete,
+      showMenu: false
+    })
+    
     }
+  }
   }
 
   changeGame = (gameID) => {
@@ -295,7 +328,7 @@ class PlayerList extends Component {
           <AddPlayer newPlayer={this.newPlayer} />
         </ul>
         <PlayerDetails deletePlayer={this.deletePlayer} show={this.state.showPlayer} playerInfo={this.state.playerDetails} closeInfo={this.closePlayerInfo} savePlayer={this.updatePlayer} />
-        {this.state.showMenu && <Footer newGame={this.newGame} games={this.state.games} user={this.props.user} currentGame={this.state.currentGame} changeGame={this.changeGame} />}
+        {this.state.showMenu && <Footer newGame={this.newGame} deleteGame={this.deleteGame} games={this.state.games} user={this.props.user} currentGame={this.state.currentGame} changeGame={this.changeGame} />}
         {this.state.infoModal}
       </div>
 

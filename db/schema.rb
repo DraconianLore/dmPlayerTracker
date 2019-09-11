@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_164047) do
+ActiveRecord::Schema.define(version: 2019_09_11_191750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,4 +56,5 @@ ActiveRecord::Schema.define(version: 2019_09_10_164047) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "players", "games", on_delete: :cascade
 end

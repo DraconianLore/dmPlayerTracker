@@ -25,6 +25,9 @@
   color: black;
   border-bottom-right-radius: 20px;
 }
+.logout-btn:hover {
+  background-color: goldenrod;
+}
 .settings-btn {
   border-color: brown;
   border-style: groove;
@@ -35,6 +38,9 @@
   font-weight: 700;
   color: black;
   border-bottom-left-radius: 20px;
+}
+.settings-btn:hover {
+  background-color: goldenrod;
 }
 .topbar-username {
   font-size: 40px;
