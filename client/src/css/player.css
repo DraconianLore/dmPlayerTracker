@@ -48,7 +48,14 @@
   margin-top: 0.5em;
 }
 
-
+.profilePic {
+  margin-top: 1vh;
+  width: 14.5vw;
+  height: 14.5vw;
+}
+.profilePic:hover { 
+  filter: sepia(100%);
+}
 
 .abilityList {
   margin-top: 0.5em;

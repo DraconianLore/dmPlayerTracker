@@ -17,7 +17,6 @@ class AuthorizeApiRequest
     @user ||= User.find(decoded_auth_token[:user_id]) if decoded_auth_token
     # no auth token doesnt get to this point... wtf is going on?
   rescue
-    puts '$$$$$'
     return nil
   end
 

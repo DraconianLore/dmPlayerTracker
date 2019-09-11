@@ -203,8 +203,8 @@ class PlayerList extends Component {
   }
 
   updatePlayer = (newPlayerInfo) => {
+    // TODO save new player data to database
     console.log('Player Info to save:', newPlayerInfo)
-    // TODO send to backend for processing
   }
 
   deletePlayer = (player) => {

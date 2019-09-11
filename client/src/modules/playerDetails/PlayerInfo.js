@@ -82,9 +82,9 @@ export default class PlayerInfo extends Component {
               <strong>{this.calculatePerception().toString()}</strong>
             </span>
           </div>
-          
-        </div>
 
+        </div>
+        <img id='Profile Picture' className='profilePic' src={this.props.playerInfo.portrait} alt={this.props.playerInfo.charName} onClick={this.props.editStats} />
       </div>
     )
   }

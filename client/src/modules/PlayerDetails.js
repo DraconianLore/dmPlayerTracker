@@ -47,7 +47,7 @@ class PlayerDetails extends Component {
     } else if (event.target.querySelector('.profList')) {
       currentValue = this.state.player.proficiencies
     } else {
-      currentValue= event.target.innerText
+      currentValue = null
     }
     this.setState({
       editField: true,
@@ -59,6 +59,7 @@ class PlayerDetails extends Component {
 
   }
   savePlayer = (changes) => {
+    // TODO save changes
     console.log('Save changes to', changes)
     this.setState({
       editField: false,

@@ -14,6 +14,9 @@ export default class EditPlayer extends Component {
     let rend = ''
 
     switch (field) {
+      case 'Profile Picture':
+        rend = (<input type='text' className='edit-input' name={field} placeholder='Image URL' />)
+        break;
       case 'Player Name':
         rend = (<input type='text' className='edit-input' name={field} placeholder={val} />)
         break;
