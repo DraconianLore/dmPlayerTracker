@@ -65,7 +65,7 @@ export default class PlayerInfo extends Component {
             <span className='info-header'>Save DC</span>
             <br />
             <span className='stat'>
-              <strong>{this.props.playerInfo.saveDc || 0}</strong>
+              <strong>{this.props.playerInfo.saveDC || 0}</strong>
             </span>
           </button>
           <button onClick={this.props.editStats} id='Hit Die' className='playerInfoBox'>

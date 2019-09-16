@@ -6,13 +6,16 @@ import Spells from './playerDetails/Spells';
 import Notes from './playerDetails/Notes';
 import EditPlayer from './playerDetails/EditPlayer';
 import AddSomething from './playerDetails/AddSomething';
+import updateHelper from './Helpers/updateHelper';
 
 class PlayerDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       player: props.playerInfo,
+      originalPlayer: props.playerInfo,
       somethingChanged: false, // if changed made prompt to save
+      changedDetails: [],
       savePrompt: false,
       editField: false,
       addSomething: false,
@@ -61,10 +64,21 @@ class PlayerDetails extends Component {
   savePlayer = (changes) => {
     // TODO save changes
     console.log('Save changes to', changes)
+    
+    const updater = updateHelper(this.state.changedDetails, changes, this.state.player)
+    const updatedDetails = updater.details
+    const updatedPlayer = updater.player
+    console.log('player', updatedPlayer)
+    console.log('#####################')
+    console.log('changes', updatedDetails)
+
     this.setState({
       editField: false,
       editing: '',
-      editCurrent: false
+      editCurrent: false,
+      somethingChanged: true,
+      changedDetails: updatedDetails,
+      player: updatedPlayer
     })
   }
   cancelButton = () => {
@@ -79,16 +93,31 @@ class PlayerDetails extends Component {
   }
   saveAndClose = () => {
     this.props.savePlayer(this.state.player)
-    this.setState({ savePrompt: false })
+    this.setState({ 
+      savePrompt: false,
+      somethingChanged: false
+    })
     this.props.closeInfo()
   }
   closeWwithoutSaving = () => {
-    this.setState({ savePrompt: false })
+    // WHY IS THIS SAVING TO UPPER STATE?!?!?!
+    // WHY??????????????????????????????????
+    // WHY??????????????????????????????????
+    // WHY??????????????????????????????????
+    // WHY??????????????????????????????????
+
+    this.setState({ 
+      savePrompt: false,
+      somethingChanged: false,
+      player: this.state.originalPlayer
+    })
     this.props.closeInfo()
   }
   componentWillReceiveProps(newProps) {
+    console.log(newProps)
     this.setState({
-      player: newProps.playerInfo
+      player: newProps.playerInfo,
+      originalPlayer: newProps.playerInfo
     })
   }
 
@@ -135,8 +164,8 @@ class PlayerDetails extends Component {
         {this.state.savePrompt && <div className='savePrompt'>
           <div className='promptBox'>
             <h1>Save your changes?</h1>
-            <br />
-            <button onClick={this.closeWwithoutSaving}>Discard</button> <button onClick={this.saveAndClose}>Save changes</button>
+            <button className='cancel-btn' onClick={this.closeWwithoutSaving}>Discard</button> 
+            <button className='accept-btn' onClick={this.saveAndClose}>Save changes</button>
           </div>
         </div>}
         {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} currentValue={this.state.editCurrent}/>}
