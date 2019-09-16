@@ -261,8 +261,8 @@ class PlayerList extends Component {
       if (this.state.games.length > 1) {
 
         let confirmDelete = (
-          <div className='savePrompt'>
-          <div className='promptBox' >
+          <div className='deletePrompt'>
+          <div className='deleteBox' >
             <h1>Delete game: {this.state.currentGameName}</h1>
             <button style={{ marginRight: '5px', backgroundColor: 'black' }} className='accept-btn' onClick={this.deleteGame}>
               DELETE

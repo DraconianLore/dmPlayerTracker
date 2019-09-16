@@ -46,7 +46,7 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+  border-radius: 5px;
 }
 
 .playerInfo {
@@ -117,6 +117,26 @@ code {
   justify-content: center;
 }
 .promptBox {
+  margin-top: 20%;
+  border-radius: 10px;
+  border-style: inset;
+  border-color: darkred;
+  background-color: chocolate;
+  padding: 2vh;
+  width: 30vw;
+  height: 10vh;
+  z-index: 3;
+}
+.deletePrompt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.deleteBox {
   margin-top: 20%;
   border-radius: 10px;
   border-style: inset;

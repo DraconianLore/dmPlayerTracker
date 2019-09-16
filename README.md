@@ -20,4 +20,6 @@ Once complete you will be able to
 
 ## Current status of project
 
-This project is still in the planning stages
+This project is nearing MVP completion
+
+![DM Player Tracker September 2019](/client/public/images/dmplayertracker.gif)

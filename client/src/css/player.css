@@ -53,7 +53,8 @@
   width: 14.5vw;
   height: 14.5vw;
 }
-.profilePic:hover { 
+
+.profilePic:hover {
   filter: sepia(100%);
 }
 
@@ -65,7 +66,6 @@
   color: burlywood;
 }
 
-
 .info-string {
   font-size: 3vw;
 }
@@ -75,22 +75,26 @@
     font-size: 1em;
   }
 }
+
 .charName {
   font-size: 3.5vh;
 }
+
 .charName:hover, .playerName:hover {
   color: peru;
 }
+
 .playerName {
   font-size: 2.5vh;
-  
 }
+
 .editField {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
 }
+
 .editBox {
   margin-top: 20%;
   border-radius: 10px;
@@ -102,6 +106,7 @@
   height: 10em;
   z-index: 5;
 }
+
 .addBox {
   margin-top: 20%;
   border-radius: 10px;
@@ -113,19 +118,21 @@
   height: 20em;
   z-index: 5;
 }
+
 .info-header {
   font-weight: 700;
   font-size: 1.2em;
   color: burlywood;
 }
+
 .stat-header {
   font-weight: 700;
   font-size: 1.75em;
   color: burlywood;
-
 }
 
 /* Button styles */
+
 .cancel-btn {
   font-size: 1em;
   background-color: darkred;
@@ -141,10 +148,12 @@
   text-align: center;
   letter-spacing: 1px;
 }
+
 .cancel-btn:hover {
   background-color: #770000;
   color: burlywood;
 }
+
 .accept-btn {
   font-size: 1em;
   background-color: darkgreen;
@@ -160,10 +169,12 @@
   text-align: center;
   letter-spacing: 1px;
 }
+
 .accept-btn:hover {
   background-color: #005500;
   color: burlywood;
 }
+
 .addItem {
   margin-top: 10px;
   border-color: darkred;
@@ -174,6 +185,7 @@
   padding: 5px;
   font-weight: 700;
 }
+
 .addItem:hover {
   background-color: #770000;
 }
@@ -193,9 +205,11 @@
   color: bisque;
   width: 100%;
 }
+
 .playerStat-inner:hover {
   color: peru;
 }
+
 .player-proficiencies {
   background-color: #550000;
   border-style: none;
@@ -203,9 +217,11 @@
   width: 100%;
   text-align: left;
 }
+
 .player-proficiencies:hover {
   color: peru;
 }
+
 .playerInfoBox {
   display: inline-block;
   border: 2px solid darkred;
@@ -229,27 +245,33 @@
 }
 
 .playerInfoBox:hover {
-color: peru;
+  color: peru;
 }
+
 .playerInfoBoxWide:hover {
   color: peru;
 }
+
 button span {
   pointer-events: none;
 }
+
 .stat-profs {
   font-weight: 700;
   color: burlywood;
   font-size: 110%;
   display: block;
-  text-align:  center;
+  text-align: center;
 }
+
 .player-proficiencies:hover .stat-profs {
   color: goldenrod;
 }
+
 .playerStat:hover {
   color: peru;
 }
+
 .edit-input {
   width: 200px;
   font-size: 2em;
@@ -257,7 +279,7 @@ button span {
   text-align: center;
   background-color: #440000;
   border-color: darkred;
-  color: peru; 
+  color: peru;
 }
 
 .addText {
@@ -266,11 +288,14 @@ button span {
   border-color: darkred;
   resize: none;
   color: goldenrod;
-  min-width: 177px;;
+  min-width: 177px;
+  ;
 }
+
 .addItemP {
   color: burlywood;
 }
+
 .deletePlayer {
   background-color: #440000;
   border-color: darkred;
@@ -283,8 +308,9 @@ button span {
   font-weight: 700;
   border-radius: 5px;
   border-style: ridge;
-  }
-  .deletePlayer:hover {
-    border-color: orangered;
-    color: orangered;
-  }
+}
+
+.deletePlayer:hover {
+  border-color: orangered;
+  color: orangered;
+}
