@@ -1,6 +1,5 @@
 module PlayerHelper
   def test(player, updatedPlayer)
-
     player.playerName = updatedPlayer[:playerName]
     player.charName = updatedPlayer[:charName]
     player.classname = updatedPlayer[:classname]
@@ -21,11 +20,11 @@ module PlayerHelper
     player.proficiency = updatedPlayer[:proficiency]
     player.portrait = updatedPlayer[:portrait]
     
-    # player.notes = updatedPlayer[:notes]
-    # player.items = updatedPlayer[:items]
-    # player.proficiencies = updatedPlayer[:proficiencies]
-    # player.spells = updatedPlayer[:spells]
-    # player.abilities = updatedPlayer[:abilities]
+    player.notes = updatedPlayer[:notes]
+    player.items = updatedPlayer[:items]
+    player.proficiencies = updatedPlayer[:proficiencies]
+    player.spells = updatedPlayer[:spells]
+    player.abilities = updatedPlayer[:abilities]
     return player
    end
 end

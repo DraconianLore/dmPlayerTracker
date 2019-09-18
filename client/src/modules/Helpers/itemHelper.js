@@ -16,6 +16,6 @@ export default function updateHelper(newItem, player) {
     default:
       itemType = 'ERROR'
   }
-  player[itemType].push(newItem.change)
+  player[itemType].push(JSON.stringify(newItem.change))
   return player
 }

@@ -18,6 +18,7 @@ class Api::PlayersController < ApplicationController
 
   def update
     @player = Player.find(params[:id])
+    
     @player = PlayerHelper.test(@player, params[:player])
     puts @player.inspect
     if @player.save!

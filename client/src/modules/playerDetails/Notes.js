@@ -14,6 +14,7 @@ export default class Notes extends Component {
   fetchNotes = () => {
 
     let notes = this.props.playerInfo.notes.map((note) => {
+      note = JSON.parse(note)
       return (
         // eslint-disable-next-line
         <a href='' title={note.description} key={note.id}>
