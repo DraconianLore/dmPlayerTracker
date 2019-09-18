@@ -28,10 +28,10 @@ export default class Notes extends Component {
   }
   fetchItems = () => {
 
-    let items = this.props.playerInfo.items.map((item) => {
+    let items = this.props.playerInfo.items.map((item, index) => {
       return (
         // eslint-disable-next-line
-        <a href='' title={item.description} key={item.id}>
+        <a href='' title={item.description} key={index}>
 
         <h3>
           {item.name}

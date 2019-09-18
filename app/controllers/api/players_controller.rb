@@ -1,5 +1,6 @@
+include ActionView::Helpers::PlayerHelper
 class Api::PlayersController < ApplicationController
-  
+
   def index
     game = Game.find(request.headers[:game])
     render :json => {
@@ -16,7 +17,14 @@ class Api::PlayersController < ApplicationController
   end
 
   def update
-
+    @player = Player.find(params[:id])
+    @player = PlayerHelper.test(@player, params[:player])
+    puts @player.inspect
+    if @player.save!
+      render :json => {
+        message: 'Player Updated'
+      }
+    end
   end
 
   def destroy

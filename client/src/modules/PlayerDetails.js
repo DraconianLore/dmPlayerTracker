@@ -7,6 +7,7 @@ import Notes from './playerDetails/Notes';
 import EditPlayer from './playerDetails/EditPlayer';
 import AddSomething from './playerDetails/AddSomething';
 import updateHelper from './Helpers/updateHelper';
+import itemHelper from './Helpers/itemHelper';
 
 class PlayerDetails extends Component {
   constructor(props) {
@@ -63,24 +64,30 @@ class PlayerDetails extends Component {
   }
   savePlayer = (changes) => {
     // TODO save changes
-    console.log('Save changes to', changes)
-    
-    const updater = updateHelper(this.state.changedDetails, changes, this.state.player)
-    const updatedDetails = updater.details
-    const updatedPlayer = updater.player
-    console.log('player', updatedPlayer)
-    console.log('#####################')
-    console.log('changes', updatedDetails)
-
-    this.setState({
-      editField: false,
-      editing: '',
-      editCurrent: false,
-      somethingChanged: true,
-      changedDetails: updatedDetails,
-      player: updatedPlayer
-    })
+    if (changes.changeType === 'addItem') {
+      const updatedPlayer = itemHelper(changes, this.state.player)
+      this.setState({
+        editField: false,
+        editing: '',
+        editCurrent: false,
+        somethingChanged: true,
+        player: updatedPlayer
+      })
+    } else {
+      const updater = updateHelper(this.state.changedDetails, changes, this.state.player)
+      const updatedDetails = updater.details
+      const updatedPlayer = updater.player
+      this.setState({
+        editField: false,
+        editing: '',
+        editCurrent: false,
+        somethingChanged: true,
+        changedDetails: updatedDetails,
+        player: updatedPlayer
+      })
+    }
   }
+
   cancelButton = () => {
     this.setState({
       editField: false,
@@ -91,22 +98,16 @@ class PlayerDetails extends Component {
       deletePrompt: false
     })
   }
-  saveAndClose = () => {
-    this.props.savePlayer(this.state.player)
-    this.setState({ 
+  saveAndClose = async () => {
+    await this.props.savePlayer(this.state.player)
+    this.setState({
       savePrompt: false,
       somethingChanged: false
     })
     this.props.closeInfo()
   }
   closeWwithoutSaving = () => {
-    // WHY IS THIS SAVING TO UPPER STATE?!?!?!
-    // WHY??????????????????????????????????
-    // WHY??????????????????????????????????
-    // WHY??????????????????????????????????
-    // WHY??????????????????????????????????
-
-    this.setState({ 
+    this.setState({
       savePrompt: false,
       somethingChanged: false,
       player: this.state.originalPlayer
@@ -114,10 +115,10 @@ class PlayerDetails extends Component {
     this.props.closeInfo()
   }
   componentWillReceiveProps(newProps) {
-    console.log(newProps)
     this.setState({
       player: newProps.playerInfo,
-      originalPlayer: newProps.playerInfo
+      originalPlayer: newProps.playerInfo,
+      changedDetails: []
     })
   }
 
@@ -136,7 +137,7 @@ class PlayerDetails extends Component {
     })
   }
   yesDeletePlayer = () => {
-    this.setState({deletePrompt: false})
+    this.setState({ deletePrompt: false })
     this.props.deletePlayer(this.state.player.id)
   }
 
@@ -146,29 +147,30 @@ class PlayerDetails extends Component {
   componentWillUnmount() {
     document.removeEventListener("keydown", this.escPressed, false);
   }
-
+  
   render() {
+    console.log(this.state.player)
     let showHideClassName = this.props.show ? 'infoModal display-block' : 'infoModal display-none';
     return (
       <div className={showHideClassName}>
         {this.state.deletePrompt && <div className='savePrompt'>
-        <div className='promptBox' >
+          <div className='promptBox' >
             <h1>Delete {this.state.player.charName}</h1>
-            <button style={{marginRight: '5px', backgroundColor: 'black'}} className='accept-btn' onClick={this.yesDeletePlayer}>
+            <button style={{ marginRight: '5px', backgroundColor: 'black' }} className='accept-btn' onClick={this.yesDeletePlayer}>
               DELETE
               </button>
-            <button className='cancel-btn' onClick={this.cancelButton}>Cancel</button> 
-        </div>
-          
-          </div>}
+            <button className='cancel-btn' onClick={this.cancelButton}>Cancel</button>
+          </div>
+
+        </div>}
         {this.state.savePrompt && <div className='savePrompt'>
           <div className='promptBox'>
             <h1>Save your changes?</h1>
-            <button className='cancel-btn' onClick={this.closeWwithoutSaving}>Discard</button> 
+            <button className='cancel-btn' onClick={this.closeWwithoutSaving}>Discard</button>
             <button className='accept-btn' onClick={this.saveAndClose}>Save changes</button>
           </div>
         </div>}
-        {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} currentValue={this.state.editCurrent}/>}
+        {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} currentValue={this.state.editCurrent} />}
         {this.state.addSomething && <AddSomething cancelButton={this.cancelButton} savePlayer={this.savePlayer} item={this.state.addThis} />}
         <section className='modal-main'>
           <div className='playerInfo'>

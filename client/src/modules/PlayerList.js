@@ -89,6 +89,7 @@ class PlayerList extends Component {
       showMenu: true,
       playerDetails: {}
     })
+    this.loadPlayers(this.state.currentGame)
   }
 
   newPlayer = () => {
@@ -205,6 +206,25 @@ class PlayerList extends Component {
   updatePlayer = (newPlayerInfo) => {
     // TODO save new player data to database
     console.log('Player Info to save:', newPlayerInfo)
+   
+    axios({
+      method: 'put',
+      url: `http://localhost:3001/api/players/${newPlayerInfo.id}`,
+      headers: {
+        Authorization: this.props.JWT,
+        user: this.props.user
+      },
+      data: {
+        player: newPlayerInfo
+      }
+    })
+      .then((response) => {
+       console.log(response.data)
+       this.loadPlayers(this.state.currentGame)
+      })
+      .catch(function (e) {
+        console.log(e)
+      })
   }
 
   deletePlayer = (player) => {
