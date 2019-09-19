@@ -11,7 +11,6 @@ export default class BaseStats extends Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.playerInfo.proficiencies) {
-
       let proficiencies = newProps.playerInfo.proficiencies.reduce((obj, item) => {
         obj[item.id] = item.val
         return obj
@@ -32,7 +31,7 @@ export default class BaseStats extends Component {
 
 
   render() {
-
+    
     return (
       <div className='pdColumn'>
         <h1>Statistics</h1>
@@ -54,7 +53,7 @@ export default class BaseStats extends Component {
           </span>
           </button>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editStats} id='Strength Proficiencies'>
+          <button className='player-proficiencies' onClick={this.props.editProfs} id='Strength Proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.strS && <span className='proficiencies'>✔ Saving Throws<br /></span>}
@@ -72,7 +71,7 @@ export default class BaseStats extends Component {
           </span>
           </button>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editStats} id='Dexterity Proficiencies'>
+          <button className='player-proficiencies' onClick={this.props.editProfs} id='Dexterity Proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.dexS && <span className='proficiencies'>✔ Saving Throws <br /></span>}
@@ -92,7 +91,7 @@ export default class BaseStats extends Component {
           </span>
           </button>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editStats} id='Constitution Proficiencies'>
+          <button className='player-proficiencies' onClick={this.props.editProfs} id='Constitution Proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.conS && <span className='proficiencies'>✔ Saving Throws</span>}
@@ -109,7 +108,7 @@ export default class BaseStats extends Component {
           </span>
           </button>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editStats} id='Inteligence Proficiencies'>
+          <button className='player-proficiencies' onClick={this.props.editProfs} id='Inteligence Proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.intS && <span className='proficiencies'>✔ Saving Throws<br /></span>}
@@ -131,7 +130,7 @@ export default class BaseStats extends Component {
           </span>
           </button>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editStats} id='Wisdom Proficiencies'>
+          <button className='player-proficiencies' onClick={this.props.editProfs} id='Wisdom Proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.wisS && <span className='proficiencies'>✔ Saving Throws<br /></span>}
@@ -153,7 +152,7 @@ export default class BaseStats extends Component {
           </span>
           </button>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editStats} id='Charisma Proficiencies'>
+          <button className='player-proficiencies' onClick={this.props.editProfs} id='Charisma Proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.chaS && <span className='proficiencies'>✔ Saving Throws<br /></span>}

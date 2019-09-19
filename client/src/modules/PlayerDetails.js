@@ -6,8 +6,10 @@ import Spells from './playerDetails/Spells';
 import Notes from './playerDetails/Notes';
 import EditPlayer from './playerDetails/EditPlayer';
 import AddSomething from './playerDetails/AddSomething';
+import EditProfs from './playerDetails/EditProfs';
 import updateHelper from './Helpers/updateHelper';
 import itemHelper from './Helpers/itemHelper';
+import profHelper from './Helpers/profHelper';
 
 class PlayerDetails extends Component {
   constructor(props) {
@@ -20,7 +22,8 @@ class PlayerDetails extends Component {
       savePrompt: false,
       editField: false,
       addSomething: false,
-      addThis: ''
+      addThis: '',
+      addProfs: false
     }
   }
   addItem = (type) => {
@@ -28,11 +31,23 @@ class PlayerDetails extends Component {
       addSomething: true,
       addThis: type,
       editField: false,
-      editCurrent: ''
+      editCurrent: '',
+      addProfs: false
     })
   }
+  editProficiencies = (event) => {
+    this.setState({
+      editField: false,
+      editing: event.target.id,
+      addSomething: false,
+      addThis: false,
+      addProfs: true,
+      currentValue: null
+    })
+  }
+
   exiting = () => {
-    if (this.state.editField || this.state.addSomething || this.state.deletePrompt) {
+    if (this.state.editField || this.state.addSomething || this.state.deletePrompt || this.state.addProfs) {
       this.cancelButton()
     } else {
       if (this.state.somethingChanged) {
@@ -48,8 +63,6 @@ class PlayerDetails extends Component {
     let currentValue = ''
     if (event.target.querySelector('strong')) {
       currentValue = event.target.querySelector('strong').innerText
-    } else if (event.target.querySelector('.profList')) {
-      currentValue = this.state.player.proficiencies
     } else {
       currentValue = null
     }
@@ -58,7 +71,8 @@ class PlayerDetails extends Component {
       editing: event.target.id,
       editCurrent: currentValue,
       addSomething: false,
-      addThis: false
+      addThis: false,
+      addProfs: false
     })
 
   }
@@ -71,7 +85,20 @@ class PlayerDetails extends Component {
         editing: '',
         editCurrent: false,
         somethingChanged: true,
-        player: updatedPlayer
+        player: updatedPlayer,
+        addThis: '',
+        addSomething: false,
+        addProfs: false
+      })
+    } else if(changes.changeType === 'editProfs') { 
+      const updatedPlayer = profHelper(changes, this.state.player)
+      this.setState({
+        editField: false,
+        editCurrent: false,
+        somethingChanged: true,
+        player: updatedPlayer,
+        addSomething: false,
+        addProfs: false
       })
     } else {
       const updater = updateHelper(this.state.changedDetails, changes, this.state.player)
@@ -83,7 +110,8 @@ class PlayerDetails extends Component {
         editCurrent: false,
         somethingChanged: true,
         changedDetails: updatedDetails,
-        player: updatedPlayer
+        player: updatedPlayer,
+        addProfs: false
       })
     }
   }
@@ -95,11 +123,17 @@ class PlayerDetails extends Component {
       editCurrent: false,
       addSomething: false,
       addThis: '',
-      deletePrompt: false
+      deletePrompt: false,
+      addProfs: false
     })
   }
   saveAndClose = async () => {
-    await this.props.savePlayer(this.state.player)
+    let player = this.state.player
+    let profs = []
+    profs.push(JSON.stringify(player.proficiencies))
+    player.proficiencies = profs
+
+    await this.props.savePlayer(player)
     this.setState({
       savePrompt: false,
       somethingChanged: false
@@ -147,9 +181,8 @@ class PlayerDetails extends Component {
   componentWillUnmount() {
     document.removeEventListener("keydown", this.escPressed, false);
   }
-  
+
   render() {
-    console.log(this.state.player)
     let showHideClassName = this.props.show ? 'infoModal display-block' : 'infoModal display-none';
     return (
       <div className={showHideClassName}>
@@ -172,17 +205,22 @@ class PlayerDetails extends Component {
         </div>}
         {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} currentValue={this.state.editCurrent} />}
         {this.state.addSomething && <AddSomething cancelButton={this.cancelButton} savePlayer={this.savePlayer} item={this.state.addThis} />}
+        {this.state.addProfs && <EditProfs cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing}  proficiencies={this.state.player.proficiencies} />}
         <section className='modal-main'>
           <div className='playerInfo'>
             <div className='playerHeader'>
               <button className='deletePlayer' onClick={this.deletePlayer}>
                 DELETE
               </button>
+              <button className='close-modal' onClick={this.exiting}>
+                &times;
+              </button>
+
               <h1 className='charName' id='Character Name' onClick={this.editPlayer}>{this.state.player.charName}</h1>
               <h3 className='playerName' onClick={this.editPlayer}><em id='Player Name' >{this.state.player.playerName}</em></h3>
             </div>
             <div className='playerDetails'>
-              <BaseStats editStats={this.editPlayer} playerInfo={this.state.player} />
+              <BaseStats editProfs={this.editProficiencies} editStats={this.editPlayer} playerInfo={this.state.player} />
               <Abilities addItem={this.addItem} playerInfo={this.state.player} />
               <PlayerInfo editStats={this.editPlayer} playerInfo={this.state.player} />
               <Spells addItem={this.addItem} playerInfo={this.state.player} />

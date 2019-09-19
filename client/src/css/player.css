@@ -58,8 +58,12 @@
   filter: sepia(100%);
 }
 
-.abilityList {
+.abilityList a h3 {
   margin-top: 0.5em;
+  color: bisque;
+}
+.abilityList a h3:hover {
+  color: peru;
 }
 
 .pdColumn h3, h1 {
@@ -105,6 +109,38 @@
   width: 30vw;
   height: 10em;
   z-index: 5;
+}
+.editProfs {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.editProfBox {
+  margin-top: 20%;
+  border-radius: 10px;
+  border-style: groove;
+  border-color: darkred;
+  background-color: #550000;
+  padding: 2vh;
+  width: 30vw;
+  height: 13em;
+  z-index: 5;
+}
+.prof-have {
+  color: bisque
+}
+.prof-have:hover {
+  color: peru;
+  cursor: pointer;
+}
+.prof-need {
+  color: saddlebrown;
+}
+.prof-need:hover {
+  color: peru;
+  cursor: pointer;
 }
 
 .addBox {
@@ -313,4 +349,25 @@ button span {
 .deletePlayer:hover {
   border-color: orangered;
   color: orangered;
+}
+
+.close-modal {
+  background-color: darkgreen;
+  border-color: green;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: khaki;
+  height: 1.2em;
+  width: 1.2em;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 2em;
+}
+
+.close-modal:hover {
+  border-color: khaki;
+  color: lightgreen;
 }

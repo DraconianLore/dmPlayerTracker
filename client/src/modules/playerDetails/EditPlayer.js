@@ -29,38 +29,20 @@ export default class EditPlayer extends Component {
       case 'Strength':
         rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
         break;
-      case 'Strength Proficiencies':
-        rend = (<h3>TO BE IMPLEMENTED</h3>)
-        break;
       case 'Dexterity':
         rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Dexterity Proficiencies':
-        rend = (<h3>TO BE IMPLEMENTED</h3>)
         break;
       case 'Constitution':
         rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
         break;
-      case 'Constitution Proficiencies':
-        rend = (<h3>TO BE IMPLEMENTED</h3>)
-        break;
       case 'Inteligence':
         rend = (<input type='text' className='edit-input' name={field} placeholder={val} onChange={this.changing} defaultValue={this.state.currentValue} />)
-        break;
-      case 'Inteligence Proficiencies':
-        rend = (<h3>TO BE IMPLEMENTED</h3>)
         break;
       case 'Wisdom':
         rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
         break;
-      case 'Wisdom Proficiencies':
-        rend = (<h3>TO BE IMPLEMENTED</h3>)
-        break;
       case 'Charisma':
         rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Charisma Proficiencies':
-        rend = (<h3>TO BE IMPLEMENTED</h3>)
         break;
       case 'Level':
         rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
@@ -102,12 +84,11 @@ export default class EditPlayer extends Component {
   }
   componentDidMount() {
     this.updateOptions(this.props.field, this.props.currentValue)
-
   }
 
   saveChanges = (event) => {
     event.preventDefault();
-    let changes = { field: this.props.field, newValue: this.state.currentValue}
+    let changes = { field: this.props.field, newValue: this.state.currentValue }
     this.props.savePlayer(changes)
   }
   render() {

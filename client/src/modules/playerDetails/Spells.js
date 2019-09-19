@@ -12,6 +12,7 @@ export default class Spells extends Component {
   fetchSpells = () => {
 
     let spells = this.props.playerInfo.spells.map((spell) => {
+      spell = JSON.parse(spell)
       return (
         // eslint-disable-next-line
         <a href='' title={spell.description} key={spell.id}>

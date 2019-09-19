@@ -9,6 +9,8 @@ export default class Abilities extends Component {
   fetchAbilities = () => {
 
     let abilities = this.props.playerInfo.abilities.map((ability) => {
+      ability = JSON.parse(ability)
+
       return (
         // eslint-disable-next-line
         <a href='' title={ability.description} key={ability.id}>
