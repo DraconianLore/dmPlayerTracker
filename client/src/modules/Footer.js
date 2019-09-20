@@ -41,9 +41,6 @@ export default class Footer extends Component {
           {gameList}
         </div>
         <div className="bottombar-right">
-          <button id='999' className='settings-btn' onClick={this.changeGame}>
-            testing game
-          </button>
           <button className='delete-btn' onClick={this.props.deleteGame}>
             Delete Game
           </button>

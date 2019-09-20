@@ -6,14 +6,11 @@ export default class TopBar extends Component {
     return (
       <div className="topbar">
         <div className="topbar-section">
-          <button className="settings-btn" onClick={this.openSettings}>
-            MENU
-          </button>
-        </div>
-        <div className="topbar-section">
         <strong className="topbar-username">
           {this.props.user}
         </strong>
+        </div>
+        <div className="topbar-section">
         <em className="topbar-gamename">
         {this.props.gameName}
         </em>

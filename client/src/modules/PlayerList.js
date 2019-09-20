@@ -6,20 +6,7 @@ import AddPlayer from "./AddPlayer";
 import TopBar from "./TopBar";
 import Footer from "./Footer";
 
-// test data
-const testdata = [
-  { id: 1, level: 1, playerName: 'Player1', charName: 'Character Name 1', background: 'Hermit', classname: 'Monk', race: 'Human', speed: 30, proficiency: 2, hp: 22, maxHp: 22, AC: 12, saveDc: 8, hitDie: 'd8', baseSTR: 11, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(2).png" },
-  { id: 2, level: 1, playerName: 'Player2', charName: 'Character Name 2', background: 'Hermit', classname: 'Barbarian', race: 'Dwarf', speed: 30, proficiency: 2, hp: 22, maxHp: 22, AC: 12, saveDc: 10, hitDie: 'd8', baseSTR: 12, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(6).png" },
-  { id: 3, level: 1, playerName: 'Player3', charName: 'Character Name 3', background: 'Hermit', classname: 'Sorcerer', race: 'Human', speed: 30, proficiency: 2, hp: 22, maxHp: 22, AC: 12, saveDc: 10, hitDie: 'd8', baseSTR: 15, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(81).png" },
-  { id: 4, level: 1, playerName: 'Player4', charName: 'Character Name 4', background: 'Hermit', classname: 'Fighter', race: 'Dragonborn', speed: 30, proficiency: 2, hp: 22, maxHp: 22, AC: 12, saveDc: 10, hitDie: 'd8', baseSTR: 16, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(8).png" },
-  { id: 5, level: 1, playerName: 'Player5', charName: 'Character Name 5', background: 'Hermit', classname: 'Rogue', race: 'Human', speed: 30, proficiency: 2, hp: 22, maxHp: 22, ac: 12, saveDc: 15, hitDie: 'd8', baseSTR: 9, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(93).png", abilities: [{ id: 1, name: 'Darkvision', description: 'Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You cant discern color in darkness, only shades of gray' }, { id: 2, name: 'Fey Ancestry', description: "You have advantage on saving throws against being charmed, and magic can't put you to sleep" }] },
-  { id: 6, level: 1, playerName: 'Player6', charName: 'Character Name 6', background: 'Hermit', classname: 'Warlock', race: 'Half-elf', speed: 30, proficiency: 2, hp: 22, maxHp: 22, AC: 12, saveDc: 10, hitDie: 'd8', baseSTR: 7, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(31).png", proficiencies: [{ id: 'intS', val: true }, { id: 'conS', val: true }] },
-  { id: 7, level: 3, playerName: 'Player7', charName: 'Character Name 7', background: 'Hermit', classname: 'Ranger', race: 'Elf', speed: 30, proficiency: 2, hp: 122, maxHp: 140, AC: 12, saveDc: 11, hitDie: 'd12', baseSTR: 19, baseDEX: 13, baseCON: 10, baseINT: 11, baseWIS: 15, baseCHA: 9, portrait: "/images/original_(43).png", proficiencies: [{ id: 'dexSte', val: true }, { id: 'dexSli', val: true }, { id: 'dexAcr', val: true }, { id: 'dexS', val: true }, { id: 'chaPerf', val: true }, { id: 'chaInt', val: true }, { id: 'chaDec', val: true }, { id: 'chaS', val: true }, { id: 'dexS', val: true }] },
-]
-
-
 class PlayerList extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -68,7 +55,7 @@ class PlayerList extends Component {
       .then((response) => {
         let incomingPlayers = []
         response.data.players.forEach(player => {
-          if(player.proficiencies) {
+          if (player.proficiencies) {
             player.proficiencies = JSON.parse(player.proficiencies)
           }
           incomingPlayers.push(player)
@@ -136,26 +123,26 @@ class PlayerList extends Component {
     if (this.state.games.length >= 5) {
       newGameName = (
         <div className='savePrompt'>
-        <div className='promptBox' >
-          <h1 style={{color: 'darkred'}}>You may only have 5 games</h1>
-          <h4>Delete an old game before creating a new one</h4>
-          <button className='cancel-btn' style={{height: '30px'}} onClick={this.cancelButton}>OK</button>
+          <div className='promptBox' >
+            <h1 style={{ color: 'darkred' }}>You may only have 5 games</h1>
+            <h4>Delete an old game before creating a new one</h4>
+            <button className='cancel-btn' style={{ height: '30px' }} onClick={this.cancelButton}>OK</button>
+          </div>
         </div>
-      </div>
-    )
+      )
     } else {
       newGameName = (
         <div className="infoModal display-block">
-        <div className="infoModal-main">
-          <form onSubmit={this.createGame}>
-            <h1>Name your game</h1>
-            <input className="info-text" type="text" name="gamename" />
-            <input className="info-submit" type="submit" value="Submit" />
-          </form>
+          <div className="infoModal-main">
+            <form onSubmit={this.createGame}>
+              <h1>Name your game</h1>
+              <input className="info-text" type="text" name="gamename" />
+              <input className="info-submit" type="submit" value="Submit" />
+            </form>
+          </div>
         </div>
-      </div>
-    )
-  }
+      )
+    }
     this.setState({
       infoModal: newGameName,
       showMenu: false
@@ -163,7 +150,7 @@ class PlayerList extends Component {
     document.addEventListener("keydown", this.escPressed, false);
 
   }
-  
+
   cancelButton = () => {
     this.setState({
       infoModal: false,
@@ -213,7 +200,7 @@ class PlayerList extends Component {
   }
 
   updatePlayer = (newPlayerInfo) => {
-   
+
     axios({
       method: 'put',
       url: `http://localhost:3001/api/players/${newPlayerInfo.id}`,
@@ -226,7 +213,7 @@ class PlayerList extends Component {
       }
     })
       .then((response) => {
-       this.loadPlayers(this.state.currentGame)
+        this.loadPlayers(this.state.currentGame)
       })
       .catch(function (e) {
         console.log(e)
@@ -286,51 +273,44 @@ class PlayerList extends Component {
 
         let confirmDelete = (
           <div className='deletePrompt'>
-          <div className='deleteBox' >
-            <h1>Delete game: {this.state.currentGameName}</h1>
-            <button style={{ marginRight: '5px', backgroundColor: 'black' }} className='accept-btn' onClick={this.deleteGame}>
-              DELETE
+            <div className='deleteBox' >
+              <h1>Delete game: {this.state.currentGameName}</h1>
+              <button style={{ marginRight: '5px', backgroundColor: 'black' }} className='accept-btn' onClick={this.deleteGame}>
+                DELETE
               </button>
-            <button className='cancel-btn' onClick={this.cancelButton}>Cancel</button>
+              <button className='cancel-btn' onClick={this.cancelButton}>Cancel</button>
+            </div>
           </div>
-        </div>
-      )
-      this.setState({
-        infoModal: confirmDelete,
-        showMenu: false
-      })
-      document.addEventListener("keydown", this.escPressed, false);
-    } else {
+        )
+        this.setState({
+          infoModal: confirmDelete,
+          showMenu: false
+        })
+        document.addEventListener("keydown", this.escPressed, false);
+      } else {
 
-      let confirmDelete = (
-        <div className='savePrompt'>
-        <div className='promptBox' >
-          <h1 style={{color: 'darkred'}}>You must have at least one game</h1>
-          <h4>Create a new game before deleting {this.state.currentGameName}</h4>
-          <button className='cancel-btn' style={{height: '30px'}} onClick={this.cancelButton}>OK</button>
-        </div>
-      </div>
-    )
-    this.setState({
-      infoModal: confirmDelete,
-      showMenu: false
-    })
-    
+        let confirmDelete = (
+          <div className='savePrompt'>
+            <div className='promptBox' >
+              <h1 style={{ color: 'darkred' }}>You must have at least one game</h1>
+              <h4>Create a new game before deleting {this.state.currentGameName}</h4>
+              <button className='cancel-btn' style={{ height: '30px' }} onClick={this.cancelButton}>OK</button>
+            </div>
+          </div>
+        )
+        this.setState({
+          infoModal: confirmDelete,
+          showMenu: false
+        })
+
+      }
     }
-  }
   }
 
   changeGame = (gameID) => {
-    if (gameID === 999) {
-      this.setState({
-        currentGame: gameID,
-        currentGameName: 'Example game',
-        players: testdata
-      })
-    } else {
-      this.setState({ currentGame: gameID })
-      this.loadPlayers(gameID)
-    }
+
+    this.setState({ currentGame: gameID })
+    this.loadPlayers(gameID)
   }
 
   componentDidMount() {
