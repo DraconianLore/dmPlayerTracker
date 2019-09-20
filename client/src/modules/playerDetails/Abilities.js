@@ -13,7 +13,7 @@ export default class Abilities extends Component {
 
       return (
         // eslint-disable-next-line
-        <a href='' title={ability.description} key={ability.id}>
+        <a href='#' title={ability.description} key={ability.id}>
 
         <h3>
           {ability.name}

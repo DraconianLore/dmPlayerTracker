@@ -23,53 +23,10 @@ export default class EditPlayer extends Component {
       case 'Character Name':
         rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} placeholder='New Name' defaultValue={''} />)
         break;
-      case 'Proficiency':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Strength':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Dexterity':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Constitution':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Inteligence':
-        rend = (<input type='text' className='edit-input' name={field} placeholder={val} onChange={this.changing} defaultValue={this.state.currentValue} />)
-        break;
-      case 'Wisdom':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Charisma':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Level':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Race':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Class':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Background':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Speed':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Armour Class':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Save DC':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
-      case 'Hit Die':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
-        break;
       default:
-    }
+        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} defaultValue={val} />)
+        break;
+      }
     this.setState({
       renderOptions: rend
     })

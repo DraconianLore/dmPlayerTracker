@@ -75,6 +75,13 @@ export default class PlayerInfo extends Component {
               <strong>{this.props.playerInfo.hitDie}</strong>
             </span>
           </button>
+          <button onClick={this.props.editStats} id='Max HP' className='playerInfoBoxWide'>
+            <span className='info-header'>Max HP</span>
+            <br />
+            <span className='stat'>
+              <strong className='info-string'>{this.props.playerInfo.maxHP}</strong>
+            </span>
+          </button>
           <div className='playerInfoBoxWide'>
             <span className='info-header'>Passive Perception</span>
             <br />

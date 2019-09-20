@@ -15,7 +15,7 @@ export default class Spells extends Component {
       spell = JSON.parse(spell)
       return (
         // eslint-disable-next-line
-        <a href='' title={spell.description} key={spell.id}>
+        <a href='#' title={spell.description} key={spell.id}>
 
         <h3>
           {spell.name}

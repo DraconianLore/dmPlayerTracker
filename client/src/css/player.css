@@ -114,7 +114,9 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .editProfBox {
@@ -123,9 +125,8 @@
   border-style: groove;
   border-color: darkred;
   background-color: #550000;
-  padding: 2vh;
+  padding: 1em 1em 0.5em 1em;
   width: 30vw;
-  height: 13em;
   z-index: 5;
 }
 .prof-have {
@@ -219,6 +220,7 @@
   width: 60%;
   align-self: center;
   padding: 5px;
+  margin-bottom: 10px;
   font-weight: 700;
 }
 

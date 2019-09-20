@@ -11,13 +11,9 @@ export default class BaseStats extends Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.playerInfo.proficiencies) {
-      let proficiencies = newProps.playerInfo.proficiencies.reduce((obj, item) => {
-        obj[item.id] = item.val
-        return obj
-      }, {})
       this.setState({
         playerInfo: newProps.playerInfo,
-        proficiencies: proficiencies
+        proficiencies: newProps.playerInfo.proficiencies
       })
 
     } else {

@@ -21,7 +21,7 @@ class Player extends Component {
             <p className="lineBreaks">
               {this.props.info.classname || "NO CLASS"} {'\n'}
               {this.props.info.race || "NO RACE"} {'\n'}
-              Max HP : {this.props.info.maxHp || "0"} {'\n'}
+              Max HP : {this.props.info.maxHP || "0"} {'\n'}
               {this.props.info.saveDc && `Save DC : ${this.props.info.saveDc} ${'\n'}`}
               Perception : {this.props.info.pPerception || "10"} {'\n'}
               AC : {this.props.info.ac || "10"}

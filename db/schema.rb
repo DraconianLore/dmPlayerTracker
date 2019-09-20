@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_191750) do
+ActiveRecord::Schema.define(version: 2019_09_20_080341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2019_09_11_191750) do
     t.string "classname", default: "Class"
     t.string "race", default: "Race"
     t.string "hitDie", default: "d6"
-    t.text "proficiencies", default: [], array: true
     t.text "spells", default: [], array: true
     t.text "abilities", default: [], array: true
     t.string "background", default: "Background"
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_09_11_191750) do
     t.text "items", default: [], array: true
     t.integer "proficiency", default: 2
     t.string "portrait", default: "https://picsum.photos/300"
+    t.text "proficiencies"
   end
 
   create_table "users", force: :cascade do |t|

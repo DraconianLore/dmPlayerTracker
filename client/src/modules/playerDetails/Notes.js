@@ -17,7 +17,7 @@ export default class Notes extends Component {
       note = JSON.parse(note)
       return (
         // eslint-disable-next-line
-        <a href='' title={note.description} key={note.id}>
+        <a href='#' title={note.description} key={note.id}>
         <h3>
           {note.name}
         </h3>
@@ -32,7 +32,7 @@ export default class Notes extends Component {
       item = JSON.parse(item)
       return (
         // eslint-disable-next-line
-        <a href='' title={item.description} key={index}>
+        <a href='#' title={item.description} key={index}>
         <h3>
           {item.name}
         </h3>
@@ -55,8 +55,8 @@ export default class Notes extends Component {
         <button className='addItem' onClick={this.addItem}>
           Add Item
         </button>
-        <hr className='pdSectionBreak' />
         <h3>Notes</h3>
+        <hr className='pdSectionBreak' />
         {this.props.playerInfo.notes && <span className='abilityList'>
         {this.fetchNotes()}
         </span>}

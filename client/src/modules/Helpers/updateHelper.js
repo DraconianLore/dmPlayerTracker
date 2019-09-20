@@ -42,13 +42,13 @@ export default function updateHelper(current, newChanges, player) {
     case 'Profile Picture':
       newField = 'portrait'
       break;
-    case 'Maximum Hitpoints':
+    case 'Max HP':
       newField = 'maxHP'
       break;
     default:
       newField = newChanges.field.toLowerCase()
   };
-
+  console.log(newField)
   switch (newField) {
     case 'AC':
     case 'level':

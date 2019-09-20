@@ -66,8 +66,15 @@ class PlayerList extends Component {
       }
     })
       .then((response) => {
+        let incomingPlayers = []
+        response.data.players.forEach(player => {
+          if(player.proficiencies) {
+            player.proficiencies = JSON.parse(player.proficiencies)
+          }
+          incomingPlayers.push(player)
+        });
         this.setState({
-          players: response.data.players,
+          players: incomingPlayers,
           currentGameName: response.data.gameName
         })
       })
@@ -96,7 +103,7 @@ class PlayerList extends Component {
     let randNo = (Math.floor(Math.random() * 100)) + 1
     let randIMG = `/images/original_(${randNo}).png`
     let newPlayers = this.state.players
-    let player = { playerName: 'Player Name', charName: 'Character Name', game_id: this.state.currentGame, classname: 'Class', race: 'Race', hitDie: 'd6', proficiencies: [], spells: [], abilities: [], background: 'Background', notes: [], baseSTR: 10, baseDEX: 10, baseCON: 10, baseINT: 10, baseWIS: 10, baseCHA: 10, AC: 10, saveDC: 0, maxHp: 0, speed: 25, level: 1, items: [], proficiency: 2 };
+    let player = { playerName: 'Player Name', charName: 'Character Name', game_id: this.state.currentGame, classname: 'Class', race: 'Race', hitDie: 'd6', proficiencies: null, spells: [], abilities: [], background: 'Background', notes: [], baseSTR: 10, baseDEX: 10, baseCON: 10, baseINT: 10, baseWIS: 10, baseCHA: 10, AC: 10, saveDC: 0, maxHP: 0, speed: 25, level: 1, items: [], proficiency: 2 };
     player.portrait = randIMG
 
     axios({
@@ -195,17 +202,17 @@ class PlayerList extends Component {
           currentGame: response.data.newGame,
           infoModal: false,
           showMenu: true,
-          currentGameName: newName
+          currentGameName: newName,
+          players: []
         })
       })
       .catch(function (e) {
         console.log(e)
       })
+
   }
 
   updatePlayer = (newPlayerInfo) => {
-    // TODO save new player data to database
-    console.log('Player Info to save:', newPlayerInfo)
    
     axios({
       method: 'put',
@@ -219,7 +226,6 @@ class PlayerList extends Component {
       }
     })
       .then((response) => {
-       console.log(response.data)
        this.loadPlayers(this.state.currentGame)
       })
       .catch(function (e) {
@@ -249,8 +255,6 @@ class PlayerList extends Component {
       .catch(function (e) {
         console.log(e)
       })
-    this.setState({
-    })
   }
 
   deleteGame = () => {

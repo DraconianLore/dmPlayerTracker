@@ -9,7 +9,6 @@ import AddSomething from './playerDetails/AddSomething';
 import EditProfs from './playerDetails/EditProfs';
 import updateHelper from './Helpers/updateHelper';
 import itemHelper from './Helpers/itemHelper';
-import profHelper from './Helpers/profHelper';
 
 class PlayerDetails extends Component {
   constructor(props) {
@@ -91,7 +90,8 @@ class PlayerDetails extends Component {
         addProfs: false
       })
     } else if(changes.changeType === 'editProfs') { 
-      const updatedPlayer = profHelper(changes, this.state.player)
+      let updatedPlayer = this.state.player
+      updatedPlayer.proficiencies = changes.newValue
       this.setState({
         editField: false,
         editCurrent: false,
@@ -129,10 +129,8 @@ class PlayerDetails extends Component {
   }
   saveAndClose = async () => {
     let player = this.state.player
-    let profs = []
-    profs.push(JSON.stringify(player.proficiencies))
+    let profs = JSON.stringify(player.proficiencies)
     player.proficiencies = profs
-
     await this.props.savePlayer(player)
     this.setState({
       savePrompt: false,
