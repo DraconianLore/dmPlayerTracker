@@ -41,4 +41,11 @@ Once complete you will be able to
 
 ## a quick preview:
 
-![DM Player Tracker September 2019](/client/public/images/dmplayertracker.gif)
+![DM Player Tracker alpha](/client/public/images/dmplayertracker.gif)
+
+
+## Future goals
+
+* find and hook up to an API for selecting and viewing spells and abilities
+* compartmentalise each game to have sections for PC's, NPC's, and a section for maps and notes in seperate views
+* add more keyboard shortcuts(currently only ESC to go back or close current)
