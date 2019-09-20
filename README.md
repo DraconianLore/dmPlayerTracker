@@ -37,4 +37,8 @@ Once complete you will be able to
   * navigate to [http://localhost:3000](http://localhost:3000) in your browser
   * become an expert DM - add your players and important NPCs and keep track of them easily
 
+--------------------------------------
+
+## a quick preview:
+
 ![DM Player Tracker September 2019](/client/public/images/dmplayertracker.gif)
