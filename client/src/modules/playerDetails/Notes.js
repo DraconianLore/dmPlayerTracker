@@ -13,11 +13,11 @@ export default class Notes extends Component {
   }
   fetchNotes = () => {
 
-    let notes = this.props.playerInfo.notes.map((note) => {
+    let notes = this.props.playerInfo.notes.map((note, index) => {
       note = JSON.parse(note)
       return (
         // eslint-disable-next-line
-        <a href='#' title={note.description} key={note.id}>
+        <a href='#' title={note.description} key={index}>
         <h3>
           {note.name}
         </h3>

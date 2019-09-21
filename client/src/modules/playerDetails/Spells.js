@@ -11,11 +11,11 @@ export default class Spells extends Component {
   }
   fetchSpells = () => {
 
-    let spells = this.props.playerInfo.spells.map((spell) => {
+    let spells = this.props.playerInfo.spells.map((spell, index) => {
       spell = JSON.parse(spell)
       return (
         // eslint-disable-next-line
-        <a href='#' title={spell.description} key={spell.id}>
+        <a href='#' title={spell.description} key={index}>
 
         <h3>
           {spell.name}

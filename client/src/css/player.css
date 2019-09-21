@@ -373,3 +373,16 @@ button span {
   border-color: khaki;
   color: lightgreen;
 }
+
+.search-spells {
+  margin-left: 0.5em;
+  background-color: peru;
+  border-color: darkgoldenrod;
+  padding: 3px;
+  border-radius: 2px;
+  font-weight: 700;
+  color: black;
+}
+.search-spells:hover {
+
+}
