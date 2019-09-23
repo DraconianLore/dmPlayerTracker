@@ -5,8 +5,7 @@ export default class PlayerInfo extends Component {
   calculatePerception = () => {
     let perception = 10 + Math.floor((this.props.playerInfo.baseWIS - 10) / 2)
     if (this.props.playerInfo.proficiencies) {
-      if (this.props.playerInfo.proficiencies['perception']) {
-
+      if (this.props.playerInfo.proficiencies.wisPer) {
         perception += this.props.playerInfo.proficiency
       }
     }
