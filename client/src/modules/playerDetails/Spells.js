@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 
 export default class Spells extends Component {
+  
+  // TODO show modal with spell details - change style of adding spells to allow all fields(range, components etc.)
 
   addSpell = (event) => {
     event.preventDefault();

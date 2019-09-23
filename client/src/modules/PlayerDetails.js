@@ -50,7 +50,6 @@ class PlayerDetails extends Component {
       this.cancelButton()
     } else {
       if (this.state.somethingChanged) {
-        // TODO check and fix
         this.setState({ savePrompt: true })
       } else {
         this.closeWwithoutSaving();
@@ -76,7 +75,6 @@ class PlayerDetails extends Component {
 
   }
   savePlayer = (changes) => {
-    // TODO save changes
     if (changes.changeType === 'addItem') {
       const updatedPlayer = itemHelper(changes, this.state.player)
       this.setState({

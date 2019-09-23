@@ -24,7 +24,8 @@ export default class BaseStats extends Component {
 
     }
   }
-
+  // TODO add (+) and (-) buttons instead of having a modal to change number stats
+  // TODO add expertise option to proficiencies
 
   render() {
     

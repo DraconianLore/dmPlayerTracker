@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 export default class PlayerInfo extends Component {
 
+  // TODO add (+) and (-) to level, add abilities as player gains levels
+
   calculatePerception = () => {
     let perception = 10 + Math.floor((this.props.playerInfo.baseWIS - 10) / 2)
     if (this.props.playerInfo.proficiencies) {
