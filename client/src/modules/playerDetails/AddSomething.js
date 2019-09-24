@@ -22,19 +22,21 @@ export default class AddSomething extends Component {
           this.setState({
             description: `No spell found matching ${query} found in the SRD \nIf the spell is not in the Players Handbook, you will have to add the description manually. \nIf the spell should be in the Players Handbook, check your spelling`
           })
-        }
-        let newItem = results[0]
-        // check if there is an exact match, if none found use first result
-        for (const spell in results) {
-          if (results[spell].name.toLowerCase() === query.toLocaleLowerCase()) {
-            newItem = results[spell]
-            break;
+        } else {
+
+          let newItem = results[0]
+          // check if there is an exact match, if none found use first result
+          for (const spell in results) {
+            if (results[spell].name.toLowerCase() === query.toLocaleLowerCase()) {
+              newItem = results[spell]
+              break;
+            }
           }
+          this.setState({
+            title: newItem.name,
+            description: `${newItem.level} - ${newItem.school}\nCasting Time: ${newItem.casting_time}\nRange: ${newItem.range}\nComponents: ${newItem.components}\nConcentration: ${newItem.concentration} \n\n${newItem.desc} \n\n${newItem.higher_level}`
+          })
         }
-        this.setState({
-          title: newItem.name,
-          description: `${newItem.level} - ${newItem.school}\nCasting Time: ${newItem.casting_time}\nRange: ${newItem.range}\nComponents: ${newItem.components}\nConcentration: ${newItem.concentration} \n\n${newItem.desc} \n\n${newItem.higher_level}`
-        })
       })
       .catch(function (e) {
         console.log(e)
