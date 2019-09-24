@@ -1,10 +1,34 @@
 .stat {
   font-size: 2em;
 }
-
+.statButton {
+  background-color: burlywood;
+  border-color: bisque;
+  font-weight: 700;
+  visibility: hidden;
+}
+.statDown {
+  float: left;
+  margin-left: 1em;
+  padding: 0.1em 0.5em 0.1em 1em;
+  border-radius: 30px 0 0 20px;
+}
+.statDown:hover, .statUp:hover {
+  background-color: peru;
+  border-color: burlywood;
+}
+.statUp {
+  float: right;
+  margin-right: 1em;
+  padding: 0.1em 1em 0.1em 0.5em; 
+  border-radius: 0 30px 20px 0;
+}
 .playerDetails {
   display: flex;
   height: 90%;
+}
+.baseStat-inner:hover .statButton {
+  visibility: visible;
 }
 
 .playerHeader {
@@ -27,7 +51,10 @@
   font-weight: 300;
   text-align: left;
 }
-
+.baseStat {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.7em;
+}
 .statHr {
   border-color: darkred;
 }
@@ -129,9 +156,7 @@
   width: 30vw;
   z-index: 5;
 }
-.profList {
-  /* color: #550000; */
-}
+
 .prof-have {
   color: bisque
 }
@@ -247,6 +272,12 @@
 
 .playerStat-inner:hover {
   color: peru;
+}
+.baseStat-inner {
+  background-color: #550000;
+  border-style: none;
+  color: bisque;
+  width: 100%;
 }
 
 .player-proficiencies {

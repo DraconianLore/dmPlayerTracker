@@ -74,6 +74,7 @@ class PlayerDetails extends Component {
     })
 
   }
+
   savePlayer = (changes) => {
     if (changes.changeType === 'addItem') {
       const updatedPlayer = itemHelper(changes, this.state.player)
@@ -87,9 +88,20 @@ class PlayerDetails extends Component {
         addSomething: false,
         addProfs: false
       })
-    } else if(changes.changeType === 'editProfs') { 
+    } else if (changes.changeType === 'editProfs') {
       let updatedPlayer = this.state.player
       updatedPlayer.proficiencies = changes.newValue
+      this.setState({
+        editField: false,
+        editCurrent: false,
+        somethingChanged: true,
+        player: updatedPlayer,
+        addSomething: false,
+        addProfs: false
+      })
+    } else if (changes.changeType === 'baseStat') {
+      let updatedPlayer = this.state.player
+      updatedPlayer[changes.stat] += changes.newValue
       this.setState({
         editField: false,
         editCurrent: false,
@@ -201,7 +213,7 @@ class PlayerDetails extends Component {
         </div>}
         {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} currentValue={this.state.editCurrent} />}
         {this.state.addSomething && <AddSomething cancelButton={this.cancelButton} savePlayer={this.savePlayer} item={this.state.addThis} />}
-        {this.state.addProfs && <EditProfs cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing}  proficiencies={this.state.player.proficiencies} />}
+        {this.state.addProfs && <EditProfs cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} proficiencies={this.state.player.proficiencies} />}
         <section className='modal-main'>
           <div className='playerInfo'>
             <div className='playerHeader'>
@@ -216,7 +228,7 @@ class PlayerDetails extends Component {
               <h3 className='playerName' onClick={this.editPlayer}><em id='Player Name' >{this.state.player.playerName}</em></h3>
             </div>
             <div className='playerDetails'>
-              <BaseStats editProfs={this.editProficiencies} editStats={this.editPlayer} playerInfo={this.state.player} />
+              <BaseStats editProfs={this.editProficiencies} editStats={this.editPlayer} playerInfo={this.state.player} changeBaseStats={this.savePlayer} />
               <Abilities addItem={this.addItem} playerInfo={this.state.player} />
               <PlayerInfo editStats={this.editPlayer} playerInfo={this.state.player} />
               <Spells addItem={this.addItem} playerInfo={this.state.player} />
