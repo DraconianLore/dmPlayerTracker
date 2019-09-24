@@ -101,7 +101,7 @@ export default class BaseStats extends Component {
                 <span className='proficiencies'>Acrobatics {this.state.proficiencies.dexAcr >= 1 && '✔'}{this.state.proficiencies.dexAcr === 2 && '✔'} <br /></span>
                 : null}
               {this.state.proficiencies.dexSli ?
-                <span className='proficiencies'>Slight of Hand {this.state.proficiencies.dexSli >= 1 && '✔'}{this.state.proficiencies.dexSli === 2 && '✔'} <br /></span>
+                <span className='proficiencies'>Sleight of Hand {this.state.proficiencies.dexSli >= 1 && '✔'}{this.state.proficiencies.dexSli === 2 && '✔'} <br /></span>
                 : null}
               {this.state.proficiencies.dexSte ?
                 <span className='proficiencies'>Stealth {this.state.proficiencies.dexSte >= 1 && '✔'}{this.state.proficiencies.dexSte === 2 && '✔'}</span>

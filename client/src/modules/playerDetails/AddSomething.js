@@ -23,7 +23,6 @@ export default class AddSomething extends Component {
             description: `No spell found matching ${query} found in the SRD \nIf the spell is not in the Players Handbook, you will have to add the description manually. \nIf the spell should be in the Players Handbook, check your spelling`
           })
         } else {
-
           let newItem = results[0]
           // check if there is an exact match, if none found use first result
           for (const spell in results) {

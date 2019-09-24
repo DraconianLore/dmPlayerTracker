@@ -54,8 +54,8 @@ export default class EditProfs extends Component {
               <span className='proficiencies prof-have' id='dexAcr' onClick={this.toggleProf}>{this.state.proficiencies.dexAcr >= 1 && '✔'}{this.state.proficiencies.dexAcr === 2 && '✔'} Acrobatics <br /></span>
               : <span className='proficiencies prof-need' id='dexAcr' onClick={this.toggleProf}>  Acrobatics <br /></span>}
             {this.state.proficiencies.dexSli ?
-              <span className='proficiencies prof-have' id='dexSli' onClick={this.toggleProf}>{this.state.proficiencies.dexSli >= 1 && '✔'}{this.state.proficiencies.dexSli === 2 && '✔'} Light of Hand <br /></span>
-              : <span className='proficiencies prof-need' id='dexSli' onClick={this.toggleProf}>  Light of Hand <br /></span>}
+              <span className='proficiencies prof-have' id='dexSli' onClick={this.toggleProf}>{this.state.proficiencies.dexSli >= 1 && '✔'}{this.state.proficiencies.dexSli === 2 && '✔'} Sleight of Hand <br /></span>
+              : <span className='proficiencies prof-need' id='dexSli' onClick={this.toggleProf}>  Sleight of Hand <br /></span>}
             {this.state.proficiencies.dexSte ?
               <span className='proficiencies prof-have' id='dexSte' onClick={this.toggleProf}>{this.state.proficiencies.dexSte >= 1 && '✔'}{this.state.proficiencies.dexSte === 2 && '✔'} Stealth</span>
               : <span className='proficiencies prof-need' id='dexSte' onClick={this.toggleProf}>  Stealth</span>}
