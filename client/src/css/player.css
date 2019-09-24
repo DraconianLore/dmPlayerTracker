@@ -129,6 +129,9 @@
   width: 30vw;
   z-index: 5;
 }
+.profList {
+  /* color: #550000; */
+}
 .prof-have {
   color: bisque
 }
@@ -167,8 +170,6 @@
   font-size: 1.75em;
   color: burlywood;
 }
-
-/* Button styles */
 
 .cancel-btn {
   font-size: 1em;
