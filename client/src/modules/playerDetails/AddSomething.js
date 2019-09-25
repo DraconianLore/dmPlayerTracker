@@ -42,6 +42,38 @@ export default class AddSomething extends Component {
       })
 
   }
+  searchAbilities = () => {
+    let query = this.state.title
+    axios({
+      method: 'get',
+      url: `http://localhost:3001/api/feats?search=${query}`,
+      headers: {
+        Authorization: this.props.jwt
+      }
+    })
+      .then((response) => {
+        const result = response.data.result
+        if (!result[0]) {
+          this.setState({
+            description: `No ability found matching ${query} found in the SRD \nIf the ability is not in the Players Handbook, you will have to add the description manually. \nIf the ability should be in the Players Handbook, check your spelling`
+          })
+        } else {
+          let newItem = result[0]
+          this.setState({
+            title: newItem.name,
+            description: newItem.description
+          })
+        }
+      })
+      .catch(function (e) {
+        console.log(e)
+      })
+
+
+  }
+
+
+
   editTitle = (evt) => {
     this.setState({
       title: evt.target.value
@@ -74,6 +106,10 @@ export default class AddSomething extends Component {
             {this.props.item === 'Spell' &&
               <button className='search-spells' onClick={this.searchSpells}>Search</button>
             }
+            {this.props.item === 'Ability' &&
+              <button className='search-spells' onClick={this.searchAbilities}>Search</button>
+            }
+
             <br />
             <p className='addItemP'>{this.props.item} Description </p>
             <textarea className='addText' style={{ width: '80%' }} rows={8} name='name' placeholder={this.props.item + ' description'} onChange={this.editDescription} value={this.state.description} />

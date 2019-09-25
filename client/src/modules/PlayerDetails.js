@@ -74,7 +74,7 @@ class PlayerDetails extends Component {
     })
 
   }
-
+  
   savePlayer = (changes) => {
     if (changes.changeType === 'addItem') {
       const updatedPlayer = itemHelper(changes, this.state.player)
@@ -124,6 +124,7 @@ class PlayerDetails extends Component {
         addProfs: false
       })
     }
+
   }
 
   cancelButton = () => {
@@ -212,7 +213,7 @@ class PlayerDetails extends Component {
           </div>
         </div>}
         {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} currentValue={this.state.editCurrent} />}
-        {this.state.addSomething && <AddSomething cancelButton={this.cancelButton} savePlayer={this.savePlayer} item={this.state.addThis} />}
+        {this.state.addSomething && <AddSomething cancelButton={this.cancelButton} savePlayer={this.savePlayer} item={this.state.addThis} jwt={this.props.jwt} />}
         {this.state.addProfs && <EditProfs cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} proficiencies={this.state.player.proficiencies} />}
         <section className='modal-main'>
           <div className='playerInfo'>

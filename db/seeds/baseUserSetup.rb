@@ -6,8 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each do |seed|
-  load seed
-end
+user = User.new
+user.username = 'seedUser'
+user.email = 'seed@user.seed'
+user.password_digest = 'blah'
+user.save!
 
-puts '### ALL SEEDING COMPLETE ###'
+game = Game.new
+game.name = 'Test game'
+game.user = User.first
+game.save!
+
+player = Player.new
+player.playerName = 'testPlayer'
+player.charName = 'testChar'
+player.game = Game.first
+player.save!
+
+puts '### BASIC SEEDING COMPLETE ###'

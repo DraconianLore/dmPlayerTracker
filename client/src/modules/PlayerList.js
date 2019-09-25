@@ -331,7 +331,7 @@ class PlayerList extends Component {
           {playerList}
           <AddPlayer newPlayer={this.newPlayer} />
         </ul>
-        <PlayerDetails deletePlayer={this.deletePlayer} show={this.state.showPlayer} playerInfo={this.state.playerDetails} closeInfo={this.closePlayerInfo} savePlayer={this.updatePlayer} />
+        <PlayerDetails deletePlayer={this.deletePlayer} show={this.state.showPlayer} playerInfo={this.state.playerDetails} closeInfo={this.closePlayerInfo} savePlayer={this.updatePlayer} jwt={this.props.JWT} />
         {this.state.showMenu && <Footer newGame={this.newGame} deleteGame={this.deleteGame} games={this.state.games} user={this.props.user} currentGame={this.state.currentGame} changeGame={this.changeGame} />}
         {this.state.infoModal}
       </div>

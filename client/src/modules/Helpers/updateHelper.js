@@ -3,24 +3,6 @@ export default function updateHelper(current, newChanges, player) {
   let newValue = newChanges.newValue
 
   switch (newChanges.field) {
-    case 'Strength':
-      newField = 'baseSTR'
-      break;
-    case 'Dexterity':
-      newField = 'baseDEX'
-      break;
-    case 'Constitution':
-      newField = 'baseCON'
-      break;
-    case 'Inteligence':
-      newField = 'baseINT'
-      break;
-    case 'Wisdom':
-      newField = 'baseWIS'
-      break;
-    case 'Charisma':
-      newField = 'baseCHA'
-      break;
     case 'Character Name':
       newField = 'charName'
       break;
@@ -48,19 +30,12 @@ export default function updateHelper(current, newChanges, player) {
     default:
       newField = newChanges.field.toLowerCase()
   };
-  console.log(newField)
   switch (newField) {
     case 'AC':
     case 'level':
     case 'speed':
     case 'saveDC':
     case 'proficiency':
-    case 'baseSTR':
-    case 'baseDEX':
-    case 'baseCON':
-    case 'baseINT':
-    case 'baseWIS':
-    case 'baseCHA':
     case 'maxHP':
       newValue = parseInt(newValue)
       break;
