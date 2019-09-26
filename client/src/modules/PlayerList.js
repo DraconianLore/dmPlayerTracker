@@ -60,7 +60,7 @@ class PlayerList extends Component {
           }
           incomingPlayers.push(player)
         });
-        // FIXME Ordering not working when changing something, only on refreshing...
+        // FIXME Ordering not working when changing something, only on refreshing ???
         // order players by their ID 
         incomingPlayers.sort((a, b) => (a.id > b.id) ? 1 : -1)
         this.setState({
