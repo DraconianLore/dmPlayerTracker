@@ -80,6 +80,8 @@ export default async function raceHelper(newRace, player, JWT) {
     player = itemHelper(setTrait, player)
 
   };
+  // set speed
+  player.speed = race.speed
 
   return player
 }
