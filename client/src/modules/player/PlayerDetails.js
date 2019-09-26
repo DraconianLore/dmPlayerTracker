@@ -9,6 +9,7 @@ import AddSomething from './playerDetails/AddSomething';
 import EditProfs from './playerDetails/EditProfs';
 import updateHelper from './Helpers/updateHelper';
 import itemHelper from './Helpers/itemHelper';
+import raceHelper from './Helpers/raceHelper'
 
 class PlayerDetails extends Component {
   constructor(props) {
@@ -74,8 +75,8 @@ class PlayerDetails extends Component {
     })
 
   }
-  
-  savePlayer = (changes) => {
+  // FIXME - Section needs to be refactored
+  savePlayer = async(changes) => {
     if (changes.changeType === 'addItem') {
       const updatedPlayer = itemHelper(changes, this.state.player)
       this.setState({
@@ -102,6 +103,16 @@ class PlayerDetails extends Component {
     } else if (changes.changeType === 'baseStat') {
       let updatedPlayer = this.state.player
       updatedPlayer[changes.stat] += changes.newValue
+      this.setState({
+        editField: false,
+        editCurrent: false,
+        somethingChanged: true,
+        player: updatedPlayer,
+        addSomething: false,
+        addProfs: false
+      })
+    } else if (changes.changeType === 'changeRace') {
+      const updatedPlayer = await raceHelper(changes, this.state.player, this.props.jwt)
       this.setState({
         editField: false,
         editCurrent: false,

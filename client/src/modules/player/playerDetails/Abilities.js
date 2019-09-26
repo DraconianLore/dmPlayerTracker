@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 export default class Abilities extends Component {
 
-  // TODO Abilities & Feats: get abilities from race and class, add FEAT search
-
   addAbility = (event) => {
     event.preventDefault();
     this.props.addItem('Ability')

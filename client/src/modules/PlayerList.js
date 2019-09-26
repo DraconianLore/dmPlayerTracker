@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Player from "./Player";
-import PlayerDetails from "./PlayerDetails";
+import Player from "./player/Player";
+import PlayerDetails from "./player/PlayerDetails";
 import AddPlayer from "./AddPlayer";
 import TopBar from "./TopBar";
 import Footer from "./Footer";
@@ -60,6 +60,9 @@ class PlayerList extends Component {
           }
           incomingPlayers.push(player)
         });
+        // FIXME Ordering not working when changing something, only on refreshing...
+        // order players by their ID 
+        incomingPlayers.sort((a, b) => (a.id > b.id) ? 1 : -1)
         this.setState({
           players: incomingPlayers,
           currentGameName: response.data.gameName

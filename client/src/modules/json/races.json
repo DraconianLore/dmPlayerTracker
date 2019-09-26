@@ -2,7 +2,7 @@
   {
     "index": 1,
     "name": "Dwarf",
-    "speed": 30,
+    "speed": 25,
     "languages": [
       "Common",
       "Dwarvish"
