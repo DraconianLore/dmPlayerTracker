@@ -9,7 +9,8 @@ import AddSomething from './playerDetails/AddSomething';
 import EditProfs from './playerDetails/EditProfs';
 import updateHelper from './Helpers/updateHelper';
 import itemHelper from './Helpers/itemHelper';
-import raceHelper from './Helpers/raceHelper'
+import raceHelper from './Helpers/raceHelper';
+import levelHelper from './Helpers/levelHelper';
 
 class PlayerDetails extends Component {
   constructor(props) {
@@ -75,6 +76,7 @@ class PlayerDetails extends Component {
     })
 
   }
+  
   // FIXME - Section needs to be refactored
   savePlayer = async(changes) => {
     if (changes.changeType === 'addItem') {
@@ -113,6 +115,16 @@ class PlayerDetails extends Component {
       })
     } else if (changes.changeType === 'changeRace') {
       const updatedPlayer = await raceHelper(changes, this.state.player, this.props.jwt)
+      this.setState({
+        editField: false,
+        editCurrent: false,
+        somethingChanged: true,
+        player: updatedPlayer,
+        addSomething: false,
+        addProfs: false
+      })
+    } else if (changes.changeType === 'level') {
+      let updatedPlayer = levelHelper(this.state.player, changes.newValue)
       this.setState({
         editField: false,
         editCurrent: false,
@@ -242,7 +254,7 @@ class PlayerDetails extends Component {
             <div className='playerDetails'>
               <BaseStats editProfs={this.editProficiencies} editStats={this.editPlayer} playerInfo={this.state.player} changeBaseStats={this.savePlayer} />
               <Abilities addItem={this.addItem} playerInfo={this.state.player} />
-              <PlayerInfo editStats={this.editPlayer} playerInfo={this.state.player} />
+              <PlayerInfo changeLevel={this.savePlayer} editStats={this.editPlayer} playerInfo={this.state.player} />
               <Spells addItem={this.addItem} playerInfo={this.state.player} />
               <Notes addItem={this.addItem} playerInfo={this.state.player} />
             </div>

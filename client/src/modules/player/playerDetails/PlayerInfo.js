@@ -3,7 +3,22 @@ import React, { Component } from 'react';
 export default class PlayerInfo extends Component {
 
   // TODO Level Up: add (+) and (-) to level, add abilities as player gains levels
-
+  levelUp = (e) => {
+    e.preventDefault()
+    let changes = {
+      changeType: 'level',
+      newValue: 1
+    }
+    this.props.changeLevel(changes)
+  }
+  levelDown = (e) => {
+    e.preventDefault()
+    let changes = {
+      changeType: 'level',
+      newValue: -1
+    }
+    this.props.changeLevel(changes)
+  }
   calculatePerception = () => {
     let perception = 10 + Math.floor((this.props.playerInfo.baseWIS - 10) / 2)
     if (this.props.playerInfo.proficiencies) {
@@ -20,13 +35,26 @@ export default class PlayerInfo extends Component {
         <h1>Player Info</h1>
         <hr />
         <div className='playerInfoContainer'>
+
+        <div className='playerInfoBoxWide'>
+          <div className='baseStat-inner'>
+            <span className='info-header'>Level</span>
+            <div className='stat'>
+              <button className='statButton statDown' name='level' onClick={this.levelDown}>-</button>
+              <strong>{this.props.playerInfo.level}</strong>
+              <button className='statButton statUp' name='level' onClick={this.levelUp}>+</button>
+            </div>
+          </div>
+          </div>
+{/* 
           <button onClick={this.props.editStats} id='Level' className='playerInfoBoxWide'>
             <span className='info-header'>Level</span>
             <br />
             <span className='stat'>
               <strong>{this.props.playerInfo.level}</strong>
             </span>
-          </button>
+          </button> */}
+
           <button onClick={this.props.editStats} id='Race' className='playerInfoBoxWide'>
             <span className='info-header'>Race</span>
             <br />

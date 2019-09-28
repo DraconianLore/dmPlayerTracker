@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 export default class Spells extends Component {
   
-  // TODO Spell Display: show modal with spell details - change style of adding spells to allow all fields(range, components etc.)
+  // TODO Spell Display: show modal with spell details - need to change style of adding spells to allow all fields(range, components etc.)
 
   addSpell = (event) => {
     event.preventDefault();

@@ -241,6 +241,7 @@ class PlayerList extends Component {
         infoModal: false,
         showMenu: true
       })
+      this.loadPlayers(this.state.currentGame)
     })
       .catch(function (e) {
         console.log(e)

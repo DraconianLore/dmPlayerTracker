@@ -1,4 +1,4 @@
-export default function updateHelper(newItem, player) {
+export default function itemHelper(newItem, player) {
   let itemType = ''
   switch (newItem.itemType) {
     case 'Ability':
