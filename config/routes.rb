@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :games
     resources :feats
     resources :races
+    resources :pclasses
   end
   
   post '/register', to: 'api/users#register'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_174824) do
+ActiveRecord::Schema.define(version: 2019_09_30_211056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,33 @@ ActiveRecord::Schema.define(version: 2019_09_26_174824) do
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
+  end
+
+  create_table "pclasses", force: :cascade do |t|
+    t.string "name"
+    t.integer "hit_die"
+    t.text "itemProfs", default: [], array: true
+    t.text "saving_throws", default: [], array: true
+    t.text "level1", default: [], array: true
+    t.text "level2", default: [], array: true
+    t.text "level3", default: [], array: true
+    t.text "level4", default: [], array: true
+    t.text "level5", default: [], array: true
+    t.text "level6", default: [], array: true
+    t.text "level7", default: [], array: true
+    t.text "level8", default: [], array: true
+    t.text "level9", default: [], array: true
+    t.text "level10", default: [], array: true
+    t.text "level11", default: [], array: true
+    t.text "level12", default: [], array: true
+    t.text "level13", default: [], array: true
+    t.text "level14", default: [], array: true
+    t.text "level15", default: [], array: true
+    t.text "level16", default: [], array: true
+    t.text "level17", default: [], array: true
+    t.text "level18", default: [], array: true
+    t.text "level19", default: [], array: true
+    t.text "level20", default: [], array: true
   end
 
   create_table "players", force: :cascade do |t|

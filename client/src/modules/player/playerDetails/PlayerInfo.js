@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 export default class PlayerInfo extends Component {
 
-  // TODO Level Up: add (+) and (-) to level, add abilities as player gains levels
+  // TODO Level Up: add abilities as player gains levels, 
+  // add level up/down warning modal
   levelUp = (e) => {
     e.preventDefault()
     let changes = {
