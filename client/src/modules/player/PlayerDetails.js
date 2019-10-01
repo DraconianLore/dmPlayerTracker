@@ -124,7 +124,7 @@ class PlayerDetails extends Component {
         addProfs: false
       })
     } else if (changes.changeType === 'level') {
-      let updatedPlayer = levelHelper(this.state.player, changes.newValue, this.props.jwt)
+      let updatedPlayer = await levelHelper(this.state.player, changes.newValue, this.props.jwt)
       this.setState({
         editField: false,
         editCurrent: false,

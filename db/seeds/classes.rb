@@ -26,14 +26,15 @@ c.level9 = ['4']
 c.level10 = ['4']
 c.level11 = ['4', 'Relentless Rage']
 c.level12 = ['4']
-c.level13 = ['5', 'Brutal Critical 2']
+c.level13 = ['5', 'Brutal Critical']
 c.level14 = ['5']
 c.level15 = ['5', 'Persistent Rage']
 c.level16 = ['5']
-c.level17 = ['6', 'Brutal Critical 3']
+c.level17 = ['6']
 c.level18 = ['6', 'Indomitable Might']
 c.level19 = ['6']
 c.level20 = ['6', 'Primal Champion']
+c.save!
 
 c = Pclass.new
 c.name = 'Bard'
@@ -52,7 +53,7 @@ c.saving_throws = %w[
 ]
 c.level1 = ['2', 'Bardic Inspiration']
 c.level2 = ['2', 'Jack of All Trades', 'Song of Rest']
-c.level3 = ['2', 'sBard College']
+c.level3 = ['2', 'Bard College']
 c.level4 = ['2']
 c.level5 = ['3', 'Font of Inspiration']
 c.level6 = ["3", "Countercharm"]

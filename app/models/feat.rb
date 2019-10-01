@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 class Feat < ApplicationRecord
-  validates :name, uniqueness: true
+  validates :search, uniqueness: true
 
 end
