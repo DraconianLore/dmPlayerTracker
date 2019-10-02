@@ -44,7 +44,7 @@ export default class Notes extends Component {
   }
   showNoteDetails = (event) => {
     const note = {
-      type: 'Note',
+      itemType: 'Note',
       name: event.target.innerText,
       description: event.target.parentNode.title
     }
@@ -52,7 +52,7 @@ export default class Notes extends Component {
   }
   showItemDetails = (event) => {
     const item = {
-      type: 'Item',
+      itemType: 'Item',
       name: event.target.innerText,
       description: event.target.parentNode.title
     }

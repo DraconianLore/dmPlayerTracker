@@ -24,7 +24,7 @@ export default class Abilities extends Component {
   }
   showAbilityDetails = (event) => {
     const ability = {
-      type: 'Ability',
+      itemType: 'Ability',
       name: event.target.innerText,
       description: event.target.parentNode.title
     }

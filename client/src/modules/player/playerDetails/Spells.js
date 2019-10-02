@@ -28,7 +28,7 @@ export default class Spells extends Component {
   }
   showSpellDetails = (event) => {
     const spell = {
-      type: 'Spell',
+      itemType: 'Spell',
       name: event.target.innerText,
       description: event.target.parentNode.title
     }

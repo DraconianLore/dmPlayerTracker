@@ -426,10 +426,11 @@ button span {
   border-color: peru;
   background-color: chocolate;
   color: navajowhite;
-  padding: 2vh;
+  padding: 1vh 2vh 3vh 2vh;
   width: 40vw;
   height: 40vh;
   z-index: 3;
+  overflow: scroll;
 }
 .im-top {
   position: absolute;
@@ -469,4 +470,18 @@ button span {
 }
 .itemHr {
   border-color: peru;
+  margin: 1vh 8vw 0 8vw;
+}
+.itemHeader {
+  font-size: 200%;
+  font-family: 'Blinker', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  padding: 0;
+}
+.itemDescription {
+  padding: 1em 10% 1em 10%;
+  text-align: left;
+  white-space: pre-wrap;
 }
