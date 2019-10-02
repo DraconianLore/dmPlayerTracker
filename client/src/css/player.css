@@ -1,3 +1,4 @@
+/* TODO tidy and split into smaller css files */
 .stat {
   font-size: 2em;
 }
@@ -415,6 +416,57 @@ button span {
   font-weight: 700;
   color: black;
 }
-.search-spells:hover {
 
+.itemModal {
+  position: absolute;
+  top: 15vh;
+  left: 30vw;
+  border-radius: 1px;
+  border-style: inset;
+  border-color: peru;
+  background-color: chocolate;
+  color: navajowhite;
+  padding: 2vh;
+  width: 40vw;
+  height: 40vh;
+  z-index: 3;
+}
+.im-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15vh;
+  width: 100vw;
+  z-index: 5;
+  opacity: 0;
+}
+.im-right {
+  position: absolute;
+  top: 15vh;
+  right: 0;
+  height: 45vh;
+  z-index: 5;
+  opacity: 0;
+  width: 27.5vw;
+}
+.im-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  height: 40vh;
+  opacity: 0;
+  width: 100%;
+}
+.im-left {
+  position: absolute;
+  top: 15vh;
+  left: 0;
+  height: 45vh;
+  width: 30vw;
+  z-index: 5;
+  opacity: 0;
+}
+.itemHr {
+  border-color: peru;
 }

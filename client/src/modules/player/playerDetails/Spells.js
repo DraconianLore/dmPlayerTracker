@@ -12,13 +12,12 @@ export default class Spells extends Component {
 
   }
   fetchSpells = () => {
-
+    // TODO tidy this up and add fields for casting time etc, perhaps add URL for existing spells instead of full details
     let spells = this.props.playerInfo.spells.map((spell, index) => {
       spell = JSON.parse(spell)
       return (
         // eslint-disable-next-line
-        <a href='#' title={spell.description} key={index}>
-
+        <a href='#' title={spell.description} key={index} onClick={this.showSpellDetails} >
         <h3>
           {spell.name}
         </h3>
@@ -26,6 +25,14 @@ export default class Spells extends Component {
       )
     })
     return spells
+  }
+  showSpellDetails = (event) => {
+    const spell = {
+      type: 'Spell',
+      name: event.target.innerText,
+      description: event.target.parentNode.title
+    }
+    this.props.showItem(spell)
   }
   render() {
     

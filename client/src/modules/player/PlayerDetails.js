@@ -11,6 +11,9 @@ import updateHelper from './Helpers/updateHelper';
 import itemHelper from './Helpers/itemHelper';
 import raceHelper from './Helpers/raceHelper';
 import levelHelper from './Helpers/levelHelper';
+import DeletePrompt from './playerDetails/modals/DeletePrompt';
+import SavePrompt from './playerDetails/modals/SavePrompt';
+import ShowItemDetails from './playerDetails/modals/ShowItemDetails.js';
 
 class PlayerDetails extends Component {
   constructor(props) {
@@ -24,7 +27,9 @@ class PlayerDetails extends Component {
       editField: false,
       addSomething: false,
       addThis: '',
-      addProfs: false
+      addProfs: false,
+      currentItem: '',
+      showItem: false
     }
   }
   addItem = (type) => {
@@ -77,6 +82,7 @@ class PlayerDetails extends Component {
 
   }
   
+
   // FIXME - Section needs to be refactored
   savePlayer = async(changes) => {
     if (changes.changeType === 'addItem') {
@@ -202,11 +208,24 @@ class PlayerDetails extends Component {
       deletePrompt: true
     })
   }
+  
   yesDeletePlayer = () => {
     this.setState({ deletePrompt: false })
     this.props.deletePlayer(this.state.player.id)
   }
 
+  showItem = (item) => {
+    this.setState({
+      currentItem: item,
+      showItem: true
+    })
+  }
+  closeItemDetails = () => {
+    this.setState({
+      showItem: false,
+      currentItem: ''
+    })
+  }
   componentDidMount() {
     document.addEventListener("keydown", this.escPressed, false);
   }
@@ -218,26 +237,12 @@ class PlayerDetails extends Component {
     let showHideClassName = this.props.show ? 'infoModal display-block' : 'infoModal display-none';
     return (
       <div className={showHideClassName}>
-        {this.state.deletePrompt && <div className='savePrompt'>
-          <div className='promptBox' >
-            <h1>Delete {this.state.player.charName}</h1>
-            <button style={{ marginRight: '5px', backgroundColor: 'black' }} className='accept-btn' onClick={this.yesDeletePlayer}>
-              DELETE
-              </button>
-            <button className='cancel-btn' onClick={this.cancelButton}>Cancel</button>
-          </div>
-
-        </div>}
-        {this.state.savePrompt && <div className='savePrompt'>
-          <div className='promptBox'>
-            <h1>Save your changes?</h1>
-            <button className='cancel-btn' onClick={this.closeWwithoutSaving}>Discard</button>
-            <button className='accept-btn' onClick={this.saveAndClose}>Save changes</button>
-          </div>
-        </div>}
+        {this.state.deletePrompt && <DeletePrompt yesDeletePlayer={this.yesDeletePlayer} cancelButton={this.cancelButton} />}
+        {this.state.savePrompt && <SavePrompt saveAndClose={this.saveAndClose} closeWwithoutSaving={this.closeWwithoutSaving} />}
         {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} currentValue={this.state.editCurrent} />}
         {this.state.addSomething && <AddSomething cancelButton={this.cancelButton} savePlayer={this.savePlayer} item={this.state.addThis} jwt={this.props.jwt} />}
         {this.state.addProfs && <EditProfs cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} proficiencies={this.state.player.proficiencies} />}
+        {this.state.showItem && <ShowItemDetails closeItemDetails={this.closeItemDetails} item={this.state.currentItem} />}
         <section className='modal-main'>
           <div className='playerInfo'>
             <div className='playerHeader'>
@@ -253,10 +258,10 @@ class PlayerDetails extends Component {
             </div>
             <div className='playerDetails'>
               <BaseStats editProfs={this.editProficiencies} editStats={this.editPlayer} playerInfo={this.state.player} changeBaseStats={this.savePlayer} />
-              <Abilities addItem={this.addItem} playerInfo={this.state.player} />
+              <Abilities showItem={this.showItem} addItem={this.addItem} playerInfo={this.state.player} />
               <PlayerInfo changeLevel={this.savePlayer} editStats={this.editPlayer} playerInfo={this.state.player} />
-              <Spells addItem={this.addItem} playerInfo={this.state.player} />
-              <Notes addItem={this.addItem} playerInfo={this.state.player} />
+              <Spells showItem={this.showItem} addItem={this.addItem} playerInfo={this.state.player} />
+              <Notes showItem={this.showItem} addItem={this.addItem} playerInfo={this.state.player} />
             </div>
           </div>
           <div className='closeModal cm-top' onClick={this.exiting} />

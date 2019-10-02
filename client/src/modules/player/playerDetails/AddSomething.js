@@ -80,7 +80,6 @@ export default class AddSomething extends Component {
     })
   }
   editDescription = (evt) => {
-    console.log('changing', evt)
     this.setState({
       description: evt.target.value
     })

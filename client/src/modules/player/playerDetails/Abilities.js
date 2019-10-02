@@ -13,7 +13,7 @@ export default class Abilities extends Component {
 
       return (
         // eslint-disable-next-line
-        <a href='#' title={ability.description} key={index}>
+        <a href='#' title={ability.description} key={index} onClick={this.showAbilityDetails} >
         <h3>
           {ability.name}
         </h3>
@@ -21,6 +21,14 @@ export default class Abilities extends Component {
       )
     })
     return abilities
+  }
+  showAbilityDetails = (event) => {
+    const ability = {
+      type: 'Ability',
+      name: event.target.innerText,
+      description: event.target.parentNode.title
+    }
+    this.props.showItem(ability)
   }
   render() {
     

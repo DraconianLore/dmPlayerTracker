@@ -22,7 +22,7 @@ export default class LoginRegister extends Component {
     })
       .then((response) => {
         Cookies.set('token  ', response.data.access_token, { expires: 1 });
-        Cookies.set('username', response.data.username, {expires: 1});
+        Cookies.set('username', response.data.username, { expires: 1 });
         this.props.login(response.data.access_token, response.data.username)
       })
   }
@@ -39,7 +39,7 @@ export default class LoginRegister extends Component {
     })
       .then((response) => {
         Cookies.set('token', response.data.access_token, { expires: 1 });
-        Cookies.set('username', response.data.username, {expires: 1});
+        Cookies.set('username', response.data.username, { expires: 1 });
         this.props.login(response.data.access_token, response.data.username)
       })
   }
@@ -56,7 +56,7 @@ export default class LoginRegister extends Component {
     return (
       <div>
         {this.state.new_user || <div>
-        <h1 className="login-signup-title">Welcome Back</h1>
+          <h1 className="login-signup-title">Welcome Back</h1>
           <div className="login-row">
             <div className="login-signup">
               <div className="login-signup-selected-btn">
@@ -82,7 +82,7 @@ export default class LoginRegister extends Component {
           </div>
         </div>}
         {this.state.new_user && <div>
-        <h1 className="login-signup-title">Welcome!</h1>
+          <h1 className="login-signup-title">Welcome!</h1>
           <div className="register-row">
             <div className="login-signup">
               <div className="login-signup-unselected-btn" onClick={this.loginSignup}>
@@ -98,7 +98,7 @@ export default class LoginRegister extends Component {
             </div>
             <div className="form-p">
               <form onSubmit={this.signup}>
-                <input type="hidden" value="disable-autofill"/>
+                <input type="hidden" value="disable-autofill" />
                 <label className="form-label">Username</label>
                 <input className="login-text" type="username" autoComplete="user" placeholder="Username" name="Username" required />
                 <label className="form-label">Email</label>

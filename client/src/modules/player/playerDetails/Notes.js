@@ -18,7 +18,7 @@ export default class Notes extends Component {
       note = JSON.parse(note)
       return (
         // eslint-disable-next-line
-        <a href='#' title={note.description} key={index}>
+        <a href='#' title={note.description} key={index} onClick={this.showNoteDetails} >
         <h3>
           {note.name}
         </h3>
@@ -33,7 +33,7 @@ export default class Notes extends Component {
       item = JSON.parse(item)
       return (
         // eslint-disable-next-line
-        <a href='#' title={item.description} key={index}>
+        <a href='#' title={item.description} key={index} onClick={this.showItemDetails} >
         <h3>
           {item.name}
         </h3>
@@ -42,7 +42,22 @@ export default class Notes extends Component {
     })
     return items
   }
-
+  showNoteDetails = (event) => {
+    const note = {
+      type: 'Note',
+      name: event.target.innerText,
+      description: event.target.parentNode.title
+    }
+    this.props.showItem(note)
+  }
+  showItemDetails = (event) => {
+    const item = {
+      type: 'Item',
+      name: event.target.innerText,
+      description: event.target.parentNode.title
+    }
+    this.props.showItem(item)
+  }
   render() {
 
     return (
