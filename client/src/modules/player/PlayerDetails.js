@@ -129,6 +129,21 @@ class PlayerDetails extends Component {
         addSomething: false,
         addProfs: false
       })
+    } else if (changes.changeType === 'changeClass') {
+      let updatedPlayer = await levelHelper(this.state.player, 0, this.props.jwt)
+      const updater = updateHelper(this.state.changedDetails, changes, this.state.player)
+      const updatedDetails = updater.details
+      updatedPlayer = updater.player
+      this.setState({
+        editField: false,
+        editing: '',
+        editCurrent: false,
+        somethingChanged: true,
+        changedDetails: updatedDetails,
+        player: updatedPlayer,
+        addSomething: false,
+        addProfs: false
+      })
     } else if (changes.changeType === 'level') {
       let updatedPlayer = await levelHelper(this.state.player, changes.newValue, this.props.jwt)
       this.setState({
@@ -150,6 +165,7 @@ class PlayerDetails extends Component {
         somethingChanged: true,
         changedDetails: updatedDetails,
         player: updatedPlayer,
+        addSomething: false,
         addProfs: false
       })
     }
@@ -237,7 +253,7 @@ class PlayerDetails extends Component {
     let showHideClassName = this.props.show ? 'infoModal display-block' : 'infoModal display-none';
     return (
       <div className={showHideClassName}>
-        {this.state.deletePrompt && <DeletePrompt yesDeletePlayer={this.yesDeletePlayer} cancelButton={this.cancelButton} />}
+        {this.state.deletePrompt && <DeletePrompt yesDeletePlayer={this.yesDeletePlayer} cancelButton={this.cancelButton} player={this.state.player} />}
         {this.state.savePrompt && <SavePrompt saveAndClose={this.saveAndClose} closeWwithoutSaving={this.closeWwithoutSaving} />}
         {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} currentValue={this.state.editCurrent} />}
         {this.state.addSomething && <AddSomething cancelButton={this.cancelButton} savePlayer={this.savePlayer} item={this.state.addThis} jwt={this.props.jwt} />}

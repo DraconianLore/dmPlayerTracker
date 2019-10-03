@@ -91,7 +91,7 @@ export default async function levelHelper(player, change, JWT) {
       })
   }
   // Dont add new abilities on down levelling
-  if (change + 0 > 0) {
+  if (change + 0 >= 0) {
     await loadRaceStats();
   }
 

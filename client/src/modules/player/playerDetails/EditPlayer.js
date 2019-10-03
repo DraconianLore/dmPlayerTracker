@@ -24,7 +24,7 @@ export default class EditPlayer extends Component {
         rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} placeholder='New Name' defaultValue={''} />)
         break;
       case 'Race':
-        // TODO Expended races - add to races as well as race seeds
+        // TODO Expanded races - add to races as well as race seeds
         rend = (
           <>
           <input list="races" name="race" className='edit-input' onChange={this.changing} placeholder={'Race'} defaultValue={''} />
@@ -38,6 +38,28 @@ export default class EditPlayer extends Component {
             <option value="Half-Elf" />
             <option value="Half-Orc" />
             <option value="Tiefling" />
+          </datalist>
+          </>
+        )
+        break;
+        case 'Class':
+        // TODO Expanded classes - add to classes as well as class seeds
+        rend = (
+          <>
+          <input list="classes" name="class" className='edit-input' onChange={this.changing} placeholder={'Class'} defaultValue={''} />
+          <datalist id="classes">
+            <option value="Barbarian" />
+            <option value="Bard" />
+            <option value="Cleric" />
+            <option value="Druid" />
+            <option value="Fighter" />
+            <option value="Monk" />
+            <option value="Paladin" />
+            <option value="Ranger" />
+            <option value="Rogue" />
+            <option value="Sorcerer" />
+            <option value="Warlock" />
+            <option value="Wizard" />
           </datalist>
           </>
         )
@@ -67,6 +89,9 @@ export default class EditPlayer extends Component {
     let changes = { field: this.props.field, newValue: this.state.currentValue }
     if (changes.field === 'Race') {
       changes.changeType = 'changeRace'
+    }
+    if (changes.field === 'Class') {
+      changes.changeType = 'changeClass'
     }
     this.props.savePlayer(changes)
   }

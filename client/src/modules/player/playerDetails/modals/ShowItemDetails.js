@@ -27,7 +27,6 @@ export default class ShowItemDetails extends Component {
         currentItem.itemType = itemType
       }
     });
-    console.log(currentItem)
     return currentItem
   }
 
