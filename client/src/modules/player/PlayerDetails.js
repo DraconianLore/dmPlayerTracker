@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import modules for player
 import BaseStats from './playerDetails/BaseStats';
 import Abilities from './playerDetails/Abilities';
 import PlayerInfo from './playerDetails/PlayerInfo';
@@ -82,8 +81,6 @@ class PlayerDetails extends Component {
     })
 
   }
-  
-
   // FIXME - Section needs to be refactored or put into a helper
   savePlayer = async(changes) => {
     if (changes.changeType === 'addItem') {
@@ -131,10 +128,9 @@ class PlayerDetails extends Component {
         addProfs: false
       })
     } else if (changes.changeType === 'changeClass') {
-      let updatedPlayer = await levelHelper(this.state.player, 0, this.props.jwt)
-      const updater = updateHelper(this.state.changedDetails, changes, this.state.player)
+      const updater = await updateHelper(this.state.changedDetails, changes, this.state.player)
       const updatedDetails = updater.details
-      updatedPlayer = updater.player
+      let updatedPlayer = await levelHelper(updater.player, 0, this.props.jwt)
       this.setState({
         editField: false,
         editing: '',

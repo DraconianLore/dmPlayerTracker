@@ -20,7 +20,6 @@ class Api::PlayersController < ApplicationController
     @player = Player.find(params[:id])
     
     @player = PlayerHelper.test(@player, params[:player])
-    puts @player.inspect
     if @player.save!
       render :json => {
         message: 'Player Updated'

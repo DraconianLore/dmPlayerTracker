@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 export default class Notes extends Component {
-  // TODO tidy modal - show item/note details and have option of deleting/editing
-
-
   addNote = (event) => {
     event.preventDefault();
     this.props.addItem('Note')

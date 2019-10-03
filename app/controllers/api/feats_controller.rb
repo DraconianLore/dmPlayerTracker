@@ -4,7 +4,6 @@ class Api::FeatsController < ApplicationController
     query = params['search']
     query = query.downcase.gsub(/[^a-z]/, '')
     feat = Feat.where(search: query)
-    puts feat
     render :json => {
       result: feat
     }

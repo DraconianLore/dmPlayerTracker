@@ -9,7 +9,6 @@ export default async function levelHelper(player, change, JWT) {
   }
   player.level += change
   const newLevel = `level${player.level}`
-
   // default proficiency bonus for custom classes
   let charClass = {
     level1: ['2'],
@@ -42,21 +41,21 @@ export default async function levelHelper(player, change, JWT) {
         Authorization: JWT
       }
     })
-      .then((response) => {
-        const result = response.data.result
-        if (result.length > 0) {
-          newAbility = {
-            name: result[0].name,
-            description: result[0].description
-          }
+    .then((response) => {
+      const result = response.data.result
+      if (result.length > 0) {
+        newAbility = {
+          name: result[0].name,
+          description: result[0].description
         }
-      })
-      .catch(function (e) {
-        console.log(e)
-      })
+      }
+    })
+    .catch(function (e) {
+      console.log(e)
+    })
     return newAbility
   }
-
+  
   const loadRaceStats = async () => {
     await axios({
       method: 'get',
@@ -91,6 +90,8 @@ export default async function levelHelper(player, change, JWT) {
         console.log(e)
       })
   }
+
+
   // Dont add new abilities on down levelling
   if (change + 0 >= 0) {
     await loadRaceStats();

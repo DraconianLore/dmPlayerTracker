@@ -11,67 +11,6 @@ export default class EditPlayer extends Component {
     }
   }
 
-  updateOptions = (field, val) => {
-    let rend = ''
-    switch (field) {
-      case 'Profile Picture':
-        rend = (<input type='text' className='edit-input' name={field} placeholder='Image URL' onChange={this.changing} />)
-        break;
-      case 'Player Name':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} placeholder='New Name' defaultValue={''} />)
-        break;
-      case 'Character Name':
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} placeholder='New Name' defaultValue={''} />)
-        break;
-      case 'Race':
-        // TODO Expanded races - add to races as well as race seeds
-        rend = (
-          <>
-          <input list="races" name="race" className='edit-input' onChange={this.changing} placeholder={'Race'} defaultValue={''} />
-          <datalist id="races">
-            <option value="Dwarf" />
-            <option value="Elf" />
-            <option value="Halfling" />
-            <option value="Human" />
-            <option value="Dragonborn" />
-            <option value="Gnome" />
-            <option value="Half-Elf" />
-            <option value="Half-Orc" />
-            <option value="Tiefling" />
-          </datalist>
-          </>
-        )
-        break;
-        case 'Class':
-        // TODO Expanded classes - add to classes as well as class seeds
-        rend = (
-          <>
-          <input list="classes" name="class" className='edit-input' onChange={this.changing} placeholder={'Class'} defaultValue={''} />
-          <datalist id="classes">
-            <option value="Barbarian" />
-            <option value="Bard" />
-            <option value="Cleric" />
-            <option value="Druid" />
-            <option value="Fighter" />
-            <option value="Monk" />
-            <option value="Paladin" />
-            <option value="Ranger" />
-            <option value="Rogue" />
-            <option value="Sorcerer" />
-            <option value="Warlock" />
-            <option value="Wizard" />
-          </datalist>
-          </>
-        )
-        break;
-      default:
-        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} placeholder={val} defaultValue={''} />)
-        break;
-    }
-    this.setState({
-      renderOptions: rend
-    })
-  }
   changing = (evt) => {
     this.setState({
       currentValue: evt.target.value
@@ -94,6 +33,67 @@ export default class EditPlayer extends Component {
       changes.changeType = 'changeClass'
     }
     this.props.savePlayer(changes)
+  }
+  updateOptions = (field, val) => {
+    let rend = ''
+    switch (field) {
+      case 'Profile Picture':
+        rend = (<input type='text' className='edit-input' name={field} placeholder='Image URL' onChange={this.changing} />)
+        break;
+      case 'Player Name':
+        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} placeholder='New Name' defaultValue={''} />)
+        break;
+      case 'Character Name':
+        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} placeholder='New Name' defaultValue={''} />)
+        break;
+      case 'Race':
+        // TODO Expanded races - add to races as well as race seeds
+        rend = (
+          <>
+            <input list="races" name="race" className='edit-input' onChange={this.changing} placeholder={'Race'} defaultValue={''} />
+            <datalist id="races">
+              <option value="Dwarf" />
+              <option value="Elf" />
+              <option value="Halfling" />
+              <option value="Human" />
+              <option value="Dragonborn" />
+              <option value="Gnome" />
+              <option value="Half-Elf" />
+              <option value="Half-Orc" />
+              <option value="Tiefling" />
+            </datalist>
+          </>
+        )
+        break;
+      case 'Class':
+        // TODO Expanded classes - add to classes as well as class seeds
+        rend = (
+          <>
+            <input list="classes" name="class" className='edit-input' onChange={this.changing} placeholder={'Class'} defaultValue={''} />
+            <datalist id="classes">
+              <option value="Barbarian" />
+              <option value="Bard" />
+              <option value="Cleric" />
+              <option value="Druid" />
+              <option value="Fighter" />
+              <option value="Monk" />
+              <option value="Paladin" />
+              <option value="Ranger" />
+              <option value="Rogue" />
+              <option value="Sorcerer" />
+              <option value="Warlock" />
+              <option value="Wizard" />
+            </datalist>
+          </>
+        )
+        break;
+      default:
+        rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} placeholder={val} defaultValue={''} />)
+        break;
+    }
+    this.setState({
+      renderOptions: rend
+    })
   }
   render() {
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 export default class Abilities extends Component {
-  // TODO tidy modal - show ability details and have option of deleting
   addAbility = (event) => {
     event.preventDefault();
     this.props.addItem('Ability')

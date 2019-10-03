@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class PlayerInfo extends Component {
 
-  // TODO Level Up: add level up/down warning modal (DOUBLE SURE FOR LEVEL DOWN!!!)
+  // TODO Level Up: add level up/down warning modal (DOUBLE SURE FOR LEVEL DOWN as they will need to delete any abilities manually)
   levelUp = (e) => {
     e.preventDefault()
     let changes = {
@@ -46,15 +46,6 @@ export default class PlayerInfo extends Component {
             </div>
           </div>
           </div>
-{/* 
-          <button onClick={this.props.editStats} id='Level' className='playerInfoBoxWide'>
-            <span className='info-header'>Level</span>
-            <br />
-            <span className='stat'>
-              <strong>{this.props.playerInfo.level}</strong>
-            </span>
-          </button> */}
-
           <button onClick={this.props.editStats} id='Race' className='playerInfoBoxWide'>
             <span className='info-header'>Race</span>
             <br />
