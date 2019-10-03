@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import modules for player
 import BaseStats from './playerDetails/BaseStats';
 import Abilities from './playerDetails/Abilities';
 import PlayerInfo from './playerDetails/PlayerInfo';
@@ -53,7 +54,7 @@ class PlayerDetails extends Component {
   }
 
   exiting = () => {
-    if (this.state.editField || this.state.addSomething || this.state.deletePrompt || this.state.addProfs) {
+    if (this.state.editField || this.state.showItem || this.state.addSomething || this.state.deletePrompt || this.state.addProfs) {
       this.cancelButton()
     } else {
       if (this.state.somethingChanged) {
@@ -83,7 +84,7 @@ class PlayerDetails extends Component {
   }
   
 
-  // FIXME - Section needs to be refactored
+  // FIXME - Section needs to be refactored or put into a helper
   savePlayer = async(changes) => {
     if (changes.changeType === 'addItem') {
       const updatedPlayer = itemHelper(changes, this.state.player)
@@ -180,7 +181,8 @@ class PlayerDetails extends Component {
       addSomething: false,
       addThis: '',
       deletePrompt: false,
-      addProfs: false
+      addProfs: false,
+      showItem: false
     })
   }
   saveAndClose = async () => {
@@ -213,9 +215,7 @@ class PlayerDetails extends Component {
   // catch when user presses 'ESC'
   escPressed = (event) => {
     if (event.keyCode === 27) {
-
       this.exiting();
-
     }
   }
 
@@ -280,6 +280,7 @@ class PlayerDetails extends Component {
               <Notes showItem={this.showItem} addItem={this.addItem} playerInfo={this.state.player} />
             </div>
           </div>
+          
           <div className='closeModal cm-top' onClick={this.exiting} />
           <div className='closeModal cm-right' onClick={this.exiting} />
           <div className='closeModal cm-bottom' onClick={this.exiting} />

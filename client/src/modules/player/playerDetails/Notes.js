@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default class Notes extends Component {
-  // TODO add modal - show item/note details and have option of deleting/editing
+  // TODO tidy modal - show item/note details and have option of deleting/editing
 
 
   addNote = (event) => {

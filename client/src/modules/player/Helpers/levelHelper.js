@@ -10,6 +10,7 @@ export default async function levelHelper(player, change, JWT) {
   player.level += change
   const newLevel = `level${player.level}`
 
+  // default proficiency bonus for custom classes
   let charClass = {
     level1: ['2'],
     level2: ['2'],
