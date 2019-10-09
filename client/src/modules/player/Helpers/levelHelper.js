@@ -1,7 +1,7 @@
 import axios from 'axios';
 import itemHelper from './itemHelper';
 
-
+const baseURL = "https://dmplayertracker.herokuapp.com/"
 export default async function levelHelper(player, change, JWT) {
   // Make sure they dont go over level 20 or under level 1
   if ((player.level + change) > 20 || (player.level + change) < 1) {
@@ -36,7 +36,7 @@ export default async function levelHelper(player, change, JWT) {
     let newAbility = {}
     await axios({
       method: 'get',
-      url: `http://localhost:3001/api/feats?search=${ability}`,
+      url: `${baseURL}api/feats?search=${ability}`,
       headers: {
         Authorization: JWT
       }
@@ -59,7 +59,7 @@ export default async function levelHelper(player, change, JWT) {
   const loadRaceStats = async () => {
     await axios({
       method: 'get',
-      url: `http://localhost:3001/api/pclasses?search=${player.classname}`,
+      url: `${baseURL}api/pclasses?search=${player.classname}`,
       headers: {
         Authorization: JWT,
       }

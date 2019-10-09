@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+const baseURL = "https://dmplayertracker.herokuapp.com/"
 
 export default class AddSomething extends Component {
   constructor(props) {
@@ -46,7 +47,7 @@ export default class AddSomething extends Component {
     let query = this.state.title
     axios({
       method: 'get',
-      url: `http://localhost:3001/api/feats?search=${query}`,
+      url: `${baseURL}api/feats?search=${query}`,
       headers: {
         Authorization: this.props.jwt
       }

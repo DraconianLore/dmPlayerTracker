@@ -1,5 +1,6 @@
 import itemHelper from './itemHelper';
 import axios from 'axios';
+const baseURL = "https://dmplayertracker.herokuapp.com/"
 
 export default async function raceHelper(newRace, player, JWT) {
   player.race = newRace.newValue
@@ -8,7 +9,7 @@ export default async function raceHelper(newRace, player, JWT) {
     let newAbility = {}
     await axios({
       method: 'get',
-      url: `http://localhost:3001/api/feats?search=${ability}`,
+      url: `${baseURL}api/feats?search=${ability}`,
       headers: {
         Authorization: JWT
       }
@@ -30,7 +31,7 @@ export default async function raceHelper(newRace, player, JWT) {
   const checkRaceStats = async () => {
     await axios({
       method: 'get',
-      url: `http://localhost:3001/api/races?search=${newRace.newValue}`,
+      url: `${baseURL}api/races?search=${newRace.newValue}`,
       headers: {
         Authorization: JWT,
       }
