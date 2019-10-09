@@ -12,7 +12,6 @@ export default class LoginRegister extends Component {
   }
   signup = (event) => {
     event.preventDefault();
-    console.log(baseURL)
     axios({
       method: 'post',
       url: `${baseURL}register`,
