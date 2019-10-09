@@ -5,6 +5,7 @@ import PlayerDetails from "./player/PlayerDetails";
 import AddPlayer from "./AddPlayer";
 import TopBar from "./TopBar";
 import Footer from "./Footer";
+const baseURL = "https://dmplayertracker.herokuapp.com/";
 
 class PlayerList extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class PlayerList extends Component {
   loadGames = () => {
     axios({
       method: 'get',
-      url: 'http://localhost:3001/api/games',
+      url: `${baseURL}api/games`,
       headers: {
         Authorization: this.props.JWT,
         user: this.props.user
@@ -46,7 +47,7 @@ class PlayerList extends Component {
   loadPlayers = (gameID) => {
     axios({
       method: 'get',
-      url: 'http://localhost:3001/api/players',
+      url: `${baseURL}api/players`,
       headers: {
         Authorization: this.props.JWT,
         game: gameID
@@ -97,7 +98,7 @@ class PlayerList extends Component {
 
     axios({
       method: 'post',
-      url: 'http://localhost:3001/api/players',
+      url: `${baseURL}api/players`,
       headers: {
         Authorization: this.props.JWT,
         user: this.props.user
@@ -176,7 +177,7 @@ class PlayerList extends Component {
     const newName = evt.target.gamename.value
     axios({
       method: 'post',
-      url: 'http://localhost:3001/api/games',
+      url: `${baseURL}api/games`,
       headers: {
         Authorization: this.props.JWT,
         user: this.props.user
@@ -205,7 +206,7 @@ class PlayerList extends Component {
 
     axios({
       method: 'put',
-      url: `http://localhost:3001/api/players/${newPlayerInfo.id}`,
+      url: `${baseURL}api/players/${newPlayerInfo.id}`,
       headers: {
         Authorization: this.props.JWT,
         user: this.props.user
@@ -224,7 +225,7 @@ class PlayerList extends Component {
 
   deletePlayer = (player) => {
     axios.delete(
-      `http://localhost:3001/api/players/${player}`,
+      `${baseURL}api/players/${player}`,
       {
         headers: {
           Authorization: this.props.JWT,
@@ -250,7 +251,7 @@ class PlayerList extends Component {
   deleteGame = () => {
     if (this.state.infoModal) {
       axios.delete(
-        `http://localhost:3001/api/games/${this.state.currentGame}`,
+        `${baseURL}api/games/${this.state.currentGame}`,
         {
           headers: {
             Authorization: this.props.JWT,

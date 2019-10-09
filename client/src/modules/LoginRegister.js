@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+const baseURL = "https://dmplayertracker.herokuapp.com/"
 
 export default class LoginRegister extends Component {
   constructor(props) {
@@ -11,9 +12,10 @@ export default class LoginRegister extends Component {
   }
   signup = (event) => {
     event.preventDefault();
+    console.log(baseURL)
     axios({
       method: 'post',
-      url: 'http://localhost:3001/register',
+      url: `${baseURL}register`,
       data: {
         username: event.target.Username.value,
         email: event.target.Email.value,
@@ -30,7 +32,7 @@ export default class LoginRegister extends Component {
     event.preventDefault();
     axios({
       method: 'post',
-      url: 'http://localhost:3001/login',
+      url: `${baseURL}login`,
       data: {
         email: event.target.Email.value,
         password: event.target.Password.value
