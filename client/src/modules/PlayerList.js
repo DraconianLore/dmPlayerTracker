@@ -91,7 +91,7 @@ class PlayerList extends Component {
 
   newPlayer = () => {
     let randNo = (Math.floor(Math.random() * 100)) + 1
-    let randIMG = `/images/original_(${randNo}).png`
+    let randIMG = `./images/original_(${randNo}).png`
     let newPlayers = this.state.players
     let player = { playerName: 'Player Name', charName: 'Character Name', game_id: this.state.currentGame, classname: 'Class', race: 'Race', hitDie: 'd6', proficiencies: null, spells: [], abilities: [], background: 'Background', notes: [], baseSTR: 10, baseDEX: 10, baseCON: 10, baseINT: 10, baseWIS: 10, baseCHA: 10, AC: 10, saveDC: 0, maxHP: 0, speed: 25, level: 1, items: [], proficiency: 2 };
     player.portrait = randIMG

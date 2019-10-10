@@ -87,6 +87,19 @@ export default class LoginRegister extends Component {
               </form>
             </div>
           </div>
+          <br />
+          <h1>
+            Welcome to the dmPlayerTracker
+          </h1>
+          <h1 style={{fontSize: '150%'}}>
+            <em>To try out the app use: </em>
+          </h1>
+          <h1>
+            email: test@test.test
+            </h1>
+            <h1>
+            password: test
+          </h1>
         </div>}
         {this.state.new_user && <div>
           <h1 className="login-signup-title">Welcome!</h1>
