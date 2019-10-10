@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/dmPlayerTracker/precache-manifest.b0c6d4c492cea590015fc015f2777cd5.js"
+  "/dmPlayerTracker/precache-manifest.33e6494650d0b6d83f6f6633b8ebd25b.js"
 );
 
 workbox.clientsClaim();
