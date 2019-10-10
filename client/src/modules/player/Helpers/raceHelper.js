@@ -1,6 +1,6 @@
 import itemHelper from './itemHelper';
 import axios from 'axios';
-const baseURL = "https://dmplayertracker.herokuapp.com/"
+const baseURL = process.env.REACT_APP_BASEURL
 
 export default async function raceHelper(newRace, player, JWT) {
   player.race = newRace.newValue

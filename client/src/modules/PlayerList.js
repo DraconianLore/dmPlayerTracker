@@ -5,7 +5,7 @@ import PlayerDetails from "./player/PlayerDetails";
 import AddPlayer from "./AddPlayer";
 import TopBar from "./TopBar";
 import Footer from "./Footer";
-const baseURL = "https://dmplayertracker.herokuapp.com/";
+const baseURL = process.env.REACT_APP_BASEURL;
 
 class PlayerList extends Component {
   constructor(props) {

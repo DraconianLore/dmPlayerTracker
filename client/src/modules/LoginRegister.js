@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-const baseURL = "https://dmplayertracker.herokuapp.com/"
+const baseURL = process.env.REACT_APP_BASEURL
 
 export default class LoginRegister extends Component {
   constructor(props) {
@@ -18,7 +18,8 @@ export default class LoginRegister extends Component {
       data: {
         username: event.target.Username.value,
         email: event.target.Email.value,
-        password: event.target.Password.value
+        password: event.target.Password.value,
+        verifyNewUser: event.target.Verification.value
       }
     })
       .then((response) => {
@@ -106,6 +107,8 @@ export default class LoginRegister extends Component {
                 <input className="login-text" type="email" placeholder="Email" autoComplete="email" name="Email" required />
                 <label className="form-label">Password</label>
                 <input className="login-text" type="password" placeholder="Password" autoComplete="new-password" name="Password" required />
+                <label className="form-label">Referal Code</label>
+                <input className="login-text" type="text" autoComplete="referal" placeholder="Referal Code" name="Verification" required />
                 <input className="login-submit" type="submit" value="Submit" />
               </form>
             </div>

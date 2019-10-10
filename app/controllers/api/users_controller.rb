@@ -5,11 +5,16 @@ class Api::UsersController < ApplicationController
   skip_before_action :authenticate_request, only: %i[login register]
 
   def register
-    @user = User.create(user_params)
-    if @user.save
-      @game = Game.create(name: "My First Game", user: @user)
-      @game.save!
-      login
+    if params[:verifyNewUser] == ENV["NEWUSER"]
+
+      @user = User.create(user_params)
+      if @user.save
+        @game = Game.create(name: "My First Game", user: @user)
+        @game.save!
+        login
+      else
+        render json: @user.errors, status: :bad
+      end
     else
       render json: @user.errors, status: :bad
     end

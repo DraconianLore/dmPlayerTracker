@@ -1,7 +1,7 @@
 import axios from 'axios';
 import itemHelper from './itemHelper';
 
-const baseURL = "https://dmplayertracker.herokuapp.com/"
+const baseURL = process.env.REACT_APP_BASEURL
 export default async function levelHelper(player, change, JWT) {
   // Make sure they dont go over level 20 or under level 1
   if ((player.level + change) > 20 || (player.level + change) < 1) {

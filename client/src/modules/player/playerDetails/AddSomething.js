@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-const baseURL = "https://dmplayertracker.herokuapp.com/"
+const baseURL = process.env.REACT_APP_BASEURL
 
 export default class AddSomething extends Component {
   constructor(props) {
