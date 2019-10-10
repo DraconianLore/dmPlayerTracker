@@ -13,7 +13,9 @@ class Api::UsersController < ApplicationController
         @game.save!
         login
       else
-        render json: @user.errors, status: :bad
+        render json: {
+          message: 'email already exists'
+        }, status: :bad
       end
     else
       render json: {
