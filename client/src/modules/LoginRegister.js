@@ -100,6 +100,15 @@ export default class LoginRegister extends Component {
             <h1>
             password: test
           </h1>
+          <br />
+          <div className='disclaimer'>
+
+          <p>
+            Please note that the initial login may take some time as the</p>
+            <p> backend is hosted on heroku and my be powered down.</p>
+            <p>If the login fails try again in half a minute
+          </p>
+          </div>
         </div>}
         {this.state.new_user && <div>
           <h1 className="login-signup-title">Welcome!</h1>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 export default class ShowItemDetails extends Component {
   // TODO make it look better, add delete/edit buttons, split spells, abilities, notes and items if needed
+  // maybe restructure database to make new tables for each item type
   
   constructor(props) {
     super(props)

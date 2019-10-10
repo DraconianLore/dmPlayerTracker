@@ -129,3 +129,6 @@ input:-webkit-autofill:active  {
   color: goldenrod;
   font-size: 4em;
 }
+.disclaimer, span {
+  color: gray;
+}
