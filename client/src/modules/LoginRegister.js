@@ -28,9 +28,8 @@ export default class LoginRegister extends Component {
           Cookies.set('token  ', response.data.access_token, { expires: 1 });
           Cookies.set('username', response.data.username, { expires: 1 });
           this.props.login(response.data.access_token, response.data.username)
-        }).catch((response) => {
-
-          console.log('RES\n', response)
+        }).catch((error) => {
+          this.setState({errorMessage: error.response.data.message})
         })
   }
   login = (event) => {
@@ -42,13 +41,13 @@ export default class LoginRegister extends Component {
       data: {
         email: event.target.Email.value,
         password: event.target.Password.value
-
       }
-    })
-      .then((response) => {
+    }).then((response) => {
         Cookies.set('token', response.data.access_token, { expires: 1 });
         Cookies.set('username', response.data.username, { expires: 1 });
         this.props.login(response.data.access_token, response.data.username)
+      }).catch((error) => {
+        this.setState({errorMessage: error.response.data.message})
       })
   }
   loginSignup = () => {
@@ -119,10 +118,10 @@ export default class LoginRegister extends Component {
               </form>
             </div>
             <h1>
-              {this.state.errorMessage && this.state.errorMessage}
             </h1>
           </div>
         </div>}
+              {this.state.errorMessage && this.state.errorMessage}
       </div>
     )
   }

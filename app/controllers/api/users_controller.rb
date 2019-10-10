@@ -40,7 +40,7 @@ class Api::UsersController < ApplicationController
         username: username.username
       }
     else
-      render json: { error: command.errors }, status: :unauthorized
+      render json: { message: "Invalid email/password" }, status: :unauthorized
     end
    end
 
