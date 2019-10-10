@@ -1,4 +1,5 @@
 import React from 'react';
+import addPlayer from '../images/add.jpg';
 
 export default function AddPlayer(props) {
 
@@ -7,7 +8,7 @@ export default function AddPlayer(props) {
       <div className="hexIn">
       {/* eslint-disable-next-line */}
         <a className="hexLink" href="#">
-          <img src='./images/add.jpg' alt="Add player" />
+          <img src={addPlayer} alt="Add player" />
           <h1>Add</h1>
           <p>Player</p>
         </a>
