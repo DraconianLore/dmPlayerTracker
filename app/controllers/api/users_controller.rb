@@ -16,7 +16,9 @@ class Api::UsersController < ApplicationController
         render json: @user.errors, status: :bad
       end
     else
-      render json: @user.errors, status: :bad
+      render json: {
+        message: 'Invalid referal code'
+      }, status: :bad
     end
   end
 
