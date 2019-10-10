@@ -15,12 +15,12 @@ class Api::UsersController < ApplicationController
       else
         render json: {
           message: 'email already exists'
-        }, status: :bad
+        }, status: :bad_request
       end
     else
       render json: {
         message: 'Invalid referal code'
-      }, status: :bad
+      }, status: :bad_request
     end
   end
 

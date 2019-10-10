@@ -7,10 +7,12 @@ export default class LoginRegister extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      new_user: false
+      new_user: false,
+      errorMessage: false
     }
   }
   signup = (event) => {
+    this.setState({errorMessage: false})
     event.preventDefault();
     axios({
       method: 'post',
@@ -23,12 +25,16 @@ export default class LoginRegister extends Component {
       }
     })
       .then((response) => {
-        Cookies.set('token  ', response.data.access_token, { expires: 1 });
-        Cookies.set('username', response.data.username, { expires: 1 });
-        this.props.login(response.data.access_token, response.data.username)
-      })
+          Cookies.set('token  ', response.data.access_token, { expires: 1 });
+          Cookies.set('username', response.data.username, { expires: 1 });
+          this.props.login(response.data.access_token, response.data.username)
+        }).catch((response) => {
+
+          console.log('RES\n', response)
+        })
   }
   login = (event) => {
+    this.setState({errorMessage: false})
     event.preventDefault();
     axios({
       method: 'post',
@@ -112,6 +118,9 @@ export default class LoginRegister extends Component {
                 <input className="login-submit" type="submit" value="Submit" />
               </form>
             </div>
+            <h1>
+              {this.state.errorMessage && this.state.errorMessage}
+            </h1>
           </div>
         </div>}
       </div>
