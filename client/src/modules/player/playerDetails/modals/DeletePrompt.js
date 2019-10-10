@@ -5,7 +5,7 @@ export default function DeletePrompt(props) {
   return (
     <div className='savePrompt'>
       <div className='promptBox' >
-        <h1>Delete {props.player.charName}</h1>
+        <h1 className='sWidth'>Delete {props.player.charName}</h1>
         <button style={{ marginRight: '5px', backgroundColor: 'black' }} className='accept-btn' onClick={props.yesDeletePlayer}>
           DELETE
               </button>
