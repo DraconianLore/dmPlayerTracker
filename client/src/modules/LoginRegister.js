@@ -121,7 +121,7 @@ export default class LoginRegister extends Component {
             </h1>
           </div>
         </div>}
-              {this.state.errorMessage && this.state.errorMessage}
+              {this.state.errorMessage && <h1>{this.state.errorMessage}</h1>}
       </div>
     )
   }
