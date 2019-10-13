@@ -2,7 +2,7 @@ import axios from 'axios';
 const baseURL = process.env.REACT_APP_BASEURL;
 
 
-async function createNewItem(JWT, item, itemType) {
+async function createNewItem(JWT, item, itemType, user) {
   const response = await axios({
     method: 'post',
     url: `${baseURL}api/${itemType}`,

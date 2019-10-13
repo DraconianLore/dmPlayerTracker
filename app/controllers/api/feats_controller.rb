@@ -16,7 +16,7 @@ class Api::FeatsController < ApplicationController
     feat = Feat.create(name: params[:name], description: params[:description], search: search)
     render :json => {
       message: 'Created',
-      newFeat: feat.id
+      newFeat: feat
     }
   end
 
