@@ -10,7 +10,14 @@ class Api::FeatsController < ApplicationController
   end
 
   def create
+    search = params['search']
+    search = search.downcase.gsub(/[^a-z]/, '')
 
+    feat = Feat.create(name: params[:name], description: params[:description], search: search)
+    render :json => {
+      message: 'Created',
+      newFeat: feat.id
+    }
   end
 
 end

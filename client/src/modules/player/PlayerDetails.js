@@ -84,7 +84,7 @@ class PlayerDetails extends Component {
   // FIXME - Section needs to be refactored or put into a helper
   savePlayer = async(changes) => {
     if (changes.changeType === 'addItem') {
-      const updatedPlayer = itemHelper(changes, this.state.player)
+      const updatedPlayer = itemHelper(changes, this.state.player, this.props.jwt)
       this.setState({
         editField: false,
         editing: '',

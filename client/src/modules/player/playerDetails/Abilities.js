@@ -8,7 +8,11 @@ export default class Abilities extends Component {
   fetchAbilities = () => {
 
     let abilities = this.props.playerInfo.abilities.map((ability, index) => {
-      ability = JSON.parse(ability)
+
+      // remove this once restructuring is complete and old users updated
+      if (typeof ability === 'string'){
+        ability = JSON.parse(ability)
+      }
 
       return (
         // eslint-disable-next-line
