@@ -39,7 +39,7 @@ class Api::PlayersController < ApplicationController
   def playeritems
     player = Player.find(params[:player])
     message = ''
-    case params[type]
+    case params[:type]
     when 'Feat'
       feat = Feat.find(params[:item])
       player.playerFeats.create(feat: feat)
