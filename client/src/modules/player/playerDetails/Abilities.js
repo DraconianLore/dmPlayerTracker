@@ -4,6 +4,13 @@ const baseURL = process.env.REACT_APP_BASEURL;
 
 
 export default class Abilities extends Component {
+constructor(props){
+  super(props)
+  this.state = {
+    abilities: ''
+  }
+}
+
   addAbility = (event) => {
     event.preventDefault();
     this.props.addItem('Ability')
@@ -34,7 +41,9 @@ export default class Abilities extends Component {
         </a>
       )
     })
-    return abilities
+    this.setState({
+      abilities
+    }) 
   }
   showAbilityDetails = (event) => {
     const ability = {
@@ -44,15 +53,18 @@ export default class Abilities extends Component {
     }
     this.props.showItem(ability)
   }
+  componentDidMount(){
+    this.fetchAbilities()
+  }
   render() {
     
     return (
       <div className='pdColumn'>
         <h1>Abilities</h1>
         <hr />
-        {this.props.playerInfo.abilities && <span className='abilityList'>
-        {this.fetchAbilities()}
-        </span>}
+        <span className='abilityList'>
+        {this.state.abilities}
+        </span>
         <button className='addItem' onClick={this.addAbility}>
           Add Ability
         </button>
