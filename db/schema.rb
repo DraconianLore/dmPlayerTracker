@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_211056) do
+ActiveRecord::Schema.define(version: 2019_10_13_155626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,24 @@ ActiveRecord::Schema.define(version: 2019_09_30_211056) do
     t.text "level20", default: [], array: true
   end
 
+  create_table "player_feats", force: :cascade do |t|
+    t.bigint "player_id"
+    t.bigint "feat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feat_id"], name: "index_player_feats_on_feat_id"
+    t.index ["player_id"], name: "index_player_feats_on_player_id"
+  end
+
+  create_table "player_spells", force: :cascade do |t|
+    t.bigint "player_id"
+    t.bigint "spell_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_player_spells_on_player_id"
+    t.index ["spell_id"], name: "index_player_spells_on_spell_id"
+  end
+
   create_table "players", force: :cascade do |t|
     t.string "playerName", default: "Player"
     t.string "charName", default: "Character"
@@ -88,6 +106,11 @@ ActiveRecord::Schema.define(version: 2019_09_30_211056) do
     t.text "languages", default: [], array: true
   end
 
+  create_table "spells", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -96,5 +119,9 @@ ActiveRecord::Schema.define(version: 2019_09_30_211056) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "player_feats", "feats"
+  add_foreign_key "player_feats", "players"
+  add_foreign_key "player_spells", "players"
+  add_foreign_key "player_spells", "spells"
   add_foreign_key "players", "games", on_delete: :cascade
 end

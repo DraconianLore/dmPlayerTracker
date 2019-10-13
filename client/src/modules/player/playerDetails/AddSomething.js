@@ -7,7 +7,8 @@ export default class AddSomething extends Component {
     super(props)
     this.state = {
       title: '',
-      description: ''
+      description: '',
+      itemID: 0
     }
   }
   // Search in open5e API for matching spells(SRD only)
@@ -62,7 +63,8 @@ export default class AddSomething extends Component {
           let newItem = result[0]
           this.setState({
             title: newItem.name,
-            description: newItem.description
+            description: newItem.description,
+            itemID: newItem.id
           })
         }
       })

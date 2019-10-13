@@ -6,5 +6,11 @@ class CreatePlayerFeats < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    create_table :player_spells do |t|
+      t.references :player, foreign_key: true
+      t.references :spell, foreign_key: true
+
+      t.timestamps
+    end
   end
 end
