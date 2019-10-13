@@ -7,18 +7,14 @@ export default class Abilities extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      abilities: false
+      loaded: false
     }
   }
   addAbility = (event) => {
     event.preventDefault();
     this.props.addItem('Ability')
   }
-  fetchAbilities = async () => {
 
-    // let abilities = this.props.playerInfo.abilities.map((ability, index) => {
-
-  }
   showAbilityDetails = (event) => {
     const ability = {
       itemType: 'Ability',
@@ -27,49 +23,50 @@ export default class Abilities extends Component {
     }
     this.props.showItem(ability)
   }
-  loadData = (playerID) => {
-    axios({
+  loadData = async (playerID) => {
+    let res = await axios({
       method: 'get',
       url: `${baseURL}api/loadItems?type=Feat`,
       headers: {
         Authorization: this.props.JWT,
         player: playerID
       }
-    }).then((res) => {
-
-      let abilities = res.data.results.map( async(ability, index) => {
-        let loadFeat = await axios({
-          method: 'get',
-          url: `${baseURL}api/feats?searchID=${ability.feat_id}`,
-          headers: {
-            Authorization: this.props.JWT
-          }
-        })
-        ability = loadFeat
-        console.log(ability)
-        return (
-          // eslint-disable-next-line
-          <a href='#' title={ability.description} key={index} onClick={this.showAbilityDetails} >
-            <h3>
-              {ability.name}
-            </h3>
-          </a>
-        )
-
-
+    })
+    let abilities = await res.data.results.map(async (ability, index) => {
+      let loadFeat = await axios({
+        method: 'get',
+        url: `${baseURL}api/feats?searchID=${ability.feat_id}`,
+        headers: {
+          Authorization: this.props.JWT
+        }
       })
-      this.setState({
-        abilities: abilities
-      })
+      ability = loadFeat.data.newFeat
+      console.log(ability)
+      return (
+        // eslint-disable-next-line
+        <a href='#' title={ability.description} key={index} onClick={this.showAbilityDetails} >
+          <h3>
+            {ability.name}
+          </h3>
+        </a>
+      )
+    })
+    console.log(abilities)
+    return abilities
+  }
+
+  showFeats = async (playerID) => {
+   const abilities = await this.loadData(playerID)
+   this.setState({
+     abilities: abilities
    })
   }
-  componentWillReceiveProps(newProps) {
-    this.loadData(newProps.playerInfo.id)
+  componentWillReceiveProps(newProps){
+    this.showFeats(newProps.playerInfo.id)
   }
   componentDidMount() {
-    this.loadData(this.props.playerInfo.id)
+    this.showFeats(this.props.playerInfo.id)
   }
-
   render() {
 
     return (
