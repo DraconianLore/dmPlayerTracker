@@ -14,7 +14,8 @@ async function createNewItem(JWT, item, itemType, user) {
       description: item.description
     }
   })
-  item.itemID = response.data.newFeat
+  console.log(response.data)
+  item.itemID = response.data.newFeat.id
   return item
 }
 

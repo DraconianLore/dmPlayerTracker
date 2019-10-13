@@ -10,7 +10,7 @@ class Api::FeatsController < ApplicationController
   end
 
   def create
-    search = params['search']
+    search = params[:name]
     search = search.downcase.gsub(/[^a-z]/, '')
 
     feat = Feat.create(name: params[:name], description: params[:description], search: search)
