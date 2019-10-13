@@ -36,4 +36,22 @@ class Api::PlayersController < ApplicationController
     }
   end
 
+  def playeritems
+    player = Player.find(params[:player])
+    message = ''
+    case params[type]
+    when 'Feat'
+      feat = Feat.find(params[:item])
+      player.playerFeats.create(feat: feat)
+      message = 'Feat added'
+    when 'Spell'
+      spell = Spell.find(params[:item])
+    else
+      message = 'ERROR'
+    end
+    render :json => {
+      message: message
+    }
+  end
+
 end
