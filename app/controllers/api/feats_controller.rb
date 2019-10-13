@@ -1,12 +1,18 @@
 class Api::FeatsController < ApplicationController
   
   def index
-    query = params['search']
-    query = query.downcase.gsub(/[^a-z]/, '')
-    feat = Feat.where(search: query)
-    render :json => {
-      result: feat
-    }
+    if params[:searchID]
+      render :json => {
+        feat: Feat.find(params[:searchID])
+      }
+    else
+      query = params['search']
+      query = query.downcase.gsub(/[^a-z]/, '')
+      feat = Feat.where(search: query)
+      render :json => {
+        result: feat
+      }
+    end
   end
 
   def create

@@ -30,33 +30,38 @@ export default class Abilities extends Component {
   loadData = (playerID) => {
     axios({
       method: 'get',
-      url: `${baseURL}api/loadItems`,
+      url: `${baseURL}api/loadItems?type=Feat`,
       headers: {
         Authorization: this.props.JWT,
         player: playerID
-      },
-      data: {
-        type: 'Feat'
       }
     }).then((res) => {
-      // let abilities = res.data.results.map((ability, index) => {
-      //   console.log(ability)
-      //   return (
-      //     // eslint-disable-next-line
-      //     <a href='#' title={ability.description} key={index} onClick={this.showAbilityDetails} >
-      //       <h3>
-      //         {ability.name}
-      //       </h3>
-      //     </a>
-      //   )
+
+      let abilities = res.data.results.map( async(ability, index) => {
+        let loadFeat = await axios({
+          method: 'get',
+          url: `${baseURL}api/feats?searchID=${ability.feat_id}`,
+          headers: {
+            Authorization: this.props.JWT
+          }
+        })
+        ability = loadFeat
+        console.log(ability)
+        return (
+          // eslint-disable-next-line
+          <a href='#' title={ability.description} key={index} onClick={this.showAbilityDetails} >
+            <h3>
+              {ability.name}
+            </h3>
+          </a>
+        )
 
 
-      // })
-      // this.setState({
-      //   abilities: abilities
-      // })
-      console.log(res.data)
-    })
+      })
+      this.setState({
+        abilities: abilities
+      })
+   })
   }
   componentWillReceiveProps(newProps) {
     this.loadData(newProps.playerInfo.id)
