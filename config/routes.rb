@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   post '/register', to: 'api/users#register'
   post '/login', to: 'api/users#login'
   post '/api/joinItems', to: 'api/players#playeritems'
+  post '/api/loadItems', to: 'api/players#loaditems'
+
 end

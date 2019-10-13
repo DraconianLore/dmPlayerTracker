@@ -30,7 +30,7 @@ async function createJoin(JWT, itemID, playerID, type) {
     }
   })
   console.log(response.data.message)
-  return true;
+  return;
 }
 
 export default async function itemHelper(newItem, player, JWT) {

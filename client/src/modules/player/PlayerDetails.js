@@ -84,7 +84,7 @@ class PlayerDetails extends Component {
   // FIXME - Section needs to be refactored or put into a helper
   savePlayer = async(changes) => {
     if (changes.changeType === 'addItem') {
-      const updatedPlayer = itemHelper(changes, this.state.player, this.props.jwt)
+      const updatedPlayer = await itemHelper(changes, this.state.player, this.props.jwt)
       this.setState({
         editField: false,
         editing: '',
@@ -270,7 +270,7 @@ class PlayerDetails extends Component {
             </div>
             <div className='playerDetails'>
               <BaseStats editProfs={this.editProficiencies} editStats={this.editPlayer} playerInfo={this.state.player} changeBaseStats={this.savePlayer} />
-              <Abilities showItem={this.showItem} addItem={this.addItem} playerInfo={this.state.player} />
+              <Abilities showItem={this.showItem} addItem={this.addItem} playerInfo={this.state.player} JWT={this.props.jwt} />
               <PlayerInfo changeLevel={this.savePlayer} editStats={this.editPlayer} playerInfo={this.state.player} />
               <Spells showItem={this.showItem} addItem={this.addItem} playerInfo={this.state.player} />
               <Notes showItem={this.showItem} addItem={this.addItem} playerInfo={this.state.player} />
