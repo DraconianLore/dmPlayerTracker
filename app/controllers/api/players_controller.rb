@@ -55,8 +55,7 @@ class Api::PlayersController < ApplicationController
   end
 
   def loaditems
-    
-    player = Player.find(params[:player])
+    player = Player.find(request.headers[:player])
     message = ''
     case params[:type]
     when 'Feat'
