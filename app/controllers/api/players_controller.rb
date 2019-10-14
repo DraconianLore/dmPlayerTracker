@@ -9,6 +9,15 @@ class Api::PlayersController < ApplicationController
     }
   end
 
+  def show
+    player = Player.find(params[:id])
+    feats = player.playerFeats
+    render :json {
+      player: player,
+      feats: feats
+    }
+  end
+
   def create
     player = Player.create(game_id: params[:gameID], portrait: params[:portrait])
     render :json => {

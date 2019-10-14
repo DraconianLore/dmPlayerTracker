@@ -74,11 +74,25 @@ class PlayerList extends Component {
   }
 
   showPlayerInfo(player) {
-    this.setState({
-      showPlayer: true,
-      showMenu: false,
-      playerDetails: player
+    axios({
+      method: 'get',
+      url: `${baseURL}api/players/${player.id}`,
+      headers: {
+        Authorization: this.props.JWT,
+      }
     })
+      .then((response) => {
+       console.log(response)
+        
+          this.setState({
+            showPlayer: true,
+            showMenu: false,
+            playerDetails: player
+        })
+      })
+      .catch(function (e) {
+        console.log(e)
+      })
   }
   closePlayerInfo = () => {
     this.setState({
