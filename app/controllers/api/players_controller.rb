@@ -12,7 +12,7 @@ class Api::PlayersController < ApplicationController
   def show
     player = Player.find(params[:id])
     feats = player.playerFeats
-    render :json {
+    render :json => {
       player: player,
       feats: feats
     }
