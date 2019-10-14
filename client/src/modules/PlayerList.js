@@ -82,8 +82,8 @@ class PlayerList extends Component {
       }
     })
       .then((response) => {
-       console.log(response)
-        
+        player.feats = response.data.feats
+        console.log(player)
           this.setState({
             showPlayer: true,
             showMenu: false,

@@ -6,11 +6,16 @@ export default class Abilities extends Component {
     event.preventDefault();
     this.props.addItem('Ability')
   }
-
-  showFeats = (playerID) => {
-    let abilities = this.props.playerInfo.playerfeats.map(async (ability, index) => {
-  
-      console.log(ability)
+  showAbilityDetails = (event) => {
+    const spell = {
+      itemType: 'Ability',
+      name: event.target.innerText,
+      description: event.target.parentNode.title
+    }
+    this.props.showItem(spell)
+  }
+  showFeats = () => {
+    let abilities = this.props.playerInfo.feats.map((ability, index) => {
       return (
         // eslint-disable-next-line
         <a href='#' title={ability.description} key={index} onClick={this.showAbilityDetails} >
@@ -24,12 +29,11 @@ export default class Abilities extends Component {
   }
 
   render() {
-    console.log(this.props.playerInfo)
     return (
       <div className='pdColumn'>
         <h1>Abilities</h1>
         <hr />
-        {this.props.playerInfo.playerFeats && <span className='abilityList'>
+        {this.props.playerInfo.feats && <span className='abilityList'>
           {this.showFeats()}
         </span>}
         <button className='addItem' onClick={this.addAbility}>

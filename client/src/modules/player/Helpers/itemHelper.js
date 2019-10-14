@@ -42,6 +42,7 @@ export default async function itemHelper(newItem, player, JWT) {
         newItem.change = await createNewItem(JWT, newItem.change, itemType)
       }
       createJoin(JWT, newItem.change.itemID, player.id, 'Feat')
+      player.feats.push(newItem.change)
       break;
     case 'Spell':
       itemType = 'spells'

@@ -63,20 +63,4 @@ class Api::PlayersController < ApplicationController
     }
   end
 
-  def loaditems
-    player = Player.find(request.headers[:player])
-    message = ''
-    case params[:type]
-    when 'Feat'
-      message = player.playerFeats
-    when 'Spell'
-      message = player.playerSpells
-    else
-      message = 'ERROR'
-    end
-    render :json => {
-      results: message
-    }
-  end
-
 end

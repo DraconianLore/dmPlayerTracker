@@ -50,7 +50,7 @@ export default class ShowItemDetails extends Component {
         item = this.loadItems(this.props.item, 'notes')
         break;
       case 'Ability':
-        item = this.loadItems(this.props.item, 'abilities')
+        item = this.loadItems(this.props.item, 'feats')
         break;
       default:
         item = this.props.item
