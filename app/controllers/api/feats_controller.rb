@@ -15,7 +15,7 @@ class Api::FeatsController < ApplicationController
     puts '#####################'
     search = params[:name]
     search = search.downcase.gsub(/[^a-z]/, '')
-    search = `#{search}P#{params[:player]}`
+    search = `#{search}P#{params[:player].to_s}`
     puts search
     if Feat.where(search: search)
       render :json => {
