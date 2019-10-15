@@ -2,7 +2,6 @@ import axios from 'axios';
 const baseURL = process.env.REACT_APP_BASEURL;
 
 async function checkIfItemExists(JWT, item, itemType) {
-  console.log('Checking if exists')
   const res = await axios({
     method: 'get',
     url: `${baseURL}api/${itemType}?search=${item.name}`,
@@ -17,8 +16,6 @@ async function checkIfItemExists(JWT, item, itemType) {
   }
 }
 async function createNewItem(JWT, item, itemType) {
-
-  console.log(item)
   let newItem = await checkIfItemExists(JWT, item, itemType)
   if (newItem) {
     item = newItem
@@ -57,7 +54,6 @@ async function createJoin(JWT, itemID, playerID, type) {
 }
 
 export default async function itemHelper(newItem, player, JWT) {
-  console.log('origin', JWT)
   let itemType = ''
   switch (newItem.itemType) {
     case 'Ability':
