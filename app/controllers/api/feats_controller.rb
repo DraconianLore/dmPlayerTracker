@@ -12,7 +12,7 @@ class Api::FeatsController < ApplicationController
   def create
     search = params[:name]
     search = search.downcase.gsub(/[^a-z]/, '')
-    if feat.where(search: search)
+    if Feat.where(search: search)
       render :json => {
         message: `Player already has a feat named #{params[:name]}`,
         newFeat: false
