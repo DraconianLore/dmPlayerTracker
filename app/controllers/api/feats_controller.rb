@@ -14,7 +14,7 @@ class Api::FeatsController < ApplicationController
     puts '#####################'
     search = params[:name]
     search = search.downcase.gsub(/[^a-z]/, '')
-    search = `#{search}p#{params[:player].to_s}`
+    search = search + 'p' + params[:player].to_s
     if Feat.where(search: search).exists?
       render :json => {
         message: 'Player already has this feat',
