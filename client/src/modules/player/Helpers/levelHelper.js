@@ -82,7 +82,7 @@ export default async function levelHelper(player, change, JWT) {
                 description: newAbility.description
               }
             }
-            player = await itemHelper(setTrait, player)
+            player = await itemHelper(setTrait, player, JWT)
           }
         }
       })

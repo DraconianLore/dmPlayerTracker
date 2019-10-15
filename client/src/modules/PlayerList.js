@@ -83,7 +83,10 @@ class PlayerList extends Component {
     })
       .then((response) => {
         player.feats = response.data.feats
-        console.log(player)
+        // TODO: Once database restructure is complete unhash these (currently breaking changes to existing data)
+        // player.notes = response.data.notes
+        // player.spells = response.data.spells
+        // player.items = response.data.items
           this.setState({
             showPlayer: true,
             showMenu: false,

@@ -67,7 +67,7 @@ export default async function raceHelper(newRace, player, JWT) {
       description: languages
     }
   }
-  player = await itemHelper(setLanguages, player)
+  player = await itemHelper(setLanguages, player, JWT)
   // set traits
   for await (const trait of race.traits) {
     const newAbility = await searchAbilities(trait)
@@ -78,8 +78,7 @@ export default async function raceHelper(newRace, player, JWT) {
         description: newAbility.description
       }
     }
-    player = itemHelper(setTrait, player)
-
+    player = await itemHelper(setTrait, player, JWT)
   };
   // set speed
   player.speed = race.speed

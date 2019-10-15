@@ -12,9 +12,16 @@ class Api::PlayersController < ApplicationController
   def show
     player = Player.find(params[:id])
     feats = player.feats
+    # Once database restructure is complete unhash these (currently breaking changes to current data)
+    # notes = player.notes
+    # spells = player.spells
+    # items = player.items
     render :json => {
       player: player,
-      feats: feats
+      feats: feats,
+      # notes: notes,
+      # spells: spells,
+      # items: items
     }
   end
 
