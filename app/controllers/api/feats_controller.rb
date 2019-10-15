@@ -24,12 +24,12 @@ class Api::FeatsController < ApplicationController
     elsif params[:player]
         search = `#{search}P#{params[:player]}`
         puts `search = #{search}`
+        feat = Feat.create(name: params[:name], description: params[:description], search: search)
+        render :json => {
+          message: 'Created',
+          newFeat: feat
+        }
     end
-    feat = Feat.create(name: params[:name], description: params[:description], search: search)
-    render :json => {
-      message: 'Created',
-      newFeat: feat
-    }
   end
 
 end
