@@ -12,7 +12,10 @@ class Api::FeatsController < ApplicationController
   def create
     search = params[:name]
     search = search.downcase.gsub(/[^a-z]/, '')
-
+    if params[:player]
+      search += player
+      puts search
+    end
     feat = Feat.create(name: params[:name], description: params[:description], search: search)
     render :json => {
       message: 'Created',
