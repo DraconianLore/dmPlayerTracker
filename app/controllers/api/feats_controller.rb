@@ -13,7 +13,7 @@ class Api::FeatsController < ApplicationController
     search = params[:name]
     search = search.downcase.gsub(/[^a-z]/, '')
     if params[:player]
-      search += params[:player]
+      search = `#{search}-P=#{params[:player]}`
       puts `search = #{search}`
     end
     feat = Feat.create(name: params[:name], description: params[:description], search: search)
