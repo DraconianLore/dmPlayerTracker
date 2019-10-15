@@ -1,40 +1,23 @@
 import axios from 'axios';
 const baseURL = process.env.REACT_APP_BASEURL;
 
-async function checkIfItemExists(JWT, item, itemType) {
-  const res = await axios({
-    method: 'get',
-    url: `${baseURL}api/${itemType}?search=${item.name}`,
+
+async function createNewItem(JWT, item, itemType, playerID) {
+  const response = await axios({
+    method: 'post',
+    url: `${baseURL}api/${itemType}`,
     headers: {
       Authorization: JWT
+    },
+    data: {
+      name: item.name,
+      description: item.description,
+      player: playerID
     }
   })
-  if (res.data.result[0]) {
-    return res.data.result[0]
-  } else {
-    return false
-  }
-}
-async function createNewItem(JWT, item, itemType, playerID) {
-  // let newItem = await checkIfItemExists(JWT, item, itemType)
-  // if (newItem) {
-  //   item = newItem
-  //   item.itemID = newItem.id
-  // } else {
-    const response = await axios({
-      method: 'post',
-      url: `${baseURL}api/${itemType}`,
-      headers: {
-        Authorization: JWT
-      },
-      data: {
-        name: item.name,
-        description: item.description,
-        player: playerID
-      }
-    })
+  if (response.data.newFeat) {
     item.itemID = response.data.newFeat.id
-  // }
+  }
   return item
 }
 async function createJoin(JWT, itemID, playerID, type) {
@@ -60,11 +43,14 @@ export default async function itemHelper(newItem, player, JWT) {
     case 'Ability':
       itemType = 'feats'
       newItem.change = await createNewItem(JWT, newItem.change, itemType, player.id)
-      createJoin(JWT, newItem.change.itemID, player.id, 'Feat')
-      if(!player.feats) {
-        player.feats = []
-      } 
-      player.feats.push(newItem.change)
+      if (newItem.change) {
+
+        createJoin(JWT, newItem.change.itemID, player.id, 'Feat')
+        if (!player.feats) {
+          player.feats = []
+        }
+        player.feats.push(newItem.change)
+      }
       break;
     case 'Spell':
       itemType = 'spells'

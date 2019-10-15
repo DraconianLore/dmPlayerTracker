@@ -12,15 +12,22 @@ class Api::FeatsController < ApplicationController
   def create
     search = params[:name]
     search = search.downcase.gsub(/[^a-z]/, '')
-    if params[:player]
-      search = `#{search}-P=#{params[:player]}`
-      puts `search = #{search}`
+    if feat.where(search: search)
+      render :json => {
+        message: `Player already has a feat named #{params[:name]}`
+        newFeat: false
+      }
+    else
+      if params[:player]
+        search = `#{search}-P=#{params[:player]}`
+        puts `search = #{search}`
+      end
+      feat = Feat.create(name: params[:name], description: params[:description], search: search)
+      render :json => {
+        message: 'Created',
+        newFeat: feat
+      }
     end
-    feat = Feat.create(name: params[:name], description: params[:description], search: search)
-    render :json => {
-      message: 'Created',
-      newFeat: feat
-    }
   end
 
 end
