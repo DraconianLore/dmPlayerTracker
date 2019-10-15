@@ -30,7 +30,6 @@ class Api::FeatsController < ApplicationController
       message: 'Created',
       newFeat: feat
     }
-    end
   end
 
 end
