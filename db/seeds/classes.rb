@@ -412,7 +412,7 @@ c.saving_throws = %w[
   WIS
 ]
 c.level1 = ['2', 'Arcane Recovery']
-c.level2 = ['2', 'Arcane Traditioin']
+c.level2 = ['2', 'Arcane Tradition']
 c.level3 = ['2']
 c.level4 = ['2']
 c.level5 = ['3']

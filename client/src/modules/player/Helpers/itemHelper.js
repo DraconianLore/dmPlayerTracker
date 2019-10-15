@@ -24,7 +24,7 @@ async function createNewItem(JWT, item, itemType, playerID) {
   return item
 }
 async function createJoin(JWT, itemID, playerID, type) {
-  const response = await axios({
+  await axios({
     method: 'post',
     url: `${baseURL}api/joinItems`,
     headers: {
@@ -36,7 +36,6 @@ async function createJoin(JWT, itemID, playerID, type) {
       type: type
     }
   })
-  console.log(response.data.message)
   return;
 }
 

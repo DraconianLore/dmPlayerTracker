@@ -6,9 +6,9 @@ f.search = "rage"
 f.save!
 
 f = Feat.new
-f.name = "Unarmored Defense"
+f.name = "Unarmuored Defense"
 f.description = "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit."
-f.search = "unarmoreddefense"
+f.search = "unarmoureddefense"
 f.save!
 
 f = Feat.new
