@@ -15,12 +15,12 @@ async function checkIfItemExists(JWT, item, itemType) {
     return false
   }
 }
-async function createNewItem(JWT, item, itemType) {
-  let newItem = await checkIfItemExists(JWT, item, itemType)
-  if (newItem) {
-    item = newItem
-    item.itemID = newItem.id
-  } else {
+async function createNewItem(JWT, item, itemType, playerID) {
+  // let newItem = await checkIfItemExists(JWT, item, itemType)
+  // if (newItem) {
+  //   item = newItem
+  //   item.itemID = newItem.id
+  // } else {
     const response = await axios({
       method: 'post',
       url: `${baseURL}api/${itemType}`,
@@ -29,11 +29,12 @@ async function createNewItem(JWT, item, itemType) {
       },
       data: {
         name: item.name,
-        description: item.description
+        description: item.description,
+        player: playerID
       }
     })
     item.itemID = response.data.newFeat.id
-  }
+  // }
   return item
 }
 async function createJoin(JWT, itemID, playerID, type) {
@@ -58,9 +59,7 @@ export default async function itemHelper(newItem, player, JWT) {
   switch (newItem.itemType) {
     case 'Ability':
       itemType = 'feats'
-      if (!newItem.change.itemID){
-        newItem.change = await createNewItem(JWT, newItem.change, itemType)
-      }
+      newItem.change = await createNewItem(JWT, newItem.change, itemType, player.id)
       createJoin(JWT, newItem.change.itemID, player.id, 'Feat')
       if(!player.feats) {
         player.feats = []

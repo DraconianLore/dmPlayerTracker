@@ -13,8 +13,8 @@ class Api::FeatsController < ApplicationController
     search = params[:name]
     search = search.downcase.gsub(/[^a-z]/, '')
     if params[:player]
-      search += player
-      puts search
+      search += params[:player]
+      puts `search = #{search}`
     end
     feat = Feat.create(name: params[:name], description: params[:description], search: search)
     render :json => {
