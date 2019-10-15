@@ -21,16 +21,15 @@ class Api::FeatsController < ApplicationController
         message: `Player already has a feat named #{params[:name]}`,
         newFeat: false
       }
-    else
-      if params[:player]
+    elsif params[:player]
         search = `#{search}P#{params[:player]}`
         puts `search = #{search}`
-      end
-      feat = Feat.create(name: params[:name], description: params[:description], search: search)
-      render :json => {
-        message: 'Created',
-        newFeat: feat
-      }
+    end
+    feat = Feat.create(name: params[:name], description: params[:description], search: search)
+    render :json => {
+      message: 'Created',
+      newFeat: feat
+    }
     end
   end
 
