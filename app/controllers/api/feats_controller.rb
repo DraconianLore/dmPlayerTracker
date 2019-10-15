@@ -10,7 +10,8 @@ class Api::FeatsController < ApplicationController
   end
 
   def create
-    puts `CREATING\n#{params}`
+    puts `CREATING##################`
+    puts params
     search = params[:name]
     search = search.downcase.gsub(/[^a-z]/, '')
     if Feat.where(search: search)
