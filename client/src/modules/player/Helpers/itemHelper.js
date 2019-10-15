@@ -18,6 +18,7 @@ async function createNewItem(JWT, item, itemType, playerID) {
   if (response.data.newFeat) {
     item.itemID = response.data.newFeat.id
   } else {
+    console.log(response.data.message)
     item.itemID = false
   }
   return item
