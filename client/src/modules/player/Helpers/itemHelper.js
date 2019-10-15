@@ -17,6 +17,8 @@ async function createNewItem(JWT, item, itemType, playerID) {
   })
   if (response.data.newFeat) {
     item.itemID = response.data.newFeat.id
+  } else {
+    item.itemID = false
   }
   return item
 }
@@ -43,8 +45,7 @@ export default async function itemHelper(newItem, player, JWT) {
     case 'Ability':
       itemType = 'feats'
       newItem.change = await createNewItem(JWT, newItem.change, itemType, player.id)
-      if (newItem.change) {
-
+      if (newItem.change.itemID) {
         createJoin(JWT, newItem.change.itemID, player.id, 'Feat')
         if (!player.feats) {
           player.feats = []
