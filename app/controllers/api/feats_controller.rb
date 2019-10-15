@@ -10,8 +10,10 @@ class Api::FeatsController < ApplicationController
   end
 
   def create
-    puts `CREATING##################`
-    puts params
+    puts '\n############################\n'
+
+    puts params[:player]
+    puts '\n############################\n'
     search = params[:name]
     search = search.downcase.gsub(/[^a-z]/, '')
     if Feat.where(search: search)
@@ -21,7 +23,7 @@ class Api::FeatsController < ApplicationController
       }
     else
       if params[:player]
-        search = `#{search}-P=#{params[:player]}`
+        search = `#{search}P#{params[:player]}`
         puts `search = #{search}`
       end
       feat = Feat.create(name: params[:name], description: params[:description], search: search)
