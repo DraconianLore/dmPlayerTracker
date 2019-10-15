@@ -22,6 +22,8 @@ class Api::FeatsController < ApplicationController
         newFeat: false
       }
     elsif params[:player]
+    puts '\n############################\n'
+
         search = `#{search}P#{params[:player]}`
         puts `search = #{search}`
         feat = Feat.create(name: params[:name], description: params[:description], search: search)
