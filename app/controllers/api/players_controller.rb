@@ -48,7 +48,6 @@ class Api::PlayersController < ApplicationController
     player = Player.find(params[:id])
     player.feats.each do |feat|
       player.feats.delete(feat)
-      feat.delete
     end
     player.delete
     render :json => {
