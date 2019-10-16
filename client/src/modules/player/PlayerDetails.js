@@ -244,6 +244,12 @@ class PlayerDetails extends Component {
   componentWillUnmount() {
     document.removeEventListener("keydown", this.escPressed, false);
   }
+  reloadPlayer = (player) => {
+    this.props.reloadPlayer(player)
+    this.setState({
+      showItem: false
+    })
+  }
 
   render() {
     let showHideClassName = this.props.show ? 'infoModal display-block' : 'infoModal display-none';
@@ -254,7 +260,7 @@ class PlayerDetails extends Component {
         {this.state.editField && <EditPlayer cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} currentValue={this.state.editCurrent} />}
         {this.state.addSomething && <AddSomething cancelButton={this.cancelButton} savePlayer={this.savePlayer} item={this.state.addThis} jwt={this.props.jwt} />}
         {this.state.addProfs && <EditProfs cancelButton={this.cancelButton} savePlayer={this.savePlayer} field={this.state.editing} proficiencies={this.state.player.proficiencies} />}
-        {this.state.showItem && <ShowItemDetails player={this.state.player} closeItemDetails={this.closeItemDetails} item={this.state.currentItem} JWT={this.props.jwt} />}
+        {this.state.showItem && <ShowItemDetails player={this.state.player} closeItemDetails={this.closeItemDetails} item={this.state.currentItem} JWT={this.props.jwt} updatePlayer={this.reloadPlayer} />}
         <section className='modal-main'>
           <div className='playerInfo'>
             <div className='playerHeader'>

@@ -70,7 +70,12 @@ export default class ShowItemDetails extends Component {
         player: this.props.player.id
       }
     })
-    console.log(response.data.message)
+    if(response.data.message === 'Deleted') {
+      this.props.updatePlayer(this.props.player)
+      
+    } else {
+      console.log('ERROR: Delete failed')
+    }
   }
   componentWillUnmount() {
     this.setState({ loaded: false })
