@@ -46,6 +46,10 @@ class Api::PlayersController < ApplicationController
   def destroy
     game = Game.find(request.headers[:game])
     player = Player.find(params[:id])
+    player.feats.each do |feat|
+      player.feats.delete(feat)
+      feat.delete
+    end
     player.delete
     render :json => {
       players: game.players
