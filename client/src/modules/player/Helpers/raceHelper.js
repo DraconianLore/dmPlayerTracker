@@ -15,13 +15,14 @@ export default async function raceHelper(newRace, player, JWT) {
       }
     })
       .then((response) => {
-        const result = response.data.result
-        if (result.length > 0) {
+        let result = response.data.result
+        if (result.id) {
           newAbility = {
-            name: result[0].name,
-            description: result[0].description
+            name: result.name,
+            description: result.description
           }
         }
+
       })
       .catch(function (e) {
         console.log(e)

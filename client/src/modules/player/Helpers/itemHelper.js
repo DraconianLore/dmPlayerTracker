@@ -3,7 +3,7 @@ const baseURL = process.env.REACT_APP_BASEURL;
 
 
 async function createNewItem(JWT, item, itemType, playerID) {
-  const response = await axios({
+  let response = await axios({
     method: 'post',
     url: `${baseURL}api/${itemType}`,
     headers: {
@@ -44,6 +44,7 @@ export default async function itemHelper(newItem, player, JWT) {
   switch (newItem.itemType) {
     case 'Ability':
       itemType = 'feats'
+      console.log(newItem)
       newItem.change = await createNewItem(JWT, newItem.change, itemType, player.id)
       if (newItem.change.itemID) {
         createJoin(JWT, newItem.change.itemID, player.id, 'Feat')
