@@ -29,7 +29,8 @@ class Api::FeatsController < ApplicationController
   end
   
   def destroy
-    feat = Feat.find(params[:id])
-    puts feat
+    feat = Feat.find(params[:id]) 
+    
+    puts feat.inspect
   end
 end
