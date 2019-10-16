@@ -30,7 +30,7 @@ class Api::FeatsController < ApplicationController
   
   def destroy
     feat = Feat.find(params[:id]) 
-    feat.delete!
+    feat.delete
 
   end
 end

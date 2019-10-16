@@ -62,7 +62,7 @@ export default class ShowItemDetails extends Component {
     event.preventDefault();
     await axios({
       method: 'delete',
-      url: `${baseURL}api/feats/${event.target.name}`,
+      url: `${baseURL}api/feats/${event.target.name.toString()}`,
       headers: {
         Authorization: this.props.JWT,
       }
