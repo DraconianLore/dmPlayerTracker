@@ -60,7 +60,7 @@ export default class ShowItemDetails extends Component {
   }
   deleteAbility = async (event) => {
     event.preventDefault();
-    await axios({
+    const response = await axios({
       method: 'delete',
       url: `${baseURL}api/feats/${event.target.name.toString()}`,
       headers: {
@@ -70,6 +70,7 @@ export default class ShowItemDetails extends Component {
         player: this.props.player.id
       }
     })
+    console.log(response.data.message)
   }
   componentWillUnmount() {
     this.setState({ loaded: false })

@@ -32,8 +32,10 @@ class Api::FeatsController < ApplicationController
     player = Player.find(params[:player])
     player.feats.delete(params[:id])
     feat = Feat.find(params[:id]) 
-    puts feat
     feat.delete
+    render :json => {
+      message: 'Deleted'
+    }
 
   end
 end
