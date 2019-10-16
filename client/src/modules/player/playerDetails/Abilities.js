@@ -6,13 +6,14 @@ export default class Abilities extends Component {
     event.preventDefault();
     this.props.addItem('Ability')
   }
+
   showAbilityDetails = (event) => {
-    const spell = {
+    const ability = {
       itemType: 'Ability',
       name: event.target.innerText,
       description: event.target.parentNode.title
     }
-    this.props.showItem(spell)
+    this.props.showItem(ability)
   }
   showFeats = () => {
     let abilities = this.props.playerInfo.feats.map((ability, index) => {

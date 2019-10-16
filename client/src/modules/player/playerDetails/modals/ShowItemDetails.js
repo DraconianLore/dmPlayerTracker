@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+const baseURL = process.env.REACT_APP_BASEURL
+
 
 export default class ShowItemDetails extends Component {
   // TODO make it look better, add delete/edit buttons, split spells, abilities, notes and items if needed
@@ -13,12 +16,6 @@ export default class ShowItemDetails extends Component {
   }
   fetchItems = (itemType) => {
     let list = this.props.player[itemType].map((item) => {
-      
-      // remove this once restructuring is complete and old users updated
-      if (typeof item === 'string') {
-        item = JSON.parse(item)
-      }
-      
       return item
     })
     return list
@@ -61,6 +58,16 @@ export default class ShowItemDetails extends Component {
       loaded: true
     })
   }
+  deleteAbility = async (event) => {
+    event.preventDefault();
+    await axios({
+      method: 'delete',
+      url: `${baseURL}api/feats/${event.target.name}`,
+      headers: {
+        Authorization: this.props.JWT,
+      }
+    })
+  }
   componentWillUnmount() {
     this.setState({ loaded: false })
   }
@@ -68,6 +75,11 @@ export default class ShowItemDetails extends Component {
     return (
       <>
         {this.state.loaded && <div className='itemModal'>
+          {this.props.item.itemType === 'Ability' && 
+          <button className='deletePlayer' name={this.state.currentItem.id} onClick={this.deleteAbility}>
+            DELETE
+          </button>
+        }
           <p className='itemHeader'>
             {this.state.currentItem.name}
           </p>

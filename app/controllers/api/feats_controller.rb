@@ -25,6 +25,11 @@ class Api::FeatsController < ApplicationController
         newFeat: feat
       }
     end
+
+    def destroy
+      feat = Feat.find(params[:id])
+      puts feat
+    end
   end
 
 end
