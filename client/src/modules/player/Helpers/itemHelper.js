@@ -44,7 +44,6 @@ export default async function itemHelper(newItem, player, JWT) {
   switch (newItem.itemType) {
     case 'Ability':
       itemType = 'feats'
-      console.log(newItem)
       newItem.change = await createNewItem(JWT, newItem.change, itemType, player.id)
       if (newItem.change.itemID) {
         createJoin(JWT, newItem.change.itemID, player.id, 'Feat')

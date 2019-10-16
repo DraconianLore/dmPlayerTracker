@@ -43,10 +43,10 @@ export default async function levelHelper(player, change, JWT) {
     })
     .then((response) => {
       const result = response.data.result
-      if (result.length > 0) {
+      if (result.id) {
         newAbility = {
-          name: result[0].name,
-          description: result[0].description
+          name: result.name,
+          description: result.description
         }
       }
     })

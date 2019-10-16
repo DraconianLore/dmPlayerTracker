@@ -240,8 +240,8 @@ class PlayerList extends Component {
       })
   }
 
-  deletePlayer = (player) => {
-    axios.delete(
+  deletePlayer = async (player) => {
+    await axios.delete(
       `${baseURL}api/players/${player}`,
       {
         headers: {
