@@ -48,6 +48,7 @@ export default class ShowItemDetails extends Component {
         break;
       case 'Ability':
         item = this.loadItems(this.props.item, 'feats')
+        console.log(item.search)
         break;
       default:
         item = this.props.item
