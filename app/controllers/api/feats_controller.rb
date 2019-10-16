@@ -29,6 +29,8 @@ class Api::FeatsController < ApplicationController
   end
   
   def destroy
+    player = Player.find(params[:player])
+    player.feats.delete(params[:id])
     feat = Feat.find(params[:id]) 
     feat.delete
 

@@ -65,6 +65,9 @@ export default class ShowItemDetails extends Component {
       url: `${baseURL}api/feats/${event.target.name.toString()}`,
       headers: {
         Authorization: this.props.JWT,
+      },
+      data: {
+        player: this.props.player.id
       }
     })
   }
