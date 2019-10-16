@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_13_155626) do
+ActiveRecord::Schema.define(version: 2019_10_16_195434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 2019_10_13_155626) do
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pclasses", force: :cascade do |t|
@@ -60,6 +74,24 @@ ActiveRecord::Schema.define(version: 2019_10_13_155626) do
     t.datetime "updated_at", null: false
     t.index ["feat_id"], name: "index_player_feats_on_feat_id"
     t.index ["player_id"], name: "index_player_feats_on_player_id"
+  end
+
+  create_table "player_items", force: :cascade do |t|
+    t.bigint "player_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_player_items_on_item_id"
+    t.index ["player_id"], name: "index_player_items_on_player_id"
+  end
+
+  create_table "player_notes", force: :cascade do |t|
+    t.bigint "player_id"
+    t.bigint "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_player_notes_on_note_id"
+    t.index ["player_id"], name: "index_player_notes_on_player_id"
   end
 
   create_table "player_spells", force: :cascade do |t|
@@ -121,6 +153,10 @@ ActiveRecord::Schema.define(version: 2019_10_13_155626) do
 
   add_foreign_key "player_feats", "feats"
   add_foreign_key "player_feats", "players"
+  add_foreign_key "player_items", "items"
+  add_foreign_key "player_items", "players"
+  add_foreign_key "player_notes", "notes"
+  add_foreign_key "player_notes", "players"
   add_foreign_key "player_spells", "players"
   add_foreign_key "player_spells", "spells"
   add_foreign_key "players", "games", on_delete: :cascade
