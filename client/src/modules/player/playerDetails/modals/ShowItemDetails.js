@@ -91,7 +91,7 @@ export default class ShowItemDetails extends Component {
     return (
       <>
         {this.state.loaded && <div className='itemModal'>
-          <button className='deletePlayer' name={this.state.currentItem.id} onClick={this.deleteItem}>
+          <button className='deleteItem' name={this.state.currentItem.id} onClick={this.deleteItem}>
             DELETE
           </button>
           <p className='itemHeader'>

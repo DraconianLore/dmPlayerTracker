@@ -389,6 +389,24 @@ button span {
   border-color: orangered;
   color: orangered;
 }
+.deleteItem {
+  background-color: darkgoldenrod;
+  border-color: goldenrod;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: firebrick;
+  height: 4vh;
+  width: 6vw;
+  font-weight: 700;
+  border-radius: 5px;
+  border-style: groove;
+}
+
+.deleteItem:hover {
+  border-color: gold;
+  color: gold;
+}
 
 .close-modal {
   background-color: darkgreen;
