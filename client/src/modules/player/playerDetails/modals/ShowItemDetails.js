@@ -11,7 +11,8 @@ export default class ShowItemDetails extends Component {
     super(props)
     this.state = {
       currentItem: '',
-      loaded: false
+      loaded: false,
+      itemType: ''
     }
   }
   fetchItems = (itemType) => {
@@ -36,19 +37,23 @@ export default class ShowItemDetails extends Component {
 
   componentDidMount() {
     let item = ''
+    let itemType = ''
     switch (this.props.item.itemType) {
       case 'Spell':
         item = this.loadItems(this.props.item, 'spells')
+        itemType = 'spells'
         break;
       case 'Item':
         item = this.loadItems(this.props.item, 'items')
+        itemType = 'items'
         break;
       case 'Note':
         item = this.loadItems(this.props.item, 'notes')
+        itemType = 'notes'        
         break;
       case 'Ability':
         item = this.loadItems(this.props.item, 'feats')
-        console.log(item.search)
+        itemType = 'feats'
         break;
       default:
         item = this.props.item
@@ -56,14 +61,15 @@ export default class ShowItemDetails extends Component {
     }
     this.setState({
       currentItem: item,
-      loaded: true
+      loaded: true,
+      itemType: itemType
     })
   }
-  deleteAbility = async (event) => {
+  deleteItem = async (event) => {
     event.preventDefault();
     const response = await axios({
       method: 'delete',
-      url: `${baseURL}api/feats/${event.target.name.toString()}`,
+      url: `${baseURL}api/${this.state.itemType}/${event.target.name.toString()}`,
       headers: {
         Authorization: this.props.JWT,
       },
@@ -85,11 +91,9 @@ export default class ShowItemDetails extends Component {
     return (
       <>
         {this.state.loaded && <div className='itemModal'>
-          {this.props.item.itemType === 'Ability' && 
-          <button className='deletePlayer' name={this.state.currentItem.id} onClick={this.deleteAbility}>
+          <button className='deletePlayer' name={this.state.currentItem.id} onClick={this.deleteItem}>
             DELETE
           </button>
-        }
           <p className='itemHeader'>
             {this.state.currentItem.name}
           </p>

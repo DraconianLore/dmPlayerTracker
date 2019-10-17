@@ -25,15 +25,11 @@ class Api::ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    if @item.delete
-      render :json => {
-        message: 'Item Deleted'
-      }
-    else
-      render :json => {
-        message: 'Item Deletion Failed'
-      }
-    end
+    @item.delete
+    render :json => {
+      message: 'Deleted'
+    }
+    
   end
 
 end

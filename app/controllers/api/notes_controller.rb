@@ -25,15 +25,11 @@ class Api::NotesController < ApplicationController
   
   def destroy
     @note = Note.find(params[:id])
-    if @note.delete
-      render :json => {
-        message: 'Note Deleted'
-      }
-    else
-      render :json => {
-        message: 'Note Deletion Failed'
-      }
-    end
+    @note.delete
+    render :json => {
+      message: 'Deleted'
+    }
+  
   end
 
 end
