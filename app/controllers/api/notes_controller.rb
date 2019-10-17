@@ -29,7 +29,6 @@ class Api::NotesController < ApplicationController
     render :json => {
       message: 'Deleted'
     }
-  
   end
 
 end

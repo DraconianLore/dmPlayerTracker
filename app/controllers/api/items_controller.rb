@@ -28,8 +28,7 @@ class Api::ItemsController < ApplicationController
     @item.delete
     render :json => {
       message: 'Deleted'
-    }
-    
+    }  
   end
 
 end
