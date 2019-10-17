@@ -5,10 +5,11 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
+    @player = Player.find(params[:player])
     @item = Item.new
     @item.name = params[:name]
     @item.description = params[:description]
-    @item.player = params[:player]
+    @item.player = @player
     if @item.save!
       render :json => {
         message: 'Item added',

@@ -5,10 +5,11 @@ class Api::NotesController < ApplicationController
   end
 
   def create
+    @player = Player.find(params[:player])
     @note = Note.new
     @note.name = params[:name]
     @note.description = params[:description]
-    @note.player = params[:player]
+    @note.player = @player
     if @note.save!
       render :json => {
         message: 'Note added',
