@@ -19,12 +19,7 @@ module PlayerHelper
     player.level = updatedPlayer[:level]
     player.proficiency = updatedPlayer[:proficiency]
     player.portrait = updatedPlayer[:portrait]
-    
-    player.notes = updatedPlayer[:notes]
-    player.items = updatedPlayer[:items]
     player.proficiencies = updatedPlayer[:proficiencies]
-    player.spells = updatedPlayer[:spells]
-    player.abilities = updatedPlayer[:abilities]
     return player
    end
 end
