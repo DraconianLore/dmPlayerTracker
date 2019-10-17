@@ -55,12 +55,12 @@ export default class AddSomething extends Component {
     })
       .then((response) => {
         const result = response.data.result
-        if (!result[0]) {
+        if (!result) {
           this.setState({
             description: `No ability found matching ${query} found in the SRD \nIf the ability is not in the Players Handbook, you will have to add the description manually. \nIf the ability should be in the Players Handbook, check your spelling`
           })
         } else {
-          let newItem = result[0]
+          let newItem = result
           this.setState({
             title: newItem.name,
             description: newItem.description,
