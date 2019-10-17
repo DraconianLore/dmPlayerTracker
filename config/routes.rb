@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :feats
     resources :races
     resources :pclasses
+    resources :items
+    resources :notes
   end
   
   post '/register', to: 'api/users#register'

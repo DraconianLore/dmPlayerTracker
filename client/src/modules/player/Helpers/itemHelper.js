@@ -15,8 +15,8 @@ async function createNewItem(JWT, item, itemType, playerID) {
       player: playerID
     }
   })
-  if (response.data.newFeat) {
-    item.itemID = response.data.newFeat.id
+  if (response.data.newItem) {
+    item.itemID = response.data.newItem.id
   } else {
     console.log(response.data.message)
     item.itemID = false
@@ -59,11 +59,13 @@ export default async function itemHelper(newItem, player, JWT) {
       break;
     case 'Note':
       itemType = 'notes'
-      player[itemType].push(JSON.stringify(newItem.change))
+      newItem.change = await createNewItem(JWT, newItem.change, itemType, player.id)
+      player.notes.push(newItem.change)
       break;
     case 'Item':
       itemType = 'items'
-      player[itemType].push(JSON.stringify(newItem.change))
+      newItem.change = await createNewItem(JWT, newItem.change, itemType, player.id)
+      player.items.push(newItem.change)
       break;
     default:
       itemType = 'ERROR'

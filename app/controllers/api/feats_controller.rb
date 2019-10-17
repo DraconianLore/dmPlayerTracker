@@ -16,13 +16,13 @@ class Api::FeatsController < ApplicationController
     if Feat.where(search: search).exists?
       render :json => {
         message: 'Player already has this feat',
-        newFeat: false
+        newItem: false
       }
     else
       feat = Feat.create(name: params[:name], description: params[:description], search: search)
       render :json => {
         message: 'Created',
-        newFeat: feat
+        newItem: feat
       }
     end
 
