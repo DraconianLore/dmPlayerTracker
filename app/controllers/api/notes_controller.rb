@@ -8,6 +8,7 @@ class Api::NotesController < ApplicationController
     @note = Note.new
     @note.name = params[:name]
     @note.description = params[:description]
+    @note.player = params[:player]
     if @note.save!
       render :json => {
         message: 'Note added',

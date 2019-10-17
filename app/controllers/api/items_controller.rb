@@ -8,6 +8,7 @@ class Api::ItemsController < ApplicationController
     @item = Item.new
     @item.name = params[:name]
     @item.description = params[:description]
+    @item.player = params[:player]
     if @item.save!
       render :json => {
         message: 'Item added',
