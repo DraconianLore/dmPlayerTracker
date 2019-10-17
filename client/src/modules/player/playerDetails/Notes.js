@@ -12,7 +12,6 @@ export default class Notes extends Component {
   fetchNotes = () => {
 
     let notes = this.props.playerInfo.notes.map((note, index) => {
-      note = JSON.parse(note)
       return (
         // eslint-disable-next-line
         <a href='#' title={note.description} key={index} onClick={this.showNoteDetails} >
@@ -27,7 +26,6 @@ export default class Notes extends Component {
   fetchItems = () => {
 
     let items = this.props.playerInfo.items.map((item, index) => {
-      item = JSON.parse(item)
       return (
         // eslint-disable-next-line
         <a href='#' title={item.description} key={index} onClick={this.showItemDetails} >

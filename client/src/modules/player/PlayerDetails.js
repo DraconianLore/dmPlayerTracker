@@ -89,7 +89,6 @@ class PlayerDetails extends Component {
         editField: false,
         editing: '',
         editCurrent: false,
-        somethingChanged: true,
         player: updatedPlayer,
         addThis: '',
         addSomething: false,

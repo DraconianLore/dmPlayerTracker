@@ -60,11 +60,17 @@ export default async function itemHelper(newItem, player, JWT) {
     case 'Note':
       itemType = 'notes'
       newItem.change = await createNewItem(JWT, newItem.change, itemType, player.id)
+      if (!player.notes) {
+        player.notes = []
+      }
       player.notes.push(newItem.change)
       break;
     case 'Item':
       itemType = 'items'
       newItem.change = await createNewItem(JWT, newItem.change, itemType, player.id)
+      if (!player.items) {
+        player.items = []
+      }
       player.items.push(newItem.change)
       break;
     default:
