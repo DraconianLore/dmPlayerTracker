@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_171742) do
+ActiveRecord::Schema.define(version: 2019_10_18_173737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,8 +85,6 @@ ActiveRecord::Schema.define(version: 2019_10_18_171742) do
     t.string "classname", default: "Class"
     t.string "race", default: "Race"
     t.string "hitDie", default: "d6"
-    t.text "spells", default: [], array: true
-    t.text "abilities", default: [], array: true
     t.string "background", default: "Background"
     t.integer "baseSTR", default: 10
     t.integer "baseDEX", default: 10
@@ -99,8 +97,6 @@ ActiveRecord::Schema.define(version: 2019_10_18_171742) do
     t.integer "maxHP", default: 0
     t.integer "speed", default: 25
     t.integer "level", default: 1
-    t.text "notes", default: [], array: true
-    t.text "items", default: [], array: true
     t.integer "proficiency", default: 2
     t.string "portrait", default: "https://picsum.photos/300"
     t.text "proficiencies"
@@ -118,7 +114,7 @@ ActiveRecord::Schema.define(version: 2019_10_18_171742) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.text "description"
-    t.integer "range"
+    t.string "range"
     t.string "components"
     t.boolean "ritual"
     t.boolean "concentration"
