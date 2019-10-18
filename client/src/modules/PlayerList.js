@@ -336,8 +336,14 @@ class PlayerList extends Component {
 
   componentDidMount() {
     this.loadGames()
+    if (this.props.user === 'test') {
+      this.setState({showTestUser: true})
+    }
   }
-
+  closeTestUser = (e) => {
+    e.preventDefault();
+    this.setState({showTestUser: false})
+  }
   render() {
     const playerList = this.state.players.map((player) => {
       return (
@@ -352,6 +358,18 @@ class PlayerList extends Component {
           {playerList}
           <AddPlayer newPlayer={this.newPlayer} />
         </ul>
+        {this.state.showTestUser && <div className='testUserModal'>
+          <p className='itemHeader'>
+            Welcome to the DM Player Tracker
+          </p>
+          <hr className='itemHr' />
+          <p className='itemDescription'>
+            {'This tool is for Dungeon Masters to keep track of their players in their Dungeons & Dragons Campaigns.\n\nFeel free to play around, add a new player/game, change the players stats or change the players class/race/level to connect to api\'s and fill in some stats.\n\n'}
+          </p>
+          <button className='testUser-btn' onClick={this.closeTestUser}>
+            Continue
+          </button>
+        </div>}
         <PlayerDetails deletePlayer={this.deletePlayer} show={this.state.showPlayer} playerInfo={this.state.playerDetails} closeInfo={this.closePlayerInfo} savePlayer={this.updatePlayer} jwt={this.props.JWT} reloadPlayer={this.showPlayerInfo} />
         {this.state.showMenu && <Footer newGame={this.newGame} deleteGame={this.deleteGame} games={this.state.games} user={this.props.user} currentGame={this.state.currentGame} changeGame={this.changeGame} />}
         {this.state.infoModal}

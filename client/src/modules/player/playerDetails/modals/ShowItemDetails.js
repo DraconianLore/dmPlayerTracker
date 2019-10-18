@@ -4,7 +4,7 @@ const baseURL = process.env.REACT_APP_BASEURL
 
 
 export default class ShowItemDetails extends Component {
-  // TODO make it look better, add delete/edit buttons, split spells, abilities, notes and items if needed
+  // TODO make it look better, add edit buttons, split spells, abilities, notes and items if needed
   // maybe restructure database to make new tables for each item type
 
   constructor(props) {

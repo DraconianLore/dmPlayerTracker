@@ -1,0 +1,38 @@
+.testUserModal {
+  position: absolute;
+  top: 30vh;
+  left: 30vw;
+  border-radius: 1px;
+  border-style: inset;
+  border-color: brown;
+  background-color: darkred;
+  color: navajowhite;
+  padding: 1vh 2vh 0 2vh;
+  width: 40vw;
+  height: initial;
+  z-index: 3;
+  overflow: scroll;
+}
+.testUser-btn {
+  font-size: 1em;
+  background-color: darkgreen;
+  border-color: rgb(38, 58, 4);
+  color: navajowhite;
+  width: 10vw;
+  height: 3vw;  
+  max-width: 150px;
+  max-height: 50px;
+  outline: none;
+  border-style: outset;
+  margin: 1em 0;
+  -webkit-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  transition: 0.5s all;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.testUser-btn:hover {
+  background-color: #005500;
+  color: burlywood;
+}
