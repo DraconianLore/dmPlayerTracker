@@ -100,28 +100,65 @@ export default class AddSomething extends Component {
 
     return (
       <div className='editField'>
-        <div className='addBox'>
+        {this.props.item !== 'Spell' && <div className='addBox'>
           <h1 style={{ color: 'peru' }}>Add {this.props.item}</h1>
           <p className='addItemP'>{this.props.item} Name </p>
           <div>
             <input className='addText' type='text' name='name' placeholder={'New ' + this.props.item} onChange={this.editTitle} value={this.state.title} />
-            {this.props.item === 'Spell' &&
-              <button className='search-spells' onClick={this.searchSpells}>Search</button>
-            }
             {this.props.item === 'Ability' &&
               <button className='search-spells' onClick={this.searchAbilities}>Search</button>
             }
-
             <br />
             <p className='addItemP'>{this.props.item} Description </p>
             <textarea className='addText' style={{ width: '80%' }} rows={8} name='name' placeholder={this.props.item + ' description'} onChange={this.editDescription} value={this.state.description} />
             <br />
-            <button className='cancel-btn' onClick={this.props.cancelButton}>Discard</button> 
-            {this.props.item !== 'Spell' &&<button className='accept-btn' onClick={this.saveChanges}>Save changes</button>}
-            {this.props.item === 'Spell' &&<p style={{color: 'navajowhite'}}>Saving spells currently unavilable while upgrading</p>}
+            <button className='cancel-btn' onClick={this.props.cancelButton}>Discard</button>
+            <button className='accept-btn' onClick={this.saveChanges}>Save changes</button>
           </div>
+        </div>}
+        {this.props.item === 'Spell' && <div className='addSpell'>
+          <h1 style={{ color: 'peru' }}>Add {this.props.item}</h1>
+          <div className='newSpell'>
+            <p className='addItemP'>Spell name:
+            <input className='spellText' type='text' name='name' placeholder={'New ' + this.props.item} onChange={this.editTitle} value={this.state.title} />
+            <button className='search-spells' onClick={this.searchSpells}>Search</button>
+            </p>
+            
+            <p className='addItemP'>Range:
+            <input className='spellText' type='text' name='range' placeholder={'Spell Range'} onChange={this.editTitle} value={this.state.title} />
+            </p>
+            <p className='addItemP'>Duration:
+            <input className='spellText' type='text' name='duration' placeholder={'Duration'} onChange={this.editTitle} value={this.state.title} />
+            </p>
+            <p className='addItemP'>Casting Time:
+            <input className='spellText' type='text' name='casting_time' placeholder={'Casting Time'} onChange={this.editTitle} value={this.state.title} />
+            </p>
+            <p className='addItemP'>Level:
+            <input className='spellText' type='text' name='level' placeholder={'Spell Level'} onChange={this.editTitle} value={this.state.title} />
+            </p>
+            <p className='addItemP'>School:
+            <input className='spellText' type='text' name='school' placeholder={'School of magic'} onChange={this.editTitle} value={this.state.title} />
+            </p>
+            <p className='addItemP'>Components:
+            <input className='spellText' type='text' name='components' placeholder={'Components'} onChange={this.editTitle} value={this.state.title} />
+            </p>
+            <p className='addItemP'>
+              <span className='spellCheckBox'>
+                Ritual
+                </span>
+                <span className='spellCheckBox'>
+              Concentration:
+                </span>
+            </p>
+            
 
-        </div>
+            <p className='addItemP'>{this.props.item} Description </p>
+            <textarea className='spellText' style={{ width: '80%' }} rows={8} name='name' placeholder={this.props.item + ' description'} onChange={this.editDescription} value={this.state.description} />
+            <br />
+            <button className='cancel-btn' onClick={this.props.cancelButton}>Discard</button>
+            <button className='accept-btn' onClick={this.saveChanges}>Save changes</button>
+          </div>
+        </div>}
       </div>
 
     )

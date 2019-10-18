@@ -184,6 +184,24 @@
   height: 20em;
   z-index: 5;
 }
+.addSpell {
+  margin-top: 11.5%;
+  border-radius: 10px;
+  border-style: groove;
+  border-color: darkred;
+  background-color: #550000;
+  padding: 2vh;
+  width: 30vw;
+  height: 33em;
+  z-index: 5;
+}
+.spellCheckBox {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.spellCheckBox:hover {
+  
+}
 
 .info-header {
   font-weight: 700;
@@ -364,7 +382,19 @@ button span {
   resize: none;
   color: goldenrod;
   min-width: 177px;
-  ;
+}
+.spellText {
+  background-color: #440000;
+  padding: 5px;
+  margin: 2px 5px 2px 5px;
+  border-color: darkred;
+  resize: none;
+  color: goldenrod;
+  min-width: 10px;
+  width: 100px;
+}
+.newSpell {
+  text-align: center;
 }
 
 .addItemP {
