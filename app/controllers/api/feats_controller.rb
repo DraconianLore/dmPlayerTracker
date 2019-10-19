@@ -28,8 +28,8 @@ class Api::FeatsController < ApplicationController
   end
   
   def update
-    @feat = Feat.find(props[:id])
-    @feat.description = props[:newDescription]
+    @feat = Feat.find(params[:id])
+    @feat.description = params[:newDescription]
     if @feat.save!
       render :json => {
         message: 'Updated',
