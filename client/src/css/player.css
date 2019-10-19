@@ -197,7 +197,7 @@
 }
 .spellCheckBoxfalse {
   margin: 2em;
-
+color: saddlebrown;
 }
 .spellCheckBoxfalse:hover {
  cursor: pointer; 
@@ -588,4 +588,14 @@ button span {
   min-width: 177px;
   width: 80%;
   height: 90%;
+}
+.editSpellText {
+  background-color: saddlebrown;
+  padding: 5px;
+  margin: 2px 5px 2px 5px;
+  border-color: peru;
+  resize: none;
+  color: navajowhite;
+  min-width: 10px;
+  width: 100px;
 }

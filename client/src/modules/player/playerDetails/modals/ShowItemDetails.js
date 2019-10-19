@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import EditSpells from './showItemDetails/EditSpells';
 const baseURL = process.env.REACT_APP_BASEURL
-
 
 export default class ShowItemDetails extends Component {
   // TODO make it look better, add edit buttons, split spells, abilities, notes and items if needed
@@ -114,6 +114,14 @@ export default class ShowItemDetails extends Component {
       spellDescription: ''
     })
   }
+  updatePlayer = (updatedItem) => {
+    this.setState({
+      currentItem: updatedItem,
+      edit: false,
+      editItem: false
+    })
+    this.props.updatePlayer(this.props.player)
+  }
   editDescription = (event) => {
     this.setState({
       description: event.target.value
@@ -168,9 +176,9 @@ export default class ShowItemDetails extends Component {
             <button className='deleteItem' name={this.state.currentItem.id} onClick={this.cancelEdit}>
               CANCEL
           </button>
-            <button className='editItem' name={this.state.currentItem.id} onClick={this.saveEdit} >
+            {this.state.editSpell || <button className='editItem' name={this.state.currentItem.id} onClick={this.saveEdit} >
               SAVE
-          </button>
+          </button>}
           </>}
 
           <p className='itemHeader'>
@@ -188,7 +196,7 @@ export default class ShowItemDetails extends Component {
             </p>}
             {this.state.editItem && <textarea className='editDescription' rows={8} name='description' onChange={this.editDescription} value={this.state.description} />
             }
-            {this.state.editSpell && <h1>Spell editing currently disabled</h1>
+            {this.state.editSpell && <EditSpells spell={this.state.currentItem} player={this.props.player} updatePlayer={this.updatePlayer} />
             }
           </div>
         </div>}
