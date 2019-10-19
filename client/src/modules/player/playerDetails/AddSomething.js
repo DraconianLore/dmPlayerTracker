@@ -125,8 +125,6 @@ export default class AddSomething extends Component {
   }
   saveChanges = () => {
     let change = {};
-    console.log(this.props.item)
-    console.log(this.state)
     if (this.props.item === 'Spell') {
       change = {
         title: this.state.title,
@@ -140,7 +138,6 @@ export default class AddSomething extends Component {
         concentration: this.state.concentration,
         ritual: this.state.ritual
       }
-      console.log(change)
     } else {
       change = { name: this.state.title, description: this.state.description, itemID: this.state.itemID }
     }
@@ -149,7 +146,6 @@ export default class AddSomething extends Component {
       itemType: this.props.item,
       change: change
     }
-    console.log(changes.change)
     this.props.savePlayer(changes)
   }
   render() {

@@ -14,14 +14,13 @@ class Api::PlayersController < ApplicationController
     feats = player.feats
     notes = player.notes
     items = player.items
-    # Once database restructure is complete unhash these (currently breaking changes to current data)
-    # spells = player.spells
+    spells = player.spells
     render :json => {
       player: player,
       feats: feats,
       notes: notes,
       items: items,
-      # spells: spells
+      spells: spells
     }
   end
 
