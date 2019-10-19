@@ -14,7 +14,7 @@ export default class Spells extends Component {
   fetchSpells = () => {
     // TODO tidy this up and add fields for casting time etc, perhaps add URL for existing spells instead of full details
     let spells = this.props.playerInfo.spells.map((spell, index) => {
-      let desc = `${spell.level} - ${spell.school}\nCasting Time: ${spell.casting_time}\nDuration: ${spell.duration}\nRange: ${spell.range}\nComponents: ${spell.components}\nConcentration: ${spell.concentration} \n\n${spell.desc} \n\n${spell.higher_level}`
+      let desc = `${spell.level} - ${spell.school}\nCasting Time: ${spell.casting_time}\nDuration: ${spell.duration}\nRange: ${spell.range}\nComponents: ${spell.components}\nConcentration: ${spell.concentration} \n\n${spell.description}`
     
         
       return (

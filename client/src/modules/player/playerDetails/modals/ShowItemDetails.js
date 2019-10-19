@@ -5,7 +5,6 @@ const baseURL = process.env.REACT_APP_BASEURL
 
 export default class ShowItemDetails extends Component {
   // TODO make it look better, add edit buttons, split spells, abilities, notes and items if needed
-  // maybe restructure database to make new tables for each item type
 
   constructor(props) {
     super(props)
@@ -40,7 +39,7 @@ export default class ShowItemDetails extends Component {
     let itemType = ''
     switch (this.props.item.itemType) {
       case 'Spell':
-        item = this.loadItems(this.props.item, 'spells')
+        item = this.props.item
         itemType = 'spells'
         break;
       case 'Item':
@@ -49,7 +48,7 @@ export default class ShowItemDetails extends Component {
         break;
       case 'Note':
         item = this.loadItems(this.props.item, 'notes')
-        itemType = 'notes'        
+        itemType = 'notes'
         break;
       case 'Ability':
         item = this.loadItems(this.props.item, 'feats')
@@ -77,15 +76,18 @@ export default class ShowItemDetails extends Component {
         player: this.props.player.id
       }
     })
-    if(response.data.message === 'Deleted') {
+    if (response.data.message === 'Deleted') {
       this.props.updatePlayer(this.props.player)
-      
+
     } else {
       console.log('ERROR: Delete failed')
     }
   }
   componentWillUnmount() {
-    this.setState({ loaded: false })
+    this.setState({
+      loaded: false,
+      currentItem: ''
+    })
   }
   render() {
     return (

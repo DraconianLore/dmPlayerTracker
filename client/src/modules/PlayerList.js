@@ -85,8 +85,7 @@ class PlayerList extends Component {
         player.feats = response.data.feats
         player.notes = response.data.notes
         player.items = response.data.items
-        // TODO: Once database restructure is complete unhash these (currently breaking changes to existing data)
-        // player.spells = response.data.spells
+        player.spells = response.data.spells
           this.setState({
             showPlayer: true,
             showMenu: false,
