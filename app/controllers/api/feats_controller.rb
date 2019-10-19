@@ -27,7 +27,7 @@ class Api::FeatsController < ApplicationController
     end
   end
   
-  def updare
+  def update
     @feat = Feat.find(props[:id])
     @feat.description = props[:newDescription]
     if @feat.save!
