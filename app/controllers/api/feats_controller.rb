@@ -33,7 +33,7 @@ class Api::FeatsController < ApplicationController
     if @feat.save!
       render :json => {
         message: 'Updated',
-        feat: @feat
+        item: @feat
       } 
     else
       render :json => {

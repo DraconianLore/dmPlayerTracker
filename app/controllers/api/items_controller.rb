@@ -22,7 +22,20 @@ class Api::ItemsController < ApplicationController
       }
     end
   end
-
+  def update
+    @item = Item.find(params[:id])
+    @item.description = params[:newDescription]
+    if @item.save!
+      render :json => {
+        message: 'Updated',
+        item: @item
+      } 
+    else
+      render :json => {
+        message: 'SAVE FAILED'
+      }
+    end
+  end
   def destroy
     @item = Item.find(params[:id])
     @item.delete

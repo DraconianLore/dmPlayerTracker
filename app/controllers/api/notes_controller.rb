@@ -22,7 +22,20 @@ class Api::NotesController < ApplicationController
       }
     end
   end
-  
+  def update
+    @note = Note.find(params[:id])
+    @note.description = params[:newDescription]
+    if @feat.save!
+      render :json => {
+        message: 'Updated',
+        item: @note
+      } 
+    else
+      render :json => {
+        message: 'SAVE FAILED'
+      }
+    end
+  end
   def destroy
     @note = Note.find(params[:id])
     @note.delete
