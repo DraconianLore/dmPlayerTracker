@@ -42,7 +42,10 @@ export default class ShowItemDetails extends Component {
     let itemType = ''
     switch (this.props.item.itemType) {
       case 'Spell':
-        item = this.props.item
+        item = this.loadItems(this.props.item, 'spells')
+        this.setState({
+          spellDescription: `${item.level} - ${item.school}\nCasting Time: ${item.casting_time}\nDuration: ${item.duration}\nRange: ${item.range}\nComponents: ${item.components}\nConcentration: ${item.concentration} \n\n${item.description}`
+        })
         itemType = 'spells'
         break;
       case 'Item':
@@ -107,7 +110,8 @@ export default class ShowItemDetails extends Component {
     this.setState({
       loaded: false,
       currentItem: '',
-      view: true
+      view: true,
+      spellDescription: ''
     })
   }
   editDescription = (event) => {
@@ -175,7 +179,12 @@ export default class ShowItemDetails extends Component {
           <hr className='itemHr' />
           <div className='itemModalInner'>
             {this.state.view && <p className='itemDescription'>
+            {this.state.itemType !== 'spells' && <>
               {this.state.currentItem.description}
+              </>}
+              {this.state.itemType === 'spells' && <>
+              {this.state.spellDescription}
+              </>}
             </p>}
             {this.state.editItem && <textarea className='editDescription' rows={8} name='description' onChange={this.editDescription} value={this.state.description} />
             }
