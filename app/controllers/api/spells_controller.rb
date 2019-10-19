@@ -45,7 +45,8 @@ class Api::SpellsController < ApplicationController
     @spell.school = params[:school]
     if @spell.save!
       render :json => {
-        message: 'UPDATED'
+        message: 'UPDATED',
+        item: @spell
       }
     else 
       render :json => {

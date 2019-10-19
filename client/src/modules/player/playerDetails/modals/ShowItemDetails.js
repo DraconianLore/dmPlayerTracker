@@ -118,7 +118,7 @@ export default class ShowItemDetails extends Component {
     this.setState({
       currentItem: updatedItem,
       edit: false,
-      editItem: false
+      editSpell: false
     })
     this.props.updatePlayer(this.props.player)
   }
@@ -196,7 +196,7 @@ export default class ShowItemDetails extends Component {
             </p>}
             {this.state.editItem && <textarea className='editDescription' rows={8} name='description' onChange={this.editDescription} value={this.state.description} />
             }
-            {this.state.editSpell && <EditSpells spell={this.state.currentItem} player={this.props.player} updatePlayer={this.updatePlayer} />
+            {this.state.editSpell && <EditSpells JWT={this.props.JWT} spell={this.state.currentItem} player={this.props.player} updatePlayer={this.updatePlayer} />
             }
           </div>
         </div>}
