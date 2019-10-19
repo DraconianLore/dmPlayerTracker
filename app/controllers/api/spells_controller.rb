@@ -17,7 +17,7 @@ class Api::SpellsController < ApplicationController
     @spell.casting_time = params[:casting_time]
     @spell.level = params[:level]
     @spell.school = params[:school]
-    @spell.player_id = @player
+    @spell.player = @player
 
     if @spell.save!
       render :json => {
