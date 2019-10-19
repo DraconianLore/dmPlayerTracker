@@ -44,7 +44,7 @@ export default class ShowItemDetails extends Component {
       case 'Spell':
         item = this.loadItems(this.props.item, 'spells')
         this.setState({
-          spellDescription: `${item.level} - ${item.school}\nCasting Time: ${item.casting_time}\nDuration: ${item.duration}\nRange: ${item.range}\nComponents: ${item.components}\nConcentration: ${item.concentration} \n\n${item.description}`
+          spellDescription: `${item.level} - ${item.school}\nCasting Time: ${item.casting_time}\nDuration: ${item.duration}\nRange: ${item.range}\nComponents: ${item.components}\nConcentration: ${item.concentration}\nRitual: ${item.ritual} \n\n${item.description}`
         })
         itemType = 'spells'
         break;

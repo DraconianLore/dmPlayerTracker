@@ -52,7 +52,6 @@ export default class EditSpells extends Component {
       }
     })
       .then((response) => { 
-        console.log(response)
         this.props.updatePlayer(response.data.item)
       })
       .catch(function (e) {

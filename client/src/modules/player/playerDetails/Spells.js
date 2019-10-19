@@ -13,7 +13,7 @@ export default class Spells extends Component {
   }
   fetchSpells = () => {
     let spells = this.props.playerInfo.spells.map((spell, index) => {
-      let desc = `${spell.level} - ${spell.school}\nCasting Time: ${spell.casting_time}\nDuration: ${spell.duration}\nRange: ${spell.range}\nComponents: ${spell.components}\nConcentration: ${spell.concentration} \n\n${spell.description}`
+      let desc = `${spell.level} - ${spell.school}\nCasting Time: ${spell.casting_time}\nDuration: ${spell.duration}\nRange: ${spell.range}\nComponents: ${spell.components}\nConcentration: ${spell.concentration}\nRitual: ${spell.ritual} \n\n${spell.description}`
     
         
       return (
