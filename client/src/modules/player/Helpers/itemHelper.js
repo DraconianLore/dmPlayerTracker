@@ -93,7 +93,7 @@ export default async function itemHelper(newItem, player, JWT) {
         player.spells = []
       }
       if (newItem.change) {
-        player.notes.push(newItem.change)
+        player.spells.push(newItem.change)
       }
       break;
     case 'Note':

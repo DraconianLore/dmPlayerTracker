@@ -1,4 +1,3 @@
 class Spell < ApplicationRecord
-  has_many :playerSpells
-  has_many :players, through: :playerSpells
+  belongs_to :player
 end
