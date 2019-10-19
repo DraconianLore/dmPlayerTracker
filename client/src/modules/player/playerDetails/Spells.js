@@ -14,15 +14,12 @@ export default class Spells extends Component {
   fetchSpells = () => {
     // TODO tidy this up and add fields for casting time etc, perhaps add URL for existing spells instead of full details
     let spells = this.props.playerInfo.spells.map((spell, index) => {
-     
-      // remove this once restructuring is complete and old users updated
-      if (typeof spell === 'string'){
-        spell = JSON.parse(spell)
-      }   
+      let desc = `${spell.level} - ${spell.school}\nCasting Time: ${spell.casting_time}\nDuration: ${spell.duration}\nRange: ${spell.range}\nComponents: ${spell.components}\nConcentration: ${spell.concentration} \n\n${spell.desc} \n\n${spell.higher_level}`
+    
         
       return (
         // eslint-disable-next-line
-        <a href='#' title={spell.description} key={index} onClick={this.showSpellDetails} >
+        <a href='#' title={desc} key={index} onClick={this.showSpellDetails} >
         <h3>
           {spell.name}
         </h3>

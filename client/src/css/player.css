@@ -195,14 +195,21 @@
   height: 33em;
   z-index: 5;
 }
-.spellCheckBox {
-  margin-left: 1em;
-  margin-right: 1em;
-}
-.spellCheckBox:hover {
-  
-}
+.spellCheckBoxfalse {
+  margin: 2em;
 
+}
+.spellCheckBoxfalse:hover {
+ cursor: pointer; 
+}
+.spellCheckBoxtrue {
+  margin: 2em;
+  color: navajowhite;
+  font-weight: 700;
+}
+.spellCheckBoxtrue:hover {
+ cursor: pointer; 
+}
 .info-header {
   font-weight: 700;
   font-size: 1.2em;

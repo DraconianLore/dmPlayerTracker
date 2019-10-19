@@ -8,6 +8,14 @@ export default class AddSomething extends Component {
     this.state = {
       title: '',
       description: '',
+      range: '',
+      duration: '',
+      casting_time: '',
+      level: '',
+      school: '',
+      components: '',
+      concentration: false,
+      ritual: false,
       itemID: null
     }
   }
@@ -33,9 +41,30 @@ export default class AddSomething extends Component {
               break;
             }
           }
+          let comp = newItem.components
+          let rit = false
+          let con = false
+          if (newItem.material) {
+            comp += ` (${newItem.material})`
+          }
+          if (newItem.ritual === 'yes') {
+            rit = true
+          }
+          if (newItem.concentration === 'yes') {
+            con = true
+          }
+
           this.setState({
             title: newItem.name,
-            description: `${newItem.level} - ${newItem.school}\nCasting Time: ${newItem.casting_time}\nRange: ${newItem.range}\nComponents: ${newItem.components}\nConcentration: ${newItem.concentration} \n\n${newItem.desc} \n\n${newItem.higher_level}`
+            description: `${newItem.desc}\n\n${newItem.higher_level}`,
+            level: newItem.level,
+            school: newItem.school,
+            duration: newItem.duration,
+            casting_time: newItem.casting_time,
+            range: newItem.range,
+            components: comp,
+            ritual: rit,
+            concentration: con
           })
         }
       })
@@ -74,9 +103,6 @@ export default class AddSomething extends Component {
 
 
   }
-
-
-
   editTitle = (evt) => {
     this.setState({
       title: evt.target.value
@@ -87,13 +113,43 @@ export default class AddSomething extends Component {
       description: evt.target.value
     })
   }
+  editSpell = (evt) => {
+    const { name, value } = evt.target
+    this.setState({ [name]: value })
+  }
+  concentrationToggle = () => {
+    this.setState({ concentration: !this.state.concentration })
+  }
+  ritualToggle = () => {
+    this.setState({ ritual: !this.state.ritual })
+  }
   saveChanges = () => {
-    const change = { name: this.state.title, description: this.state.description, itemID: this.state.itemID }
+    let change = {};
+    console.log(this.props.item)
+    console.log(this.state)
+    if (this.props.item === 'Spell') {
+      change = {
+        title: this.state.title,
+        description: this.state.description,
+        range: this.state.range,
+        duration: this.state.duration,
+        casting_time: this.state.casting_time,
+        level: this.state.level,
+        school: this.state.school,
+        components: this.state.components,
+        concentration: this.state.concentration,
+        ritual: this.state.ritual
+      }
+      console.log(change)
+    } else {
+      change = { name: this.state.title, description: this.state.description, itemID: this.state.itemID }
+    }
     let changes = {
       changeType: 'addItem',
       itemType: this.props.item,
       change: change
     }
+    console.log(changes.change)
     this.props.savePlayer(changes)
   }
   render() {
@@ -121,36 +177,36 @@ export default class AddSomething extends Component {
           <div className='newSpell'>
             <p className='addItemP'>Spell name:
             <input className='spellText' type='text' name='name' placeholder={'New ' + this.props.item} onChange={this.editTitle} value={this.state.title} />
-            <button className='search-spells' onClick={this.searchSpells}>Search</button>
+              <button className='search-spells' onClick={this.searchSpells}>Search</button>
             </p>
-            
+
             <p className='addItemP'>Range:
-            <input className='spellText' type='text' name='range' placeholder={'Spell Range'} onChange={this.editTitle} value={this.state.title} />
+            <input className='spellText' type='text' name='range' placeholder={'Spell Range'} onChange={this.editSpell} value={this.state.range} />
             </p>
             <p className='addItemP'>Duration:
-            <input className='spellText' type='text' name='duration' placeholder={'Duration'} onChange={this.editTitle} value={this.state.title} />
+            <input className='spellText' type='text' name='duration' placeholder={'Duration'} onChange={this.editSpell} value={this.state.duration} />
             </p>
             <p className='addItemP'>Casting Time:
-            <input className='spellText' type='text' name='casting_time' placeholder={'Casting Time'} onChange={this.editTitle} value={this.state.title} />
+            <input className='spellText' type='text' name='casting_time' placeholder={'Casting Time'} onChange={this.editSpell} value={this.state.casting_time} />
             </p>
             <p className='addItemP'>Level:
-            <input className='spellText' type='text' name='level' placeholder={'Spell Level'} onChange={this.editTitle} value={this.state.title} />
+            <input className='spellText' type='text' name='level' placeholder={'Spell Level'} onChange={this.editSpell} value={this.state.level} />
             </p>
             <p className='addItemP'>School:
-            <input className='spellText' type='text' name='school' placeholder={'School of magic'} onChange={this.editTitle} value={this.state.title} />
+            <input className='spellText' type='text' name='school' placeholder={'School of magic'} onChange={this.editSpell} value={this.state.school} />
             </p>
             <p className='addItemP'>Components:
-            <input className='spellText' type='text' name='components' placeholder={'Components'} onChange={this.editTitle} value={this.state.title} />
+            <input className='spellText' type='text' name='components' placeholder={'Components'} onChange={this.editSpell} value={this.state.components} />
             </p>
             <p className='addItemP'>
-              <span className='spellCheckBox'>
+              <span className={`spellCheckBox${this.state.ritual}`} onClick={this.ritualToggle}>
                 Ritual
                 </span>
-                <span className='spellCheckBox'>
-              Concentration:
+              <span className={`spellCheckBox${this.state.concentration}`} onClick={this.concentrationToggle}>
+                Concentration
                 </span>
             </p>
-            
+            <br />
 
             <p className='addItemP'>{this.props.item} Description </p>
             <textarea className='spellText' style={{ width: '80%' }} rows={8} name='name' placeholder={this.props.item + ' description'} onChange={this.editDescription} value={this.state.description} />

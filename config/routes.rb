@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :pclasses
     resources :items
     resources :notes
+    resources :spells
   end
   
   post '/register', to: 'api/users#register'

@@ -39,7 +39,7 @@ async function createJoin(JWT, itemID, playerID, type) {
   return;
 }
 async function addSpell(JWT, newSpell, playerID) {
-  if (newSpell.name && newSpell.description) {
+  if (newSpell.title && newSpell.description) {
     let response = await axios({
       method: 'post',
       url: `${baseURL}api/spells`,
@@ -48,7 +48,7 @@ async function addSpell(JWT, newSpell, playerID) {
       },
       data: {
         player: playerID,
-        name: newSpell.name,
+        name: newSpell.title,
         description: newSpell.description,
         range: newSpell.range,
         components: newSpell.components,
