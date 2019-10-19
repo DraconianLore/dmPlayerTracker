@@ -5,7 +5,6 @@ class Api::SpellsController < ApplicationController
   end
 
   def create
-    @player = Player.find(params[:player])
     @spell = Spell.new
     @spell.name = params[:name]
     @spell.description = params[:description]
@@ -17,7 +16,7 @@ class Api::SpellsController < ApplicationController
     @spell.casting_time = params[:casting_time]
     @spell.level = params[:level]
     @spell.school = params[:school]
-    @spell.player = @player
+    @spell.player_id = params[:player]
 
     if @spell.save!
       render :json => {
