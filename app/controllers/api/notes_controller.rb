@@ -25,7 +25,7 @@ class Api::NotesController < ApplicationController
   def update
     @note = Note.find(params[:id])
     @note.description = params[:newDescription]
-    if @feat.save!
+    if @note.save!
       render :json => {
         message: 'Updated',
         item: @note

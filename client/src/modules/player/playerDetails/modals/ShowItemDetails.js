@@ -73,7 +73,6 @@ export default class ShowItemDetails extends Component {
   }
   editItem = (event) => {
     event.preventDefault()
-    console.log(this.state.itemType)
     let editing = 'editItem'
     if (this.state.itemType === 'spells') {
       editing = 'editSpell'
@@ -129,7 +128,12 @@ export default class ShowItemDetails extends Component {
       }
     })
       .then((response) => {
-        console.log(response)
+        this.setState({
+          currentItem: response.data.item,
+          edit: false,
+          editItem: false
+        })
+        this.props.updatePlayer(this.props.player)
       })
       .catch(function (e) {
         console.log(e)
@@ -149,22 +153,22 @@ export default class ShowItemDetails extends Component {
       <>
         {this.state.loaded && <div className='itemModal'>
           {this.state.view && <>
-          <button className='deleteItem' name={this.state.currentItem.id} onClick={this.deleteItem}>
-            DELETE
+            <button className='deleteItem' name={this.state.currentItem.id} onClick={this.deleteItem}>
+              DELETE
           </button>
-          <button className='editItem' name={this.state.currentItem.id} onClick={this.editItem} >
-            EDIT
+            <button className='editItem' name={this.state.currentItem.id} onClick={this.editItem} >
+              EDIT
           </button>
           </>}
           {this.state.edit && <>
-          <button className='deleteItem' name={this.state.currentItem.id} onClick={this.cancelEdit}>
-            CANCEL
+            <button className='deleteItem' name={this.state.currentItem.id} onClick={this.cancelEdit}>
+              CANCEL
           </button>
-          <button className='editItem' name={this.state.currentItem.id} onClick={this.saveEdit} >
-            SAVE
+            <button className='editItem' name={this.state.currentItem.id} onClick={this.saveEdit} >
+              SAVE
           </button>
           </>}
-          
+
           <p className='itemHeader'>
             {this.state.currentItem.name}
           </p>
