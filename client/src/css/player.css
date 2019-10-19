@@ -427,12 +427,12 @@ button span {
   color: orangered;
 }
 .deleteItem {
-  background-color: darkgoldenrod;
-  border-color: goldenrod;
+  background-color: darkred;
+  border-color: peru;
   position: absolute;
   top: 5px;
   left: 5px;
-  color: firebrick;
+  color: #440000;
   height: 4vh;
   width: 6vw;
   font-weight: 700;
@@ -441,8 +441,26 @@ button span {
 }
 
 .deleteItem:hover {
-  border-color: gold;
-  color: gold;
+  border-color: darkred;
+  color: goldenrod;
+}
+.editItem {
+  background-color: darkgreen;
+  border-color: peru;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #004400;
+  height: 4vh;
+  width: 6vw;
+  font-weight: 700;
+  border-radius: 5px;
+  border-style: groove;
+}
+
+.editItem:hover {
+  border-color: darkslategrey;
+  color: goldenrod;
 }
 
 .close-modal {
@@ -488,6 +506,15 @@ button span {
   padding: 1vh 2vh 3vh 2vh;
   width: 40vw;
   height: 40vh;
+  z-index: 3;
+  overflow: hidden;
+}
+.itemModalInner {
+  background-color: chocolate;
+  color: navajowhite;
+  width: 100%;
+  height: 92%;
+  margin-top: 1vh;
   z-index: 3;
   overflow: scroll;
 }
@@ -551,4 +578,14 @@ button span {
   .sWidth {
     font-size: 4vw;
   }
+}
+.editDescription {
+  background-color: saddlebrown;
+  padding: 1em;
+  border-color: peru;
+  resize: none;
+  color: navajowhite;
+  min-width: 177px;
+  width: 80%;
+  height: 90%;
 }

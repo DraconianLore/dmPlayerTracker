@@ -11,7 +11,11 @@ export default class ShowItemDetails extends Component {
     this.state = {
       currentItem: '',
       loaded: false,
-      itemType: ''
+      itemType: '',
+      view: true,
+      edit: false,
+      editItem: false,
+      editSpell: false
     }
   }
   fetchItems = (itemType) => {
@@ -33,8 +37,7 @@ export default class ShowItemDetails extends Component {
     });
     return currentItem
   }
-
-  componentDidMount() {
+  reload = () => {
     let item = ''
     let itemType = ''
     switch (this.props.item.itemType) {
@@ -61,8 +64,26 @@ export default class ShowItemDetails extends Component {
     this.setState({
       currentItem: item,
       loaded: true,
-      itemType: itemType
+      itemType: itemType,
+      description: item.description
     })
+  }
+  componentDidMount() {
+    this.reload()
+  }
+  editItem = (event) => {
+    event.preventDefault()
+    console.log(this.state.itemType)
+    let editing = 'editItem'
+    if (this.state.itemType === 'spells') {
+      editing = 'editSpell'
+    }
+    this.setState({
+      view: false,
+      edit: true,
+      [editing]: true
+    })
+
   }
   deleteItem = async (event) => {
     event.preventDefault();
@@ -86,23 +107,77 @@ export default class ShowItemDetails extends Component {
   componentWillUnmount() {
     this.setState({
       loaded: false,
-      currentItem: ''
+      currentItem: '',
+      view: true
     })
+  }
+  editDescription = (event) => {
+    this.setState({
+      description: event.target.value
+    })
+  }
+  saveEdit = () => {
+    axios({
+      method: 'put',
+      url: `${baseURL}api/${this.state.itemType}/${this.state.currentItem.id}`,
+      headers: {
+        Authorization: this.props.JWT
+      },
+      data: {
+        item: this.state.item,
+        newDescription: this.state.description
+      }
+    })
+      .then((response) => {
+        console.log(response)
+      })
+      .catch(function (e) {
+        console.log(e)
+      })
+  }
+  cancelEdit = () => {
+    this.setState({
+      edit: false,
+      view: true,
+      editItem: false,
+      editSpell: false
+    })
+    this.reload()
   }
   render() {
     return (
       <>
         {this.state.loaded && <div className='itemModal'>
+          {this.state.view && <>
           <button className='deleteItem' name={this.state.currentItem.id} onClick={this.deleteItem}>
             DELETE
           </button>
+          <button className='editItem' name={this.state.currentItem.id} onClick={this.editItem} >
+            EDIT
+          </button>
+          </>}
+          {this.state.edit && <>
+          <button className='deleteItem' name={this.state.currentItem.id} onClick={this.cancelEdit}>
+            CANCEL
+          </button>
+          <button className='editItem' name={this.state.currentItem.id} onClick={this.saveEdit} >
+            SAVE
+          </button>
+          </>}
+          
           <p className='itemHeader'>
             {this.state.currentItem.name}
           </p>
           <hr className='itemHr' />
-          <p className='itemDescription'>
-            {this.state.currentItem.description}
-          </p>
+          <div className='itemModalInner'>
+            {this.state.view && <p className='itemDescription'>
+              {this.state.currentItem.description}
+            </p>}
+            {this.state.editItem && <textarea className='editDescription' rows={8} name='description' onChange={this.editDescription} value={this.state.description} />
+            }
+            {this.state.editSpell && <h1>SPELL EDITING</h1>
+            }
+          </div>
         </div>}
 
         <div className='im-top' onClick={this.closeModal} />

@@ -25,9 +25,23 @@ class Api::FeatsController < ApplicationController
         newItem: feat
       }
     end
-
   end
   
+  def updare
+    @feat = Feat.find(props[:id])
+    @feat.description = props[:newDescription]
+    if @feat.save!
+      render :json => {
+        message: 'Updated',
+        feat: @feat
+      } 
+    else
+      render :json => {
+        message: 'SAVE FAILED'
+      }
+    end
+  end
+
   def destroy
     player = Player.find(params[:player])
     player.feats.delete(params[:id])
