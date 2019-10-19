@@ -31,4 +31,12 @@ class Api::SpellsController < ApplicationController
       }
     end
   end
+
+  def destroy
+    @spell = Spell.find(params[:id])
+    @spell.delete
+    render :json => {
+      message: 'Deleted'
+    }
+  end
 end

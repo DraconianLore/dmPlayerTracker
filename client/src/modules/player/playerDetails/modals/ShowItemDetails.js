@@ -179,7 +179,7 @@ export default class ShowItemDetails extends Component {
             </p>}
             {this.state.editItem && <textarea className='editDescription' rows={8} name='description' onChange={this.editDescription} value={this.state.description} />
             }
-            {this.state.editSpell && <h1>SPELL EDITING</h1>
+            {this.state.editSpell && <h1>Spell editing currently disabled</h1>
             }
           </div>
         </div>}
