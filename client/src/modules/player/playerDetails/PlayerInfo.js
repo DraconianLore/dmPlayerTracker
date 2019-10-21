@@ -7,7 +7,6 @@ export default class PlayerInfo extends Component {
       warning: false
     }
   }
-  // TODO Level Up: add level up/down warning modal (DOUBLE SURE FOR LEVEL DOWN as they will need to delete any abilities manually)
   levelUp = (e) => {
     e.preventDefault()
     this.setState({
