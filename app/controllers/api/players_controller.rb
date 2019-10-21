@@ -45,7 +45,10 @@ class Api::PlayersController < ApplicationController
   def destroy
     game = Game.find(request.headers[:game])
     player = Player.find(params[:id])
-    @feats = player.feats
+    @feats = []
+    player.feats.each do |f|
+      @feats.push(f.feat_id)
+    end
     player.feats.destroy_all
     player.delete
     puts '#######################'
