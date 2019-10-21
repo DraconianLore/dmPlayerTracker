@@ -52,9 +52,10 @@ class Api::PlayersController < ApplicationController
     end
     player.feats.destroy_all
     player.delete
-    puts '#######################'
-    puts @feats
-    puts '#######################'
+    @feats.each do |f|
+      feat = Feat.find(f)
+      feat.delete
+    end
 
     render :json => {
       players: game.players
