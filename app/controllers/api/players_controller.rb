@@ -47,7 +47,8 @@ class Api::PlayersController < ApplicationController
     player = Player.find(params[:id])
     @feats = []
     player.feats.each do |f|
-      @feats.push(f.feat_id)
+      puts f
+      @feats.push(f.id)
     end
     player.feats.destroy_all
     player.delete
