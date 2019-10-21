@@ -1,41 +1,12 @@
-/* TODO tidy and split into smaller css files */
-.stat {
-  font-size: 2em;
-}
-.statButton {
-  background-color: burlywood;
-  border-color: bisque;
-  font-weight: 700;
-  visibility: hidden;
-}
-.statDown {
-  float: left;
-  margin-left: 1em;
-  padding: 0.1em 0.5em 0.1em 1em;
-  border-radius: 30px 0 0 20px;
-}
-.statDown:hover, .statUp:hover {
-  background-color: peru;
-  border-color: burlywood;
-}
-.statUp {
-  float: right;
-  margin-right: 1em;
-  padding: 0.1em 1em 0.1em 0.5em; 
-  border-radius: 0 30px 20px 0;
-}
+
 .playerDetails {
   display: flex;
   height: 90%;
-}
-.baseStat-inner:hover .statButton {
-  visibility: visible;
 }
 
 .playerHeader {
   height: 8%;
 }
-
 .pdColumn {
   display: flex;
   flex-direction: column;
@@ -45,19 +16,6 @@
   overflow: hidden;
   overflow: scroll;
   scrollbar-width: none;
-}
-
-.proficiencies {
-  padding: 2px;
-  font-weight: 300;
-  text-align: left;
-}
-.baseStat {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.7em;
-}
-.statHr {
-  border-color: darkred;
 }
 
 .pdSectionBreak {
@@ -86,26 +44,12 @@
   filter: sepia(100%);
 }
 
-.abilityList a h3 {
-  margin-top: 0.5em;
-  color: bisque;
-}
-.abilityList a h3:hover {
-  color: peru;
-}
-
 .pdColumn h3, h1 {
   color: burlywood;
 }
 
 .info-string {
   font-size: 3vw;
-}
-
-@media screen and (min-width: 1200px) {
-  .info-string {
-    font-size: 1em;
-  }
 }
 
 .charName {
@@ -138,40 +82,6 @@
   height: 10em;
   z-index: 5;
 }
-.editProfs {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.editProfBox {
-  margin-top: 20%;
-  border-radius: 10px;
-  border-style: groove;
-  border-color: darkred;
-  background-color: #550000;
-  padding: 1em 1em 0.5em 1em;
-  width: 30vw;
-  z-index: 5;
-}
-
-.prof-have {
-  color: bisque
-}
-.prof-have:hover {
-  color: peru;
-  cursor: pointer;
-}
-.prof-need {
-  color: saddlebrown;
-}
-.prof-need:hover {
-  color: peru;
-  cursor: pointer;
-}
 
 .addBox {
   margin-top: 20%;
@@ -184,32 +94,7 @@
   height: 20em;
   z-index: 5;
 }
-.addSpell {
-  margin-top: 11.5%;
-  border-radius: 10px;
-  border-style: groove;
-  border-color: darkred;
-  background-color: #550000;
-  padding: 2vh;
-  width: 30vw;
-  height: 33em;
-  z-index: 5;
-}
-.spellCheckBoxfalse {
-  margin: 2em;
-color: saddlebrown;
-}
-.spellCheckBoxfalse:hover {
- cursor: pointer; 
-}
-.spellCheckBoxtrue {
-  margin: 2em;
-  color: navajowhite;
-  font-weight: 700;
-}
-.spellCheckBoxtrue:hover {
- cursor: pointer; 
-}
+
 .info-header {
   font-weight: 700;
   font-size: 1.2em;
@@ -268,59 +153,6 @@ color: saddlebrown;
   color: burlywood;
 }
 
-.addItem {
-  margin-top: 10px;
-  border-color: darkred;
-  background-color: #830000;
-  color: bisque;
-  width: 60%;
-  align-self: center;
-  padding: 5px;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.addItem:hover {
-  background-color: #770000;
-}
-
-.playerStat {
-  border: 2px solid darkred;
-  background-color: #550000;
-  padding: 2px;
-  border-radius: 5px;
-  margin: 1px;
-  color: bisque;
-}
-
-.playerStat-inner {
-  background-color: #550000;
-  border-style: none;
-  color: bisque;
-  width: 100%;
-}
-
-.playerStat-inner:hover {
-  color: peru;
-}
-.baseStat-inner {
-  background-color: #550000;
-  border-style: none;
-  color: bisque;
-  width: 100%;
-}
-
-.player-proficiencies {
-  background-color: #550000;
-  border-style: none;
-  color: bisque;
-  width: 100%;
-  text-align: left;
-}
-
-.player-proficiencies:hover {
-  color: peru;
-}
 
 .playerInfoBox {
   display: inline-block;
@@ -356,22 +188,6 @@ button span {
   pointer-events: none;
 }
 
-.stat-profs {
-  font-weight: 700;
-  color: burlywood;
-  font-size: 110%;
-  display: block;
-  text-align: center;
-}
-
-.player-proficiencies:hover .stat-profs {
-  color: goldenrod;
-}
-
-.playerStat:hover {
-  color: peru;
-}
-
 .edit-input {
   width: 200px;
   font-size: 2em;
@@ -382,31 +198,6 @@ button span {
   color: peru;
 }
 
-.addText {
-  background-color: #440000;
-  padding: 5px;
-  border-color: darkred;
-  resize: none;
-  color: goldenrod;
-  min-width: 177px;
-}
-.spellText {
-  background-color: #440000;
-  padding: 5px;
-  margin: 2px 5px 2px 5px;
-  border-color: darkred;
-  resize: none;
-  color: goldenrod;
-  min-width: 10px;
-  width: 100px;
-}
-.newSpell {
-  text-align: center;
-}
-
-.addItemP {
-  color: burlywood;
-}
 
 .deletePlayer {
   background-color: #440000;
@@ -425,42 +216,6 @@ button span {
 .deletePlayer:hover {
   border-color: orangered;
   color: orangered;
-}
-.deleteItem {
-  background-color: darkred;
-  border-color: peru;
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  color: #440000;
-  height: 4vh;
-  width: 6vw;
-  font-weight: 700;
-  border-radius: 5px;
-  border-style: groove;
-}
-
-.deleteItem:hover {
-  border-color: darkred;
-  color: goldenrod;
-}
-.editItem {
-  background-color: darkgreen;
-  border-color: peru;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  color: #004400;
-  height: 4vh;
-  width: 6vw;
-  font-weight: 700;
-  border-radius: 5px;
-  border-style: groove;
-}
-
-.editItem:hover {
-  border-color: darkslategrey;
-  color: goldenrod;
 }
 
 .close-modal {
@@ -484,93 +239,6 @@ button span {
   color: lightgreen;
 }
 
-.search-spells {
-  margin-left: 0.5em;
-  background-color: peru;
-  border-color: darkgoldenrod;
-  padding: 3px;
-  border-radius: 2px;
-  font-weight: 700;
-  color: black;
-}
-
-.itemModal {
-  position: absolute;
-  top: 15vh;
-  left: 30vw;
-  border-radius: 1px;
-  border-style: inset;
-  border-color: peru;
-  background-color: chocolate;
-  color: navajowhite;
-  padding: 1vh 2vh 3vh 2vh;
-  width: 40vw;
-  height: 40vh;
-  z-index: 3;
-  overflow: hidden;
-}
-.itemModalInner {
-  background-color: chocolate;
-  color: navajowhite;
-  width: 100%;
-  height: 92%;
-  margin-top: 1vh;
-  z-index: 3;
-  overflow: scroll;
-}
-.im-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 15vh;
-  width: 100vw;
-  z-index: 5;
-  opacity: 0;
-}
-.im-right {
-  position: absolute;
-  top: 15vh;
-  right: 0;
-  height: 45vh;
-  z-index: 5;
-  opacity: 0;
-  width: 27.5vw;
-}
-.im-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 5;
-  height: 40vh;
-  opacity: 0;
-  width: 100%;
-}
-.im-left {
-  position: absolute;
-  top: 15vh;
-  left: 0;
-  height: 45vh;
-  width: 30vw;
-  z-index: 5;
-  opacity: 0;
-}
-.itemHr {
-  border-color: peru;
-  margin: 1vh 8vw 0 8vw;
-}
-.itemHeader {
-  font-size: 200%;
-  font-family: 'Blinker', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 700;
-  padding: 0;
-}
-.itemDescription {
-  padding: 1em 10% 1em 10%;
-  text-align: left;
-  white-space: pre-wrap;
-}
 .sWidth {
   font-size: 2em;
 }
@@ -579,26 +247,12 @@ button span {
     font-size: 4vw;
   }
 }
-.editDescription {
-  background-color: saddlebrown;
-  padding: 1em;
-  border-color: peru;
-  resize: none;
-  color: navajowhite;
-  min-width: 177px;
-  width: 80%;
-  height: 90%;
+@media screen and (min-width: 1200px) {
+  .info-string {
+    font-size: 1em;
+  }
 }
-.editSpellText {
-  background-color: saddlebrown;
-  padding: 5px;
-  margin: 2px 5px 2px 5px;
-  border-color: peru;
-  resize: none;
-  color: navajowhite;
-  min-width: 10px;
-  width: 100px;
-}
+
 .levelPrompt {
   position: absolute;
   top: 0;
@@ -619,3 +273,5 @@ button span {
   height: 13vh;
   z-index: 3;
 }
+@import './player/stats.css';
+@import './player//items.css';

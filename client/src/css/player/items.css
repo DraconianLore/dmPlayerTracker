@@ -1,0 +1,216 @@
+.abilityList a h3 {
+  margin-top: 0.5em;
+  color: bisque;
+}
+.abilityList a h3:hover {
+  color: peru;
+}
+.addSpell {
+  margin-top: 11.5%;
+  border-radius: 10px;
+  border-style: groove;
+  border-color: darkred;
+  background-color: #550000;
+  padding: 2vh;
+  width: 30vw;
+  height: 33em;
+  z-index: 5;
+}
+.spellCheckBoxfalse {
+  margin: 2em;
+color: saddlebrown;
+}
+.spellCheckBoxfalse:hover {
+ cursor: pointer; 
+}
+.spellCheckBoxtrue {
+  margin: 2em;
+  color: navajowhite;
+  font-weight: 700;
+}
+.spellCheckBoxtrue:hover {
+ cursor: pointer; 
+}
+.addItem {
+  margin-top: 10px;
+  border-color: darkred;
+  background-color: #830000;
+  color: bisque;
+  width: 60%;
+  align-self: center;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.addItem:hover {
+  background-color: #770000;
+}
+.addText {
+  background-color: #440000;
+  padding: 5px;
+  border-color: darkred;
+  resize: none;
+  color: goldenrod;
+  min-width: 177px;
+}
+.spellText {
+  background-color: #440000;
+  padding: 5px;
+  margin: 2px 5px 2px 5px;
+  border-color: darkred;
+  resize: none;
+  color: goldenrod;
+  min-width: 10px;
+  width: 100px;
+}
+.newSpell {
+  text-align: center;
+}
+
+.addItemP {
+  color: burlywood;
+}
+.editItem {
+  background-color: darkgreen;
+  border-color: peru;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #004400;
+  height: 4vh;
+  width: 6vw;
+  font-weight: 700;
+  border-radius: 5px;
+  border-style: groove;
+}
+
+.editItem:hover {
+  border-color: darkslategrey;
+  color: goldenrod;
+}
+.deleteItem {
+  background-color: darkred;
+  border-color: peru;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: #440000;
+  height: 4vh;
+  width: 6vw;
+  font-weight: 700;
+  border-radius: 5px;
+  border-style: groove;
+}
+.deleteItem:hover {
+  border-color: darkred;
+  color: goldenrod;
+}
+
+.search-spells {
+  margin-left: 0.5em;
+  background-color: peru;
+  border-color: darkgoldenrod;
+  padding: 3px;
+  border-radius: 2px;
+  font-weight: 700;
+  color: black;
+}
+
+.itemModal {
+  position: absolute;
+  top: 15vh;
+  left: 30vw;
+  border-radius: 1px;
+  border-style: inset;
+  border-color: peru;
+  background-color: chocolate;
+  color: navajowhite;
+  padding: 1vh 2vh 3vh 2vh;
+  width: 40vw;
+  height: 40vh;
+  z-index: 3;
+  overflow: hidden;
+}
+.itemModalInner {
+  background-color: chocolate;
+  color: navajowhite;
+  width: 100%;
+  height: 92%;
+  margin-top: 1vh;
+  z-index: 3;
+  overflow: scroll;
+}
+.im-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15vh;
+  width: 100vw;
+  z-index: 5;
+  opacity: 0;
+}
+.im-right {
+  position: absolute;
+  top: 15vh;
+  right: 0;
+  height: 45vh;
+  z-index: 5;
+  opacity: 0;
+  width: 27.5vw;
+}
+.im-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  height: 40vh;
+  opacity: 0;
+  width: 100%;
+}
+.im-left {
+  position: absolute;
+  top: 15vh;
+  left: 0;
+  height: 45vh;
+  width: 30vw;
+  z-index: 5;
+  opacity: 0;
+}
+.itemHr {
+  border-color: peru;
+  margin: 1vh 8vw 0 8vw;
+}
+.itemHeader {
+  font-size: 200%;
+  font-family: 'Blinker', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  padding: 0;
+}
+.itemDescription {
+  padding: 1em 10% 1em 10%;
+  text-align: left;
+  white-space: pre-wrap;
+}
+.editDescription {
+  background-color: saddlebrown;
+  padding: 1em;
+  border-color: peru;
+  resize: none;
+  color: navajowhite;
+  min-width: 177px;
+  width: 80%;
+  height: 90%;
+}
+.editSpellText {
+  background-color: saddlebrown;
+  padding: 5px;
+  margin: 2px 5px 2px 5px;
+  border-color: peru;
+  resize: none;
+  color: navajowhite;
+  min-width: 10px;
+  width: 100px;
+}
