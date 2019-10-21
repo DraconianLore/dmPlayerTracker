@@ -1,21 +1,49 @@
 import React, { Component } from 'react';
 
 export default class PlayerInfo extends Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      warning: false
+    }
+  }
   // TODO Level Up: add level up/down warning modal (DOUBLE SURE FOR LEVEL DOWN as they will need to delete any abilities manually)
   levelUp = (e) => {
     e.preventDefault()
-    let changes = {
-      changeType: 'level',
-      newValue: 1
-    }
-    this.props.changeLevel(changes)
+    this.setState({
+      warning: <div className='levelPrompt'>
+        <div className='levelBox'>
+          <h1>Are you sure you want to level up this player?</h1>
+          <h3><em>This will add abilities based on the character class</em></h3>
+          <button className='cancel-btn' onClick={this.cancelLevel}>Cancel</button>
+          <button className='accept-btn' name='1' onClick={this.confirmChangeLevel}>Accept</button>
+        </div>
+      </div>
+    })
   }
   levelDown = (e) => {
     e.preventDefault()
+    this.setState({
+      warning: <div className='levelPrompt'>
+        <div className='levelBox'>
+          <h1>Are you sure you want to remove a level?</h1>
+          <h3><em>Abilities gained from previous levels will need to be removed manually</em></h3>
+          <button className='cancel-btn' onClick={this.cancelLevel}>Cancel</button>
+          <button className='accept-btn' name='-1' onClick={this.confirmChangeLevel}>Accept</button>
+        </div>
+      </div>
+    })
+  }
+  cancelLevel = () => {
+    this.setState({ warning: false })
+  }
+  confirmChangeLevel = (e) => {
+    e.preventDefault()
+    const level = parseInt(e.target.name)
+    this.setState({ warning: false })
     let changes = {
       changeType: 'level',
-      newValue: -1
+      newValue: level
     }
     this.props.changeLevel(changes)
   }
@@ -35,16 +63,17 @@ export default class PlayerInfo extends Component {
         <h1>Player Info</h1>
         <hr />
         <div className='playerInfoContainer'>
+          {this.state.warning}
 
-        <div className='playerInfoBoxWide'>
-          <div className='baseStat-inner'>
-            <span className='info-header'>Level</span>
-            <div className='stat'>
-              <button className='statButton statDown' name='level' onClick={this.levelDown}>-</button>
-              <strong>{this.props.playerInfo.level}</strong>
-              <button className='statButton statUp' name='level' onClick={this.levelUp}>+</button>
+          <div className='playerInfoBoxWide'>
+            <div className='baseStat-inner'>
+              <span className='info-header'>Level</span>
+              <div className='stat'>
+                <button className='statButton statDown' name='level' onClick={this.levelDown}>-</button>
+                <strong>{this.props.playerInfo.level}</strong>
+                <button className='statButton statUp' name='level' onClick={this.levelUp}>+</button>
+              </div>
             </div>
-          </div>
           </div>
           <button onClick={this.props.editStats} id='Race' className='playerInfoBoxWide'>
             <span className='info-header'>Race</span>

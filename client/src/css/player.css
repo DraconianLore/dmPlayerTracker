@@ -599,3 +599,23 @@ button span {
   min-width: 10px;
   width: 100px;
 }
+.levelPrompt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+}
+.levelBox {
+  margin-top: 10%;
+  border-radius: 10px;
+  border-style: inset;
+  border-color: darkred;
+  background-color: chocolate;
+  padding: 2vh;
+  width: 30vw;
+  height: 12vh;
+  z-index: 3;
+}

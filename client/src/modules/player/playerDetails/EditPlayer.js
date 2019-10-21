@@ -47,7 +47,6 @@ export default class EditPlayer extends Component {
         rend = (<input type='text' className='edit-input' name={field} onChange={this.changing} placeholder='New Name' defaultValue={''} />)
         break;
       case 'Race':
-        // TODO Expanded races - add to races as well as race seeds
         rend = (
           <>
             <input list="races" name="race" className='edit-input' onChange={this.changing} placeholder={'Race'} defaultValue={''} />
@@ -66,7 +65,6 @@ export default class EditPlayer extends Component {
         )
         break;
       case 'Class':
-        // TODO Expanded classes - add to classes as well as class seeds
         rend = (
           <>
             <input list="classes" name="class" className='edit-input' onChange={this.changing} placeholder={'Class'} defaultValue={''} />

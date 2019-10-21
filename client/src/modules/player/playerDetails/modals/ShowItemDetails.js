@@ -4,7 +4,6 @@ import EditSpells from './showItemDetails/EditSpells';
 const baseURL = process.env.REACT_APP_BASEURL
 
 export default class ShowItemDetails extends Component {
-  // TODO make it look better, add edit buttons, split spells, abilities, notes and items if needed
 
   constructor(props) {
     super(props)
