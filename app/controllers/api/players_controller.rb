@@ -48,7 +48,10 @@ class Api::PlayersController < ApplicationController
     @feats = player.feats
     player.feats.destroy_all
     player.delete
+    puts '#######################'
     puts @feats
+    puts '#######################'
+
     render :json => {
       players: game.players
     }
