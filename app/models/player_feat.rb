@@ -1,4 +1,4 @@
 class PlayerFeat < ApplicationRecord
   belongs_to :player
-  belongs_to :feat
+  has_one :feat, dependent: :destroy
 end
