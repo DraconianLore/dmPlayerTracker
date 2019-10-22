@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { wrap } from 'module';
+const baseURL = process.env.REACT_APP_BASEURL
+
 
 export default class PlayerInfo extends Component {
   constructor(props) {
@@ -140,6 +143,11 @@ export default class PlayerInfo extends Component {
 
         </div>
         <img id='Profile Picture' className='profilePic' src={this.props.playerInfo.portrait} alt={this.props.playerInfo.charName} onClick={this.props.editStats} />
+        <hr className='pdSectionBreak' />
+        <h3>Player Registration Code</h3>
+        <p>
+          {this.props.playerInfo.playerUID || 'GENERATING - check back soon'}
+        </p>
       </div>
     )
   }

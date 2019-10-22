@@ -11,6 +11,11 @@ class Api::PlayersController < ApplicationController
 
   def show
     player = Player.find(params[:id])
+    # for backwards compatibility
+    if !player.playerUID
+      player.playerUID = PlayerHelper.generateUID
+      player.save
+    end
     feats = player.feats
     notes = player.notes
     items = player.items
