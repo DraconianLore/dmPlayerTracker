@@ -8,7 +8,8 @@ export default class LoginRegister extends Component {
     super(props)
     this.state = {
       new_user: false,
-      errorMessage: false
+      errorMessage: false,
+      serverOnline: false
     }
   }
   signup = (event) => {
@@ -57,6 +58,22 @@ export default class LoginRegister extends Component {
     if (Cookies.get('token')) {
       this.props.hasCookie(Cookies.get('token'), Cookies.get('username'))
     }
+  }
+  componentDidMount() {
+    axios({
+      method: 'get',
+      url: `${baseURL}api/connectionStatus`,
+    })
+      .then((response) => {
+        if (response.data.message === 'ONLINE')
+        this.setState({
+          serverOnline: true
+        })
+      })
+      .catch(function (e) {
+        console.log(e)
+      })
+    
   }
   render() {
 
@@ -144,6 +161,11 @@ export default class LoginRegister extends Component {
           </div>
         </div>}
               {this.state.errorMessage && <h1>{this.state.errorMessage}</h1>}
+      {this.state.serverOnline && <img src='images/dmptlogo.png' alt='DMPT' style={{height: '20vh'}} />}
+      {this.state.serverOnline || <>
+      <br />
+      <h2>Connecting to Heroku...</h2>
+      </>}
       </div>
     )
   }

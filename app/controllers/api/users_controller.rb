@@ -28,6 +28,11 @@ class Api::UsersController < ApplicationController
     authenticate params[:email], params[:password]
   end
 
+  def connect
+    render :json => {
+      message: 'ONLINE'
+    }
+  end
 
   private
    def authenticate(email, password)
