@@ -2,7 +2,7 @@
 
 class Api::UsersController < ApplicationController
   # POST /register
-  skip_before_action :authenticate_request, only: %i[login register]
+  skip_before_action :authenticate_request, only: %i[login register connect]
 
   def register
     if params[:verifyNewUser] == ENV["NEWUSER"]
