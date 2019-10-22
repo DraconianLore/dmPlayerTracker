@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { wrap } from 'module';
-const baseURL = process.env.REACT_APP_BASEURL
 
 
 export default class PlayerInfo extends Component {
