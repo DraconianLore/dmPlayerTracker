@@ -36,3 +36,22 @@
   background-color: #005500;
   color: burlywood;
 }
+
+.tutorial-container {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  right: 10%;
+  width: 80%;
+  height: 80%;
+  z-index: 4;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.tut-active {
+  background-color: rgba(200, 0, 0, 0.2);
+  border-radius: 2em;
+  
+}

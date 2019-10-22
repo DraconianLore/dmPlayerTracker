@@ -18,7 +18,8 @@ class PlayerList extends Component {
       games: [],
       currentGameName: '',
       infoModal: false,
-      showMenu: true
+      showMenu: true,
+      tutorial: false
     }
     this.closePlayerInfo = this.closePlayerInfo.bind(this);
     this.showPlayerInfo = this.showPlayerInfo.bind(this);
@@ -335,9 +336,16 @@ class PlayerList extends Component {
 
   componentDidMount() {
     this.loadGames()
+    // Show tutorial and information for test account
     if (this.props.user === 'test') {
-      this.setState({showTestUser: true})
+      this.setState({
+        showTestUser: true,
+        tutorial: true
+      })
     }
+  }
+  closeTutorial = () => {
+    this.setState({tutorial: false})
   }
   closeTestUser = (e) => {
     e.preventDefault();
@@ -369,7 +377,7 @@ class PlayerList extends Component {
             Continue
           </button>
         </div>}
-        <PlayerDetails deletePlayer={this.deletePlayer} show={this.state.showPlayer} playerInfo={this.state.playerDetails} closeInfo={this.closePlayerInfo} savePlayer={this.updatePlayer} jwt={this.props.JWT} reloadPlayer={this.showPlayerInfo} />
+        <PlayerDetails tutorial={this.state.tutorial} closeTutorial={this.closeTutorial} deletePlayer={this.deletePlayer} show={this.state.showPlayer} playerInfo={this.state.playerDetails} closeInfo={this.closePlayerInfo} savePlayer={this.updatePlayer} jwt={this.props.JWT} reloadPlayer={this.showPlayerInfo} />
         {this.state.showMenu && <Footer newGame={this.newGame} deleteGame={this.deleteGame} games={this.state.games} user={this.props.user} currentGame={this.state.currentGame} changeGame={this.changeGame} />}
         {this.state.infoModal}
       </div>

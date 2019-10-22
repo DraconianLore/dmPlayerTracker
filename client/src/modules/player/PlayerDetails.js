@@ -13,7 +13,8 @@ import raceHelper from './Helpers/raceHelper';
 import levelHelper from './Helpers/levelHelper';
 import DeletePrompt from './playerDetails/modals/DeletePrompt';
 import SavePrompt from './playerDetails/modals/SavePrompt';
-import ShowItemDetails from './playerDetails/modals/ShowItemDetails.js';
+import ShowItemDetails from './playerDetails/modals/ShowItemDetails';
+import Tutorial from './playerDetails/modals/Tutorial';
 
 class PlayerDetails extends Component {
   constructor(props) {
@@ -29,7 +30,8 @@ class PlayerDetails extends Component {
       addThis: '',
       addProfs: false,
       currentItem: '',
-      showItem: false
+      showItem: false,
+      tutorial: false
     }
   }
   addItem = (type) => {
@@ -82,7 +84,7 @@ class PlayerDetails extends Component {
 
   }
   // FIXME - Section needs to be refactored or put into a helper
-  savePlayer = async(changes) => {
+  savePlayer = async (changes) => {
     if (changes.changeType === 'addItem') {
       const updatedPlayer = await itemHelper(changes, this.state.player, this.props.jwt)
       this.setState({
@@ -200,10 +202,15 @@ class PlayerDetails extends Component {
     this.props.closeInfo()
   }
   componentWillReceiveProps(newProps) {
+    let tutorial = false
+    if (this.props.tutorial) {
+      tutorial = true
+    }
     this.setState({
       player: newProps.playerInfo,
       originalPlayer: newProps.playerInfo,
-      changedDetails: []
+      changedDetails: [],
+      tutorial: tutorial
     })
   }
 
@@ -219,7 +226,7 @@ class PlayerDetails extends Component {
       deletePrompt: true
     })
   }
-  
+
   yesDeletePlayer = () => {
     this.setState({ deletePrompt: false })
     this.props.deletePlayer(this.state.player.id)
@@ -239,6 +246,7 @@ class PlayerDetails extends Component {
   }
   componentDidMount() {
     document.addEventListener("keydown", this.escPressed, false);
+    
   }
   componentWillUnmount() {
     document.removeEventListener("keydown", this.escPressed, false);
@@ -249,7 +257,10 @@ class PlayerDetails extends Component {
       showItem: false
     })
   }
-
+  closeTutorial = () => {
+    this.setState({tutorial: false})
+    this.props.closeTutorial();
+  }
   render() {
     let showHideClassName = this.props.show ? 'infoModal display-block' : 'infoModal display-none';
     return (
@@ -281,13 +292,16 @@ class PlayerDetails extends Component {
               <Notes showItem={this.showItem} addItem={this.addItem} playerInfo={this.state.player} />
             </div>
           </div>
-          
+
+
           <div className='closeModal cm-top' onClick={this.exiting} />
           <div className='closeModal cm-right' onClick={this.exiting} />
           <div className='closeModal cm-bottom' onClick={this.exiting} />
           <div className='closeModal cm-left' onClick={this.exiting} />
 
+        {this.state.tutorial && <Tutorial closeTutorial={this.closeTutorial} />}
         </section>
+
       </div>
     )
   }
