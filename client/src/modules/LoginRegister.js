@@ -13,7 +13,7 @@ export default class LoginRegister extends Component {
     }
   }
   signup = (event) => {
-    this.setState({errorMessage: false})
+    this.setState({ errorMessage: false })
     event.preventDefault();
     axios({
       method: 'post',
@@ -26,15 +26,15 @@ export default class LoginRegister extends Component {
       }
     })
       .then((response) => {
-          Cookies.set('token  ', response.data.access_token, { expires: 1 });
-          Cookies.set('username', response.data.username, { expires: 1 });
-          this.props.login(response.data.access_token, response.data.username)
-        }).catch((error) => {
-          this.setState({errorMessage: error.response.data.message})
-        })
+        Cookies.set('token  ', response.data.access_token, { expires: 1 });
+        Cookies.set('username', response.data.username, { expires: 1 });
+        this.props.login(response.data.access_token, response.data.username)
+      }).catch((error) => {
+        this.setState({ errorMessage: error.response.data.message })
+      })
   }
   login = (event) => {
-    this.setState({errorMessage: false})
+    this.setState({ errorMessage: false })
     event.preventDefault();
     axios({
       method: 'post',
@@ -44,12 +44,12 @@ export default class LoginRegister extends Component {
         password: event.target.Password.value
       }
     }).then((response) => {
-        Cookies.set('token', response.data.access_token, { expires: 1 });
-        Cookies.set('username', response.data.username, { expires: 1 });
-        this.props.login(response.data.access_token, response.data.username)
-      }).catch((error) => {
-        this.setState({errorMessage: error.response.data.message})
-      })
+      Cookies.set('token', response.data.access_token, { expires: 1 });
+      Cookies.set('username', response.data.username, { expires: 1 });
+      this.props.login(response.data.access_token, response.data.username)
+    }).catch((error) => {
+      this.setState({ errorMessage: error.response.data.message })
+    })
   }
   loginSignup = () => {
     this.setState({ new_user: !this.state.new_user })
@@ -59,21 +59,23 @@ export default class LoginRegister extends Component {
       this.props.hasCookie(Cookies.get('token'), Cookies.get('username'))
     }
   }
+
   componentDidMount() {
-    axios({
-      method: 'get',
-      url: `${baseURL}api/connectionStatus`,
-    })
-      .then((response) => {
-        if (response.data.message === 'ONLINE')
-        this.setState({
-          serverOnline: true
+    if (!Cookies.get('token')) {
+      axios({
+        method: 'get',
+        url: `${baseURL}api/connectionStatus`,
+      })
+        .then((response) => {
+          if (response.data.message === 'ONLINE')
+            this.setState({
+              serverOnline: true
+            })
         })
-      })
-      .catch(function (e) {
-        console.log(e)
-      })
-    
+        .catch(function (e) {
+          console.log(e)
+        })
+    }
   }
   render() {
 
@@ -108,22 +110,22 @@ export default class LoginRegister extends Component {
           <h1>
             Welcome to the dmPlayerTracker
           </h1>
-          <h1 style={{fontSize: '150%'}}>
+          <h1 style={{ fontSize: '150%' }}>
             <em>To try out the app use: </em>
           </h1>
           <h1>
             email: test@test.test
             </h1>
-            <h1>
+          <h1>
             password: test
           </h1>
           <br />
           <div className='disclaimer'>
 
-          <p>
-            Please note that the initial login may take some time as the</p>
+            <p>
+              Please note that the initial login may take some time as the</p>
             <p> backend is hosted on heroku and my be powered down.</p>
-            <p>If the login fails try again in half a minute
+            <p>Once a connectioni is established an image will appear below
           </p>
           </div>
         </div>}
@@ -160,12 +162,12 @@ export default class LoginRegister extends Component {
             </h1>
           </div>
         </div>}
-              {this.state.errorMessage && <h1>{this.state.errorMessage}</h1>}
-      {this.state.serverOnline && <img src='images/dmptlogo.png' alt='DMPT' style={{height: '20vh'}} />}
-      {this.state.serverOnline || <>
-      <br />
-      <h2>Connecting to Heroku...</h2>
-      </>}
+        {this.state.errorMessage && <h1>{this.state.errorMessage}</h1>}
+        {this.state.serverOnline && <img src='images/dmptlogo.png' alt='DMPT' style={{ height: '20vh' }} />}
+        {this.state.serverOnline || <>
+          <br />
+          <h2>Connecting to Heroku...</h2>
+        </>}
       </div>
     )
   }

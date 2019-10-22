@@ -200,8 +200,6 @@ class PlayerDetails extends Component {
     this.props.closeInfo()
   }
   componentWillReceiveProps(newProps) {
-    console.log(this.props.playerInfo)
-
     this.setState({
       player: newProps.playerInfo,
       originalPlayer: newProps.playerInfo,
