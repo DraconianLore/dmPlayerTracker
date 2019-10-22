@@ -148,6 +148,7 @@ export default class PlayerInfo extends Component {
         <p>
           {this.props.playerInfo.playerUID || 'GENERATING - check back soon'}
         </p>
+        <hr className='pdSectionBreak' />
       </div>
     )
   }
