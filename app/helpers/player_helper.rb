@@ -1,3 +1,5 @@
+require 'securerandom'
+
 module PlayerHelper
   def test(player, updatedPlayer)
     player.playerName = updatedPlayer[:playerName]
@@ -21,5 +23,12 @@ module PlayerHelper
     player.portrait = updatedPlayer[:portrait]
     player.proficiencies = updatedPlayer[:proficiencies]
     return player
+   end
+
+   def generateUID
+    UID = SecureRandom.base58
+    puts '#################'
+    puts UID
+    puts '#################'
    end
 end

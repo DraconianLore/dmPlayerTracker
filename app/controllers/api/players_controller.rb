@@ -15,6 +15,7 @@ class Api::PlayersController < ApplicationController
     notes = player.notes
     items = player.items
     spells = player.spells
+    uid = PlayerHelper.generateUID
     render :json => {
       player: player,
       feats: feats,
