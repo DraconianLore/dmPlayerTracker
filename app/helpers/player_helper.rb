@@ -1,4 +1,3 @@
-require 'securerandom'
 
 module PlayerHelper
   def test(player, updatedPlayer)
@@ -26,9 +25,9 @@ module PlayerHelper
    end
 
    def generateUID
-    UID = SecureRandom.base58
+    uid = SecureRandom.base58
     puts '#################'
-    puts UID
+    puts uid
     puts '#################'
    end
 end
