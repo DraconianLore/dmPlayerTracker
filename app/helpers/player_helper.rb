@@ -25,9 +25,6 @@ module PlayerHelper
    end
 
    def generateUID
-    uid = SecureRandom.base58
-    puts '#################'
-    puts uid
-    puts '#################'
+    return SecureRandom.base58
    end
 end
