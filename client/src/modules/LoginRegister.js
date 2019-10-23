@@ -92,7 +92,7 @@ export default class LoginRegister extends Component {
               Your screen is too small, please consider running this on a computer as it is unlikely you will be running your campaign from a mobile device.
             </h1>
             <h2 style={{color: 'burlywood'}}>
-              Support for iPad/tablet will be added in the near future
+              Support for iPad/tablet(and smaller resolution screens) will be added in the near future
             </h2>
             <button style={{minWidth: '50px', backgroundColor: 'green', padding: '5px', borderColor: 'darkgreen'}} onClick={this.closeWarning} >
               <span style={{fontSize: '1em', color: 'antiquewhite'}}>
