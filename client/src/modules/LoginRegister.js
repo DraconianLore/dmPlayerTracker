@@ -9,7 +9,8 @@ export default class LoginRegister extends Component {
     this.state = {
       new_user: false,
       errorMessage: false,
-      serverOnline: false
+      serverOnline: false,
+      screenWidth: ''
     }
   }
   signup = (event) => {
@@ -55,6 +56,7 @@ export default class LoginRegister extends Component {
     this.setState({ new_user: !this.state.new_user })
   }
   componentWillMount() {
+    this.setState({screenWidth: window.innerWidth});
     if (Cookies.get('token')) {
       this.props.hasCookie(Cookies.get('token'), Cookies.get('username'))
     }
@@ -77,10 +79,25 @@ export default class LoginRegister extends Component {
         })
     }
   }
+  closeWarning = (event) => {
+    event.preventDefault()
+    this.setState({screenWidth: 1300})
+  }
   render() {
-
     return (
       <div>
+        {this.state.screenWidth < 1201 && <>
+          <div className='small-screen'>
+            <h1>
+              Your screen is too small, please consider running this on a computer as it is unlikely you will be running your campaign from a mobile device.
+            </h1>
+            <button style={{minWidth: '50px', backgroundColor: 'green', padding: '5px', borderColor: 'darkgreen'}} onClick={this.closeWarning} >
+              <span style={{fontSize: '1.5vw', color: 'antiquewhite'}}>
+                I understand
+                </span>
+            </button>
+          </div>
+        </>}
         {this.state.new_user || <div>
           <h1 className="login-signup-title">Welcome Back</h1>
           <div className="login-row">

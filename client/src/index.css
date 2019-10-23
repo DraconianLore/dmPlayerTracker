@@ -184,3 +184,15 @@ code {
 button:focus {
   outline:0;
 }
+.small-screen {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: chocolate;
+}
