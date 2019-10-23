@@ -189,7 +189,6 @@ button:focus {
   top: 10%;
   left: 10vw;
   width: 78vw;
-  height: initial;
   padding: 1vw;
   display: flex;
   flex-direction: column;
