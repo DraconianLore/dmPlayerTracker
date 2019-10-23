@@ -30,7 +30,7 @@ export default class Tutorial extends Component {
               {this.state.step === 1 ? <>
                 <div className='pdColumn tut-active' />
                 <div className='step1'>
-                  <h1 style={{ color: '#000099' }}>This is the players base stats</h1>
+                  <h1 style={{ color: '#000099' }}>Characters base stats</h1>
                   <p>
                     You can change them up/down and clicking on proficiencies will allow you to add/remove proficiencies and expertise
                   </p>
@@ -41,7 +41,7 @@ export default class Tutorial extends Component {
               {this.state.step === 2 ? <>
                 <div className='pdColumn tut-active' />
                 <div className='step2'>
-                  <h1 style={{ color: '#000099' }}>These are the abilities and spells</h1>
+                  <h1 style={{ color: '#000099' }}>Character abilities and spells</h1>
                   <p>
                     To view spells/abilities you can hover over them, or click them to have options to edit/delete.
                   </p>
@@ -56,7 +56,7 @@ export default class Tutorial extends Component {
               {this.state.step === 4 ? <>
                 <div className='pdColumn tut-active' />
                 <div className='step4'>
-                  <h1 style={{ color: '#000099' }}>Player information</h1>
+                  <h1 style={{ color: '#000099' }}>Character information</h1>
                   <p>
                     Changing the characters level will modify their stats and add abilities if a class is selected.
                   </p>
@@ -80,7 +80,7 @@ export default class Tutorial extends Component {
               {this.state.step === 3 ? <>
                 <div className='pdColumn tut-active' />
                 <div className='step3'>
-                  <h1 style={{ color: '#000099' }}>Player items and notes</h1>
+                  <h1 style={{ color: '#000099' }}>Character items and notes</h1>
                   <p>
                     To view items/notes you can hover over them, or click them to have options to edit/delete.
                   </p>

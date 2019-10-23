@@ -86,6 +86,8 @@
   border-radius: 50% 20px 20px 50%;
   color: darkslateblue;
   padding: 1em 1em 1em 4em;
+  box-shadow: 5px 10px rgba(0, 0, 0, 0.5);
+
 }
 .step2 {
   position: absolute;
@@ -96,6 +98,7 @@
   border-radius: 10%;
   color: darkslateblue;
   padding: 1em;
+  box-shadow: 5px 10px rgba(0, 0, 0, 0.5);
 }
 .step3 {
   position: absolute;
@@ -106,6 +109,7 @@
   border-radius: 20px 50% 50% 20px;
   color: darkslateblue;
   padding: 1em 4em 1em 1em;
+  box-shadow: 5px 10px rgba(0, 0, 0, 0.5);
 }
 .step4 {
   position: absolute;
@@ -116,6 +120,7 @@
   background-color: antiquewhite;
   color: darkslateblue;
   padding: 1em 1em 1em 4em;
+  box-shadow: 5px 10px rgba(0, 0, 0, 0.5);
 }
 .step5  {
   position: absolute;
@@ -127,4 +132,5 @@
   color: darkslateblue;
   padding: 1em;
   z-index: 5;
+  box-shadow: 5px 10px rgba(0, 0, 0, 0.5);
 }
