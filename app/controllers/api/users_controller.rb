@@ -5,11 +5,12 @@ class Api::UsersController < ApplicationController
   skip_before_action :authenticate_request, only: %i[login register connect]
 
   def register
-    if params[:verifyNewUser] == ENV["NEWUSER"]
+    # Remove the following if statement if you want to enable new users to sign up without having an environmental variable set to NEWUSER as the signup 'Referal Code'
+    if params[:verifyNewUser] == ENV['NEWUSER']
 
       @user = User.create(user_params)
       if @user.save
-        @game = Game.create(name: "My First Game", user: @user)
+        @game = Game.create(name: 'My First Game', user: @user)
         @game.save!
         login
       else
@@ -29,13 +30,14 @@ class Api::UsersController < ApplicationController
   end
 
   def connect
-    render :json => {
+    render json: {
       message: 'ONLINE'
     }
   end
 
-  private
-   def authenticate(email, password)
+   private
+
+  def authenticate(email, password)
     command = AuthenticateUser.call(email, password)
 
     if command.success?
@@ -45,15 +47,15 @@ class Api::UsersController < ApplicationController
         username: username.username
       }
     else
-      render json: { message: "Invalid email/password" }, status: :unauthorized
+      render json: { message: 'Invalid email/password' }, status: :unauthorized
     end
-   end
+  end
 
-    def user_params
-      params.permit(
-        :username,
-        :email,
-        :password
-      )
-    end
+  def user_params
+    params.permit(
+      :username,
+      :email,
+      :password
+    )
+  end
  end

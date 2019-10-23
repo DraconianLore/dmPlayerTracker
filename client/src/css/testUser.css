@@ -52,6 +52,79 @@
 
 .tut-active {
   background-color: rgba(200, 0, 0, 0.2);
-  border-radius: 2em;
-  
+  border-radius: 2em; 
+}
+.continue-btn {
+  font-size: 1em;
+  background-color: darkgreen;
+  color: #fff;
+  width: 5vw;
+  height: 3vh;  
+  max-width: 150px;
+  max-height: 50px;
+  outline: none;
+  border: none;
+  margin: 1em 0 0 0;
+  -webkit-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  transition: 0.5s all;
+  text-align: center;
+  letter-spacing: 1px;
+  border-radius: 2px;
+}
+
+.continue-btn:hover {
+  background-color: #005500;
+  color: burlywood;
+}
+.step1 {
+  position: absolute;
+  left: 15vw;
+  top: 15vh;
+  width: 20vw;
+  background-color: antiquewhite;
+  border-radius: 50% 20px 20px 50%;
+  color: darkslateblue;
+  padding: 1em 1em 1em 4em;
+}
+.step2 {
+  position: absolute;
+  left: 30vw;
+  top: 25vh;
+  width: 20vw;
+  background-color: antiquewhite;
+  border-radius: 10%;
+  color: darkslateblue;
+  padding: 1em;
+}
+.step3 {
+  position: absolute;
+  left: 42vw;
+  top: 35vh;
+  width: 20vw;
+  background-color: antiquewhite;
+  border-radius: 20px 50% 50% 20px;
+  color: darkslateblue;
+  padding: 1em 4em 1em 1em;
+}
+.step4 {
+  position: absolute;
+  left: 45vw;
+  top: 45vh;
+  width: 35vw;
+  border-radius: 50% 20px 20px 50%;
+  background-color: antiquewhite;
+  color: darkslateblue;
+  padding: 1em 1em 1em 4em;
+}
+.step5  {
+  position: absolute;
+  left: 35vw;
+  top: 25vh;
+  width: 30vw;
+  background-color: antiquewhite;
+  border-radius: 20px;
+  color: darkslateblue;
+  padding: 1em;
+  z-index: 5;
 }

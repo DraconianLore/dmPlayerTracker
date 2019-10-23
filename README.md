@@ -49,6 +49,5 @@ Check out the [LIVE DEMO](https://draconianlore.github.io/dmPlayerTracker/)
 
 ## Future goals
 
-* find and hook up to an API for selecting and viewing spells and abilities
 * compartmentalise each game to have sections for PC's, NPC's, and a section for maps and notes in seperate views
 * add more keyboard shortcuts(currently only ESC to go back or close current)
