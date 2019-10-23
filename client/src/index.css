@@ -187,9 +187,10 @@ button:focus {
 .small-screen {
   position: absolute;
   top: 10%;
-  left: 10%;
-  width: 80%;
-  height: 80%;
+  left: 10vw;
+  width: 78vw;
+  height: initial;
+  padding: 1vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
