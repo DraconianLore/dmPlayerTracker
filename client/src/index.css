@@ -196,3 +196,5 @@ button:focus {
   align-items: center;
   background-color: chocolate;
 }
+
+@import "css/smallScreen.css";
