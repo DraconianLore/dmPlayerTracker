@@ -17,11 +17,10 @@
     border-radius: 50%;
     width: 1.2em;
   }
-  .info-header .stat-profs .profList {
+  .info-header, .stat-profs, .profList {
     font-size: 1em;
   }
-
-  .pdColumn, h1 h3{
+  .pdColumn h1, .pdColumn h3 {
     font-size: 1.1em;
   }
   .stat {
