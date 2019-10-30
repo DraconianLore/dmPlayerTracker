@@ -57,7 +57,7 @@ class Api::PlayersController < ApplicationController
       @feats.push(f.id)
     end
     player.feats.destroy_all
-    player.delete
+    player.destroy
     # Once players are deleted deleta associated feats
     @feats.each do |f|
       feat = Feat.find(f)
