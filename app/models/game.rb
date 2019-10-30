@@ -3,5 +3,5 @@ class Game < ApplicationRecord
 
   validates_presence_of :name
 
-  has_many :players, dependent: :delete_all
+  has_many :players, dependent: :destroy_all
 end

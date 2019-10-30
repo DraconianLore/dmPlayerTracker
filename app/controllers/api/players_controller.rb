@@ -53,11 +53,10 @@ class Api::PlayersController < ApplicationController
     player = Player.find(params[:id])
     @feats = []
     player.feats.each do |f|
-      puts f
       @feats.push(f.id)
     end
     player.feats.destroy_all
-    player.destroy
+    player.delete
     # Once players are deleted deleta associated feats
     @feats.each do |f|
       feat = Feat.find(f)
