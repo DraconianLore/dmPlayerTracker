@@ -19,7 +19,7 @@ class Api::GamesController < ApplicationController
   def destroy
     user = User.find_by username: request.headers[:user]
     game = Game.find(params[:id])
-    game.delete
+    game.destroy
     render :json => {
       games: user.games
     }
