@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_212126) do
+ActiveRecord::Schema.define(version: 2019_11_08_222004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_212126) do
     t.string "playerUID"
   end
 
-  create_table "puser", force: :cascade do |t|
+  create_table "pusers", force: :cascade do |t|
     t.string "UID"
     t.string "username"
     t.string "email"
