@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   post '/login', to: 'api/users#login'
   post '/api/joinItems', to: 'api/players#playeritems'
   get 'api/connectionStatus', to: 'api/users#connect'
+  post '/playersheet/register', to: 'api/playersheet#register'
 end
