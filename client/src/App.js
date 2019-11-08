@@ -17,26 +17,29 @@ class App extends Component {
     }
   }
 
- setJWT = (newJWT, username) => {
+ setJWT = (newJWT, username, isPlayer) => {
   this.setState({
     JWT: newJWT,
     signedIn: true,
-    username: username
+    username: username,
+    player: isPlayer
   })
  }
 
- hasCookie = (token, username) => {
+ hasCookie = (token, username, isPlayer) => {
+
   this.setState({
     JWT: token,
     username: username,
     signedIn: true,
-    player: false
+    player: isPlayer
   })
  }
 
  logout = () => {
    Cookies.remove('token')
    Cookies.remove('username')
+   Cookies.remove('player')
    this.setState({
      JWT: null,
      signedIn: false,

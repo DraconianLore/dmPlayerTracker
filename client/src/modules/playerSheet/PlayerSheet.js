@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import BaseStats from './playerSheet/BaseStats';
 import Abilities from './playerSheet/Abilities';
 import PlayerInfo from './playerSheet/PlayerInfo';
 import Spells from './playerSheet/Spells';
 import Notes from './playerSheet/Notes';
 import ShowItemDetails from './playerSheet/modals/ShowItemDetails';
+const baseURL = process.env.REACT_APP_BASEURL;
 
 class PlayerDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      player: props.playerInfo,
-      originalPlayer: props.playerInfo,
-      somethingChanged: false, // if changed made prompt to save
-      changedDetails: [],
-      savePrompt: false,
-      editField: false,
+      player: '',
       addSomething: false,
-      addThis: '',
-      addProfs: false,
       currentItem: '',
       showItem: false,
-      tutorial: false
     }
   }
   
@@ -52,7 +46,31 @@ class PlayerDetails extends Component {
   componentWillUnmount() {
     document.removeEventListener("keydown", this.escPressed, false);
   }
-  
+  componentWillMount() {
+    let player = {}
+    axios({
+      method: 'get',
+      url: `${baseURL}api/players/${player.id}`,
+      headers: {
+        Authorization: this.props.JWT,
+      }
+    })
+      .then((response) => {
+        player = response.data.player
+        player.feats = response.data.feats
+        player.notes = response.data.notes
+        player.items = response.data.items
+        player.spells = response.data.spells
+          this.setState({
+            showPlayer: true,
+            showMenu: false,
+            playerDetails: player
+        })
+      })
+      .catch(function (e) {
+        console.log(e)
+      })
+  }
   render() {
     let showHideClassName = this.props.show ? 'infoModal display-block' : 'infoModal display-none';
     return (

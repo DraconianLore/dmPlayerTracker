@@ -44,7 +44,8 @@ class Api::PlayersheetController < ApplicationController
      username = Puser.find_by_email(email)
      render json: {
        access_token: command.result,
-       username: username.username
+       username: username.username,
+       userID: username.id
      }
    else
      render json: { message: 'Invalid email/password' }, status: :unauthorized

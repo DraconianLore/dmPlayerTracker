@@ -27,7 +27,8 @@ export default class PlayerSheet extends Component {
       .then((response) => {
         Cookies.set('token  ', response.data.access_token, { expires: 1 });
         Cookies.set('username', response.data.UID, { expires: 1 });
-        this.props.login(response.data.access_token, response.data.username)
+        Cookies.set('player', response.data.userID, { expires: 1 });
+        this.props.login(response.data.access_token, response.data.username, response.data.userID)
       }).catch((error) => {
         this.setState({ errorMessage: error.response.data.message })
       })
@@ -37,15 +38,17 @@ export default class PlayerSheet extends Component {
     event.preventDefault();
     axios({
       method: 'post',
-      url: `${baseURL}login`,
+      url: `${baseURL}playersheet/login`,
       data: {
         email: event.target.Email.value,
         password: event.target.Password.value
       }
     }).then((response) => {
+      console.log('RESPONSE:', response)
       Cookies.set('token', response.data.access_token, { expires: 1 });
       Cookies.set('username', response.data.UID, { expires: 1 });
-      this.props.login(response.data.access_token, response.data.username)
+      Cookies.set('player', response.data.userID, { expires: 1 });
+      this.props.login(response.data.access_token, response.data.username, response.data.userID)
     }).catch((error) => {
       this.setState({ errorMessage: error.response.data.message })
     })
@@ -55,7 +58,7 @@ export default class PlayerSheet extends Component {
   }
   componentWillMount() {
     if (Cookies.get('token')) {
-      this.props.hasCookie(Cookies.get('token'), Cookies.get('username'))
+      this.props.hasCookie(Cookies.get('token'), Cookies.get('username'), Cookies.get('player'))
     }
   }
 

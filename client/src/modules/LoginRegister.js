@@ -29,7 +29,8 @@ export default class LoginRegister extends Component {
       .then((response) => {
         Cookies.set('token  ', response.data.access_token, { expires: 1 });
         Cookies.set('username', response.data.username, { expires: 1 });
-        this.props.login(response.data.access_token, response.data.username)
+        Cookies.set('player', false, { expires: 1 });
+        this.props.login(response.data.access_token, response.data.username, false)
       }).catch((error) => {
         this.setState({ errorMessage: error.response.data.message })
       })
@@ -47,7 +48,8 @@ export default class LoginRegister extends Component {
     }).then((response) => {
       Cookies.set('token', response.data.access_token, { expires: 1 });
       Cookies.set('username', response.data.username, { expires: 1 });
-      this.props.login(response.data.access_token, response.data.username)
+      Cookies.set('player', false, { expires: 1 });
+      this.props.login(response.data.access_token, response.data.username, false)
     }).catch((error) => {
       this.setState({ errorMessage: error.response.data.message })
     })
@@ -56,9 +58,9 @@ export default class LoginRegister extends Component {
     this.setState({ new_user: !this.state.new_user })
   }
   componentWillMount() {
-    this.setState({screenWidth: window.innerWidth});
+    this.setState({ screenWidth: window.innerWidth });
     if (Cookies.get('token')) {
-      this.props.hasCookie(Cookies.get('token'), Cookies.get('username'))
+      this.props.hasCookie(Cookies.get('token'), Cookies.get('username'), Cookies.get('player'))
     }
   }
 
@@ -81,7 +83,7 @@ export default class LoginRegister extends Component {
   }
   closeWarning = (event) => {
     event.preventDefault()
-    this.setState({screenWidth: 1300})
+    this.setState({ screenWidth: 1300 })
   }
   playersheet = (event) => {
     event.preventDefault();
@@ -95,11 +97,11 @@ export default class LoginRegister extends Component {
             <h1>
               Your screen is too small, please consider running this on a computer as it is unlikely you will be running your campaign from a mobile device.
             </h1>
-            <h2 style={{color: 'burlywood'}}>
+            <h2 style={{ color: 'burlywood' }}>
               If viewing on an Ipad/tablet please rotate your screen to landscave to avoid squished text.
             </h2>
-            <button style={{minWidth: '50px', backgroundColor: 'green', padding: '5px', borderColor: 'darkgreen'}} onClick={this.closeWarning} >
-              <span style={{fontSize: '1em', color: 'antiquewhite'}}>
+            <button style={{ minWidth: '50px', backgroundColor: 'green', padding: '5px', borderColor: 'darkgreen' }} onClick={this.closeWarning} >
+              <span style={{ fontSize: '1em', color: 'antiquewhite' }}>
                 I understand
                 </span>
             </button>
@@ -130,8 +132,8 @@ export default class LoginRegister extends Component {
               </form>
             </div>
           </div>
-            <a href='#player' onClick={this.playersheet}>
-              Player Login
+          <a href='#player' onClick={this.playersheet}>
+            Player Login
             </a>
           <br />
           <br />
