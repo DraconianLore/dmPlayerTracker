@@ -45,7 +45,7 @@ class Api::PlayersheetController < ApplicationController
      render json: {
        access_token: command.result,
        username: username.username,
-       userID: username.id
+       userID: username.player_id
      }
    else
      render json: { message: 'Invalid email/password' }, status: :unauthorized

@@ -41,12 +41,6 @@ class PlayerDetails extends Component {
   }
   componentDidMount() {
     document.addEventListener("keydown", this.escPressed, false);
-    
-  }
-  componentWillUnmount() {
-    document.removeEventListener("keydown", this.escPressed, false);
-  }
-  componentWillMount() {
     let player = {}
     axios({
       method: 'get',
@@ -71,10 +65,14 @@ class PlayerDetails extends Component {
         console.log(e)
       })
   }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.escPressed, false);
+  }
+
   render() {
-    let showHideClassName = this.props.show ? 'infoModal display-block' : 'infoModal display-none';
+    console.log(this.state)
     return (
-      <div className={showHideClassName}>
+      <div className='infoModal display-block'>
         {this.state.showItem && <ShowItemDetails player={this.state.player} closeItemDetails={this.closeItemDetails} item={this.state.currentItem} JWT={this.props.jwt} updatePlayer={this.reloadPlayer} />}
         <section className='modal-main'>
           <div className='playerInfo'>
