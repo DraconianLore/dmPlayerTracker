@@ -36,7 +36,7 @@ class Api::PlayersheetController < ApplicationController
   private
 
  def authenticate(email, password)
-   command = AuthenticateUser.call(email, password)
+   command = AuthenticatePuser.call(email, password)
 
    if command.success?
      username = Puser.find_by_email(email)
@@ -53,7 +53,8 @@ class Api::PlayersheetController < ApplicationController
    params.permit(
      :UID,
      :email,
-     :password
+     :password,
+     :username
    )
  end
 end
