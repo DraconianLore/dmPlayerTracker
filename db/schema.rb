@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_080236) do
+ActiveRecord::Schema.define(version: 2019_11_08_212126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,13 @@ ActiveRecord::Schema.define(version: 2019_10_22_080236) do
     t.string "portrait", default: "https://picsum.photos/300"
     t.text "proficiencies"
     t.string "playerUID"
+  end
+
+  create_table "puser", force: :cascade do |t|
+    t.string "UID"
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
   end
 
   create_table "races", force: :cascade do |t|
