@@ -1,5 +1,6 @@
 include ActionView::Helpers::PlayerHelper
 class Api::PlayersController < ApplicationController
+  skip_before_action :authenticate_request, only: %i[show]
 
   def index
     game = Game.find(request.headers[:game])

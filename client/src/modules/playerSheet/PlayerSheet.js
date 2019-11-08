@@ -50,7 +50,7 @@ class PlayerDetails extends Component {
     let player = {}
     axios({
       method: 'get',
-      url: `${baseURL}api/players/${player.id}`,
+      url: `${baseURL}api/players/${this.props.player}`,
       headers: {
         Authorization: this.props.JWT,
       }
