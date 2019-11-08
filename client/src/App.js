@@ -55,7 +55,7 @@ class App extends Component {
         </>}
         {this.state.signedIn && <>
           {this.state.player || <PlayerList user={this.state.username} logout={this.logout} JWT={this.state.JWT}/>}
-          {this.state.player && <PlayerSheet user={this.state.username} logout={this.logout} JWT={this.state.JWT}/>}
+          {this.state.player && <PlayerSheet user={this.state.username} />}
         </>}
       </div>
     );
