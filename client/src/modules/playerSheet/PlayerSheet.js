@@ -53,7 +53,6 @@ class PlayerDetails extends Component {
         player = response.data.player
         player.feats = response.data.feats
         player.spells = response.data.spells
-        console.log('XXX', player)
         if (player.proficiencies) {
           player.proficiencies = JSON.parse(player.proficiencies)
         }

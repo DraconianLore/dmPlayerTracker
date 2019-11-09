@@ -10,18 +10,13 @@ export default class BaseStats extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.playerInfo.proficiencies)
     this.setState({
       playerInfo: this.props.playerInfo,
       proficiencies: this.props.playerInfo.proficiencies
     })
   }
-  
-
 
   render() {
-    console.log(this.props.playerInfo.proficiencies)
-
     return (
       <div className='pdColumn'>
         <h1>Statistics</h1>

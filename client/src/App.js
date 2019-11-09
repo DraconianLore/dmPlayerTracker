@@ -13,43 +13,53 @@ class App extends Component {
     this.state = {
       signedIn: false,
       JWT: null,
-      username: 'not logged in'
+      username: 'not logged in',
+      player: false
     }
   }
 
- setJWT = (newJWT, username, isPlayer) => {
-  this.setState({
-    JWT: newJWT,
-    signedIn: true,
-    username: username,
-    player: isPlayer
-  })
- }
+  setJWT = (newJWT, username, isPlayer) => {
+    this.setState({
+      JWT: newJWT,
+      signedIn: true,
+      username: username,
+      player: isPlayer
+    })
+  }
 
- hasCookie = (token, username, isPlayer) => {
+  hasCookie = (token, username, isPlayer) => {
+    if (isPlayer) {
+      this.setState({
+        JWT: token,
+        username: username,
+        signedIn: true,
+        player: true,
+        playerID: isPlayer
+      })
+    } else {
+      this.setState({
+        JWT: token,
+        username: username,
+        signedIn: true,
+        player: false
+      })
+    }
+  }
 
-  this.setState({
-    JWT: token,
-    username: username,
-    signedIn: true,
-    player: isPlayer
-  })
- }
-
- logout = () => {
-   Cookies.remove('token')
-   Cookies.remove('username')
-   Cookies.remove('player')
-   this.setState({
-     JWT: null,
-     signedIn: false,
-     username: null,
-     player: false
-   })
- }
- playersheet = () => {
-   this.setState({ player: true })
- }
+  logout = () => {
+    Cookies.remove('token')
+    Cookies.remove('username')
+    Cookies.remove('player')
+    this.setState({
+      JWT: null,
+      signedIn: false,
+      username: null,
+      player: false
+    })
+  }
+  playersheet = () => {
+    this.setState({ player: true })
+  }
   render() {
     return (
       <div className="App">
@@ -58,8 +68,8 @@ class App extends Component {
           {this.state.player && <PlayerLogin hasCookie={this.hasCookie} login={this.setJWT} />}
         </>}
         {this.state.signedIn && <>
-          {this.state.player || <PlayerList user={this.state.username} logout={this.logout} JWT={this.state.JWT}/>}
-          {this.state.player && <PlayerSheet player={this.state.player} logout={this.logout} />}
+          {this.state.player || <PlayerList user={this.state.username} logout={this.logout} JWT={this.state.JWT} />}
+          {this.state.player && <PlayerSheet player={this.state.playerID} logout={this.logout} />}
         </>}
       </div>
     );

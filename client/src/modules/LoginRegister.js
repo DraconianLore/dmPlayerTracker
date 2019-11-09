@@ -48,8 +48,7 @@ export default class LoginRegister extends Component {
     }).then((response) => {
       Cookies.set('token', response.data.access_token, { expires: 1 });
       Cookies.set('username', response.data.username, { expires: 1 });
-      Cookies.set('player', false, { expires: 1 });
-      this.props.login(response.data.access_token, response.data.username, false)
+     this.props.login(response.data.access_token, response.data.username, false)
     }).catch((error) => {
       this.setState({ errorMessage: error.response.data.message })
     })
@@ -60,7 +59,11 @@ export default class LoginRegister extends Component {
   componentWillMount() {
     this.setState({ screenWidth: window.innerWidth });
     if (Cookies.get('token')) {
-      this.props.hasCookie(Cookies.get('token'), Cookies.get('username'), Cookies.get('player'))
+      if (Cookies.get('player')) {
+        this.props.hasCookie(Cookies.get('token'), Cookies.get('username'), Cookies.get('player'))
+      } else {
+        this.props.hasCookie(Cookies.get('token'), Cookies.get('username'), false)
+      }
     }
   }
 
