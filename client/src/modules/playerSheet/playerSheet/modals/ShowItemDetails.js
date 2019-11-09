@@ -83,14 +83,14 @@ export default class ShowItemDetails extends Component {
   render() {
     return (
       <>
-        {this.state.loaded && <div className='itemModal'>
+        {this.state.loaded && <div className='pItemModal'>
 
-          <p className='itemHeader'>
+          <p className='pItemHeader'>
             {this.state.currentItem.name}
           </p>
           <hr className='itemHr' />
           <div className='itemModalInner'>
-            {this.state.view && <p className='itemDescription'>
+            {this.state.view && <p className='pItemDescription'>
             {this.state.itemType !== 'spells' && <>
               {this.state.currentItem.description}
               </>}
@@ -98,6 +98,7 @@ export default class ShowItemDetails extends Component {
               {this.state.spellDescription}
               </>}
             </p>}
+              <br className='mobileFix' />
            </div>
         </div>}
 

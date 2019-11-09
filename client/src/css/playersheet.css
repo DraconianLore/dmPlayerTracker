@@ -50,3 +50,34 @@
 .mobileFix {
   margin: 3vh 0 3vh 0;
 }
+
+.pItemModal {
+  position: absolute;
+  top: 15vh;
+  left: 25vw;
+  border-radius: 1px;
+  border-style: inset;
+  border-color: peru;
+  background-color: chocolate;
+  color: navajowhite;
+  padding: 1vh 2vh 3vh 2vh;
+  width: 50vw;
+  height: 60vh;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.pItemHeader {
+  font-size: 3vw;
+  font-family: 'Blinker', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  padding: 0;
+}
+.pItemDescription {
+  padding: 1em 10% 1em 10%;
+  text-align: left;
+  white-space: pre-wrap;
+  font-size: 1.25vw;
+}
