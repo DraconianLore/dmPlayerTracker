@@ -5,51 +5,28 @@ export default class BaseStats extends Component {
     super(props)
     this.state = {
       playerInfo: this.props.playerInfo,
-      proficiencies: {}
+      proficiencies: this.props.playerInfo.proficiencies
     }
   }
-  statUp = (e) => {
-    e.preventDefault()
-    let changes = {
-      changeType: 'baseStat',
-      stat: e.target.name,
-      newValue: 1
-    }
-    this.props.changeBaseStats(changes)
-  }
-  statDown = (e) => {
-    e.preventDefault()
-    let changes = {
-      changeType: 'baseStat',
-      stat: e.target.name,
-      newValue: -1
-    }
-    this.props.changeBaseStats(changes)
-  }
-  componentWillReceiveProps(newProps) {
-    if (newProps.playerInfo.proficiencies) {
-      this.setState({
-        playerInfo: newProps.playerInfo,
-        proficiencies: newProps.playerInfo.proficiencies
-      })
 
-    } else {
-      this.setState({
-        playerInfo: newProps.playerInfo,
-        proficiencies: {}
-      })
-
-    }
+  componentDidMount() {
+    console.log(this.props.playerInfo.proficiencies)
+    this.setState({
+      playerInfo: this.props.playerInfo,
+      proficiencies: this.props.playerInfo.proficiencies
+    })
   }
+  
 
 
   render() {
+    console.log(this.props.playerInfo.proficiencies)
 
     return (
       <div className='pdColumn'>
         <h1>Statistics</h1>
         <hr />
-        <button onClick={this.props.editStats} id='Proficiency' className='playerStat' style={{ marginTop: '0.5em' }}>
+        <button className='playerStat' style={{ marginTop: '0.5em' }}>
           <span className='stat-header'>Proficiency</span>
           <br />
           <span className='stat'>
@@ -60,14 +37,12 @@ export default class BaseStats extends Component {
           <div className='baseStat-inner'>
             <span className='stat-header'>STR</span>
             <div className='baseStat'>
-              <button className='statButton statDown' name='baseSTR' onClick={this.statDown}>-</button>
               <strong>{this.state.playerInfo.baseSTR}</strong>
               ({Math.floor((this.state.playerInfo.baseSTR - 10) / 2)})
-              <button className='statButton statUp' name='baseSTR' onClick={this.statUp}>+</button>
             </div>
           </div>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editProfs} id='Strength Proficiencies'>
+          <button className='player-proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.strS ?
@@ -83,15 +58,12 @@ export default class BaseStats extends Component {
           <div className='baseStat-inner'>
             <span className='stat-header'>DEX</span>
             <div className='baseStat'>
-              <button className='statButton statDown' name='baseDEX' onClick={this.statDown}>-</button>
               <strong>{this.state.playerInfo.baseDEX}</strong>
               ({Math.floor((this.state.playerInfo.baseDEX - 10) / 2)})
-              <button className='statButton statUp' name='baseDEX' onClick={this.statUp}>+</button>
-
             </div>
           </div>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editProfs} id='Dexterity Proficiencies'>
+          <button className='player-proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.dexS ?
@@ -113,14 +85,12 @@ export default class BaseStats extends Component {
           <div className='baseStat-inner'>
             <span className='stat-header'>CON</span>
             <div className='baseStat'>
-              <button className='statButton statDown' name='baseCON' onClick={this.statDown}>-</button>
               <strong>{this.state.playerInfo.baseCON}</strong>
               ({Math.floor((this.state.playerInfo.baseCON - 10) / 2)})
-              <button className='statButton statUp' name='baseCON' onClick={this.statUp}>+</button>
             </div>
           </div>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editProfs} id='Constitution Proficiencies'>
+          <button className='player-proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.conS ?
@@ -134,14 +104,12 @@ export default class BaseStats extends Component {
             <span className='stat-header'>INT</span>
             <br />
             <div className='baseStat'>
-              <button className='statButton statDown' name='baseINT' onClick={this.statDown}>-</button>
               <strong>{this.state.playerInfo.baseINT}</strong>
               ({Math.floor((this.state.playerInfo.baseINT - 10) / 2)})
-              <button className='statButton statUp' name='baseINT' onClick={this.statUp}>+</button>
             </div>
           </div>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editProfs} id='Inteligence Proficiencies'>
+          <button className='player-proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.intS ?
@@ -169,14 +137,12 @@ export default class BaseStats extends Component {
           <div className='baseStat-inner'>
             <span className='stat-header'>WIS</span>
             <div className='baseStat'>
-              <button className='statButton statDown' name='baseWIS' onClick={this.statDown}>-</button>
               <strong>{this.state.playerInfo.baseWIS}</strong>
               ({Math.floor((this.state.playerInfo.baseWIS - 10) / 2)})
-              <button className='statButton statUp' name='baseWIS' onClick={this.statUp}>+</button>
             </div>
           </div>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editProfs} id='Wisdom Proficiencies'>
+          <button className='player-proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.wisS ?
@@ -204,14 +170,12 @@ export default class BaseStats extends Component {
           <div className='baseStat-inner'>
             <span className='stat-header'>CHA</span>
             <div className='baseStat'>
-              <button className='statButton statDown' name='baseCHA' onClick={this.statDown}>-</button>
               <strong>{this.state.playerInfo.baseCHA}</strong>
               ({Math.floor((this.state.playerInfo.baseCHA - 10) / 2)})
-              <button className='statButton statUp' name='baseCHA' onClick={this.statUp}>+</button>
             </div>
           </div>
           <hr className='statHr' />
-          <button className='player-proficiencies' onClick={this.props.editProfs} id='Charisma Proficiencies'>
+          <button className='player-proficiencies'>
             <span className='stat-profs'>Proficiencies<br /></span>
             <span className='profList'>
               {this.state.proficiencies.chaS ?

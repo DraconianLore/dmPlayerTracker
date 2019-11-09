@@ -34,8 +34,12 @@ export default class Notes extends Component {
         <h1>Notes</h1>
         <hr />
         {this.props.playerInfo.notes && <span className='abilityList'>
-        {this.fetchNotes()}
+        {/* {this.fetchNotes()} */}
         </span>}
+        <br />
+        <span className='abilityList'>
+        TO BE IMPLEMENTED 
+        </span>
       </div>
     )
   }

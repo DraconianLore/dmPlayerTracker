@@ -1,0 +1,48 @@
+.playerSheet {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  width: 95%;
+  height: 95%;
+  background-color: rgb(90, 2, 2);
+  color: antiquewhite;
+  padding: 10px;
+  border-radius: 25px;
+}
+.player-logout {
+  background-color: darkgreen;
+  border-color: green;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: khaki;
+  height: 2em;
+  width: 5vw;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 1vw;
+}
+
+.player-logout:hover {
+  border-color: khaki;
+  color: lightgreen;
+}
+
+.playerSheet {
+  font-size: 1vw;;
+}
+.playerSheet .player-proficiencies {
+  font-size: 1vw;
+}
+.playerSheet .abilityList {
+  font-size: 120%;
+}
+.playerSheet .stat {
+  font-size: 2vw;
+}
+
+.playerSheet .info-header {
+  font-size: 1.5vw;
+}

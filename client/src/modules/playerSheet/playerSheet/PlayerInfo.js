@@ -99,9 +99,11 @@ export default class PlayerInfo extends Component {
             </span>
           </div>
 
-        </div>
+        <div className='playerInfoBoxWide'>
         <img id='Profile Picture' className='profilePic' src={this.props.playerInfo.portrait} alt={this.props.playerInfo.charName} />
-        <hr className='pdSectionBreak' />
+          </div>
+        </div>
+
       </div>
     )
   }

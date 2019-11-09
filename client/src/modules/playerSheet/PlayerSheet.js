@@ -52,13 +52,14 @@ class PlayerDetails extends Component {
       .then((response) => {
         player = response.data.player
         player.feats = response.data.feats
-        player.notes = response.data.notes
-        player.items = response.data.items
         player.spells = response.data.spells
+        console.log('XXX', player)
+        if (player.proficiencies) {
+          player.proficiencies = JSON.parse(player.proficiencies)
+        }
           this.setState({
-            showPlayer: true,
-            showMenu: false,
-            playerDetails: player
+            loaded: true,
+            player: player
         })
       })
       .catch(function (e) {
@@ -70,18 +71,20 @@ class PlayerDetails extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className='infoModal display-block'>
         {this.state.showItem && <ShowItemDetails player={this.state.player} closeItemDetails={this.closeItemDetails} item={this.state.currentItem} JWT={this.props.jwt} updatePlayer={this.reloadPlayer} />}
-        <section className='modal-main'>
-          <div className='playerInfo'>
+        {this.state.loaded && <section className='modal-main'>
+          <div className='playerSheet'>
             <div className='playerHeader'>
+            <button className='player-logout' onClick={this.props.logout}>
+                Log out
+              </button>
               <h1 className='charName'>{this.state.player.charName}</h1>
               <h3 className='playerName'><em id='Player Name' >{this.state.player.playerName}</em></h3>
             </div>
             <div className='playerDetails'>
-              <BaseStats editProfs={this.editProficiencies} playerInfo={this.state.player} />
+              <BaseStats playerInfo={this.state.player} />
               <Abilities showItem={this.showItem} playerInfo={this.state.player} />
               <PlayerInfo changeLevel={this.savePlayer} playerInfo={this.state.player} />
               <Spells showItem={this.showItem} playerInfo={this.state.player} />
@@ -90,12 +93,8 @@ class PlayerDetails extends Component {
           </div>
 
 
-          <div className='closeModal cm-top' onClick={this.exiting} />
-          <div className='closeModal cm-right' onClick={this.exiting} />
-          <div className='closeModal cm-bottom' onClick={this.exiting} />
-          <div className='closeModal cm-left' onClick={this.exiting} />
-
-         </section>
+        
+         </section>}
 
       </div>
     )
