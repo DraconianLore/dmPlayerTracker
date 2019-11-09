@@ -3,11 +3,12 @@
   top: 2%;
   left: 2%;
   width: 95%;
-  height: 90vh;
+  height: 94vh;
   background-color: rgb(90, 2, 2);
   color: antiquewhite;
   padding: 10px;
   border-radius: 25px;
+  overflow: hidden;
 }
 .player-logout {
   background-color: darkgreen;
