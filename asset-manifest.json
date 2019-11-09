@@ -1,14 +1,14 @@
 {
-  "main.css": "/dmPlayerTracker/static/css/main.40f3fa21.chunk.css",
-  "main.js": "/dmPlayerTracker/static/js/main.0ddf4535.chunk.js",
-  "main.js.map": "/dmPlayerTracker/static/js/main.0ddf4535.chunk.js.map",
+  "main.css": "/dmPlayerTracker/static/css/main.628317e1.chunk.css",
+  "main.js": "/dmPlayerTracker/static/js/main.cdad7513.chunk.js",
+  "main.js.map": "/dmPlayerTracker/static/js/main.cdad7513.chunk.js.map",
   "runtime~main.js": "/dmPlayerTracker/static/js/runtime~main.a169f701.js",
   "runtime~main.js.map": "/dmPlayerTracker/static/js/runtime~main.a169f701.js.map",
-  "static/js/2.2aef4ceb.chunk.js": "/dmPlayerTracker/static/js/2.2aef4ceb.chunk.js",
-  "static/js/2.2aef4ceb.chunk.js.map": "/dmPlayerTracker/static/js/2.2aef4ceb.chunk.js.map",
+  "static/js/2.39ef136e.chunk.js": "/dmPlayerTracker/static/js/2.39ef136e.chunk.js",
+  "static/js/2.39ef136e.chunk.js.map": "/dmPlayerTracker/static/js/2.39ef136e.chunk.js.map",
   "index.html": "/dmPlayerTracker/index.html",
-  "precache-manifest.cc3c5546093b390590f56df7e7808583.js": "/dmPlayerTracker/precache-manifest.cc3c5546093b390590f56df7e7808583.js",
+  "precache-manifest.2fdb3b87798e462eb526947f2e8c7841.js": "/dmPlayerTracker/precache-manifest.2fdb3b87798e462eb526947f2e8c7841.js",
   "service-worker.js": "/dmPlayerTracker/service-worker.js",
-  "static/css/main.40f3fa21.chunk.css.map": "/dmPlayerTracker/static/css/main.40f3fa21.chunk.css.map",
+  "static/css/main.628317e1.chunk.css.map": "/dmPlayerTracker/static/css/main.628317e1.chunk.css.map",
   "static/media/add.jpg": "/dmPlayerTracker/static/media/add.8f4d0b3a.jpg"
 }
