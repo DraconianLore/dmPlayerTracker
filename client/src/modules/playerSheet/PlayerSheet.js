@@ -18,8 +18,8 @@ class PlayerDetails extends Component {
       showItem: false,
     }
   }
-  
-  
+
+
   // catch when user presses 'ESC'
   escPressed = (event) => {
     if (event.keyCode === 27) {
@@ -39,31 +39,41 @@ class PlayerDetails extends Component {
       currentItem: ''
     })
   }
-  componentDidMount() {
-    document.addEventListener("keydown", this.escPressed, false);
-    let player = {}
-    axios({
-      method: 'get',
-      url: `${baseURL}api/players/${this.props.player}`,
-      headers: {
-        Authorization: this.props.JWT,
-      }
-    })
-      .then((response) => {
-        player = response.data.player
-        player.feats = response.data.feats
-        player.spells = response.data.spells
-        if (player.proficiencies) {
-          player.proficiencies = JSON.parse(player.proficiencies)
+  loadPlayer = () => {
+    let player = {};
+    if (this.props.player) {
+
+      axios({
+        method: 'get',
+        url: `${baseURL}api/players/${this.props.player}`,
+        headers: {
+          Authorization: this.props.JWT,
         }
+      })
+        .then((response) => {
+          player = response.data.player
+          player.feats = response.data.feats
+          player.spells = response.data.spells
+          if (player.proficiencies) {
+            player.proficiencies = JSON.parse(player.proficiencies)
+          }
           this.setState({
             loaded: true,
             player: player
+          })
         })
-      })
-      .catch(function (e) {
-        console.log(e)
-      })
+        .catch(function (e) {
+          console.log(e)
+        })
+    } else {
+      setTimeout(() => {
+        this.loadPlayer()
+      }, 50);
+    }
+  }
+  componentDidMount() {
+    document.addEventListener("keydown", this.escPressed, false);
+    this.loadPlayer()
   }
   componentWillUnmount() {
     document.removeEventListener("keydown", this.escPressed, false);
@@ -76,7 +86,7 @@ class PlayerDetails extends Component {
         {this.state.loaded && <section className='modal-main'>
           <div className='playerSheet'>
             <div className='playerHeader'>
-            <button className='player-logout' onClick={this.props.logout}>
+              <button className='player-logout' onClick={this.props.logout}>
                 Log out
               </button>
               <h1 className='charName'>{this.state.player.charName}</h1>
@@ -92,8 +102,8 @@ class PlayerDetails extends Component {
           </div>
 
 
-        
-         </section>}
+
+        </section>}
 
       </div>
     )

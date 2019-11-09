@@ -4,7 +4,6 @@ class Api::PlayersheetController < ApplicationController
  skip_before_action :authenticate_request, only: %i[login register]
 
  def register
-  puts params
    # Remove the following if statement if you want to enable new users to sign up without having an environmental variable set to NEWUSER as the signup 'Referal Code'
   if Player.find_by_playerUID(params[:UID])
     @player = Player.find_by_playerUID(params[:UID])

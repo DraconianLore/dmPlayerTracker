@@ -45,7 +45,7 @@ export default class PlayerSheet extends Component {
       }
     }).then((response) => {
       Cookies.set('token', response.data.access_token, { expires: 1 });
-      Cookies.set('username', response.data.UID, { expires: 1 });
+      Cookies.set('username', response.data.username, { expires: 1 });
       Cookies.set('player', response.data.userID, { expires: 1 });
       this.props.login(response.data.access_token, response.data.username, response.data.userID)
     }).catch((error) => {
