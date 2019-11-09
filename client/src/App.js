@@ -43,7 +43,8 @@ class App extends Component {
    this.setState({
      JWT: null,
      signedIn: false,
-     username: null
+     username: null,
+     player: false
    })
  }
  playersheet = () => {
