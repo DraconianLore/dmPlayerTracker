@@ -103,6 +103,7 @@ export default class PlayerInfo extends Component {
         <img id='Profile Picture' className='profilePic' src={this.props.playerInfo.portrait} alt={this.props.playerInfo.charName} />
           </div>
         </div>
+        <br className='mobileFix' />
 
       </div>
     )

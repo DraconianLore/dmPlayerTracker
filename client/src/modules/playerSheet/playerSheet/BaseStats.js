@@ -196,6 +196,7 @@ export default class BaseStats extends Component {
             </span>
           </button>
         </div>
+        <br className='mobileFix' />
       </div>
     )
   }

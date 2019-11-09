@@ -32,6 +32,8 @@ export default class Abilities extends Component {
         {this.props.playerInfo.feats && <span className='abilityList'>
           {this.showFeats()}
         </span>}
+        <br className='mobileFix' />
+
       </div>
     )
   }

@@ -35,6 +35,8 @@ export default class Spells extends Component {
         {this.props.playerInfo.spells && <span className='abilityList'>
         {this.fetchSpells()}
         </span>}
+        <br className='mobileFix' />
+
       </div>
     )
   }

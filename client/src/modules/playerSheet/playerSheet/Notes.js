@@ -40,6 +40,8 @@ export default class Notes extends Component {
         <span className='abilityList'>
         TO BE IMPLEMENTED 
         </span>
+        <br className='mobileFix' />
+
       </div>
     )
   }
