@@ -14,7 +14,7 @@ class Api::PlayersheetController < ApplicationController
       }, status: :bad_request
     else
       @user = Puser.create(user_params)
-      @user.username = @player.playerName
+      @user.username = @player.charName
       @user.player_id = @player.id
       if @user.save
         login
