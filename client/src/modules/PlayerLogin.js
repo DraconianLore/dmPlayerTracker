@@ -44,7 +44,6 @@ export default class PlayerSheet extends Component {
         password: event.target.Password.value
       }
     }).then((response) => {
-      console.log('RESPONSE:', response)
       Cookies.set('token', response.data.access_token, { expires: 1 });
       Cookies.set('username', response.data.UID, { expires: 1 });
       Cookies.set('player', response.data.userID, { expires: 1 });
