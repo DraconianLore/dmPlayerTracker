@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-const baseURL = process.env.REACT_APP_BASEURL
 
 export default class ShowItemDetails extends Component {
 
