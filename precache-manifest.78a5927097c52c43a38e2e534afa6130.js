@@ -8,7 +8,7 @@ self.__precacheManifest = [
     "url": "/dmPlayerTracker/static/js/runtime~main.a169f701.js"
   },
   {
-    "revision": "8766f8eb5abf1e96c3e2",
+    "revision": "daf9cad46617bee4ab38",
     "url": "/dmPlayerTracker/static/js/main.b9f75f7c.chunk.js"
   },
   {
@@ -16,11 +16,11 @@ self.__precacheManifest = [
     "url": "/dmPlayerTracker/static/js/2.39ef136e.chunk.js"
   },
   {
-    "revision": "8766f8eb5abf1e96c3e2",
-    "url": "/dmPlayerTracker/static/css/main.90c65c91.chunk.css"
+    "revision": "daf9cad46617bee4ab38",
+    "url": "/dmPlayerTracker/static/css/main.3c2b3195.chunk.css"
   },
   {
-    "revision": "d1e5d8c7ea75fb6bb27033d7dd8cb383",
+    "revision": "49000409097a66ce21304df34cf1aed9",
     "url": "/dmPlayerTracker/index.html"
   }
 ];

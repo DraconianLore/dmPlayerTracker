@@ -1,5 +1,5 @@
 {
-  "main.css": "/dmPlayerTracker/static/css/main.90c65c91.chunk.css",
+  "main.css": "/dmPlayerTracker/static/css/main.3c2b3195.chunk.css",
   "main.js": "/dmPlayerTracker/static/js/main.b9f75f7c.chunk.js",
   "main.js.map": "/dmPlayerTracker/static/js/main.b9f75f7c.chunk.js.map",
   "runtime~main.js": "/dmPlayerTracker/static/js/runtime~main.a169f701.js",
@@ -7,8 +7,8 @@
   "static/js/2.39ef136e.chunk.js": "/dmPlayerTracker/static/js/2.39ef136e.chunk.js",
   "static/js/2.39ef136e.chunk.js.map": "/dmPlayerTracker/static/js/2.39ef136e.chunk.js.map",
   "index.html": "/dmPlayerTracker/index.html",
-  "precache-manifest.69aa58b7291b6630a203c2d95cb3f4e8.js": "/dmPlayerTracker/precache-manifest.69aa58b7291b6630a203c2d95cb3f4e8.js",
+  "precache-manifest.78a5927097c52c43a38e2e534afa6130.js": "/dmPlayerTracker/precache-manifest.78a5927097c52c43a38e2e534afa6130.js",
   "service-worker.js": "/dmPlayerTracker/service-worker.js",
-  "static/css/main.90c65c91.chunk.css.map": "/dmPlayerTracker/static/css/main.90c65c91.chunk.css.map",
+  "static/css/main.3c2b3195.chunk.css.map": "/dmPlayerTracker/static/css/main.3c2b3195.chunk.css.map",
   "static/media/add.jpg": "/dmPlayerTracker/static/media/add.8f4d0b3a.jpg"
 }
