@@ -53,6 +53,23 @@ export default class LoginRegister extends Component {
       this.setState({ errorMessage: error.response.data.message })
     })
   }
+  demoLogin = () => {
+    this.setState({ errorMessage: false })
+    axios({
+      method: 'post',
+      url: `${baseURL}login`,
+      data: {
+        email: 'test@test.test',
+        password: 'test'
+      }
+    }).then((response) => {
+      Cookies.set('token', response.data.access_token, { expires: 1 });
+      Cookies.set('username', response.data.username, { expires: 1 });
+     this.props.login(response.data.access_token, response.data.username, false)
+    }).catch((error) => {
+      this.setState({ errorMessage: error.response.data.message })
+    })
+  }
   loginSignup = () => {
     this.setState({ new_user: !this.state.new_user })
   }
@@ -135,9 +152,9 @@ export default class LoginRegister extends Component {
               </form>
             </div>
           </div>
-          <a href='#player' onClick={this.playersheet}>
+          <button className='player-login-btn' onClick={this.playersheet}>
             Player Login
-            </a>
+            </button>
           <br />
           <br />
 
@@ -145,14 +162,11 @@ export default class LoginRegister extends Component {
             Welcome to the dmPlayerTracker
           </h1>
           <h1 style={{ fontSize: '150%' }}>
-            <em>To try out the app use: </em>
+            <em>Just browsing?</em>
           </h1>
-          <h1>
-            email: test@test.test
-            </h1>
-          <h1>
-            password: test
-          </h1>
+          <button className='example-btn' onClick={this.demoLogin}>
+            Try out the app
+          </button>
           <br />
           <div className='disclaimer'>
 
@@ -188,7 +202,7 @@ export default class LoginRegister extends Component {
                 <label className="form-label">Password</label>
                 <input className="login-text" type="password" placeholder="Password" autoComplete="new-password" name="Password" required />
                 <label className="form-label">Referal Code</label>
-                <input className="login-text" type="text" autoComplete="referal" placeholder="Referal Code" name="Verification" required />
+                <input className="login-text" type="text" autoComplete="referal" placeholder="You must be referred to register" name="Verification" required />
                 <input className="login-submit" type="submit" value="Submit" />
               </form>
             </div>
