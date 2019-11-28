@@ -31,8 +31,7 @@ class Api::NpcsController < ApplicationController
   end
 
   def create
-    playerUID = PlayerHelper.generateUID 
-    player = Npc.create(game_id: params[:gameID], portrait: params[:portrait], playerUID: playerUID)
+    player = Npc.create(game_id: params[:gameID], portrait: params[:portrait])
     render :json => {
       playerID: player.id
     }

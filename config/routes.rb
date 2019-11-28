@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do 
     resources :players
+    resources :npcs
     resources :games
     resources :feats
     resources :races
