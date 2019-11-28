@@ -148,10 +148,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   background-color: rgb(168, 76, 10);
   border-color: rgb(38, 58, 4);
   color: navajowhite;
-  width: 20vw;
-  height: 3vw;
-  max-width: 350px;
-  max-height: 50px;
+  width: 350px;
+  height: 50px;
   outline: none;
   border-style: outset;
   margin: 1em 0;
