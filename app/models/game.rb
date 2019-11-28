@@ -4,4 +4,5 @@ class Game < ApplicationRecord
   validates_presence_of :name
 
   has_many :players, dependent: :destroy
+  has_many :npcs, dependent: :destroy
 end

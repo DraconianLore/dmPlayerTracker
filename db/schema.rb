@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_223329) do
+ActiveRecord::Schema.define(version: 2019_11_28_005145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,30 @@ ActiveRecord::Schema.define(version: 2019_11_08_223329) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "player_id"
+  end
+
+  create_table "npc", force: :cascade do |t|
+    t.string "playerName", default: "NPC"
+    t.string "charName", default: "Character"
+    t.integer "game_id"
+    t.string "classname", default: "Class"
+    t.string "race", default: "Race"
+    t.string "hitDie", default: "d6"
+    t.string "background", default: "Background"
+    t.integer "baseSTR", default: 10
+    t.integer "baseDEX", default: 10
+    t.integer "baseCON", default: 10
+    t.integer "baseINT", default: 10
+    t.integer "baseWIS", default: 10
+    t.integer "baseCHA", default: 10
+    t.integer "AC", default: 10
+    t.integer "saveDC", default: 0
+    t.integer "maxHP", default: 0
+    t.integer "speed", default: 25
+    t.integer "level", default: 1
+    t.integer "proficiency", default: 2
+    t.string "portrait", default: "https://picsum.photos/300"
+    t.text "proficiencies"
   end
 
   create_table "pclasses", force: :cascade do |t|
