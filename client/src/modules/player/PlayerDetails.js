@@ -246,7 +246,7 @@ class PlayerDetails extends Component {
   }
   componentDidMount() {
     document.addEventListener("keydown", this.escPressed, false);
-    
+
   }
   componentWillUnmount() {
     document.removeEventListener("keydown", this.escPressed, false);
@@ -258,7 +258,7 @@ class PlayerDetails extends Component {
     })
   }
   closeTutorial = () => {
-    this.setState({tutorial: false})
+    this.setState({ tutorial: false })
     this.props.closeTutorial();
   }
   render() {
@@ -299,7 +299,7 @@ class PlayerDetails extends Component {
           <div className='closeModal cm-bottom' onClick={this.exiting} />
           <div className='closeModal cm-left' onClick={this.exiting} />
 
-        {this.state.tutorial && <Tutorial closeTutorial={this.closeTutorial} />}
+          {this.state.tutorial && <Tutorial closeTutorial={this.closeTutorial} />}
         </section>
 
       </div>

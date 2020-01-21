@@ -214,3 +214,10 @@ color: saddlebrown;
   min-width: 10px;
   width: 100px;
 }
+
+.spellBreak {
+  margin: 5px 0;
+  width: 40%;
+  align-self: center;
+  border-color: darkred;
+}

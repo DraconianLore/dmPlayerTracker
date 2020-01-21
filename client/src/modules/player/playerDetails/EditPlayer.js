@@ -98,7 +98,7 @@ export default class EditPlayer extends Component {
     return (
       <div className='editField'>
         <div className='editBox'>
-          <h1>Change {this.props.field}</h1>
+          <h1 className='editBoxTitle'>Change {this.props.field}</h1>
           <br />
           {this.state.renderOptions || <h3>ERROR - Invalid Field</h3>}
           <br />

@@ -49,7 +49,7 @@ export default class PlayerSheet extends Component {
       Cookies.set('player', response.data.userID, { expires: 1 });
       this.props.login(response.data.access_token, response.data.username, response.data.userID)
     }).catch((error) => {
-      this.setState({ errorMessage: error.response.data.message })
+      error.response && this.setState({ errorMessage: error.response.data.message })
     })
   }
   loginSignup = () => {
@@ -132,7 +132,7 @@ export default class PlayerSheet extends Component {
               </div>
             </div>
             <div className="form-p">
-              <form onSubmit={this.signup}>
+              <form onSubmit={this.signup} autoComplete="false">
                 <input type="hidden" value="disable-autofill" />
                 <label className="form-label">Character Name</label>
                 <input className="login-text" type="char" autoComplete="false" placeholder="Character Name" name="char" required />

@@ -50,6 +50,7 @@ export default class LoginRegister extends Component {
       Cookies.set('username', response.data.username, { expires: 1 });
      this.props.login(response.data.access_token, response.data.username, false)
     }).catch((error) => {
+      console.log('xxx', error)
       this.setState({ errorMessage: error.response.data.message })
     })
   }

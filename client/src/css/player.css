@@ -79,8 +79,11 @@
   background-color: #550000;
   padding: 2vh;
   width: 30vw;
-  height: 10em;
+  height: 12vw;
   z-index: 5;
+}
+.editBoxTitle{
+  font-size: 3vw;
 }
 
 .addBox {
@@ -108,7 +111,7 @@
 }
 
 .cancel-btn {
-  font-size: 1em;
+  font-size: 1.2vw;
   background-color: darkred;
   color: #fff;
   width: 10vw;
@@ -131,7 +134,7 @@
 }
 
 .accept-btn {
-  font-size: 1em;
+  font-size: 1.2vw;
   background-color: darkgreen;
   color: #fff;
   width: 10vw;
@@ -189,8 +192,8 @@ button span {
 }
 
 .edit-input {
-  width: 200px;
-  font-size: 2em;
+  width: 20vw;
+  font-size: 2.5vw;
   margin-top: -10px;
   text-align: center;
   background-color: #440000;

@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
 
   def register
     # Remove the following if statement if you want to enable new users to sign up without having an environmental variable set to NEWUSER as the signup 'Referal Code'
-    if params[:verifyNewUser] == ENV['NEWUSER']
+    # if params[:verifyNewUser] == ENV['NEWUSER']
 
       @user = User.create(user_params)
       if @user.save
@@ -18,11 +18,11 @@ class Api::UsersController < ApplicationController
           message: 'email already exists'
         }, status: :bad_request
       end
-    else
-      render json: {
-        message: 'Invalid referal code'
-      }, status: :bad_request
-    end
+    # else
+    #   render json: {
+    #     message: 'Invalid referal code'
+    #   }, status: :bad_request
+    # end
   end
 
   def login
