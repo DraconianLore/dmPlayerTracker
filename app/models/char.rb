@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Puser < ApplicationRecord
+class Char < ApplicationRecord
   validates_presence_of :UID, :email, :password_digest
   validates :UID, uniqueness: true
 

@@ -19,12 +19,14 @@ class Api::PlayersController < ApplicationController
     end
     feats = player.feats
     notes = player.notes
+    pnotes = player.pnotes
     items = player.items
     spells = player.spells
     render :json => {
       player: player,
       feats: feats,
       notes: notes,
+      pnotes: pnotes,
       items: items,
       spells: spells
     }

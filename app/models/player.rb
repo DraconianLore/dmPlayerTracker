@@ -9,5 +9,6 @@ class Player < ApplicationRecord
   has_many :spells, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :notes, dependent: :destroy
+  has_many :pnotes, dependent: :destroy
   validates_presence_of :playerName
 end

@@ -1,4 +1,4 @@
-class AuthenticatePuser
+class AuthenticateChar
   prepend SimpleCommand
   attr_accessor :email, :password
 
@@ -16,10 +16,10 @@ class AuthenticatePuser
   private
 
   def user
-    user = Puser.find_by_email(email)
+    user = Char.find_by_email(email)
     return user if user && user.authenticate(password)
 
-    errors.add :puser_authentication, 'Invalid credentials'
+    errors.add :char_authentication, 'Invalid credentials'
     nil
   end
 end

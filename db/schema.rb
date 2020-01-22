@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_223329) do
+ActiveRecord::Schema.define(version: 2020_01_21_234633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chars", force: :cascade do |t|
+    t.string "UID"
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.integer "player_id"
+  end
 
   create_table "feats", force: :cascade do |t|
     t.string "name"
@@ -101,14 +109,18 @@ ActiveRecord::Schema.define(version: 2019_11_08_223329) do
     t.string "portrait", default: "https://picsum.photos/300"
     t.text "proficiencies"
     t.string "playerUID"
+    t.integer "currentHP"
+    t.integer "tempHP"
+    t.text "spellslots", default: [], array: true
+    t.text "special", default: [], array: true
   end
 
-  create_table "pusers", force: :cascade do |t|
-    t.string "UID"
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
+  create_table "pnotes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
     t.integer "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "races", force: :cascade do |t|
@@ -132,6 +144,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_223329) do
     t.string "level"
     t.string "school"
     t.integer "player_id"
+    t.boolean "prepared", default: true
   end
 
   create_table "users", force: :cascade do |t|
