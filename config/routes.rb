@@ -21,4 +21,9 @@ Rails.application.routes.draw do
   post 'api/char/register', to: 'api/chars#register'
   post 'api/char/login', to: 'api/chars#login'
   get 'api/char/:id', to: 'api/chars#load'
+
+  # Chat setup
+  resources :chats, only: [:index, :create]
+  resources :messages, only: [:create]
+  mount ActionCable.server => '/cable'
 end

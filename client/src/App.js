@@ -5,7 +5,7 @@ import PlayerList from './modules/PlayerList';
 import LoginRegister from './modules/LoginRegister';
 import PlayerLogin from './modules/PlayerLogin';
 import PlayerSheet from './modules/playerSheet/PlayerSheet';
-
+import Chats from './modules/chat/ChatWindow'
 
 class App extends Component {
   constructor(props) {
@@ -61,18 +61,23 @@ class App extends Component {
     this.setState({ player: true })
   }
   render() {
+    // return (
+    //   <div className="App">
+    //     {this.state.signedIn || <>
+    //       {this.state.player || <LoginRegister hasCookie={this.hasCookie} login={this.setJWT} playersheet={this.playersheet} />}
+    //       {this.state.player && <PlayerLogin hasCookie={this.hasCookie} login={this.setJWT} />}
+    //     </>}
+    //     {this.state.signedIn && <>
+    //       {this.state.player || <PlayerList user={this.state.username} logout={this.logout} JWT={this.state.JWT} />}
+    //       {this.state.player && <PlayerSheet player={this.state.playerID} logout={this.logout} />}
+    //     </>}
+    //   </div>
+    // );
     return (
       <div className="App">
-        {this.state.signedIn || <>
-          {this.state.player || <LoginRegister hasCookie={this.hasCookie} login={this.setJWT} playersheet={this.playersheet} />}
-          {this.state.player && <PlayerLogin hasCookie={this.hasCookie} login={this.setJWT} />}
-        </>}
-        {this.state.signedIn && <>
-          {this.state.player || <PlayerList user={this.state.username} logout={this.logout} JWT={this.state.JWT} />}
-          {this.state.player && <PlayerSheet player={this.state.playerID} logout={this.logout} />}
-        </>}
+        <Chats />
       </div>
-    );
+    )
   }
 }
 
