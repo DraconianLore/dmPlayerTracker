@@ -17,7 +17,7 @@ Once complete you will be able to
   * See note and items of interest
   * Update players stats as they level
 
-Check out the [LIVE DEMO](https://draconianlore.github.io/dmPlayerTracker/)
+Check out the [LIVE DEMO](https://dmpt.stevenwing.dev/)
 --------------------------
 
 
